@@ -32,6 +32,8 @@
 		03427FE01F0108CD00D238AA /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD11F0107F200D238AA /* ReSwift.framework */; };
 		03427FE11F0108DA00D238AA /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FCF1F0107F200D238AA /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03427FE21F0108DA00D238AA /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD11F0107F200D238AA /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03427FE51F010A3500D238AA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FE41F010A3500D238AA /* CloudKit.framework */; };
+		03427FE71F010A4B00D238AA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FE61F010A4B00D238AA /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,9 @@
 		03427FD01F0107F200D238AA /* Keys.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Keys.framework; path = Carthage/Build/iOS/Keys.framework; sourceTree = "<group>"; };
 		03427FD11F0107F200D238AA /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
 		03427FD71F01083300D238AA /* SwiftyChrono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyChrono.framework; path = Carthage/Build/iOS/SwiftyChrono.framework; sourceTree = "<group>"; };
+		03427FE31F010A3300D238AA /* GiGi.iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiGi.iOS.entitlements; sourceTree = "<group>"; };
+		03427FE41F010A3500D238AA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		03427FE61F010A4B00D238AA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03427F8C1F00E0E700D238AA /* GiGi.framework in Frameworks */,
+				03427FE51F010A3500D238AA /* CloudKit.framework in Frameworks */,
+				03427FE71F010A4B00D238AA /* StoreKit.framework in Frameworks */,
 				03427FDF1F0108CD00D238AA /* KeychainAccess.framework in Frameworks */,
 				03427FE01F0108CD00D238AA /* ReSwift.framework in Frameworks */,
 			);
@@ -193,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				03427F741F00E04600D238AA /* Assets.xcassets */,
+				03427FE31F010A3300D238AA /* GiGi.iOS.entitlements */,
 				03427F761F00E04600D238AA /* LaunchScreen.storyboard */,
 				03427F791F00E04600D238AA /* Info.plist */,
 			);
@@ -271,6 +279,8 @@
 		03427FB51F00F72600D238AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03427FE61F010A4B00D238AA /* StoreKit.framework */,
+				03427FE41F010A3500D238AA /* CloudKit.framework */,
 				03427FB61F00F72E00D238AA /* iOS */,
 			);
 			name = Frameworks;
@@ -394,6 +404,32 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 6YG8KNT3Y4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					03427F841F00E0E700D238AA = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -583,6 +619,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = GiGi.iOS/GiGi.iOS.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -644,6 +681,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = GiGi.iOS/GiGi.iOS.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
