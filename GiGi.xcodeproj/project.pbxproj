@@ -15,6 +15,8 @@
 		03427F8C1F00E0E700D238AA /* GiGi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427F851F00E0E700D238AA /* GiGi.framework */; };
 		03427F8D1F00E0E700D238AA /* GiGi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03427F851F00E0E700D238AA /* GiGi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03427F9B1F00E14200D238AA /* GiGi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427F851F00E0E700D238AA /* GiGi.framework */; };
+		03427FC51F00F81000D238AA /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03427FC31F00F81000D238AA /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03427FC61F00F81000D238AA /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03427FC41F00F81000D238AA /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03427FBE1F00F7C500D238AA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03427FC51F00F81000D238AA /* Realm.framework in CopyFiles */,
+				03427FC61F00F81000D238AA /* RealmSwift.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +82,8 @@
 		03427F9A1F00E14200D238AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03427FA51F00E15200D238AA /* GiGi.iOS.UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiGi.iOS.UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03427FA91F00E15200D238AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03427FC31F00F81000D238AA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Realm.framework; sourceTree = "<group>"; };
+		03427FC41F00F81000D238AA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +125,7 @@
 			children = (
 				03427FAF1F00E15A00D238AA /* Core */,
 				03427FB01F00E15F00D238AA /* iOS */,
+				03427FB51F00F72600D238AA /* Frameworks */,
 				03427F6B1F00E04600D238AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -216,6 +232,23 @@
 			name = Miscellanous;
 			sourceTree = "<group>";
 		};
+		03427FB51F00F72600D238AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03427FB61F00F72E00D238AA /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		03427FB61F00F72E00D238AA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				03427FC31F00F81000D238AA /* Realm.framework */,
+				03427FC41F00F81000D238AA /* RealmSwift.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -258,6 +291,7 @@
 				03427F811F00E0E700D238AA /* Frameworks */,
 				03427F821F00E0E700D238AA /* Headers */,
 				03427F831F00E0E700D238AA /* Resources */,
+				03427FBE1F00F7C500D238AA /* CopyFiles */,
 			);
 			buildRules = (
 			);

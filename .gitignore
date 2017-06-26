@@ -53,6 +53,8 @@ playground.xcworkspace
 
 Carthage/Checkouts
 Carthage/Build
+Frameworks/
+Cartfile.resolved
 
 # fastlane
 #
