@@ -6,20 +6,336 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		03427F6E1F00E04600D238AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427F6D1F00E04600D238AA /* AppDelegate.swift */; };
+		03427F701F00E04600D238AA /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427F6F1F00E04600D238AA /* LaunchViewController.swift */; };
+		03427F751F00E04600D238AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03427F741F00E04600D238AA /* Assets.xcassets */; };
+		03427F781F00E04600D238AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03427F761F00E04600D238AA /* LaunchScreen.storyboard */; };
+		03427F891F00E0E700D238AA /* GiGi.h in Headers */ = {isa = PBXBuildFile; fileRef = 03427F871F00E0E700D238AA /* GiGi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03427F8C1F00E0E700D238AA /* GiGi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427F851F00E0E700D238AA /* GiGi.framework */; };
+		03427F8D1F00E0E700D238AA /* GiGi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03427F851F00E0E700D238AA /* GiGi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03427F9B1F00E14200D238AA /* GiGi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427F851F00E0E700D238AA /* GiGi.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03427F8A1F00E0E700D238AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03427F601F00E02B00D238AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03427F841F00E0E700D238AA;
+			remoteInfo = GiGi.Core;
+		};
+		03427F9C1F00E14200D238AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03427F601F00E02B00D238AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03427F841F00E0E700D238AA;
+			remoteInfo = GiGi.Core;
+		};
+		03427FAA1F00E15200D238AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03427F601F00E02B00D238AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03427F691F00E04600D238AA;
+			remoteInfo = GiGi.iOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		03427F911F00E0E700D238AA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03427F8D1F00E0E700D238AA /* GiGi.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		03427F6A1F00E04600D238AA /* GiGi.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiGi.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03427F6D1F00E04600D238AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		03427F6F1F00E04600D238AA /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		03427F741F00E04600D238AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		03427F771F00E04600D238AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		03427F791F00E04600D238AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03427F851F00E0E700D238AA /* GiGi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GiGi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		03427F871F00E0E700D238AA /* GiGi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiGi.h; sourceTree = "<group>"; };
+		03427F881F00E0E700D238AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03427F961F00E14200D238AA /* GiGi.Core.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiGi.Core.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03427F9A1F00E14200D238AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03427FA51F00E15200D238AA /* GiGi.iOS.UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiGi.iOS.UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03427FA91F00E15200D238AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03427F671F00E04600D238AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03427F8C1F00E0E700D238AA /* GiGi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03427F811F00E0E700D238AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03427F931F00E14200D238AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03427F9B1F00E14200D238AA /* GiGi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03427FA21F00E15200D238AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
 		03427F5F1F00E02B00D238AA = {
 			isa = PBXGroup;
 			children = (
+				03427FAF1F00E15A00D238AA /* Core */,
+				03427FB01F00E15F00D238AA /* iOS */,
+				03427F6B1F00E04600D238AA /* Products */,
 			);
 			sourceTree = "<group>";
 		};
+		03427F6B1F00E04600D238AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03427F6A1F00E04600D238AA /* GiGi.iOS.app */,
+				03427F851F00E0E700D238AA /* GiGi.framework */,
+				03427F961F00E14200D238AA /* GiGi.Core.Tests.xctest */,
+				03427FA51F00E15200D238AA /* GiGi.iOS.UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03427F6C1F00E04600D238AA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				03427F6D1F00E04600D238AA /* AppDelegate.swift */,
+				03427F7E1F00E09300D238AA /* Custom View Controllers */,
+				03427F7F1F00E09D00D238AA /* View Controllers */,
+				03427F7D1F00E07700D238AA /* Miscellanous */,
+			);
+			name = Source;
+			path = GiGi.iOS;
+			sourceTree = "<group>";
+		};
+		03427F7D1F00E07700D238AA /* Miscellanous */ = {
+			isa = PBXGroup;
+			children = (
+				03427F741F00E04600D238AA /* Assets.xcassets */,
+				03427F761F00E04600D238AA /* LaunchScreen.storyboard */,
+				03427F791F00E04600D238AA /* Info.plist */,
+			);
+			name = Miscellanous;
+			sourceTree = "<group>";
+		};
+		03427F7E1F00E09300D238AA /* Custom View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Custom View Controllers";
+			sourceTree = "<group>";
+		};
+		03427F7F1F00E09D00D238AA /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				03427F6F1F00E04600D238AA /* LaunchViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		03427F861F00E0E700D238AA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				03427FB11F00E66300D238AA /* Miscellanous */,
+			);
+			name = Sources;
+			path = GiGi.Core;
+			sourceTree = "<group>";
+		};
+		03427F971F00E14200D238AA /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				03427F9A1F00E14200D238AA /* Info.plist */,
+			);
+			name = Tests;
+			path = GiGi.Core.Tests;
+			sourceTree = "<group>";
+		};
+		03427FA61F00E15200D238AA /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				03427FA91F00E15200D238AA /* Info.plist */,
+			);
+			name = Tests;
+			path = GiGi.iOS.UITests;
+			sourceTree = "<group>";
+		};
+		03427FAF1F00E15A00D238AA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				03427F861F00E0E700D238AA /* Sources */,
+				03427F971F00E14200D238AA /* Tests */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		03427FB01F00E15F00D238AA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				03427F6C1F00E04600D238AA /* Source */,
+				03427FA61F00E15200D238AA /* Tests */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		03427FB11F00E66300D238AA /* Miscellanous */ = {
+			isa = PBXGroup;
+			children = (
+				03427F871F00E0E700D238AA /* GiGi.h */,
+				03427F881F00E0E700D238AA /* Info.plist */,
+			);
+			name = Miscellanous;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		03427F821F00E0E700D238AA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03427F891F00E0E700D238AA /* GiGi.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		03427F691F00E04600D238AA /* GiGi.iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03427F7A1F00E04600D238AA /* Build configuration list for PBXNativeTarget "GiGi.iOS" */;
+			buildPhases = (
+				03427F661F00E04600D238AA /* Sources */,
+				03427F671F00E04600D238AA /* Frameworks */,
+				03427F681F00E04600D238AA /* Resources */,
+				03427F911F00E0E700D238AA /* Embed Frameworks */,
+				03427FB41F00E81A00D238AA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03427F8B1F00E0E700D238AA /* PBXTargetDependency */,
+			);
+			name = GiGi.iOS;
+			productName = GiGi.iOS;
+			productReference = 03427F6A1F00E04600D238AA /* GiGi.iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		03427F841F00E0E700D238AA /* GiGi.Core */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03427F8E1F00E0E700D238AA /* Build configuration list for PBXNativeTarget "GiGi.Core" */;
+			buildPhases = (
+				03427F801F00E0E700D238AA /* Sources */,
+				03427F811F00E0E700D238AA /* Frameworks */,
+				03427F821F00E0E700D238AA /* Headers */,
+				03427F831F00E0E700D238AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GiGi.Core;
+			productName = GiGi.Core;
+			productReference = 03427F851F00E0E700D238AA /* GiGi.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		03427F951F00E14200D238AA /* GiGi.Core.Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03427F9E1F00E14200D238AA /* Build configuration list for PBXNativeTarget "GiGi.Core.Tests" */;
+			buildPhases = (
+				03427F921F00E14200D238AA /* Sources */,
+				03427F931F00E14200D238AA /* Frameworks */,
+				03427F941F00E14200D238AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03427F9D1F00E14200D238AA /* PBXTargetDependency */,
+			);
+			name = GiGi.Core.Tests;
+			productName = GiGi.Core.Tests;
+			productReference = 03427F961F00E14200D238AA /* GiGi.Core.Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		03427FA41F00E15200D238AA /* GiGi.iOS.UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03427FAC1F00E15200D238AA /* Build configuration list for PBXNativeTarget "GiGi.iOS.UITests" */;
+			buildPhases = (
+				03427FA11F00E15200D238AA /* Sources */,
+				03427FA21F00E15200D238AA /* Frameworks */,
+				03427FA31F00E15200D238AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03427FAB1F00E15200D238AA /* PBXTargetDependency */,
+			);
+			name = GiGi.iOS.UITests;
+			productName = GiGi.iOS.UITests;
+			productReference = 03427FA51F00E15200D238AA /* GiGi.iOS.UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		03427F601F00E02B00D238AA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Zheng Xingzhi";
+				TargetAttributes = {
+					03427F691F00E04600D238AA = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6YG8KNT3Y4;
+						ProvisioningStyle = Automatic;
+					};
+					03427F841F00E0E700D238AA = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6YG8KNT3Y4;
+						ProvisioningStyle = Automatic;
+					};
+					03427F951F00E14200D238AA = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6YG8KNT3Y4;
+						ProvisioningStyle = Automatic;
+					};
+					03427FA41F00E15200D238AA = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6YG8KNT3Y4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 03427F691F00E04600D238AA;
+					};
+				};
 			};
 			buildConfigurationList = 03427F631F00E02B00D238AA /* Build configuration list for PBXProject "GiGi" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -27,25 +343,588 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 03427F5F1F00E02B00D238AA;
+			productRefGroup = 03427F6B1F00E04600D238AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				03427F691F00E04600D238AA /* GiGi.iOS */,
+				03427F841F00E0E700D238AA /* GiGi.Core */,
+				03427F951F00E14200D238AA /* GiGi.Core.Tests */,
+				03427FA41F00E15200D238AA /* GiGi.iOS.UITests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03427F681F00E04600D238AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03427F781F00E04600D238AA /* LaunchScreen.storyboard in Resources */,
+				03427F751F00E04600D238AA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03427F831F00E0E700D238AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03427F941F00E14200D238AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03427FA31F00E15200D238AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03427FB41F00E81A00D238AA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03427F661F00E04600D238AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03427F701F00E04600D238AA /* LaunchViewController.swift in Sources */,
+				03427F6E1F00E04600D238AA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03427F801F00E0E700D238AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03427F921F00E14200D238AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03427FA11F00E15200D238AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03427F8B1F00E0E700D238AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03427F841F00E0E700D238AA /* GiGi.Core */;
+			targetProxy = 03427F8A1F00E0E700D238AA /* PBXContainerItemProxy */;
+		};
+		03427F9D1F00E14200D238AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03427F841F00E0E700D238AA /* GiGi.Core */;
+			targetProxy = 03427F9C1F00E14200D238AA /* PBXContainerItemProxy */;
+		};
+		03427FAB1F00E15200D238AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03427F691F00E04600D238AA /* GiGi.iOS */;
+			targetProxy = 03427FAA1F00E15200D238AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		03427F761F00E04600D238AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03427F771F00E04600D238AA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		03427F641F00E02B00D238AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
 		03427F651F00E02B00D238AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		03427F7B1F00E04600D238AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = GiGi.iOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		03427F7C1F00E04600D238AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = GiGi.iOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03427F8F1F00E0E700D238AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = GiGi.Core/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.core;
+				PRODUCT_NAME = GiGi;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		03427F901F00E0E700D238AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = GiGi.Core/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.core;
+				PRODUCT_NAME = GiGi;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		03427F9F1F00E14200D238AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = GiGi.Core.Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.GiGi-Core-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		03427FA01F00E14200D238AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = GiGi.Core.Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.GiGi-Core-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03427FAD1F00E15200D238AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = GiGi.iOS.UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.GiGi-iOS-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = GiGi.iOS;
+			};
+			name = Debug;
+		};
+		03427FAE1F00E15200D238AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = GiGi.iOS.UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.GiGi-iOS-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = GiGi.iOS;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -60,6 +939,38 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		03427F7A1F00E04600D238AA /* Build configuration list for PBXNativeTarget "GiGi.iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03427F7B1F00E04600D238AA /* Debug */,
+				03427F7C1F00E04600D238AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		03427F8E1F00E0E700D238AA /* Build configuration list for PBXNativeTarget "GiGi.Core" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03427F8F1F00E0E700D238AA /* Debug */,
+				03427F901F00E0E700D238AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		03427F9E1F00E14200D238AA /* Build configuration list for PBXNativeTarget "GiGi.Core.Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03427F9F1F00E14200D238AA /* Debug */,
+				03427FA01F00E14200D238AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		03427FAC1F00E15200D238AA /* Build configuration list for PBXNativeTarget "GiGi.iOS.UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03427FAD1F00E15200D238AA /* Debug */,
+				03427FAE1F00E15200D238AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
