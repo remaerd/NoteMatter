@@ -15,8 +15,23 @@
 		03427F8C1F00E0E700D238AA /* GiGi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427F851F00E0E700D238AA /* GiGi.framework */; };
 		03427F8D1F00E0E700D238AA /* GiGi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03427F851F00E0E700D238AA /* GiGi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03427F9B1F00E14200D238AA /* GiGi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427F851F00E0E700D238AA /* GiGi.framework */; };
-		03427FC51F00F81000D238AA /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03427FC31F00F81000D238AA /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		03427FC61F00F81000D238AA /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03427FC41F00F81000D238AA /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03427FC91F0106D200D238AA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FC71F0106D200D238AA /* Realm.framework */; };
+		03427FCA1F0106D200D238AA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FC81F0106D200D238AA /* RealmSwift.framework */; };
+		03427FCB1F0106DD00D238AA /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03427FC71F0106D200D238AA /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03427FCC1F0106DD00D238AA /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03427FC81F0106D200D238AA /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03427FD21F0107F200D238AA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FCD1F0107F200D238AA /* Alamofire.framework */; };
+		03427FD31F0107F200D238AA /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FCE1F0107F200D238AA /* CommonCrypto.framework */; };
+		03427FD51F0107F200D238AA /* Keys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD01F0107F200D238AA /* Keys.framework */; };
+		03427FD61F0107F200D238AA /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD11F0107F200D238AA /* ReSwift.framework */; };
+		03427FD81F01083300D238AA /* SwiftyChrono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD71F01083300D238AA /* SwiftyChrono.framework */; };
+		03427FD91F01084900D238AA /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03427FCD1F0107F200D238AA /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03427FDA1F01084900D238AA /* CommonCrypto.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03427FCE1F0107F200D238AA /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03427FDC1F01084900D238AA /* Keys.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03427FD01F0107F200D238AA /* Keys.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03427FDE1F01084900D238AA /* SwiftyChrono.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03427FD71F01083300D238AA /* SwiftyChrono.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03427FDF1F0108CD00D238AA /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FCF1F0107F200D238AA /* KeychainAccess.framework */; };
+		03427FE01F0108CD00D238AA /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD11F0107F200D238AA /* ReSwift.framework */; };
+		03427FE11F0108DA00D238AA /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FCF1F0107F200D238AA /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03427FE21F0108DA00D238AA /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD11F0107F200D238AA /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +65,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				03427FE11F0108DA00D238AA /* KeychainAccess.framework in Embed Frameworks */,
+				03427FE21F0108DA00D238AA /* ReSwift.framework in Embed Frameworks */,
 				03427F8D1F00E0E700D238AA /* GiGi.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -61,8 +78,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				03427FC51F00F81000D238AA /* Realm.framework in CopyFiles */,
-				03427FC61F00F81000D238AA /* RealmSwift.framework in CopyFiles */,
+				03427FD91F01084900D238AA /* Alamofire.framework in CopyFiles */,
+				03427FDA1F01084900D238AA /* CommonCrypto.framework in CopyFiles */,
+				03427FDC1F01084900D238AA /* Keys.framework in CopyFiles */,
+				03427FDE1F01084900D238AA /* SwiftyChrono.framework in CopyFiles */,
+				03427FCB1F0106DD00D238AA /* Realm.framework in CopyFiles */,
+				03427FCC1F0106DD00D238AA /* RealmSwift.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,8 +103,14 @@
 		03427F9A1F00E14200D238AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03427FA51F00E15200D238AA /* GiGi.iOS.UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiGi.iOS.UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03427FA91F00E15200D238AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03427FC31F00F81000D238AA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Realm.framework; sourceTree = "<group>"; };
-		03427FC41F00F81000D238AA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/RealmSwift.framework; sourceTree = "<group>"; };
+		03427FC71F0106D200D238AA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Realm.framework; sourceTree = "<group>"; };
+		03427FC81F0106D200D238AA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/RealmSwift.framework; sourceTree = "<group>"; };
+		03427FCD1F0107F200D238AA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		03427FCE1F0107F200D238AA /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
+		03427FCF1F0107F200D238AA /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
+		03427FD01F0107F200D238AA /* Keys.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Keys.framework; path = Carthage/Build/iOS/Keys.framework; sourceTree = "<group>"; };
+		03427FD11F0107F200D238AA /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
+		03427FD71F01083300D238AA /* SwiftyChrono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyChrono.framework; path = Carthage/Build/iOS/SwiftyChrono.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +119,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03427F8C1F00E0E700D238AA /* GiGi.framework in Frameworks */,
+				03427FDF1F0108CD00D238AA /* KeychainAccess.framework in Frameworks */,
+				03427FE01F0108CD00D238AA /* ReSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +128,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03427FD21F0107F200D238AA /* Alamofire.framework in Frameworks */,
+				03427FD31F0107F200D238AA /* CommonCrypto.framework in Frameworks */,
+				03427FD51F0107F200D238AA /* Keys.framework in Frameworks */,
+				03427FC91F0106D200D238AA /* Realm.framework in Frameworks */,
+				03427FCA1F0106D200D238AA /* RealmSwift.framework in Frameworks */,
+				03427FD61F0107F200D238AA /* ReSwift.framework in Frameworks */,
+				03427FD81F01083300D238AA /* SwiftyChrono.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,8 +279,14 @@
 		03427FB61F00F72E00D238AA /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				03427FC31F00F81000D238AA /* Realm.framework */,
-				03427FC41F00F81000D238AA /* RealmSwift.framework */,
+				03427FCD1F0107F200D238AA /* Alamofire.framework */,
+				03427FCE1F0107F200D238AA /* CommonCrypto.framework */,
+				03427FCF1F0107F200D238AA /* KeychainAccess.framework */,
+				03427FD01F0107F200D238AA /* Keys.framework */,
+				03427FD11F0107F200D238AA /* ReSwift.framework */,
+				03427FC71F0106D200D238AA /* Realm.framework */,
+				03427FC81F0106D200D238AA /* RealmSwift.framework */,
+				03427FD71F01083300D238AA /* SwiftyChrono.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -547,6 +589,10 @@
 				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -604,6 +650,10 @@
 				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -659,6 +709,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -725,6 +780,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

@@ -2,5 +2,5 @@ github "Alamofire/Alamofire"
 github "kishikawakatsumi/KeychainAccess"
 github "ReSwift/ReSwift"
 
-github "remaerd/Keys"
+github "remaerd/Keys" "0.35"
 github "remaerd/SwiftyChrono"
