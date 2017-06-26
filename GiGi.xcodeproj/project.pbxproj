@@ -34,7 +34,6 @@
 		03427FE21F0108DA00D238AA /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD11F0107F200D238AA /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03427FE51F010A3500D238AA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FE41F010A3500D238AA /* CloudKit.framework */; };
 		03427FE71F010A4B00D238AA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FE61F010A4B00D238AA /* StoreKit.framework */; };
-		03427FEA1F010B3400D238AA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FE91F010B3400D238AA /* Color.swift */; };
 		03427FF31F010D4000D238AA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FF21F010D4000D238AA /* Item.swift */; };
 		03427FF61F012D6D00D238AA /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FF51F012D6D00D238AA /* ItemType.swift */; };
 		03427FF81F012DCF00D238AA /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FF71F012DCF00D238AA /* Task.swift */; };
@@ -131,7 +130,6 @@
 		03427FE31F010A3300D238AA /* GiGi.iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiGi.iOS.entitlements; sourceTree = "<group>"; };
 		03427FE41F010A3500D238AA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		03427FE61F010A4B00D238AA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
-		03427FE91F010B3400D238AA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		03427FF21F010D4000D238AA /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		03427FF51F012D6D00D238AA /* ItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
 		03427FF71F012DCF00D238AA /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -334,7 +332,6 @@
 		03427FE81F010AF900D238AA /* Enhancements */ = {
 			isa = PBXGroup;
 			children = (
-				03427FE91F010B3400D238AA /* Color.swift */,
 			);
 			name = Enhancements;
 			sourceTree = "<group>";
@@ -621,7 +618,6 @@
 			files = (
 				03427F701F00E04600D238AA /* LaunchViewController.swift in Sources */,
 				03427F6E1F00E04600D238AA /* AppDelegate.swift in Sources */,
-				03427FEA1F010B3400D238AA /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1199,6 +1195,7 @@
 				03427F7C1F00E04600D238AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03427F8E1F00E0E700D238AA /* Build configuration list for PBXNativeTarget "GiGi.Core" */ = {
 			isa = XCConfigurationList;
@@ -1207,6 +1204,7 @@
 				03427F901F00E0E700D238AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03427F9E1F00E14200D238AA /* Build configuration list for PBXNativeTarget "GiGi.Core.Tests" */ = {
 			isa = XCConfigurationList;
@@ -1215,6 +1213,7 @@
 				03427FA01F00E14200D238AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03427FAC1F00E15200D238AA /* Build configuration list for PBXNativeTarget "GiGi.iOS.UITests" */ = {
 			isa = XCConfigurationList;
@@ -1223,6 +1222,7 @@
 				03427FAE1F00E15200D238AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
