@@ -34,6 +34,14 @@
 		03427FE21F0108DA00D238AA /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD11F0107F200D238AA /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03427FE51F010A3500D238AA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FE41F010A3500D238AA /* CloudKit.framework */; };
 		03427FE71F010A4B00D238AA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FE61F010A4B00D238AA /* StoreKit.framework */; };
+		03427FEA1F010B3400D238AA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FE91F010B3400D238AA /* Color.swift */; };
+		03427FF31F010D4000D238AA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FF21F010D4000D238AA /* Item.swift */; };
+		03427FF61F012D6D00D238AA /* ItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FF51F012D6D00D238AA /* ItemType.swift */; };
+		03427FF81F012DCF00D238AA /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FF71F012DCF00D238AA /* Task.swift */; };
+		03427FFA1F01312200D238AA /* ItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FF91F01312200D238AA /* ItemComponent.swift */; };
+		03427FFF1F014E4700D238AA /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FFE1F014E4700D238AA /* DatabaseTests.swift */; };
+		034280001F01512000D238AA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FC71F0106D200D238AA /* Realm.framework */; };
+		034280011F01512200D238AA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FC81F0106D200D238AA /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +60,13 @@
 			remoteInfo = GiGi.Core;
 		};
 		03427FAA1F00E15200D238AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03427F601F00E02B00D238AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03427F691F00E04600D238AA;
+			remoteInfo = GiGi.iOS;
+		};
+		034280021F01539000D238AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03427F601F00E02B00D238AA /* Project object */;
 			proxyType = 1;
@@ -116,6 +131,12 @@
 		03427FE31F010A3300D238AA /* GiGi.iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiGi.iOS.entitlements; sourceTree = "<group>"; };
 		03427FE41F010A3500D238AA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		03427FE61F010A4B00D238AA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		03427FE91F010B3400D238AA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		03427FF21F010D4000D238AA /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		03427FF51F012D6D00D238AA /* ItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemType.swift; sourceTree = "<group>"; };
+		03427FF71F012DCF00D238AA /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		03427FF91F01312200D238AA /* ItemComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemComponent.swift; sourceTree = "<group>"; };
+		03427FFE1F014E4700D238AA /* DatabaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +171,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03427F9B1F00E14200D238AA /* GiGi.framework in Frameworks */,
+				034280001F01512000D238AA /* Realm.framework in Frameworks */,
+				034280011F01512200D238AA /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +213,7 @@
 				03427F6D1F00E04600D238AA /* AppDelegate.swift */,
 				03427F7E1F00E09300D238AA /* Custom View Controllers */,
 				03427F7F1F00E09D00D238AA /* View Controllers */,
+				03427FE81F010AF900D238AA /* Enhancements */,
 				03427F7D1F00E07700D238AA /* Miscellanous */,
 			);
 			name = Source;
@@ -225,6 +249,11 @@
 		03427F861F00E0E700D238AA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				03427FF41F012D6000D238AA /* Models */,
+				03427FF11F010D1200D238AA /* Services */,
+				03427FEF1F010CFF00D238AA /* Actions */,
+				03427FEE1F010CF800D238AA /* States */,
+				03427FED1F010CED00D238AA /* Reducers */,
 				03427FB11F00E66300D238AA /* Miscellanous */,
 			);
 			name = Sources;
@@ -234,6 +263,7 @@
 		03427F971F00E14200D238AA /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				03427FFE1F014E4700D238AA /* DatabaseTests.swift */,
 				03427F9A1F00E14200D238AA /* Info.plist */,
 			);
 			name = Tests;
@@ -301,6 +331,53 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		03427FE81F010AF900D238AA /* Enhancements */ = {
+			isa = PBXGroup;
+			children = (
+				03427FE91F010B3400D238AA /* Color.swift */,
+			);
+			name = Enhancements;
+			sourceTree = "<group>";
+		};
+		03427FED1F010CED00D238AA /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Reducers;
+			sourceTree = "<group>";
+		};
+		03427FEE1F010CF800D238AA /* States */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = States;
+			sourceTree = "<group>";
+		};
+		03427FEF1F010CFF00D238AA /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		03427FF11F010D1200D238AA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		03427FF41F012D6000D238AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				03427FF21F010D4000D238AA /* Item.swift */,
+				03427FF91F01312200D238AA /* ItemComponent.swift */,
+				03427FF51F012D6D00D238AA /* ItemType.swift */,
+				03427FF71F012DCF00D238AA /* Task.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -324,6 +401,7 @@
 				03427F681F00E04600D238AA /* Resources */,
 				03427F911F00E0E700D238AA /* Embed Frameworks */,
 				03427FB41F00E81A00D238AA /* ShellScript */,
+				03427FFB1F01491C00D238AA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -366,6 +444,7 @@
 			);
 			dependencies = (
 				03427F9D1F00E14200D238AA /* PBXTargetDependency */,
+				034280031F01539000D238AA /* PBXTargetDependency */,
 			);
 			name = GiGi.Core.Tests;
 			productName = GiGi.Core.Tests;
@@ -434,12 +513,15 @@
 					03427F841F00E0E700D238AA = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 6YG8KNT3Y4;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					03427F951F00E14200D238AA = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 6YG8KNT3Y4;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 03427F691F00E04600D238AA;
 					};
 					03427FA41F00E15200D238AA = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -517,6 +599,19 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		03427FFB1F01491C00D238AA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -526,6 +621,7 @@
 			files = (
 				03427F701F00E04600D238AA /* LaunchViewController.swift in Sources */,
 				03427F6E1F00E04600D238AA /* AppDelegate.swift in Sources */,
+				03427FEA1F010B3400D238AA /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +629,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03427FF81F012DCF00D238AA /* Task.swift in Sources */,
+				03427FFA1F01312200D238AA /* ItemComponent.swift in Sources */,
+				03427FF31F010D4000D238AA /* Item.swift in Sources */,
+				03427FF61F012D6D00D238AA /* ItemType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +640,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03427FFF1F014E4700D238AA /* DatabaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,6 +668,11 @@
 			isa = PBXTargetDependency;
 			target = 03427F691F00E04600D238AA /* GiGi.iOS */;
 			targetProxy = 03427FAA1F00E15200D238AA /* PBXContainerItemProxy */;
+		};
+		034280031F01539000D238AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03427F691F00E04600D238AA /* GiGi.iOS */;
+			targetProxy = 034280021F01539000D238AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -599,6 +705,7 @@
 		03427F7B1F00E04600D238AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -661,6 +768,7 @@
 		03427F7C1F00E04600D238AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -851,6 +959,7 @@
 		03427F9F1F00E14200D238AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -876,6 +985,10 @@
 				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -901,12 +1014,14 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiGi.iOS.app/GiGi.iOS";
 			};
 			name = Debug;
 		};
 		03427FA01F00E14200D238AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -932,6 +1047,10 @@
 				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -949,6 +1068,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiGi.iOS.app/GiGi.iOS";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
