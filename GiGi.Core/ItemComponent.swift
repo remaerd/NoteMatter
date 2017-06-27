@@ -63,7 +63,9 @@ public final class ItemComponent: Object
 
 	public convenience init(item: Item, componentType: ComponentType, identifier: String = NSUUID().uuidString)
 	{
-		self.init(value: ["identifier", identifier, "componentType", componentType.rawValue])
+		self.init()
+		self.identifier = identifier
+		self.componentType = componentType.rawValue
 		item.components.append(self)
 	}
 }

@@ -67,7 +67,9 @@ public final class Item: Object
 
 	public convenience init(parent: Item, itemType: LocalItemType, title: String, identifier: String = NSUUID().uuidString)
 	{
-		self.init(value: ["identifier", identifier, "title", title])
+		self.init()
+		self.identifier = identifier
+		self.title = title
 		self.itemType = itemType
 		parent.children.append(self)
 	}

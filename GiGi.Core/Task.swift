@@ -48,6 +48,7 @@ public final class Task: Object
 
 	public convenience init(component: ItemComponent, date: Date?)
 	{
-		self.init(value: ["itemComponent": component])
+		self.init()
+		self.itemComponent = component
 	}
 }
