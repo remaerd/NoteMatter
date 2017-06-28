@@ -49,6 +49,8 @@
 		034280781F02F29200D238AA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280771F02F29200D238AA /* Theme.swift */; };
 		0342807D1F039E0D00D238AA /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342807C1F039E0D00D238AA /* Hero.framework */; };
 		0342807E1F039E1600D238AA /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342807C1F039E0D00D238AA /* Hero.framework */; };
+		034280861F03AE6A00D238AA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342802C1F016F8600D238AA /* Realm.framework */; };
+		034280871F03AE6A00D238AA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342802D1F016F8600D238AA /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +161,8 @@
 				03427FE71F010A4B00D238AA /* StoreKit.framework in Frameworks */,
 				03427FDF1F0108CD00D238AA /* KeychainAccess.framework in Frameworks */,
 				03427FE01F0108CD00D238AA /* ReSwift.framework in Frameworks */,
+				034280861F03AE6A00D238AA /* Realm.framework in Frameworks */,
+				034280871F03AE6A00D238AA /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +670,9 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Hero.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputPaths = (
 			);
@@ -683,8 +690,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Keys.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyChrono.framework",
 			);
 			outputPaths = (

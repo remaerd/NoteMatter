@@ -11,6 +11,6 @@ import RealmSwift
 
 public struct DatabaseState: StateType
 {
-	public var privateDatabase: Database?
+	public var privateDatabase: Realm?
 	public var error: Error?
 }

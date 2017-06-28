@@ -10,11 +10,9 @@ import Foundation
 import RealmSwift
 import Realm
 
-public struct Database
+public extension Realm
 {
-	public var database: Realm
-
-	static func load() throws -> Database
+	static func load() throws -> Realm
 	{
 		if (!FileManager.default.fileExists(atPath: URL.localDatabaseDirectory.path))
 		{
@@ -26,9 +24,8 @@ public struct Database
 		configuration.objectTypes = [Item.self, LocalItemType.self, ItemComponent.self, Task.self]
 		configuration.schemaVersion = 1
 		let realm = try Realm(configuration: configuration)
-		let database = Database(database: realm)
-		if realm.isEmpty { try database.prepare() }
-		return database
+		if realm.isEmpty { try realm.prepare() }
+		return realm
 	}
 
 	func prepare() throws
@@ -71,9 +68,9 @@ public struct Database
 		let welcome = Item(parent: rootFolder, itemType: documentTypeItem, title: welcomeType.title, identifier: welcomeType.identifier)
 		objects.append(welcome)
 
-		try self.database.write(
+		try self.write(
 		{
-			self.database.add(objects)
+			self.add(objects)
 		})
 	}
 }

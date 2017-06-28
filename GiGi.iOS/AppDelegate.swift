@@ -10,8 +10,6 @@ import UIKit
 import ReSwift
 import GiGi
 
-let gigi = Store(reducer: appReducer, state: nil)
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
 {

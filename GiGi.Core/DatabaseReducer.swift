@@ -15,7 +15,7 @@ public func databaseReducer(action: Action, state: DatabaseState?) -> DatabaseSt
 
 	switch action
 	{
-	case _ as DatabaseActions.Load: do { state.privateDatabase = try Database.load() } catch { state.error = error }; break
+	case _ as DatabaseActions.Load: do { state.privateDatabase = try Realm.load() } catch { state.error = error }; break
 	default: break
 	}
 	return state
