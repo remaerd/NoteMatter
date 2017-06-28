@@ -23,6 +23,7 @@ class LaunchViewController: UIViewController
 		do
 		{
 			try Application.start()
+			navigationController?.setViewControllers([ItemListViewController()], animated: animated)
 
 		} catch
 		{

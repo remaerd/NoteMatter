@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Timepiece
 
 public struct Theme
 {
@@ -15,22 +16,30 @@ public struct Theme
 		case invalidThemeData
 	}
 
-	public static var shared: Theme!
+	public static var colors: Theme!
 
-	public var dayPallette: [UIColor]
-	public var nightPallette: [UIColor]
+	var dayPallette: [UIColor]
+	var nightPallette: [UIColor]
+
+	public subscript(index: Int) -> UIColor
+	{
+		let pallette: [UIColor]
+		switch Defaults.themeType.int
+		{
+		case 1: pallette = dayPallette; break
+		case 2: pallette = nightPallette; break
+		default:
+			let now = Date()
+			let nowInt = now.hour * 100 + now.minute
+			if nowInt > Defaults.dayTime.int && nowInt < Defaults.nightTime.int { pallette = dayPallette } else { pallette = nightPallette }
+			break
+		}
+		return pallette[index]
+	}
 
 	static func load() throws
 	{
-		let themeURL: URL
-		if let url = UserDefaults.standard.url(forKey: "defaults.theme") { themeURL = url } else
-		{
-			let defaultThemeURL = URL.bundle.url(forResource: "Harmony", withExtension: "json")!
-			UserDefaults.standard.set(defaultThemeURL, forKey: "defaults.theme")
-			themeURL = defaultThemeURL
-		}
-
-		let data = try Data(contentsOf: themeURL)
+		let data = try Data(contentsOf: Defaults.theme.url)
 		if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any]
 		{
 			if let day = json["day"] as? [String], let night = json["night"] as? [String]
@@ -39,10 +48,14 @@ public struct Theme
 				var nightColor = [UIColor]()
 				for color in day { dayColor.append(UIColor(hex: color)) }
 				for color in night { nightColor.append(UIColor(hex: color)) }
-				Theme.shared = Theme(dayPallette: dayColor, nightPallette: nightColor)
+				print(dayColor)
+				print(nightColor)
+				Theme.colors = Theme(dayPallette: dayColor, nightPallette: nightColor)
 				return
 			}
 		}
 		throw Exception.invalidThemeData
 	}
+
+	// TODO: 完善自动切换主题功能
 }

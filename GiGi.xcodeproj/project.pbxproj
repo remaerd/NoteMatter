@@ -40,6 +40,12 @@
 		034280861F03AE6A00D238AA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342802C1F016F8600D238AA /* Realm.framework */; };
 		034280871F03AE6A00D238AA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342802D1F016F8600D238AA /* RealmSwift.framework */; };
 		034280961F03D03100D238AA /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280951F03D03100D238AA /* Application.swift */; };
+		0342809B1F03D3B500D238AA /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280991F03D38A00D238AA /* ItemListViewController.swift */; };
+		0342809D1F03DC9600D238AA /* UICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0342809C1F03DC9600D238AA /* UICollectionViewController.swift */; };
+		0342809F1F03E00F00D238AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0342809E1F03E00F00D238AA /* Constants.swift */; };
+		034280A11F03EBE600D238AA /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280A01F03EBE600D238AA /* Defaults.swift */; };
+		034280A31F03FD2C00D238AA /* Timepiece.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034280A21F03FD2C00D238AA /* Timepiece.framework */; };
+		034280A51F04083D00D238AA /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280A41F04083D00D238AA /* UINavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +133,12 @@
 		0342807B1F039BD200D238AA /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		0342807C1F039E0D00D238AA /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
 		034280951F03D03100D238AA /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		034280991F03D38A00D238AA /* ItemListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
+		0342809C1F03DC9600D238AA /* UICollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewController.swift; sourceTree = "<group>"; };
+		0342809E1F03E00F00D238AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		034280A01F03EBE600D238AA /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		034280A21F03FD2C00D238AA /* Timepiece.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timepiece.framework; path = Carthage/Build/iOS/Timepiece.framework; sourceTree = "<group>"; };
+		034280A41F04083D00D238AA /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +164,7 @@
 				0342807E1F039E1600D238AA /* Hero.framework in Frameworks */,
 				03427FD31F0107F200D238AA /* CommonCrypto.framework in Frameworks */,
 				03427FD51F0107F200D238AA /* Keys.framework in Frameworks */,
+				034280A31F03FD2C00D238AA /* Timepiece.framework in Frameworks */,
 				0342802E1F016F8600D238AA /* Realm.framework in Frameworks */,
 				0342802F1F016F8600D238AA /* RealmSwift.framework in Frameworks */,
 				03427FD81F01083300D238AA /* SwiftyChrono.framework in Frameworks */,
@@ -201,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				03427F6D1F00E04600D238AA /* AppDelegate.swift */,
+				0342809E1F03E00F00D238AA /* Constants.swift */,
 				03427F7E1F00E09300D238AA /* Custom View Controllers */,
 				03427F7F1F00E09D00D238AA /* View Controllers */,
 				03427FE81F010AF900D238AA /* Enhancements */,
@@ -224,6 +238,8 @@
 		03427F7E1F00E09300D238AA /* Custom View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0342809C1F03DC9600D238AA /* UICollectionViewController.swift */,
+				034280A41F04083D00D238AA /* UINavigationController.swift */,
 			);
 			name = "Custom View Controllers";
 			sourceTree = "<group>";
@@ -232,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				03427F6F1F00E04600D238AA /* LaunchViewController.swift */,
+				034280991F03D38A00D238AA /* ItemListViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -300,8 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				0342807B1F039BD200D238AA /* Cartfile */,
-				03427FE61F010A4B00D238AA /* StoreKit.framework */,
-				03427FE41F010A3500D238AA /* CloudKit.framework */,
 				03427FB61F00F72E00D238AA /* iOS */,
 			);
 			name = Frameworks;
@@ -310,6 +325,9 @@
 		03427FB61F00F72E00D238AA /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				034280A21F03FD2C00D238AA /* Timepiece.framework */,
+				03427FE61F010A4B00D238AA /* StoreKit.framework */,
+				03427FE41F010A3500D238AA /* CloudKit.framework */,
 				0342807C1F039E0D00D238AA /* Hero.framework */,
 				03427FCD1F0107F200D238AA /* Alamofire.framework */,
 				03427FCE1F0107F200D238AA /* CommonCrypto.framework */,
@@ -332,6 +350,7 @@
 		03427FF11F010D1200D238AA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				034280A01F03EBE600D238AA /* Defaults.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -632,6 +651,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Keys.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyChrono.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Timepiece.framework",
 			);
 			outputPaths = (
 			);
@@ -646,8 +666,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0342809F1F03E00F00D238AA /* Constants.swift in Sources */,
+				0342809D1F03DC9600D238AA /* UICollectionViewController.swift in Sources */,
 				03427F701F00E04600D238AA /* LaunchViewController.swift in Sources */,
+				034280A51F04083D00D238AA /* UINavigationController.swift in Sources */,
 				03427F6E1F00E04600D238AA /* AppDelegate.swift in Sources */,
+				0342809B1F03D3B500D238AA /* ItemListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +686,7 @@
 				03427FF31F010D4000D238AA /* Item.swift in Sources */,
 				03427FF61F012D6D00D238AA /* ItemType.swift in Sources */,
 				034280781F02F29200D238AA /* Theme.swift in Sources */,
+				034280A11F03EBE600D238AA /* Defaults.swift in Sources */,
 				034280761F02EF4900D238AA /* Database.swift in Sources */,
 				034280341F01789800D238AA /* Constants.swift in Sources */,
 			);
