@@ -45,6 +45,10 @@
 		034280461F01EC6500D238AA /* DatabaseActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280451F01EC6500D238AA /* DatabaseActions.swift */; };
 		034280481F01ECB300D238AA /* DatabaseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280471F01ECB300D238AA /* DatabaseState.swift */; };
 		0342804A1F01FFA900D238AA /* DatabaseReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280491F01FFA900D238AA /* DatabaseReducer.swift */; };
+		034280761F02EF4900D238AA /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280751F02EF4900D238AA /* Database.swift */; };
+		034280781F02F29200D238AA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280771F02F29200D238AA /* Theme.swift */; };
+		0342807D1F039E0D00D238AA /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342807C1F039E0D00D238AA /* Hero.framework */; };
+		0342807E1F039E1600D238AA /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342807C1F039E0D00D238AA /* Hero.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +142,10 @@
 		034280451F01EC6500D238AA /* DatabaseActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseActions.swift; sourceTree = "<group>"; };
 		034280471F01ECB300D238AA /* DatabaseState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseState.swift; sourceTree = "<group>"; };
 		034280491F01FFA900D238AA /* DatabaseReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseReducer.swift; sourceTree = "<group>"; };
+		034280751F02EF4900D238AA /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		034280771F02F29200D238AA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		0342807B1F039BD200D238AA /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		0342807C1F039E0D00D238AA /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +155,7 @@
 			files = (
 				03427F8C1F00E0E700D238AA /* GiGi.framework in Frameworks */,
 				03427FE51F010A3500D238AA /* CloudKit.framework in Frameworks */,
+				0342807D1F039E0D00D238AA /* Hero.framework in Frameworks */,
 				03427FE71F010A4B00D238AA /* StoreKit.framework in Frameworks */,
 				03427FDF1F0108CD00D238AA /* KeychainAccess.framework in Frameworks */,
 				03427FE01F0108CD00D238AA /* ReSwift.framework in Frameworks */,
@@ -157,11 +166,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0342802E1F016F8600D238AA /* Realm.framework in Frameworks */,
 				03427FD21F0107F200D238AA /* Alamofire.framework in Frameworks */,
-				0342802F1F016F8600D238AA /* RealmSwift.framework in Frameworks */,
+				0342807E1F039E1600D238AA /* Hero.framework in Frameworks */,
 				03427FD31F0107F200D238AA /* CommonCrypto.framework in Frameworks */,
 				03427FD51F0107F200D238AA /* Keys.framework in Frameworks */,
+				0342802E1F016F8600D238AA /* Realm.framework in Frameworks */,
+				0342802F1F016F8600D238AA /* RealmSwift.framework in Frameworks */,
 				034280271F016DB300D238AA /* ReSwift.framework in Frameworks */,
 				03427FD81F01083300D238AA /* SwiftyChrono.framework in Frameworks */,
 			);
@@ -311,6 +321,7 @@
 		03427FB51F00F72600D238AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0342807B1F039BD200D238AA /* Cartfile */,
 				03427FE61F010A4B00D238AA /* StoreKit.framework */,
 				03427FE41F010A3500D238AA /* CloudKit.framework */,
 				03427FB61F00F72E00D238AA /* iOS */,
@@ -321,6 +332,7 @@
 		03427FB61F00F72E00D238AA /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				0342807C1F039E0D00D238AA /* Hero.framework */,
 				03427FCD1F0107F200D238AA /* Alamofire.framework */,
 				03427FCE1F0107F200D238AA /* CommonCrypto.framework */,
 				03427FCF1F0107F200D238AA /* KeychainAccess.framework */,
@@ -381,6 +393,8 @@
 		03427FF41F012D6000D238AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				034280751F02EF4900D238AA /* Database.swift */,
+				034280771F02F29200D238AA /* Theme.swift */,
 				03427FF21F010D4000D238AA /* Item.swift */,
 				03427FF91F01312200D238AA /* ItemComponent.swift */,
 				03427FF51F012D6D00D238AA /* ItemType.swift */,
@@ -704,10 +718,12 @@
 				03427FFA1F01312200D238AA /* ItemComponent.swift in Sources */,
 				03427FF31F010D4000D238AA /* Item.swift in Sources */,
 				03427FF61F012D6D00D238AA /* ItemType.swift in Sources */,
+				034280781F02F29200D238AA /* Theme.swift in Sources */,
 				034280221F016B8B00D238AA /* ThemeReducer.swift in Sources */,
 				034280211F016B8B00D238AA /* NavigationReducer.swift in Sources */,
 				034280201F016B8B00D238AA /* AppReducer.swift in Sources */,
 				034280481F01ECB300D238AA /* DatabaseState.swift in Sources */,
+				034280761F02EF4900D238AA /* Database.swift in Sources */,
 				0342801C1F016B2A00D238AA /* ThemeState.swift in Sources */,
 				034280341F01789800D238AA /* Constants.swift in Sources */,
 				0342804A1F01FFA900D238AA /* DatabaseReducer.swift in Sources */,

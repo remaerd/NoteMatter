@@ -11,26 +11,6 @@ import RealmSwift
 
 public struct DatabaseState: StateType
 {
-	public enum DatabaseStatusType: Int, Equatable
-	{
-		case loading
-		case loaded
-		case firstLaunch
-		case invalidDatabase
-
-		public static func == (lhs: DatabaseStatusType, rhs: DatabaseStatusType) -> Bool
-		{
-			if lhs.rawValue == rhs.rawValue { return true } else { return false }
-		}
-	}
-
-	public var privateDatabase: Realm?
-	public var status : DatabaseStatusType
-	public var caches: [String: [Object]]
-
-	init()
-	{
-		status = .loading
-		caches = [String: [Object]]()
-	}
+	public var privateDatabase: Database?
+	public var error: Error?
 }

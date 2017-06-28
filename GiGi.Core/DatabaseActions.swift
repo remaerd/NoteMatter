@@ -12,37 +12,9 @@ import RealmSwift
 public struct DatabaseActions
 {
 	public struct Load: Action { public init() {} }
-	public struct Prepare: Action{ public init() {} }
 
-	public struct FindAll: Action
+	public struct GetItem: Action
 	{
-		var objectType: AnyClass
-		var predicates: [NSPredicate]?
-	}
-
-	public struct FindOne: Action
-	{
-		var objectType: AnyClass
-		var identifier: String
-	}
-
-	public struct Write: Action
-	{
-		var object: Object
-	}
-
-	public struct BatchWrite: Action
-	{
-		var objects: [Object]
-	}
-
-	public struct Delete: Action
-	{
-		var identifier: String
-	}
-
-	public struct BatchDelete: Action
-	{
-		var identifiers: [String]
+		public var identifier: String
 	}
 }

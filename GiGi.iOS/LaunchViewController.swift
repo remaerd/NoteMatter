@@ -39,24 +39,26 @@ extension LaunchViewController : StoreSubscriber
 
 	func newState(state: AppState)
 	{
-		if state.database.status == .invalidDatabase
+		if let error = state.database.error
 		{
-			print("Cannot load database")
-		} else if state.theme.status == .invalidThemeData
+			print(error)
+		} else if let error = state.theme.error
 		{
-			print("Cannot load theme")
-		} else if state.database.status == .loaded
+			print(error)
+		} else if state.database.privateDatabase != nil
 		{
-			UIView.animate(withDuration: 1.0, animations:
-			{
-				self.view.backgroundColor = state.theme.dayPallette[1]
-			})
-		} else if state.database.status == .firstLaunch
-		{
-			gigi.dispatch(DatabaseActions.Prepare())
-		} else if state.theme.status == .loaded
+			start()
+		} else if state.theme.currentTheme != nil
 		{
 			gigi.dispatch(DatabaseActions.Load())
 		}
+	}
+
+	func start()
+	{
+		UIView.animate(withDuration: 1.0, animations:
+		{
+			self.view.backgroundColor = gigi.state.theme.currentTheme?.dayPallette[1]
+		})
 	}
 }
