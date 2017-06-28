@@ -1,7 +1,6 @@
 github "Alamofire/Alamofire"
 github "kishikawakatsumi/KeychainAccess"
 github "notohiro/SwiftyVersionTracker"
-github "ReSwift/ReSwift"
 github "lkzhao/Hero"
 
 github "remaerd/Keys" "0.35"

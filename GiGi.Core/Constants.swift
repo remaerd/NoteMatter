@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ReSwift
 
 extension URL
 {
@@ -22,5 +21,3 @@ extension String
 	static let systemItemType = [LocalItemType.InternalItemType.inbox,LocalItemType.InternalItemType.folder,LocalItemType.InternalItemType.document]
 	static let systemItem = [Item.InternalItem.rootFolder, Item.InternalItem.inbox]
 }
-
-public let gigi = Store(reducer: appReducer, state: nil)

@@ -15,10 +15,12 @@ public struct Theme
 		case invalidThemeData
 	}
 
+	public static var shared: Theme!
+
 	public var dayPallette: [UIColor]
 	public var nightPallette: [UIColor]
 
-	static func load() throws -> Theme
+	static func load() throws
 	{
 		let themeURL: URL
 		if let url = UserDefaults.standard.url(forKey: "defaults.theme") { themeURL = url } else
@@ -37,7 +39,8 @@ public struct Theme
 				var nightColor = [UIColor]()
 				for color in day { dayColor.append(UIColor(hex: color)) }
 				for color in night { nightColor.append(UIColor(hex: color)) }
-				return Theme(dayPallette: dayColor, nightPallette: nightColor)
+				Theme.shared = Theme(dayPallette: dayColor, nightPallette: nightColor)
+				return
 			}
 		}
 		throw Exception.invalidThemeData

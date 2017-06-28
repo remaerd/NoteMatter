@@ -20,7 +20,6 @@
 		03427FD51F0107F200D238AA /* Keys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD01F0107F200D238AA /* Keys.framework */; };
 		03427FD81F01083300D238AA /* SwiftyChrono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD71F01083300D238AA /* SwiftyChrono.framework */; };
 		03427FDF1F0108CD00D238AA /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FCF1F0107F200D238AA /* KeychainAccess.framework */; };
-		03427FE01F0108CD00D238AA /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD11F0107F200D238AA /* ReSwift.framework */; };
 		03427FE51F010A3500D238AA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FE41F010A3500D238AA /* CloudKit.framework */; };
 		03427FE71F010A4B00D238AA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FE61F010A4B00D238AA /* StoreKit.framework */; };
 		03427FF31F010D4000D238AA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FF21F010D4000D238AA /* Item.swift */; };
@@ -28,29 +27,19 @@
 		03427FF81F012DCF00D238AA /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FF71F012DCF00D238AA /* Task.swift */; };
 		03427FFA1F01312200D238AA /* ItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FF91F01312200D238AA /* ItemComponent.swift */; };
 		03427FFF1F014E4700D238AA /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427FFE1F014E4700D238AA /* DatabaseTests.swift */; };
-		0342801A1F016B2A00D238AA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280171F016B2A00D238AA /* AppState.swift */; };
-		0342801B1F016B2A00D238AA /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280181F016B2A00D238AA /* NavigationState.swift */; };
-		0342801C1F016B2A00D238AA /* ThemeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280191F016B2A00D238AA /* ThemeState.swift */; };
-		034280201F016B8B00D238AA /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0342801D1F016B8B00D238AA /* AppReducer.swift */; };
-		034280211F016B8B00D238AA /* NavigationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0342801E1F016B8B00D238AA /* NavigationReducer.swift */; };
-		034280221F016B8B00D238AA /* ThemeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0342801F1F016B8B00D238AA /* ThemeReducer.swift */; };
-		034280271F016DB300D238AA /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03427FD11F0107F200D238AA /* ReSwift.framework */; };
 		0342802E1F016F8600D238AA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342802C1F016F8600D238AA /* Realm.framework */; };
 		0342802F1F016F8600D238AA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342802D1F016F8600D238AA /* RealmSwift.framework */; };
-		034280311F0171E500D238AA /* ThemeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280301F0171E500D238AA /* ThemeActions.swift */; };
 		034280341F01789800D238AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280331F01789800D238AA /* Constants.swift */; };
 		034280391F017A3000D238AA /* Harmony.json in Resources */ = {isa = PBXBuildFile; fileRef = 034280371F017A1100D238AA /* Harmony.json */; };
 		034280411F0192B400D238AA /* Welcome.md in Resources */ = {isa = PBXBuildFile; fileRef = 0342803E1F017A8200D238AA /* Welcome.md */; };
 		034280441F01E89A00D238AA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280431F01E89A00D238AA /* Color.swift */; };
-		034280461F01EC6500D238AA /* DatabaseActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280451F01EC6500D238AA /* DatabaseActions.swift */; };
-		034280481F01ECB300D238AA /* DatabaseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280471F01ECB300D238AA /* DatabaseState.swift */; };
-		0342804A1F01FFA900D238AA /* DatabaseReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280491F01FFA900D238AA /* DatabaseReducer.swift */; };
 		034280761F02EF4900D238AA /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280751F02EF4900D238AA /* Database.swift */; };
 		034280781F02F29200D238AA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280771F02F29200D238AA /* Theme.swift */; };
 		0342807D1F039E0D00D238AA /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342807C1F039E0D00D238AA /* Hero.framework */; };
 		0342807E1F039E1600D238AA /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342807C1F039E0D00D238AA /* Hero.framework */; };
 		034280861F03AE6A00D238AA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342802C1F016F8600D238AA /* Realm.framework */; };
 		034280871F03AE6A00D238AA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342802D1F016F8600D238AA /* RealmSwift.framework */; };
+		034280961F03D03100D238AA /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280951F03D03100D238AA /* Application.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +105,6 @@
 		03427FCE1F0107F200D238AA /* CommonCrypto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonCrypto.framework; path = Carthage/Build/iOS/CommonCrypto.framework; sourceTree = "<group>"; };
 		03427FCF1F0107F200D238AA /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		03427FD01F0107F200D238AA /* Keys.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Keys.framework; path = Carthage/Build/iOS/Keys.framework; sourceTree = "<group>"; };
-		03427FD11F0107F200D238AA /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
 		03427FD71F01083300D238AA /* SwiftyChrono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyChrono.framework; path = Carthage/Build/iOS/SwiftyChrono.framework; sourceTree = "<group>"; };
 		03427FE31F010A3300D238AA /* GiGi.iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiGi.iOS.entitlements; sourceTree = "<group>"; };
 		03427FE41F010A3500D238AA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -126,28 +114,19 @@
 		03427FF71F012DCF00D238AA /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		03427FF91F01312200D238AA /* ItemComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemComponent.swift; sourceTree = "<group>"; };
 		03427FFE1F014E4700D238AA /* DatabaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
-		034280171F016B2A00D238AA /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		034280181F016B2A00D238AA /* NavigationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
-		034280191F016B2A00D238AA /* ThemeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeState.swift; sourceTree = "<group>"; };
-		0342801D1F016B8B00D238AA /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
-		0342801E1F016B8B00D238AA /* NavigationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationReducer.swift; sourceTree = "<group>"; };
-		0342801F1F016B8B00D238AA /* ThemeReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeReducer.swift; sourceTree = "<group>"; };
 		0342802C1F016F8600D238AA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		0342802D1F016F8600D238AA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		034280301F0171E500D238AA /* ThemeActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeActions.swift; sourceTree = "<group>"; };
 		034280331F01789800D238AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		034280371F017A1100D238AA /* Harmony.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Harmony.json; sourceTree = "<group>"; };
 		0342803D1F017A8200D238AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = Base; path = Base.lproj/Welcome.md; sourceTree = "<group>"; };
 		0342803F1F017A9500D238AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		034280401F017A9500D238AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = "zh-Hans"; path = "zh-Hans.lproj/Welcome.md"; sourceTree = "<group>"; };
 		034280431F01E89A00D238AA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		034280451F01EC6500D238AA /* DatabaseActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseActions.swift; sourceTree = "<group>"; };
-		034280471F01ECB300D238AA /* DatabaseState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseState.swift; sourceTree = "<group>"; };
-		034280491F01FFA900D238AA /* DatabaseReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseReducer.swift; sourceTree = "<group>"; };
 		034280751F02EF4900D238AA /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		034280771F02F29200D238AA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		0342807B1F039BD200D238AA /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		0342807C1F039E0D00D238AA /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
+		034280951F03D03100D238AA /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +139,6 @@
 				0342807D1F039E0D00D238AA /* Hero.framework in Frameworks */,
 				03427FE71F010A4B00D238AA /* StoreKit.framework in Frameworks */,
 				03427FDF1F0108CD00D238AA /* KeychainAccess.framework in Frameworks */,
-				03427FE01F0108CD00D238AA /* ReSwift.framework in Frameworks */,
 				034280861F03AE6A00D238AA /* Realm.framework in Frameworks */,
 				034280871F03AE6A00D238AA /* RealmSwift.framework in Frameworks */,
 			);
@@ -176,7 +154,6 @@
 				03427FD51F0107F200D238AA /* Keys.framework in Frameworks */,
 				0342802E1F016F8600D238AA /* Realm.framework in Frameworks */,
 				0342802F1F016F8600D238AA /* RealmSwift.framework in Frameworks */,
-				034280271F016DB300D238AA /* ReSwift.framework in Frameworks */,
 				03427FD81F01083300D238AA /* SwiftyChrono.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,9 +242,6 @@
 				034280331F01789800D238AA /* Constants.swift */,
 				03427FF41F012D6000D238AA /* Models */,
 				03427FF11F010D1200D238AA /* Services */,
-				03427FEE1F010CF800D238AA /* States */,
-				03427FEF1F010CFF00D238AA /* Actions */,
-				03427FED1F010CED00D238AA /* Reducers */,
 				034280421F01E85A00D238AA /* Enhancers */,
 				034280351F0178A800D238AA /* Resources */,
 				03427FB11F00E66300D238AA /* Miscellanous */,
@@ -343,7 +317,6 @@
 				03427FD01F0107F200D238AA /* Keys.framework */,
 				0342802C1F016F8600D238AA /* Realm.framework */,
 				0342802D1F016F8600D238AA /* RealmSwift.framework */,
-				03427FD11F0107F200D238AA /* ReSwift.framework */,
 				03427FD71F01083300D238AA /* SwiftyChrono.framework */,
 			);
 			name = iOS;
@@ -356,37 +329,6 @@
 			name = Enhancements;
 			sourceTree = "<group>";
 		};
-		03427FED1F010CED00D238AA /* Reducers */ = {
-			isa = PBXGroup;
-			children = (
-				0342801D1F016B8B00D238AA /* AppReducer.swift */,
-				034280491F01FFA900D238AA /* DatabaseReducer.swift */,
-				0342801E1F016B8B00D238AA /* NavigationReducer.swift */,
-				0342801F1F016B8B00D238AA /* ThemeReducer.swift */,
-			);
-			name = Reducers;
-			sourceTree = "<group>";
-		};
-		03427FEE1F010CF800D238AA /* States */ = {
-			isa = PBXGroup;
-			children = (
-				034280171F016B2A00D238AA /* AppState.swift */,
-				034280471F01ECB300D238AA /* DatabaseState.swift */,
-				034280181F016B2A00D238AA /* NavigationState.swift */,
-				034280191F016B2A00D238AA /* ThemeState.swift */,
-			);
-			name = States;
-			sourceTree = "<group>";
-		};
-		03427FEF1F010CFF00D238AA /* Actions */ = {
-			isa = PBXGroup;
-			children = (
-				034280301F0171E500D238AA /* ThemeActions.swift */,
-				034280451F01EC6500D238AA /* DatabaseActions.swift */,
-			);
-			name = Actions;
-			sourceTree = "<group>";
-		};
 		03427FF11F010D1200D238AA /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +339,7 @@
 		03427FF41F012D6000D238AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				034280951F03D03100D238AA /* Application.swift */,
 				034280751F02EF4900D238AA /* Database.swift */,
 				034280771F02F29200D238AA /* Theme.swift */,
 				03427FF21F010D4000D238AA /* Item.swift */,
@@ -669,7 +612,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Hero.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
@@ -689,7 +631,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CommonCrypto.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Keys.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyChrono.framework",
 			);
 			outputPaths = (
@@ -714,24 +655,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				034280961F03D03100D238AA /* Application.swift in Sources */,
 				03427FF81F012DCF00D238AA /* Task.swift in Sources */,
-				0342801B1F016B2A00D238AA /* NavigationState.swift in Sources */,
-				0342801A1F016B2A00D238AA /* AppState.swift in Sources */,
-				034280311F0171E500D238AA /* ThemeActions.swift in Sources */,
-				034280461F01EC6500D238AA /* DatabaseActions.swift in Sources */,
 				034280441F01E89A00D238AA /* Color.swift in Sources */,
 				03427FFA1F01312200D238AA /* ItemComponent.swift in Sources */,
 				03427FF31F010D4000D238AA /* Item.swift in Sources */,
 				03427FF61F012D6D00D238AA /* ItemType.swift in Sources */,
 				034280781F02F29200D238AA /* Theme.swift in Sources */,
-				034280221F016B8B00D238AA /* ThemeReducer.swift in Sources */,
-				034280211F016B8B00D238AA /* NavigationReducer.swift in Sources */,
-				034280201F016B8B00D238AA /* AppReducer.swift in Sources */,
-				034280481F01ECB300D238AA /* DatabaseState.swift in Sources */,
 				034280761F02EF4900D238AA /* Database.swift in Sources */,
-				0342801C1F016B2A00D238AA /* ThemeState.swift in Sources */,
 				034280341F01789800D238AA /* Constants.swift in Sources */,
-				0342804A1F01FFA900D238AA /* DatabaseReducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ReSwift
 import GiGi
 
 class LaunchViewController: UIViewController
@@ -18,47 +17,27 @@ class LaunchViewController: UIViewController
 		view.backgroundColor = UIColor(hex: "282A2E")
 	}
 
-	override func viewWillAppear(_ animated: Bool)
+	override func viewDidAppear(_ animated: Bool)
 	{
-		super.viewWillAppear(animated)
-		gigi.subscribe(self)
-		gigi.dispatch(ThemeActions.Load())
-		print("Launching App")
+		super.viewDidAppear(animated)
+		do
+		{
+			try Application.start()
+
+		} catch
+		{
+			print(error)
+		}
+	}
+
+	override var preferredStatusBarStyle: UIStatusBarStyle
+	{
+		return UIStatusBarStyle.lightContent
 	}
 
 	override func didReceiveMemoryWarning()
 	{
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
-	}
-}
-
-extension LaunchViewController : StoreSubscriber
-{
-	typealias StoreSubscriberStateType = AppState
-
-	func newState(state: AppState)
-	{
-		if let error = state.database.error
-		{
-			print(error)
-		} else if let error = state.theme.error
-		{
-			print(error)
-		} else if state.database.privateDatabase != nil
-		{
-			start()
-		} else if state.theme.currentTheme != nil
-		{
-			gigi.dispatch(DatabaseActions.Load())
-		}
-	}
-
-	func start()
-	{
-		UIView.animate(withDuration: 1.0, animations:
-		{
-			self.view.backgroundColor = gigi.state.theme.currentTheme?.dayPallette[1]
-		})
 	}
 }
