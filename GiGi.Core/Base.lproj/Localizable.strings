@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  GiGi
+
+  Created by Sean Cheng on 01/07/2017.
+  Copyright © 2017 Zheng Xingzhi. All rights reserved.
+*/
+
+
+".item.inbox" = "Mindbox";
+".item.welcome" = "Dream & act as one";
+".item.rootFolder" = "Luminnote";
+".item.preferences" = "Preferences";

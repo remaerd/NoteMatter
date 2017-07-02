@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  GiGi
+
+  Created by Sean Cheng on 01/07/2017.
+  Copyright © 2017 Zheng Xingzhi. All rights reserved.
+*/
+
+
+".item.inbox" = "点子收集箱";
+".item.welcome" = "知行合一地活着";
+".item.rootFolder" = "曙光笔记";
+".item.preferences" = "偏好设定";

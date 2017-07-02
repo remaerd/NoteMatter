@@ -12,15 +12,15 @@ public final class ItemComponent: Object
 {
 	public enum ComponentType: String
 	{
-		case body = "components.body"
-		case header1 = "components.header1"
-		case header2 = "components.header2"
-		case header3 = "components.header3"
-		case dashListItem = "components.dashList"
-		case numberedListItem = "components.numberedList"
-		case seperator = "components.seperator"
-		case codeBlock = "components.code"
-		case quote = "components.quote"
+		case body = ".components.body"
+		case header1 = ".components.header1"
+		case header2 = ".components.header2"
+		case header3 = ".components.header3"
+		case dashListItem = ".components.dashList"
+		case numberedListItem = ".components.numberedList"
+		case seperator = ".components.seperator"
+		case codeBlock = ".components.code"
+		case quote = ".components.quote"
 
 		public var searchable : Bool
 		{
@@ -47,6 +47,9 @@ public final class ItemComponent: Object
 
 	public dynamic var unindexedContent: String?
 
+	// TODO: 实现“时光穿越”功能，记录内容的删除时间
+//	public dynamic var deactivated: Date?
+
 	public dynamic var hmac: String?
 
 	public let item = LinkingObjects(fromType: Item.self, property: "components")
@@ -67,5 +70,11 @@ public final class ItemComponent: Object
 		self.identifier = identifier
 		self.componentType = componentType.rawValue
 		item.components.append(self)
+	}
+
+	public var content: String?
+	{
+		guard let type = ComponentType.init(rawValue: self.componentType) else { return nil }
+		if (type.searchable == true) { return indexedContent } else { return unindexedContent }
 	}
 }
