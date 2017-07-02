@@ -16,10 +16,113 @@ public struct Theme
 		case invalidThemeData
 	}
 
+	public enum FontWeight: String
+	{
+		case regular = ""
+		case medium = "-Medium"
+		case semibold = "-Semibold"
+		case bold = "-Bold"
+		case heavy = "-Heavy"
+	}
+
+	public enum FontFamily: String
+	{
+		case sanFranciscoUI
+		case sanFranciscoCompact
+
+		func fontName(fontWeight: FontWeight, fontSize: CGFloat) -> String
+		{
+			switch self
+			{
+			case .sanFranciscoUI: if fontSize > 20 { return ".SFUIDisplay\(fontWeight.rawValue)" } else { return ".SFUIText\(fontWeight.rawValue)"}
+			case .sanFranciscoCompact: if fontSize > 15 { return ".SFCompactDisplay\(fontWeight.rawValue)"} else { return ".SFCompactText\(fontWeight.rawValue)"}
+			}
+		}
+	}
+
 	public static var colors: Theme!
 
 	var dayPallette: [UIColor]
 	var nightPallette: [UIColor]
+
+	public static var CellFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		print(FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size))
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size), size: size)!
+	}()
+
+	public static var SolutionFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .caption1).pointSize
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size), size: size)!
+	}()
+
+	public static var SearchBarTextFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline).pointSize
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .semibold, fontSize: size), size: size)!
+	}()
+
+	public static var SearchBarButtonFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline).pointSize
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .semibold, fontSize: size), size: size)!
+	}()
+
+	public static var TaskCellFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline).pointSize
+		return UIFont(name: FontFamily.sanFranciscoCompact.fontName(fontWeight: .semibold, fontSize: size), size: size)!
+	}()
+
+	public static var TaskHeaderFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2).pointSize
+		return UIFont(name: FontFamily.sanFranciscoCompact.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+
+	public static var TaskDescriptionFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: FontFamily.sanFranciscoCompact.fontName(fontWeight: .regular, fontSize: size), size: size)!
+	}()
+
+	public static var EditorRegularFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size), size: size)!
+	}()
+
+	public static var EditorBoldFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .headline).pointSize
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+
+	public static var EditorHeader1Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title1).pointSize
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .heavy, fontSize: size), size: size)!
+	}()
+
+	public static var EditorHeader2Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2).pointSize
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+
+	public static var EditorHeader3Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title3).pointSize
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+
+	public static var EditorHeader4Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title3).pointSize
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
 
 	public subscript(index: Int) -> UIColor
 	{
@@ -48,8 +151,6 @@ public struct Theme
 				var nightColor = [UIColor]()
 				for color in day { dayColor.append(UIColor(hex: color)) }
 				for color in night { nightColor.append(UIColor(hex: color)) }
-				print(dayColor)
-				print(nightColor)
 				Theme.colors = Theme(dayPallette: dayColor, nightPallette: nightColor)
 				return
 			}

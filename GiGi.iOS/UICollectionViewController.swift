@@ -9,12 +9,19 @@
 import UIKit
 import GiGi
 
-class UICollectionViewController: UIKit.UICollectionViewController
+class UICollectionViewController: UIKit.UICollectionViewController, EnhancedViewController
 {
+	static let headerHeight = UIScreen.main.bounds.height - Defaults.listHeight.float - Constants.statusBarHeight
+
+	var backgroundTintColor : UIColor { return Theme.colors[1] }
+	var pushTransition : TransitionType { return TransitionType.default }
+	var popTransition : TransitionType { return TransitionType.default }
+	var headerHeight : CGFloat {return UICollectionViewController.headerHeight }
+	var searchPlaceHolder : String? { return nil }
+
 	let maskLayer = CALayer()
 	let scrollMaskLayer = CALayer()
 	let maskView = UIView()
-	static let headerHeight = UIScreen.main.bounds.height - Defaults.listHeight.float - Constants.statusBarHeight
 
 	static var defaultLayout : UICollectionViewFlowLayout
 	{
@@ -50,8 +57,11 @@ class UICollectionViewController: UIKit.UICollectionViewController
 		maskView.layer.addSublayer(maskLayer)
 		maskView.layer.addSublayer(scrollMaskLayer)
 
+		collectionView?.mask = maskView
+		renderMask()
+
 		collectionView!.tintColor = Theme.colors[6]
-		collectionView!.backgroundColor = Theme.colors[1]
+		collectionView!.backgroundColor = UIColor.clear
 		collectionView!.alwaysBounceVertical = true
 		collectionView!.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
 		collectionView!.register(FooterCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "footer")
@@ -66,7 +76,8 @@ class UICollectionViewController: UIKit.UICollectionViewController
 	func renderMask()
 	{
 		let maskY = Constants.searchBarHeight + Constants.edgeMargin * 2 + Constants.statusBarHeight
-		let maskHeaderHeight = UICollectionViewController.headerHeight - maskY - collectionView!.contentOffset.y
+		var maskHeaderHeight = UICollectionViewController.headerHeight - maskY - collectionView!.contentOffset.y
+		if (maskHeaderHeight < 0) { maskHeaderHeight = 0 }
 		maskView.frame = CGRect(origin: CGPoint(x: 0, y: collectionView!.contentOffset.y + maskHeaderHeight + maskY), size: collectionView!.bounds.size)
 		maskLayer.frame = CGRect(x: Constants.edgeMargin, y: 0, width: collectionView!.bounds.size.width - Constants.edgeMargin * 2, height: collectionView!.bounds.height)
 		scrollMaskLayer.frame = CGRect(x: collectionView!.bounds.width - 10, y: 0 ,width: 10, height: collectionView!.bounds.height)
@@ -74,7 +85,7 @@ class UICollectionViewController: UIKit.UICollectionViewController
 
 	override var preferredStatusBarStyle: UIStatusBarStyle
 	{
-		if view.backgroundColor?.isVisibleOnWhiteBackground() == true { return UIStatusBarStyle.default }
+		if backgroundTintColor.isVisibleOnWhiteBackground == false { return UIStatusBarStyle.default }
 		return UIStatusBarStyle.lightContent
 	}
 }
