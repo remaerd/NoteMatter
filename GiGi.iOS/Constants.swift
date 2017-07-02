@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 struct Constants
 {
@@ -27,4 +28,5 @@ struct Constants
 	 static let searchBarHeight : CGFloat = 36
 	 static let defaultCornerRadius : CGFloat = 8
 	 static let iconCornerRadius : CGFloat = 13
+	 static let defaultTransitionDuration : TimeInterval = 0.50
 }

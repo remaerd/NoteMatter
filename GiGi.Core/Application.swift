@@ -19,5 +19,6 @@ public struct Application
 		try Theme.load()
 		let privateDatabase = try Realm.load()
 		if privateDatabase.isEmpty == true { try privateDatabase.prepare() }
+		shared = Application(database: privateDatabase)
 	}
 }

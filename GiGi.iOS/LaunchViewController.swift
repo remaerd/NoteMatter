@@ -9,8 +9,13 @@
 import UIKit
 import GiGi
 
-class LaunchViewController: UIViewController
+class LaunchViewController: UIKit.UIViewController
 {
+	enum LaunchException: Error
+	{
+		case rootFolderNotFound
+	}
+
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
@@ -23,7 +28,9 @@ class LaunchViewController: UIViewController
 		do
 		{
 			try Application.start()
-			navigationController?.setViewControllers([ItemListViewController()], animated: animated)
+			guard let item = Application.shared.database.objects(Item.self).filter("identifier == %@", Item.InternalItem.rootFolder.identifier).first else { throw LaunchException.rootFolderNotFound }
+			let controller = ItemListViewController(item: item)
+			navigationController?.setViewControllers([controller], animated: animated)
 
 		} catch
 		{

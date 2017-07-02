@@ -76,7 +76,7 @@ public extension UIColor
 		return NSString(format: "%02x%02x%02x", r,g,b) as String
 	}
 
-	func isVisibleOnWhiteBackground() -> Bool
+	var isVisibleOnWhiteBackground: Bool
 	{
 		var red   : CGFloat = 0
 		var green : CGFloat = 0
