@@ -19,6 +19,7 @@ public struct Theme
 	public enum FontWeight: String
 	{
 		case regular = ""
+		case italic = "-Italic"
 		case medium = "-Medium"
 		case semibold = "-Semibold"
 		case bold = "-Bold"
@@ -92,6 +93,12 @@ public struct Theme
 	{
 		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
 		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size), size: size)!
+	}()
+
+	public static var EditorItalicFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .italic, fontSize: size), size: size)!
 	}()
 
 	public static var EditorBoldFont: UIFont =
