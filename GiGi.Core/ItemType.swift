@@ -70,16 +70,16 @@ public final class LocalItemType: Object, ItemType
 		}
 	}
 
-	public dynamic var identifier: String = ""
-	public dynamic var genre: Int = ItemTypeGenre.undefined.rawValue
+	@objc public dynamic var identifier: String = ""
+	@objc public dynamic var genre: Int = ItemTypeGenre.undefined.rawValue
 
-	public dynamic var title: String?
-	public dynamic var introduction: String?
-	public dynamic var tags: String?
-	public dynamic var icon: String?
-	public dynamic var favouriteIndex: Int = 0
+	@objc public dynamic var title: String?
+	@objc public dynamic var introduction: String?
+	@objc public dynamic var tags: String?
+	@objc public dynamic var icon: String?
+	@objc public dynamic var favouriteIndex: Int = 0
 
-	public dynamic var template: Item?
+	@objc public dynamic var template: Item?
 
 	public override class func primaryKey() -> String?
 	{

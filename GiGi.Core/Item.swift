@@ -37,17 +37,17 @@ public final class Item: Object
 		}
 	}
 
-	public dynamic var identifier: String = ""
+	@objc public dynamic var identifier: String = ""
 
-	public dynamic var itemType: LocalItemType!
+	@objc public dynamic var itemType: LocalItemType!
 
-	private dynamic var _title: String = ""
+	@objc private dynamic var _title: String = ""
 
-	public dynamic var created: Date = Date()
+	@objc public dynamic var created: Date = Date()
 
-	public dynamic var updated: Date = Date()
+	@objc public dynamic var updated: Date = Date()
 
-	public dynamic var opened: Date = Date()
+	@objc public dynamic var opened: Date = Date()
 
 	public let components = List<ItemComponent>()
 

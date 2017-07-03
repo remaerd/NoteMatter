@@ -60,7 +60,7 @@ extension SearchBar: UITextFieldDelegate
 		if let view = leftView { view.isHidden = true }
 	}
 
-	func closeButtonTapped()
+	@objc func closeButtonTapped()
 	{
 		resignFirstResponder()
 	}

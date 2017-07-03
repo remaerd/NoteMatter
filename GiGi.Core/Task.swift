@@ -19,27 +19,27 @@ public final class Task: Object
 		case yearly
 	}
 
-	public dynamic var itemComponent: ItemComponent!
+	@objc public dynamic var itemComponent: ItemComponent!
 
-	public dynamic var start: Date?
+	@objc public dynamic var start: Date?
 
-	public dynamic var end: Date?
+	@objc public dynamic var end: Date?
 
-	public dynamic var completed: Date?
+	@objc public dynamic var completed: Date?
 
-	public dynamic var frequency: Int = FrequencyType.once.rawValue
+	@objc public dynamic var frequency: Int = FrequencyType.once.rawValue
 
-	public dynamic var interval: Int = 1
+	@objc public dynamic var interval: Int = 1
 
-	public dynamic var daysOfWeek: String?
+	@objc public dynamic var daysOfWeek: String?
 
-	public dynamic var daysOfMonth: String?
+	@objc public dynamic var daysOfMonth: String?
 
-	public dynamic var monthsOfYear: String?
+	@objc public dynamic var monthsOfYear: String?
 
-	public dynamic var weeksOfYear: String?
+	@objc public dynamic var weeksOfYear: String?
 
-	public dynamic var daysOfYear: String?
+	@objc public dynamic var daysOfYear: String?
 
 	public override class func indexedProperties() -> [String]
 	{

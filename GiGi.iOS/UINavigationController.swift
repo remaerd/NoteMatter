@@ -55,7 +55,7 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 			}
 			searchBar.isHidden = false
 			let string = NSAttributedString(string: placeholder,
-			                                attributes: [NSForegroundColorAttributeName: Theme.colors[6], NSFontAttributeName: Theme.SearchBarTextFont])
+			                                attributes: [NSAttributedStringKey.foregroundColor: Theme.colors[6], NSAttributedStringKey.font: Theme.SearchBarTextFont])
 			self.searchBar.attributedPlaceholder = string
 		}
 
@@ -117,7 +117,7 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 		return nil
 	}
 
-	func backButtonTapped()
+	@objc func backButtonTapped()
 	{
 		popViewController(animated: true)
 	}
@@ -125,7 +125,7 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 
 extension UINavigationController
 {
-	func panningEdge(gesture: UIScreenEdgePanGestureRecognizer)
+	@objc func panningEdge(gesture: UIScreenEdgePanGestureRecognizer)
 	{
 
 	}

@@ -10,6 +10,27 @@ import RealmSwift
 
 public final class ItemComponent: Object
 {
+	public enum ComponentInnerStyle: String
+	{
+		case bold
+		case italic
+		case strikethrough
+		case placeholder
+		case inlineCode
+
+		public var style: [NSAttributedStringKey: Any]
+		{
+			switch self
+			{
+			case .bold: return [NSAttributedStringKey.font: Theme.EditorBoldFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .italic: return [NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .strikethrough: return [NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
+			case .placeholder: return [NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .inlineCode: return [NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
+			}
+		}
+	}
+
 	public enum ComponentType: String
 	{
 		case body = ".components.body"
@@ -21,6 +42,22 @@ public final class ItemComponent: Object
 		case seperator = ".components.seperator"
 		case codeBlock = ".components.code"
 		case quote = ".components.quote"
+
+		public var style: [NSAttributedStringKey:Any]
+		{
+			switch self
+			{
+			case .body: return [NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .header1: return [ NSAttributedStringKey.font: Theme.EditorHeader2Font, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .header2: return [ NSAttributedStringKey.font: Theme.EditorHeader3Font, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .header3: return [ NSAttributedStringKey.font: Theme.EditorHeader4Font, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .dashListItem: return [ NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .numberedListItem: return [ NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .quote: return [ NSAttributedStringKey.font: Theme.EditorHeader4Font, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .codeBlock: return [ NSAttributedStringKey.font: Theme.EditorHeader3Font, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .seperator: return [ NSAttributedStringKey.font: Theme.EditorHeader3Font, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			}
+		}
 
 		public var searchable : Bool
 		{
@@ -39,18 +76,20 @@ public final class ItemComponent: Object
 		}
 	}
 
-	public dynamic var identifier: String = ""
+	@objc public dynamic var identifier: String = ""
 
-	public dynamic var componentType : String = ComponentType.body.rawValue
-
-	public dynamic var indexedContent: String?
-
-	public dynamic var unindexedContent: String?
+	@objc public dynamic var componentType : String = ComponentType.body.rawValue
 
 	// TODO: 实现“时光穿越”功能，记录内容的删除时间
-//	public dynamic var deactivated: Date?
+	//	public dynamic var deactivated: Date?
 
-	public dynamic var hmac: String?
+	@objc public dynamic var indexedContent: String?
+
+	@objc fileprivate dynamic var _unindexedContent: String?
+
+	@objc private dynamic var _innerStyles: Data?
+
+	public var innerStyles = [(range: NSRange, style: ComponentInnerStyle)]()
 
 	public let item = LinkingObjects(fromType: Item.self, property: "components")
 
@@ -64,6 +103,11 @@ public final class ItemComponent: Object
 		return ["indexedContent"]
 	}
 
+	public override class func  ignoredProperties() -> [String]
+	{
+		return ["content", "innerStyles"]
+	}
+
 	public convenience init(item: Item, componentType: ComponentType, identifier: String = NSUUID().uuidString)
 	{
 		self.init()
@@ -71,10 +115,21 @@ public final class ItemComponent: Object
 		self.componentType = componentType.rawValue
 		item.components.append(self)
 	}
+}
 
+public extension ItemComponent
+{
 	public var content: String?
 	{
-		guard let type = ComponentType.init(rawValue: self.componentType) else { return nil }
-		if (type.searchable == true) { return indexedContent } else { return unindexedContent }
+		get
+		{
+			guard let type = ComponentType.init(rawValue: self.componentType) else { return nil }
+			if let value = indexedContent, type.searchable == true { return value } else if let value = _unindexedContent, type.searchable == false { return value } else { return nil }
+		}
+		set(value)
+		{
+			guard let type = ComponentType.init(rawValue: self.componentType) else { return }
+			if type.searchable == true { indexedContent = value } else if type.searchable == false { _unindexedContent = value }
+		}
 	}
 }
