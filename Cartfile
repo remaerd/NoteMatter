@@ -2,6 +2,7 @@ github "Alamofire/Alamofire"
 github "kishikawakatsumi/KeychainAccess"
 github "notohiro/SwiftyVersionTracker"
 github "naoty/Timepiece"
+github "realm/realm-cocoa"
 
-github "remaerd/Keys" "0.35"
+github "remaerd/Keys"
 github "remaerd/SwiftyChrono"
