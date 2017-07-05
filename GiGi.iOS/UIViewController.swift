@@ -34,4 +34,10 @@ class UIViewController: UIKit.UIViewController, EnhancedViewController
 	var popTransition : TransitionType { return TransitionType.default }
 	var headerHeight : CGFloat {return Constants.topBarHeight + Constants.statusBarHeight }
 	var searchPlaceHolder : String? { return nil }
+
+	override var preferredStatusBarStyle: UIStatusBarStyle
+	{
+		if backgroundTintColor.isVisibleOnWhiteBackground == false { return UIStatusBarStyle.default }
+		return UIStatusBarStyle.lightContent
+	}
 }

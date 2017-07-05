@@ -13,7 +13,7 @@
 		0327C1041F073EBB00EACD3C /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C0FB1F06B99D00EACD3C /* Localization.swift */; };
 		0327C1071F080F2300EACD3C /* ItemEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C1051F080E6F00EACD3C /* ItemEditorViewController.swift */; };
 		0327C1091F081D6300EACD3C /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C1081F081D6300EACD3C /* PreferencesViewController.swift */; };
-		0327C10B1F082AC100EACD3C /* SyntaxRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C10A1F082AC100EACD3C /* SyntaxRenderer.swift */; };
+		0327C10B1F082AC100EACD3C /* ContentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C10A1F082AC100EACD3C /* ContentStorage.swift */; };
 		0327C1131F090E0700EACD3C /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C1111F090E0400EACD3C /* KeyboardToolbar.swift */; };
 		0327C1161F0A2B8200EACD3C /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C1151F0A2B8200EACD3C /* MarkdownParser.swift */; };
 		03427F6E1F00E04600D238AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03427F6D1F00E04600D238AA /* AppDelegate.swift */; };
@@ -56,6 +56,7 @@
 		038A1F191F0AB9D300586B6C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038A1F161F0AB9D200586B6C /* Realm.framework */; };
 		038A1F1A1F0AB9D300586B6C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038A1F171F0AB9D300586B6C /* RealmSwift.framework */; };
 		038A1F1B1F0AB9D300586B6C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038A1F171F0AB9D300586B6C /* RealmSwift.framework */; };
+		038CBF281F0B8E210048F5FA /* ContentStorage-Autofill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038CBF271F0B8E210048F5FA /* ContentStorage-Autofill.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +111,7 @@
 		0327C1021F06BA7D00EACD3C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0327C1051F080E6F00EACD3C /* ItemEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemEditorViewController.swift; sourceTree = "<group>"; };
 		0327C1081F081D6300EACD3C /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		0327C10A1F082AC100EACD3C /* SyntaxRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyntaxRenderer.swift; sourceTree = "<group>"; };
+		0327C10A1F082AC100EACD3C /* ContentStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentStorage.swift; sourceTree = "<group>"; };
 		0327C1111F090E0400EACD3C /* KeyboardToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
 		0327C1151F0A2B8200EACD3C /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
 		03427F6A1F00E04600D238AA /* GiGi.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiGi.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +161,7 @@
 		038A1F131F0AB3B600586B6C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		038A1F161F0AB9D200586B6C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		038A1F171F0AB9D300586B6C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		038CBF271F0B8E210048F5FA /* ContentStorage-Autofill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentStorage-Autofill.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,7 +399,8 @@
 				0327C1141F09FD6C00EACD3C /* Database */,
 				034280951F03D03100D238AA /* Application.swift */,
 				0327C1151F0A2B8200EACD3C /* MarkdownParser.swift */,
-				0327C10A1F082AC100EACD3C /* SyntaxRenderer.swift */,
+				0327C10A1F082AC100EACD3C /* ContentStorage.swift */,
+				038CBF271F0B8E210048F5FA /* ContentStorage-Autofill.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -733,11 +736,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0327C10B1F082AC100EACD3C /* SyntaxRenderer.swift in Sources */,
+				0327C10B1F082AC100EACD3C /* ContentStorage.swift in Sources */,
 				034280961F03D03100D238AA /* Application.swift in Sources */,
 				0327C0FC1F06B99D00EACD3C /* Localization.swift in Sources */,
 				03427FF81F012DCF00D238AA /* Task.swift in Sources */,
 				034280441F01E89A00D238AA /* Color.swift in Sources */,
+				038CBF281F0B8E210048F5FA /* ContentStorage-Autofill.swift in Sources */,
 				03427FFA1F01312200D238AA /* ItemComponent.swift in Sources */,
 				0327C1161F0A2B8200EACD3C /* MarkdownParser.swift in Sources */,
 				03427FF31F010D4000D238AA /* Item.swift in Sources */,

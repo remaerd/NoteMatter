@@ -13,12 +13,13 @@ class ItemEditorViewController: UIViewController
 {
 	override var searchPlaceHolder : String? { return storage.item.title }
 
-	let storage: SyntaxRenderer
+	let storage: ContentStorage
 	let editorView: UITextView
+	var tap: UITapGestureRecognizer?
 
 	init(item:Item)
 	{
-		storage = SyntaxRenderer(item:item)
+		storage = ContentStorage(item:item)
 
 		let manager = NSLayoutManager()
 
@@ -29,10 +30,23 @@ class ItemEditorViewController: UIViewController
 		storage.addLayoutManager(manager)
 
 		editorView = UITextView(frame: CGRect.zero, textContainer: container)
-		editorView.backgroundColor = Theme.colors[0]
-		editorView.layer.cornerRadius = Constants.defaultCornerRadius
 
 		super.init(nibName: nil, bundle: nil)
+
+		editorView.delegate = self
+		editorView.textContainerInset = UIEdgeInsets(top: Constants.edgeMargin, left: Constants.edgeMargin, bottom: Constants.edgeMargin, right: Constants.edgeMargin)
+		editorView.backgroundColor = Theme.colors[0]
+		editorView.textColor = Theme.colors[6]
+		editorView.font = Theme.EditorRegularFont
+		editorView.layer.cornerRadius = Constants.defaultCornerRadius
+//		editorView.tintColor = Theme.colors[0]
+		editorView.isEditable = false
+		editorView.isSelectable = false
+		editorView.keyboardDismissMode = .interactive
+		editorView.alwaysBounceVertical = true
+
+		tap = UITapGestureRecognizer(target: self, action: #selector(didTappedEditor))
+		editorView.addGestureRecognizer(tap!)
 	}
 
 	required init?(coder aDecoder: NSCoder)
@@ -50,7 +64,33 @@ class ItemEditorViewController: UIViewController
 		editorView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 		editorView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 		editorView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight).isActive = true
-		editorView.contentInset = UIEdgeInsets.zero
-		editorView.textContainerInset = UIEdgeInsets(top: 0, left: Constants.edgeMargin, bottom: 0, right: Constants.edgeMargin)
+	}
+}
+
+extension ItemEditorViewController: UITextViewDelegate
+{
+	@objc func didTappedEditor()
+	{
+		tap!.isEnabled = false
+		editorView.isEditable = true
+		editorView.isSelectable = true
+		editorView.becomeFirstResponder()
+	}
+
+	func textViewDidBeginEditing(_ textView: UITextView)
+	{
+		let range = textView.selectedRange
+	}
+
+	func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
+	{
+		return true
+	}
+
+	func textViewDidEndEditing(_ textView: UITextView)
+	{
+		editorView.isEditable = false
+		editorView.isSelectable = false
+		tap?.isEnabled = true
 	}
 }

@@ -93,6 +93,8 @@ public final class ItemComponent: Object
 
 	public let item = LinkingObjects(fromType: Item.self, property: "components")
 
+	public let task = LinkingObjects(fromType: Task.self, property: "itemComponent")
+
 	public override class func primaryKey() -> String?
 	{
 		return "identifier"
@@ -108,23 +110,23 @@ public final class ItemComponent: Object
 		return ["content", "innerStyles"]
 	}
 
-	public convenience init(item: Item, componentType: ComponentType, identifier: String = NSUUID().uuidString)
+	public convenience init(item: Item, componentType: ComponentType, index: Int? = nil, identifier: String = NSUUID().uuidString)
 	{
 		self.init()
 		self.identifier = identifier
 		self.componentType = componentType.rawValue
-		item.components.append(self)
+		if let at = index { item.components.insert(self, at: at) } else { item.components.append(self) }
 	}
 }
 
 public extension ItemComponent
 {
-	public var content: String?
+	public var content: String
 	{
 		get
 		{
-			guard let type = ComponentType.init(rawValue: self.componentType) else { return nil }
-			if let value = indexedContent, type.searchable == true { return value } else if let value = _unindexedContent, type.searchable == false { return value } else { return nil }
+			guard let type = ComponentType.init(rawValue: self.componentType) else { return "" }
+			if let value = indexedContent, type.searchable == true { return value } else if let value = _unindexedContent, type.searchable == false { return value } else { return "" }
 		}
 		set(value)
 		{
