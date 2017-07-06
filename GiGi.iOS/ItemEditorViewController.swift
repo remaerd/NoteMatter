@@ -45,7 +45,7 @@ class ItemEditorViewController: UIViewController
 		editorView.keyboardDismissMode = .interactive
 		editorView.alwaysBounceVertical = true
 
-		tap = UITapGestureRecognizer(target: self, action: #selector(didTappedEditor))
+		tap = UITapGestureRecognizer(target: self, action: #selector(didTappedEditor(gesture:)))
 		editorView.addGestureRecognizer(tap!)
 	}
 
@@ -69,17 +69,17 @@ class ItemEditorViewController: UIViewController
 
 extension ItemEditorViewController: UITextViewDelegate
 {
-	@objc func didTappedEditor()
+	@objc func didTappedEditor(gesture:UITapGestureRecognizer)
 	{
 		tap!.isEnabled = false
 		editorView.isEditable = true
 		editorView.isSelectable = true
+		if let range = selectedRangeInTextView() { editorView.selectedRange = range }
 		editorView.becomeFirstResponder()
 	}
 
 	func textViewDidBeginEditing(_ textView: UITextView)
 	{
-		let range = textView.selectedRange
 	}
 
 	func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
@@ -92,5 +92,18 @@ extension ItemEditorViewController: UITextViewDelegate
 		editorView.isEditable = false
 		editorView.isSelectable = false
 		tap?.isEnabled = true
+	}
+
+	func selectedRangeInTextView() -> NSRange?
+	{
+		let beginning = editorView.beginningOfDocument
+		let selectedRange = editorView.selectedTextRange
+		if let selectionStart = selectedRange?.start, let selectionEnd = selectedRange?.end
+		{
+			let location = editorView.offset(from: beginning, to: selectionStart)
+			let length = editorView.offset(from: selectionStart, to: selectionEnd)
+			return NSRange(location: location, length: length)
+		}
+		return nil
 	}
 }

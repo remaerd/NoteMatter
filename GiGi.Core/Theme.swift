@@ -62,13 +62,13 @@ public struct Theme
 	public static var SearchBarTextFont: UIFont =
 	{
 		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline).pointSize
-		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .semibold, fontSize: size), size: size)!
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .medium, fontSize: size), size: size)!
 	}()
 
 	public static var SearchBarButtonFont: UIFont =
 	{
 		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline).pointSize
-		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .semibold, fontSize: size), size: size)!
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .medium, fontSize: size), size: size)!
 	}()
 
 	public static var TaskCellFont: UIFont =

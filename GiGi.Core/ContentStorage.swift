@@ -8,6 +8,8 @@
 
 import Foundation
 
+let regex = try! NSRegularExpression(pattern: "\n", options: NSRegularExpression.Options.caseInsensitive)
+
 public class ContentStorage : NSTextStorage
 {
 	public let item: Item
@@ -37,6 +39,15 @@ public class ContentStorage : NSTextStorage
 	public init(item:Item)
 	{
 		self.item = item
+		super.init()
+		reload()
+	}
+
+	public override init(attributedString attrStr: NSAttributedString)
+	{
+		self.backingStore = NSMutableAttributedString(attributedString: attrStr)
+		item = Item()
+		print(attrStr)
 		super.init()
 		reload()
 	}
@@ -77,6 +88,8 @@ extension ContentStorage
 		var string = str
 		var stringRange = range
 		autoFillRelativeCharacter(&string, range: &stringRange)
+		let replacedString = (backingStore.string as NSString).substring(with: range)
+
 		beginEditing()
 		backingStore.replaceCharacters(in: stringRange, with: string)
 		let length = (string as NSString).length - stringRange.length
@@ -84,7 +97,7 @@ extension ContentStorage
 		requireUpdate = true
 		endEditing()
 
-		replaceItemComponents(range: stringRange, string: string)
+		replaceComponents(range: stringRange, replacedString: replacedString, newString: string)
 	}
 
 	public override func setAttributes(_ attrs: [NSAttributedStringKey : Any]?, range: NSRange)
@@ -136,9 +149,12 @@ public extension ContentStorage
 		var currentIndex = 0
 		backingStore = NSMutableAttributedString()
 
-		for component: ItemComponent in item.components
+		for i in 0..<item.components.count
 		{
-			let attributedContent = NSMutableAttributedString(string: component.content + "\n")
+			let component = item.components[i]
+			var content = component.content
+			if i < item.components.count - 1 { content += "\n" }
+			let attributedContent = NSMutableAttributedString(string: content)
 			currentIndex += (component.content as NSString).length
 			for (range, style) in component.innerStyles
 			{
@@ -148,67 +164,101 @@ public extension ContentStorage
 		}
 	}
 
-	public func replaceItemComponents(range: NSRange, string: String)
+	func replaceComponents(range: NSRange, replacedString: String, newString: String)
 	{
 		Application.shared.database.beginWrite()
+		let selectedParagraphIndex = currentParagraphIndex(range: range)
+		let selectedParagraphRange = (backingStore.string as NSString).paragraphRange(for: NSRange(location: range.location, length: 0))
+		let selectedParagraphString = (backingStore.string as NSString).substring(with: selectedParagraphRange).replacingOccurrences(of: "\n", with: "")
 
-		var paragraphLocation = 0
-		var paragraphIndex = 0
-		let paragraphRange = (backingStore.string as NSString).paragraphRange(for: NSRange(location: range.location, length: 0))
-		var paragraphString = (backingStore.string as NSString).substring(with: paragraphRange)
-		paragraphString = paragraphString.replacingOccurrences(of: "\n", with: "")
-
-		// 获得当前光标所在的段落 Index
-		while range.location > paragraphLocation
-		{
-			print(paragraphIndex, item.components.count)
-			if paragraphIndex >= item.components.count - 1 { break } else
-			{
-				paragraphLocation += (item.components[paragraphIndex].content as NSString).length
-				print("\(range.location), \(paragraphLocation)")
-				if (range.location > paragraphLocation) { paragraphIndex += 1 }
-			}
-		}
-
-		print(paragraphIndex)
-
-		let replacedString = (backingStore.string as NSString).substring(with: range)
-		var createdComponents = (string.split(separator: "\n", maxSplits: Int.max, omittingEmptySubsequences: false) as [Substring])
-		var deletedComponents = (replacedString.split(separator: "\n", maxSplits: Int.max, omittingEmptySubsequences: false) as [Substring])
-
-		if deletedComponents.count > 1
-		{
-			while deletedComponents.isEmpty
-			{
-				item.components.remove(objectAtIndex: paragraphIndex + 1)
-				deletedComponents.removeFirst()
-			}
-		}
-
-		if item.components.isEmpty
+		// 当数据库中没有记录任何 Component 时，创建一个新的 Component
+		if (item.components.isEmpty)
 		{
 			let component = ItemComponent(item: item, componentType: .body)
-			component.content = String(createdComponents[0])
+			component.content = newString
 		}
 
-		if createdComponents.count > 1
+		if range.length != 0
 		{
-			for i in 0..<createdComponents.count
+			// 如果替换数据中没有换行，则只更新当前这行的数据
+			if replacedString.contains("\n") == false { item.components[selectedParagraphIndex].content = selectedParagraphString } else
 			{
-				if i == 0 {  } else
+				// 分析替换数据中存在多少次换行
+				let deleteComponents = replacedString.split(separator: "\n")
+
+				// 如果换了一次行，则删掉当前段落的下一个 Component
+				if (deleteComponents.isEmpty) { Application.shared.database.delete(item.components[selectedParagraphIndex + 1]) } else
 				{
-					let index = paragraphIndex + i
-					let component: ItemComponent
-					if (index >= item.components.count) { component = ItemComponent(item: item, componentType: .body) } else { component = ItemComponent(item: item, componentType: .body, index: index) }
-					component.content = String(createdComponents[i])
+					// 如果存在多次换行，则删掉当前段落接下之后的全部 Components
+					for _ in deleteComponents { Application.shared.database.delete(item.components[selectedParagraphIndex + 1]) }
+				}
+
+				// 更新当前段落的 Component
+				item.components[selectedParagraphIndex].content = selectedParagraphString
+			}
+		}
+
+		if (newString as NSString).length != 0
+		{
+			// 如果新数据中没有换行，则只更新当前这行的数据
+			if newString.contains("\n") == false { item.components[selectedParagraphIndex].content = selectedParagraphString } else
+			{
+				// 分析新数据中存在多少次换行
+				let createComponents = newString.split(separator: "\n")
+
+				// 段落开始
+				if (range.location == selectedParagraphRange.location)
+				{
+					if (createComponents.isEmpty)
+					{
+						let component = ItemComponent(item: item, componentType: .body, index: selectedParagraphIndex)
+						component.content = String("")
+					} else
+					{
+						for i in 0..<createComponents.count
+						{
+							let component = ItemComponent(item: item, componentType: .body, index: selectedParagraphIndex + i)
+							component.content = String(createComponents[i])
+						}
+					}
+				} else
+				{
+					// 段落中间或结尾
+					if (createComponents.isEmpty)
+					{
+						item.components[selectedParagraphIndex].content = selectedParagraphString
+
+						let component = ItemComponent(item: item, componentType: .body, index: selectedParagraphIndex + 1)
+						let nextParagraphRange = (backingStore.string as NSString).paragraphRange(for: NSRange(location: range.location + 1, length: 0))
+						let nextParagraphString = (backingStore.string as NSString).substring(with: nextParagraphRange).replacingOccurrences(of: "\n", with: "")
+						component.content = nextParagraphString
+					} else
+					{
+						for i in 0..<createComponents.count
+						{
+							let index = selectedParagraphIndex + i
+							let component: ItemComponent
+							if (index >= item.components.count) { component = ItemComponent(item: item, componentType: .body) } else { component = ItemComponent(item: item, componentType: .body, index: index) }
+							component.content = String(createComponents[i]).replacingOccurrences(of: "\n", with: "")
+						}
+					}
 				}
 			}
 		}
 
-		item.components[paragraphIndex].content = paragraphString
-
-		print(item.components)
-
+		// 获得当前这行
 		do { try Application.shared.database.commitWrite() } catch { print("Error") }
+	}
+
+	func currentParagraphIndex(range: NSRange) -> Int
+	{
+		var paragraphIndex = 0
+		let matches = regex.matches(in: backingStore.string, options: .withoutAnchoringBounds, range: NSRange(location: 0, length: (backingStore.string as NSString).length))
+		for i in 0..<matches.count
+		{
+			let match = matches[i]
+			if (match.range.location < range.location) { paragraphIndex += 1 } else { break }
+		}
+		return paragraphIndex
 	}
 }
