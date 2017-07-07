@@ -118,7 +118,13 @@ class Cell: UICollectionViewCell
 	func redrawSeperator()
 	{
 		if let seperator = _seperator { seperator.removeFromSuperlayer() }
-		if icon != nil { _seperator = drawSeperator(y: frame.height - 1, left: 55, right: 0) } else { _seperator = drawSeperator(y: frame.height - 1, left: 15, right: 0) }
+		if icon != nil
+		{
+			_seperator = drawSeperator(y: frame.height - 1, left: 55, right: Constants.edgeMargin)
+		} else
+		{
+			_seperator = drawSeperator(y: frame.height - 1, left: 15, right: Constants.edgeMargin)
+		}
 		contentView.layer.addSublayer(_seperator!)
 	}
 

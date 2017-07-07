@@ -16,6 +16,7 @@ class ItemEditorViewController: UIViewController
 	let storage: ContentStorage
 	let editorView: UITextView
 	var tap: UITapGestureRecognizer?
+	var editorTopConstraint: NSLayoutConstraint?
 
 	init(item:Item)
 	{
@@ -45,6 +46,8 @@ class ItemEditorViewController: UIViewController
 		editorView.keyboardDismissMode = .interactive
 		editorView.alwaysBounceVertical = true
 
+		if Theme.isMorning { editorView.keyboardAppearance = .light } else { editorView.keyboardAppearance = .dark }
+
 		tap = UITapGestureRecognizer(target: self, action: #selector(didTappedEditor(gesture:)))
 		editorView.addGestureRecognizer(tap!)
 	}
@@ -63,7 +66,19 @@ class ItemEditorViewController: UIViewController
 		editorView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 		editorView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 		editorView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-		editorView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight).isActive = true
+
+		editorTopConstraint = editorView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight)
+		editorTopConstraint!.isActive = true
+	}
+
+	override var prefersStatusBarHidden: Bool
+	{
+		return editorView.isEditable
+	}
+
+	override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation
+	{
+		return UIStatusBarAnimation.slide
 	}
 }
 
@@ -74,8 +89,21 @@ extension ItemEditorViewController: UITextViewDelegate
 		tap!.isEnabled = false
 		editorView.isEditable = true
 		editorView.isSelectable = true
-		if let range = selectedRangeInTextView() { editorView.selectedRange = range }
+		let beginning = editorView.beginningOfDocument
+		let range = editorView.characterRange(at: gesture.location(in: editorView))
+		if let selectionStart = range?.start
+		{
+			let location = editorView.offset(from: beginning, to: selectionStart)
+			editorView.selectedRange = NSRange(location: location + 1, length: 0)
+		}
 		editorView.becomeFirstResponder()
+		self.editorTopConstraint?.constant = 0
+		UIView.animate(withDuration: Constants.defaultTransitionDuration / 2)
+		{
+			self.view.layoutIfNeeded()
+		}
+		hideSearchBar(hidden: true)
+		setNeedsStatusBarAppearanceUpdate()
 	}
 
 	func textViewDidBeginEditing(_ textView: UITextView)
@@ -92,18 +120,13 @@ extension ItemEditorViewController: UITextViewDelegate
 		editorView.isEditable = false
 		editorView.isSelectable = false
 		tap?.isEnabled = true
-	}
 
-	func selectedRangeInTextView() -> NSRange?
-	{
-		let beginning = editorView.beginningOfDocument
-		let selectedRange = editorView.selectedTextRange
-		if let selectionStart = selectedRange?.start, let selectionEnd = selectedRange?.end
+		self.editorTopConstraint?.constant = Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight
+		UIView.animate(withDuration: Constants.defaultTransitionDuration / 2)
 		{
-			let location = editorView.offset(from: beginning, to: selectionStart)
-			let length = editorView.offset(from: selectionStart, to: selectionEnd)
-			return NSRange(location: location, length: length)
+			self.view.layoutIfNeeded()
 		}
-		return nil
+		hideSearchBar(hidden: false)
+		setNeedsStatusBarAppearanceUpdate()
 	}
 }

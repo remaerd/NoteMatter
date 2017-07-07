@@ -50,6 +50,7 @@ extension SearchBar: UITextFieldDelegate
 
 	func textFieldDidBeginEditing(_ textField: UITextField)
 	{
+		if (Theme.isMorning) { keyboardAppearance = .light } else { keyboardAppearance = .dark }
 		let image = UIImage(named: "Navigation-Close")!
 		let closeButton = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: image.size.width + 15, height: image.size.height - 1)))
 		closeButton.tintColor = Theme.colors[5]

@@ -18,7 +18,7 @@ class ItemListViewController: UICollectionViewController
 	init(item: Item)
 	{
 		self.item = item
-		super.init(collectionViewLayout: UICollectionViewController.defaultLayout)
+		super.init()
 	}
 
 	required init?(coder aDecoder: NSCoder)
@@ -57,7 +57,7 @@ extension ItemListViewController
 			cell.tintColor = Theme.colors[6]
 		} else
 		{
-			cell.titleLabel.text = LOCALE(".item.preferences")
+			cell.titleLabel.text = ".item.preferences".localized
 			cell.accessory = Cell.AccessoryType.arrow
 			cell.icon = UIImage(named:"List-Preferences")
 		}

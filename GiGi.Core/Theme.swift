@@ -49,7 +49,6 @@ public struct Theme
 	public static var CellFont: UIFont =
 	{
 		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		print(FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size))
 		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size), size: size)!
 	}()
 
@@ -138,13 +137,16 @@ public struct Theme
 		{
 		case 1: pallette = dayPallette; break
 		case 2: pallette = nightPallette; break
-		default:
-			let now = Date()
-			let nowInt = now.hour * 100 + now.minute
-			if nowInt > Defaults.dayTime.int && nowInt < Defaults.nightTime.int { pallette = dayPallette } else { pallette = nightPallette }
-			break
+		default: if Theme.isMorning { pallette = dayPallette } else { pallette = nightPallette }; break
 		}
 		return pallette[index]
+	}
+
+	public static var isMorning: Bool
+	{
+		let now = Date()
+		let nowInt = now.hour * 100 + now.minute
+		if nowInt > Defaults.dayTime.int && nowInt < Defaults.nightTime.int { return true } else { return false }
 	}
 
 	static func load() throws
