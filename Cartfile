@@ -3,6 +3,7 @@ github "kishikawakatsumi/KeychainAccess"
 github "notohiro/SwiftyVersionTracker"
 github "naoty/Timepiece"
 github "realm/realm-cocoa"
+github "getsentry/sentry-cocoa"
 
 github "remaerd/Keys"
 github "remaerd/SwiftyChrono"
