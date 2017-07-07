@@ -11,12 +11,11 @@ import GiGi
 
 class UICollectionViewController: UIKit.UICollectionViewController, EnhancedViewController
 {
-	static let headerHeight = UIScreen.main.bounds.height - Defaults.listHeight.float - Constants.statusBarHeight
+	static let headerHeight = UIScreen.main.bounds.height - Defaults.listHeight.float
 
 	var backgroundTintColor : UIColor { return Theme.colors[1] }
 	var pushTransition : TransitionType { return TransitionType.default }
 	var popTransition : TransitionType { return TransitionType.default }
-	var headerHeight : CGFloat {return UICollectionViewController.headerHeight }
 	var searchPlaceHolder : String? { return nil }
 
 	let maskLayer = CALayer()
@@ -50,9 +49,16 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 	{
 		super.loadView()
 
+		customBackButton()
 		maskLayer.cornerRadius = Constants.defaultCornerRadius
 		maskLayer.backgroundColor = UIColor.black.cgColor
 		scrollMaskLayer.backgroundColor = UIColor.black.cgColor
+		automaticallyAdjustsScrollViewInsets = false
+		if #available(iOS 11.0, *) {
+			collectionView?.contentInsetAdjustmentBehavior = .never
+		} else {
+			// Fallback on earlier versions
+		}
 
 		maskView.layer.addSublayer(maskLayer)
 		maskView.layer.addSublayer(scrollMaskLayer)
@@ -98,7 +104,7 @@ extension UICollectionViewController
 		if (kind == UICollectionElementKindSectionHeader) { view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) } else
 		{
 			view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footer", for: indexPath)
-			let height = Defaults.listHeight.float - (CGFloat)(collectionView.numberOfItems(inSection: 0)) * Constants.cellHeight - Constants.defaultCornerRadius
+			let height = Defaults.listHeight.float - (CGFloat)(collectionView.numberOfItems(inSection: 0)) * Constants.cellHeight - Constants.defaultCornerRadius / 2
 			if (height > Constants.defaultCornerRadius * 2) { (view as? FooterCell)?.cornerRadiusHeight = height }
 		}
 		return view

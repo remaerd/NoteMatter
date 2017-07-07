@@ -11,26 +11,21 @@ import GiGi
 
 class UINavigationController: UIKit.UINavigationController, UINavigationControllerDelegate
 {
-	var leftEdge: UIScreenEdgePanGestureRecognizer!
-	var rightEdge: UIScreenEdgePanGestureRecognizer!
+	var currentEdgeIndicator : EdgeIndicator?
+	lazy var leftEdgeIndicator = EdgeIndicator(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Constants.cellHeight), cornerType: .left)
+	lazy var rightEdgeIndicator = EdgeIndicator(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Constants.cellHeight), cornerType: .right)
+
+	var leftEdgeGesture : UIScreenEdgePanGestureRecognizer?
+	var rightEdgeGesture : UIScreenEdgePanGestureRecognizer?
 
 	lazy var searchBar: SearchBar = SearchBar()
 
 	override func loadView()
 	{
 		super.loadView()
-
 		isNavigationBarHidden = true
 		delegate = self
-
-		leftEdge = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(panningEdge(gesture:)))
-		leftEdge.isEnabled = false
-
-		rightEdge = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(panningEdge(gesture:)))
-		rightEdge.isEnabled = false
-
-		view.addGestureRecognizer(leftEdge)
-		view.addGestureRecognizer(rightEdge)
+		enableEdgeGesture()
 	}
 
 	func navigationController(_ navigationController: UIKit.UINavigationController,
@@ -59,6 +54,9 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 			self.searchBar.attributedPlaceholder = string
 		}
 
+		if let items = viewController.navigationItem.leftBarButtonItems { searchBar.leftView = buttonFromBarButtonItem(item: items[0]) } else { searchBar.leftView = UIView() }
+		if let items = viewController.navigationItem.rightBarButtonItems { searchBar.rightView = buttonFromBarButtonItem(item: items[0]) } else { searchBar.rightView = UIView() }
+
 		UIView.animate(withDuration: Constants.defaultTransitionDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations:
 			{
 				if (newController.searchPlaceHolder == nil ) { self.searchBar.alpha = 0 } else { self.searchBar.alpha = 1 }
@@ -67,16 +65,15 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 			{ (_) in
 				if newController.searchPlaceHolder == nil { self.searchBar.isHidden = true } else { self.searchBar.isHidden = false }
 		})
+	}
 
-		if (self.viewControllers.count <= 1) { searchBar.leftView = UIView() } else
-		{
-			let image = UIImage(named: "Navigation-Back")!
-			let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: image.size.width + 15, height: image.size.height - 1)))
-			button.tintColor = Theme.colors[5]
-			button.setImage(image, for: .normal)
-			button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-			searchBar.leftView = button
-		}
+	func buttonFromBarButtonItem(item: UIBarButtonItem) -> UIButton
+	{
+		let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: item.image!.size.width + 15, height: item.image!.size.height - 1)))
+		button.tintColor = Theme.colors[5]
+		button.setImage(item.image!, for: .normal)
+		button.addTarget(item.target!, action: item.action!, for: .touchUpInside)
+		return button
 	}
 
 	func navigationController(_ navigationController: UIKit.UINavigationController,
@@ -87,9 +84,8 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 		guard let fromVC = fromVC as? EnhancedViewController else { return nil }
 		guard let toVC = toVC as? EnhancedViewController else { return nil }
 
-		switch operation
+		if (operation == .push)
 		{
-		case .push:
 			switch toVC.pushTransition
 			{
 			case .default: return DefaultTransition(direction: .left)
@@ -98,7 +94,8 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 			case .bottom: return DefaultTransition(direction: .bottom)
 			default: return nil
 			}
-		case .pop:
+		} else if (operation == .pop)
+		{
 			switch fromVC.popTransition
 			{
 			case .default: return DefaultTransition(direction: .right)
@@ -107,104 +104,13 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 			case .bottom: return DefaultTransition(direction: .bottom)
 			default: return nil
 			}
-		default: return nil
 		}
+		return nil
 	}
 
 	func navigationController(_ navigationController: UIKit.UINavigationController,
 	                          interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
 	{
 		return nil
-	}
-
-	@objc func backButtonTapped()
-	{
-		popViewController(animated: true)
-	}
-}
-
-extension UINavigationController
-{
-	@objc func panningEdge(gesture: UIScreenEdgePanGestureRecognizer)
-	{
-
-	}
-}
-
-class DefaultTransition: NSObject, UIViewControllerAnimatedTransitioning
-{
-	enum DirectionType
-	{
-		case left
-		case right
-		case bottom
-	}
-
-	let direction: DirectionType
-
-	init(direction:DirectionType)
-	{
-		self.direction = direction
-	}
-
-	func animateTransition(using transitionContext: UIViewControllerContextTransitioning)
-	{
-		let fromVC = transitionContext.viewController(forKey: .from)!
-		let toVC = transitionContext.viewController(forKey: .to)!
-		let fromView = fromVC.view.snapshotView(afterScreenUpdates: false)
-		let toView = toVC.view.snapshotView(afterScreenUpdates: true)
-
-		func finishTransition()
-		{
-			toView?.removeFromSuperview()
-			fromView?.removeFromSuperview()
-			transitionContext.containerView.addSubview(toVC.view)
-			transitionContext.completeTransition(true)
-		}
-
-		transitionContext.containerView.addSubview(fromView!)
-		transitionContext.containerView.addSubview(toView!)
-
-		switch (direction)
-		{
-		case .left: toView?.transform = CGAffineTransform.init(translationX: UIScreen.main.bounds.width, y: 0)
-		case .right: toView?.transform = CGAffineTransform.init(translationX: -UIScreen.main.bounds.width, y: 0)
-		case .bottom: toView?.transform = CGAffineTransform.init(translationX: 0, y: UIScreen.main.bounds.height)
-		}
-
-		fromVC.view.removeFromSuperview()
-
-		let duration = transitionDuration(using: transitionContext)
-		if (direction == .bottom)
-		{
-			UIView.animate(withDuration: duration / 2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations:
-			{
-				fromView?.transform = CGAffineTransform.init(translationX: 0, y: UIScreen.main.bounds.height)
-			}, completion: nil)
-
-			UIView.animate(withDuration: duration / 2, delay: duration / 2, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations:
-			{
-				toView?.transform = CGAffineTransform.identity
-			}, completion: { _ in finishTransition() })
-		} else
-		{
-			UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseOut, animations:
-			{
-				if (self.direction == .left)
-				{
-					toView?.transform = CGAffineTransform.identity
-					fromView?.transform = CGAffineTransform.init(translationX: -UIScreen.main.bounds.width, y: 0)
-				} else
-				{
-					toView?.transform = CGAffineTransform.identity
-					fromView?.transform = CGAffineTransform.init(translationX: UIScreen.main.bounds.width, y: 0)
-				}
-			}, completion: { _ in finishTransition() })
-		}
-	}
-
-	func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
-	{
-		return TimeInterval(Constants.defaultTransitionDuration)
 	}
 }
