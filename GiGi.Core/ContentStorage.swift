@@ -120,9 +120,9 @@ extension ContentStorage
 		func enumerateAutoDetectableText(_ range: NSRange)
 		{
 			dataDetector.enumerateMatches(in: backingStore.string, options: [], range: range)
-			{
-				(match, _, _) -> Void in
-				if match != nil {
+			{ (match, _, _) -> Void in
+				if match != nil
+				{
 					switch match!.resultType
 					{
 					case NSTextCheckingResult.CheckingType.link: if let url = match!.url { addAttribute(NSAttributedStringKey.link, value: url, range: match!.range) }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031F6C8F1F0E935900D0E310 /* UINavigationController-Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F6C8E1F0E935900D0E310 /* UINavigationController-Edge.swift */; };
+		031F6C931F0F251B00D0E310 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F6C921F0F251B00D0E310 /* Button.swift */; };
+		031F6C961F0F2F8A00D0E310 /* DefaultTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F6C951F0F2F8A00D0E310 /* DefaultTransition.swift */; };
+		031F6C981F0F70A900D0E310 /* Sentry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031F6C971F0F70A800D0E310 /* Sentry.framework */; };
 		0327C0FA1F056BE200EACD3C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C0F81F056B7C00EACD3C /* View.swift */; };
 		0327C0FC1F06B99D00EACD3C /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C0FB1F06B99D00EACD3C /* Localization.swift */; };
 		0327C1031F06BAD400EACD3C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0327C1011F06BA7B00EACD3C /* Localizable.strings */; };
@@ -105,6 +109,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		031F6C8E1F0E935900D0E310 /* UINavigationController-Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController-Edge.swift"; sourceTree = "<group>"; };
+		031F6C921F0F251B00D0E310 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		031F6C951F0F2F8A00D0E310 /* DefaultTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTransition.swift; sourceTree = "<group>"; };
+		031F6C971F0F70A800D0E310 /* Sentry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sentry.framework; path = Carthage/Build/iOS/Sentry.framework; sourceTree = "<group>"; };
 		0327C0F81F056B7C00EACD3C /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		0327C0FB1F06B99D00EACD3C /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		0327C1001F06BA7B00EACD3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -170,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				038A1F141F0AB3BE00586B6C /* CloudKit.framework in Frameworks */,
+				031F6C981F0F70A900D0E310 /* Sentry.framework in Frameworks */,
 				038A1F151F0AB3C000586B6C /* StoreKit.framework in Frameworks */,
 				038A1F1A1F0AB9D300586B6C /* RealmSwift.framework in Frameworks */,
 				03427F8C1F00E0E700D238AA /* GiGi.framework in Frameworks */,
@@ -210,6 +219,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		031F6C941F0F2F7A00D0E310 /* Custom Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				031F6C951F0F2F8A00D0E310 /* DefaultTransition.swift */,
+			);
+			path = "Custom Transitions";
+			sourceTree = "<group>";
+		};
 		0327C1141F09FD6C00EACD3C /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +268,7 @@
 				0342809E1F03E00F00D238AA /* Constants.swift */,
 				034280A61F04109C00D238AA /* Custom Views */,
 				03427F7E1F00E09300D238AA /* Custom View Controllers */,
+				031F6C941F0F2F7A00D0E310 /* Custom Transitions */,
 				03427F7F1F00E09D00D238AA /* View Controllers */,
 				03427FE81F010AF900D238AA /* Enhancements */,
 				03427F7D1F00E07700D238AA /* Miscellanous */,
@@ -276,6 +294,7 @@
 				034280AD1F043E7F00D238AA /* UIViewController.swift */,
 				0342809C1F03DC9600D238AA /* UICollectionViewController.swift */,
 				034280A41F04083D00D238AA /* UINavigationController.swift */,
+				031F6C8E1F0E935900D0E310 /* UINavigationController-Edge.swift */,
 			);
 			name = "Custom View Controllers";
 			sourceTree = "<group>";
@@ -365,6 +384,7 @@
 		03427FB61F00F72E00D238AA /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				031F6C971F0F70A800D0E310 /* Sentry.framework */,
 				038A1F161F0AB9D200586B6C /* Realm.framework */,
 				038A1F171F0AB9D300586B6C /* RealmSwift.framework */,
 				034280A21F03FD2C00D238AA /* Timepiece.framework */,
@@ -430,6 +450,7 @@
 				034280A71F0410B700D238AA /* Cell.swift */,
 				0327C1111F090E0400EACD3C /* KeyboardToolbar.swift */,
 				034280AB1F0410CE00D238AA /* SearchBar.swift */,
+				031F6C921F0F251B00D0E310 /* Button.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -683,6 +704,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Sentry.framework",
 			);
 			outputPaths = (
 			);
@@ -718,17 +740,20 @@
 				0342809F1F03E00F00D238AA /* Constants.swift in Sources */,
 				0327C1131F090E0700EACD3C /* KeyboardToolbar.swift in Sources */,
 				0342809D1F03DC9600D238AA /* UICollectionViewController.swift in Sources */,
+				031F6C931F0F251B00D0E310 /* Button.swift in Sources */,
 				0327C1041F073EBB00EACD3C /* Localization.swift in Sources */,
 				034280A81F0410B700D238AA /* Cell.swift in Sources */,
 				03427F701F00E04600D238AA /* LaunchViewController.swift in Sources */,
 				0327C1091F081D6300EACD3C /* PreferencesViewController.swift in Sources */,
 				034280AE1F043E7F00D238AA /* UIViewController.swift in Sources */,
+				031F6C8F1F0E935900D0E310 /* UINavigationController-Edge.swift in Sources */,
 				034280A51F04083D00D238AA /* UINavigationController.swift in Sources */,
 				0327C1071F080F2300EACD3C /* ItemEditorViewController.swift in Sources */,
 				034280AC1F0410CE00D238AA /* SearchBar.swift in Sources */,
 				03427F6E1F00E04600D238AA /* AppDelegate.swift in Sources */,
 				0327C0FA1F056BE200EACD3C /* View.swift in Sources */,
 				0342809B1F03D3B500D238AA /* ItemListViewController.swift in Sources */,
+				031F6C961F0F2F8A00D0E310 /* DefaultTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,7 +1057,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
