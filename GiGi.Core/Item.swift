@@ -57,7 +57,7 @@ public final class Item: Object
 
 	public var title: String
 	{
-		get { if String.systemItemIdentifiers.contains(identifier) { return LOCALE(_title) } else { return _title }}
+		get { if String.systemItemIdentifiers.contains(identifier) { return _title.localized } else { return _title }}
 		set { _title = newValue }
 	}
 

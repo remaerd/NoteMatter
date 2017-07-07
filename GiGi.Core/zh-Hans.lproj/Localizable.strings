@@ -11,3 +11,11 @@
 ".item.welcome" = "知行合一地活着";
 ".item.rootFolder" = "曙光笔记";
 ".item.preferences" = "偏好设定";
+
+".preferences.membership" = "高级会员";
+".preferences.assistant" = "效率助手";
+".preferences.experience" = "视觉体验";
+".preferences.solutions" = "解决方案";
+".preferences.ios" = "系统增强";
+".preferences.security" = "安全设置";
+".preferences.about" = "关于曙光笔记";

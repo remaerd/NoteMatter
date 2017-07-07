@@ -9,8 +9,10 @@
 import Foundation
 
 // A short version of the NSLocalizedString.
-
-func LOCALE(_ localizedString: String, table : String? = nil) -> String
+extension String
 {
-	return NSLocalizedString(localizedString, tableName: table, comment: "")
+	var localized: String
+	{
+		return NSLocalizedString(self, tableName: nil, comment: "")
+	}
 }

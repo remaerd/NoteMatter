@@ -7,7 +7,15 @@
 */
 
 
-".item.inbox" = "Mindbox";
+".item.inbox" = "Inbox";
 ".item.welcome" = "Dream & act as one";
 ".item.rootFolder" = "Luminnote";
 ".item.preferences" = "Preferences";
+
+".preferences.membership" = "Membership";
+".preferences.assistant" = "Assistant";
+".preferences.experience" = "Experience";
+".preferences.solutions" = "Solutions";
+".preferences.ios" = "iOS integration";
+".preferences.security" = "Security";
+".preferences.about" = "About Luminnote";
