@@ -17,6 +17,7 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 	var pushTransition : TransitionType { return TransitionType.default }
 	var popTransition : TransitionType { return TransitionType.default }
 	var searchPlaceHolder : String? { return nil }
+	weak var searchDelegate: SearchBarDelegate? { return nil }
 
 	let maskLayer = CALayer()
 	let scrollMaskLayer = CALayer()
@@ -94,6 +95,13 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 		if backgroundTintColor.isVisibleOnWhiteBackground == false { return UIStatusBarStyle.default }
 		return UIStatusBarStyle.lightContent
 	}
+
+	override var supportedInterfaceOrientations: UIInterfaceOrientationMask
+	{
+		return [.portrait, .portraitUpsideDown]
+	}
+
+	override var shouldAutorotate: Bool { return false }
 }
 
 extension UICollectionViewController
