@@ -18,7 +18,7 @@ extension URL
 
 extension String
 {
-	static let systemItemType = [LocalItemType.InternalItemType.inbox,LocalItemType.InternalItemType.folder,LocalItemType.InternalItemType.document]
-	static let systemItemIdentifiers = [Item.InternalItem.rootFolder.identifier, Item.InternalItem.inbox.identifier]
-	static let systemItem = [Item.InternalItem.rootFolder, Item.InternalItem.inbox]
+	static let systemItemType = [LocalItemType.InternalItemType.folder,LocalItemType.InternalItemType.document]
+	static let systemItemIdentifiers = [Item.InternalItem.rootFolder.identifier]
+	static let systemItem = [Item.InternalItem.rootFolder]
 }

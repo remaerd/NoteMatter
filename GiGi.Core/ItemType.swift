@@ -35,7 +35,6 @@ public final class LocalItemType: Object, ItemType
 {
 	public enum InternalItemType
 	{
-		case inbox
 		case folder
 		case document
 
@@ -43,7 +42,6 @@ public final class LocalItemType: Object, ItemType
 		{
 			switch self
 			{
-			case .inbox: return ".type.inbox"
 			case .document: return ".type.document"
 			case .folder: return ".type.folder"
 			}
@@ -53,7 +51,6 @@ public final class LocalItemType: Object, ItemType
 		{
 			switch self
 			{
-			case .inbox: return "5a746576-49fd-42e2-a68f-013dc6d753ca"
 			case .document: return "42882401-2194-470a-99cd-e2d271eb9891"
 			case .folder: return "5f9e3523-6b0a-40e4-9963-d9dd38159a5f"
 			}
@@ -63,7 +60,6 @@ public final class LocalItemType: Object, ItemType
 		{
 			switch self
 			{
-			case .inbox: return "List-Mindbox"
 			case .document: return "List-Document"
 			case .folder: return "List-Folder"
 			}

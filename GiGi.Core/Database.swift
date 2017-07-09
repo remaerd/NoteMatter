@@ -39,13 +39,6 @@ public extension Realm
 		folderTypeItem.icon = folderType.icon
 		objects.append(folderTypeItem)
 
-		let inboxType = LocalItemType.InternalItemType.inbox
-		let inboxTypeItem = try LocalItemType(identifier: inboxType.identifier, genre: .system)
-		inboxTypeItem.favouriteIndex = 0
-		inboxTypeItem.title = inboxType.title
-		inboxTypeItem.icon = inboxType.icon
-		objects.append(inboxTypeItem)
-
 		let documentType = LocalItemType.InternalItemType.document
 		let documentTypeItem = try LocalItemType(identifier: documentType.identifier, genre: .system)
 		documentTypeItem.favouriteIndex = 0
@@ -59,10 +52,6 @@ public extension Realm
 		rootFolder.title = rootFolderType.title
 		rootFolder.itemType = folderTypeItem
 		objects.append(rootFolder)
-
-		let inboxItemType = Item.InternalItem.inbox
-		let inbox = Item(parent: rootFolder, itemType: inboxTypeItem, title: inboxItemType.title, identifier: inboxItemType.identifier)
-		objects.append(inbox)
 
 		let welcomeType = Item.InternalItem.welcome
 		let welcome = Item(parent: rootFolder, itemType: documentTypeItem, title: welcomeType.title, identifier: welcomeType.identifier)
