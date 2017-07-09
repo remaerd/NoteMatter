@@ -24,6 +24,7 @@ protocol EnhancedViewController
 	var pushTransition: TransitionType { get }
 	var popTransition : TransitionType { get }
 	var searchPlaceHolder : String? { get }
+	weak var searchDelegate: SearchBarDelegate? { get }
 }
 
 extension EnhancedViewController where Self:UIKit.UIViewController
@@ -76,6 +77,7 @@ class UIViewController: UIKit.UIViewController, EnhancedViewController
 	var pushTransition : TransitionType { return TransitionType.default }
 	var popTransition : TransitionType { return TransitionType.default }
 	var searchPlaceHolder : String? { return nil }
+	weak var searchDelegate: SearchBarDelegate? { return nil }
 
 	override var preferredStatusBarStyle: UIStatusBarStyle
 	{

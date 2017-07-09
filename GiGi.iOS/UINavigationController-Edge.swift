@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GiGi
 
 extension UINavigationController : UIGestureRecognizerDelegate
 {
@@ -162,7 +163,7 @@ class EdgeIndicator : UIView
 		case right
 	}
 
-	let blurEffect  = UIBlurEffect(style: .dark)
+	let blurEffect  : UIBlurEffect
 	let blurView    : UIVisualEffectView
 	let cornerType  : CornerType
 
@@ -183,7 +184,7 @@ class EdgeIndicator : UIView
 	lazy var imageView : UIImageView =
 		{
 			let view = UIImageView(frame: CGRect.zero)
-			view.tintColor = UIColor.white
+			view.tintColor = Theme.colors[7]
 			view.contentMode = UIViewContentMode.center
 			if self.cornerType == .left { view.frame = CGRect(x:UIScreen.main.bounds.width - 44, y:0, width:44, height:44) } else if self.cornerType == .right { view.frame = CGRect(x:0, y:0, width:44, height:44) }
 			self.addSubview(view)
@@ -202,6 +203,8 @@ class EdgeIndicator : UIView
 
 	init(frame: CGRect, cornerType: CornerType)
 	{
+		if Theme.isMorning { self.blurEffect = UIBlurEffect(style: .dark) } else { self.blurEffect = UIBlurEffect(style: .light) }
+
 		self.blurView = UIVisualEffectView(effect: self.blurEffect)
 		self.cornerType = cornerType
 		super.init(frame: frame)

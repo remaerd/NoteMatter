@@ -30,6 +30,27 @@ class ItemListViewController: UICollectionViewController
 	{
 		super.loadView()
 		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
+		let button = addDragableButton()
+		button.delegate = self
+	}
+}
+
+extension ItemListViewController: DragableButtonDelegate
+{
+	func shouldEnd(dragableButton: DragableButton, toPoint: CGPoint) -> Bool
+	{
+		return true
+	}
+
+	func didTapped(dragableButton: DragableButton)
+	{
+		let creatorViewController = ItemCreatorViewController(item:item)
+		self.navigationController?.pushViewController(creatorViewController, animated: true)
+	}
+
+	func didPanned(dragableButton: DragableButton, toPoint: CGPoint)
+	{
+
 	}
 }
 

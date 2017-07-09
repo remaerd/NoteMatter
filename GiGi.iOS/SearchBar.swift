@@ -9,19 +9,38 @@
 import UIKit
 import GiGi
 
+protocol SearchBarDelegate: NSObjectProtocol
+{
+	func searchBarDidChanged(_ searchBar: SearchBar, content: String?)
+	func searchBarDidTappedSearchButton(_ searchBar: SearchBar)
+	func searchBarDidTappedCloseButton(_ searchBar: SearchBar)
+}
+
 class SearchBar: UITextField
 {
 	var rightButton: UIButton?
 
+	weak var searchDelegate: SearchBarDelegate?
+
+	var navigationItem: UINavigationItem?
+	{
+		didSet { setBarButtons() }
+	}
+
+	override var placeholder: String?
+	{
+		didSet { placeholderDidChanged() }
+	}
+
 	override init(frame: CGRect)
 	{
 		super.init(frame: frame)
-		layer.cornerRadius = Constants.defaultCornerRadius
-		textAlignment = .center
-		returnKeyType = .search
 		delegate = self
-		rightViewMode = .always
 		leftViewMode = .always
+		rightViewMode = .always
+		textAlignment = .center
+		returnKeyType = .continue
+		layer.cornerRadius = Constants.defaultCornerRadius
 	}
 
 	required init?(coder aDecoder: NSCoder)
@@ -33,11 +52,14 @@ class SearchBar: UITextField
 	{
 		super.willMove(toWindow: newWindow)
 		backgroundColor = Theme.colors[0]
+		NotificationCenter.default.addObserver(self, selector: #selector(textViewDidChanged(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
 	}
-}
 
-extension SearchBar: UITextFieldDelegate
-{
+	@objc func textViewDidChanged(notification: NSNotification)
+	{
+		searchDelegate?.searchBarDidChanged(self, content: text)
+	}
+
 	override func textRect(forBounds bounds: CGRect) -> CGRect
 	{
 		return bounds.insetBy(dx: 10, dy: 5)
@@ -48,6 +70,32 @@ extension SearchBar: UITextFieldDelegate
 		return bounds.insetBy(dx: 10, dy: 5)
 	}
 
+	func placeholderDidChanged()
+	{
+		if let placeholder = placeholder
+		{
+			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor: Theme.colors[6], NSAttributedStringKey.font: Theme.SearchBarTextFont])
+		}
+	}
+
+	func setBarButtons()
+	{
+		func barButton(item: UIBarButtonItem) -> UIButton
+		{
+			let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: item.image!.size.width + 15, height: item.image!.size.height - 1)))
+			button.tintColor = Theme.colors[5]
+			button.setImage(item.image!, for: .normal)
+			button.addTarget(item.target!, action: item.action!, for: .touchUpInside)
+			return button
+		}
+
+		if let items = navigationItem?.leftBarButtonItems { leftView = barButton(item: items[0]) } else { leftView = UIView() }
+		if let items = navigationItem?.rightBarButtonItems { rightView = barButton(item: items[0]) } else { rightView = UIView() }
+	}
+}
+
+extension SearchBar: UITextFieldDelegate
+{
 	func textFieldDidBeginEditing(_ textField: UITextField)
 	{
 		if (Theme.isMorning) { keyboardAppearance = .light } else { keyboardAppearance = .dark }
@@ -58,24 +106,50 @@ extension SearchBar: UITextFieldDelegate
 		closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
 		rightView = closeButton
 		textAlignment = .left
+
 		if let view = leftView { view.isHidden = true }
+
+		if let placeholder = placeholder
+		{
+			let attributes = [NSAttributedStringKey.foregroundColor: Theme.colors[3], NSAttributedStringKey.font: Theme.SearchBarTextFont] as [NSAttributedStringKey : Any]
+			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: attributes)
+		}
+	}
+
+	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
+	{
+		if searchDelegate == nil, let delegate = UIApplication.shared.delegate as? AppDelegate, let navigationController = delegate.window?.rootViewController as? UINavigationController
+		{
+			let searchController = SearchViewController()
+			searchDelegate = searchController
+			navigationController.pushViewController(searchController, animated: true)
+			return false
+		} else { return true }
 	}
 
 	@objc func closeButtonTapped()
 	{
-		resignFirstResponder()
+		if (self.isEditing) { resignFirstResponder() } else { close() }
+	}
+
+	func close()
+	{
+		if let view = leftView { view.isHidden = false }
+		searchDelegate?.searchBarDidTappedCloseButton(self)
+		placeholderDidChanged()
+		rightView = rightButton
+		textAlignment = .center
+		text = nil
 	}
 
 	func textFieldDidEndEditing(_ textField: UITextField)
 	{
-		if let view = leftView { view.isHidden = false }
-		rightView = rightButton
-		text = nil
-		textAlignment = .center
+		if let text = text, !text.isEmpty { searchDelegate?.searchBarDidTappedSearchButton(self) } else { close() }
 	}
 
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool
 	{
+		if let text = text, !text.isEmpty { resignFirstResponder() }
 		return true
 	}
 }

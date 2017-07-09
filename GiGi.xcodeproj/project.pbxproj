@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		031F6C8F1F0E935900D0E310 /* UINavigationController-Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F6C8E1F0E935900D0E310 /* UINavigationController-Edge.swift */; };
-		031F6C931F0F251B00D0E310 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F6C921F0F251B00D0E310 /* Button.swift */; };
+		031F6C931F0F251B00D0E310 /* DragableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F6C921F0F251B00D0E310 /* DragableButton.swift */; };
 		031F6C961F0F2F8A00D0E310 /* DefaultTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F6C951F0F2F8A00D0E310 /* DefaultTransition.swift */; };
 		031F6C981F0F70A900D0E310 /* Sentry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031F6C971F0F70A800D0E310 /* Sentry.framework */; };
+		031F6C9C1F0FEB7E00D0E310 /* UICollectionViewController-Dragable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031F6C9B1F0FEB7E00D0E310 /* UICollectionViewController-Dragable.swift */; };
 		0327C0FA1F056BE200EACD3C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C0F81F056B7C00EACD3C /* View.swift */; };
 		0327C0FC1F06B99D00EACD3C /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0327C0FB1F06B99D00EACD3C /* Localization.swift */; };
 		0327C1031F06BAD400EACD3C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0327C1011F06BA7B00EACD3C /* Localizable.strings */; };
@@ -61,6 +62,9 @@
 		038A1F1A1F0AB9D300586B6C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038A1F171F0AB9D300586B6C /* RealmSwift.framework */; };
 		038A1F1B1F0AB9D300586B6C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038A1F171F0AB9D300586B6C /* RealmSwift.framework */; };
 		038CBF281F0B8E210048F5FA /* ContentStorage-Autofill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038CBF271F0B8E210048F5FA /* ContentStorage-Autofill.swift */; };
+		03C381221F11EC7C00FDDA62 /* ItemCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C381211F11EC7C00FDDA62 /* ItemCreatorViewController.swift */; };
+		03C381241F11EF8200FDDA62 /* ItemTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C381231F11EF8200FDDA62 /* ItemTypeCell.swift */; };
+		03C381261F12300D00FDDA62 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C381251F12300D00FDDA62 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,9 +114,10 @@
 
 /* Begin PBXFileReference section */
 		031F6C8E1F0E935900D0E310 /* UINavigationController-Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController-Edge.swift"; sourceTree = "<group>"; };
-		031F6C921F0F251B00D0E310 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		031F6C921F0F251B00D0E310 /* DragableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragableButton.swift; sourceTree = "<group>"; };
 		031F6C951F0F2F8A00D0E310 /* DefaultTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTransition.swift; sourceTree = "<group>"; };
 		031F6C971F0F70A800D0E310 /* Sentry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sentry.framework; path = Carthage/Build/iOS/Sentry.framework; sourceTree = "<group>"; };
+		031F6C9B1F0FEB7E00D0E310 /* UICollectionViewController-Dragable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController-Dragable.swift"; sourceTree = "<group>"; };
 		0327C0F81F056B7C00EACD3C /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		0327C0FB1F06B99D00EACD3C /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		0327C1001F06BA7B00EACD3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -170,6 +175,9 @@
 		038A1F161F0AB9D200586B6C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		038A1F171F0AB9D300586B6C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		038CBF271F0B8E210048F5FA /* ContentStorage-Autofill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentStorage-Autofill.swift"; sourceTree = "<group>"; };
+		03C381211F11EC7C00FDDA62 /* ItemCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCreatorViewController.swift; sourceTree = "<group>"; };
+		03C381231F11EF8200FDDA62 /* ItemTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTypeCell.swift; sourceTree = "<group>"; };
+		03C381251F12300D00FDDA62 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,8 +238,6 @@
 		0327C1141F09FD6C00EACD3C /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				034280751F02EF4900D238AA /* Database.swift */,
-				034280771F02F29200D238AA /* Theme.swift */,
 				03427FF21F010D4000D238AA /* Item.swift */,
 				03427FF91F01312200D238AA /* ItemComponent.swift */,
 				03427FF51F012D6D00D238AA /* ItemType.swift */,
@@ -293,6 +299,7 @@
 			children = (
 				034280AD1F043E7F00D238AA /* UIViewController.swift */,
 				0342809C1F03DC9600D238AA /* UICollectionViewController.swift */,
+				031F6C9B1F0FEB7E00D0E310 /* UICollectionViewController-Dragable.swift */,
 				034280A41F04083D00D238AA /* UINavigationController.swift */,
 				031F6C8E1F0E935900D0E310 /* UINavigationController-Edge.swift */,
 			);
@@ -305,7 +312,9 @@
 				03427F6F1F00E04600D238AA /* LaunchViewController.swift */,
 				034280991F03D38A00D238AA /* ItemListViewController.swift */,
 				0327C1051F080E6F00EACD3C /* ItemEditorViewController.swift */,
+				03C381211F11EC7C00FDDA62 /* ItemCreatorViewController.swift */,
 				0327C1081F081D6300EACD3C /* PreferencesViewController.swift */,
+				03C381251F12300D00FDDA62 /* SearchViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -417,6 +426,8 @@
 			isa = PBXGroup;
 			children = (
 				0327C1141F09FD6C00EACD3C /* Database */,
+				034280751F02EF4900D238AA /* Database.swift */,
+				034280771F02F29200D238AA /* Theme.swift */,
 				034280951F03D03100D238AA /* Application.swift */,
 				0327C1151F0A2B8200EACD3C /* MarkdownParser.swift */,
 				0327C10A1F082AC100EACD3C /* ContentStorage.swift */,
@@ -448,9 +459,10 @@
 			isa = PBXGroup;
 			children = (
 				034280A71F0410B700D238AA /* Cell.swift */,
+				03C381231F11EF8200FDDA62 /* ItemTypeCell.swift */,
 				0327C1111F090E0400EACD3C /* KeyboardToolbar.swift */,
 				034280AB1F0410CE00D238AA /* SearchBar.swift */,
-				031F6C921F0F251B00D0E310 /* Button.swift */,
+				031F6C921F0F251B00D0E310 /* DragableButton.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -740,19 +752,23 @@
 				0342809F1F03E00F00D238AA /* Constants.swift in Sources */,
 				0327C1131F090E0700EACD3C /* KeyboardToolbar.swift in Sources */,
 				0342809D1F03DC9600D238AA /* UICollectionViewController.swift in Sources */,
-				031F6C931F0F251B00D0E310 /* Button.swift in Sources */,
+				031F6C931F0F251B00D0E310 /* DragableButton.swift in Sources */,
 				0327C1041F073EBB00EACD3C /* Localization.swift in Sources */,
 				034280A81F0410B700D238AA /* Cell.swift in Sources */,
 				03427F701F00E04600D238AA /* LaunchViewController.swift in Sources */,
+				031F6C9C1F0FEB7E00D0E310 /* UICollectionViewController-Dragable.swift in Sources */,
 				0327C1091F081D6300EACD3C /* PreferencesViewController.swift in Sources */,
 				034280AE1F043E7F00D238AA /* UIViewController.swift in Sources */,
 				031F6C8F1F0E935900D0E310 /* UINavigationController-Edge.swift in Sources */,
+				03C381221F11EC7C00FDDA62 /* ItemCreatorViewController.swift in Sources */,
 				034280A51F04083D00D238AA /* UINavigationController.swift in Sources */,
 				0327C1071F080F2300EACD3C /* ItemEditorViewController.swift in Sources */,
 				034280AC1F0410CE00D238AA /* SearchBar.swift in Sources */,
+				03C381261F12300D00FDDA62 /* SearchViewController.swift in Sources */,
 				03427F6E1F00E04600D238AA /* AppDelegate.swift in Sources */,
 				0327C0FA1F056BE200EACD3C /* View.swift in Sources */,
 				0342809B1F03D3B500D238AA /* ItemListViewController.swift in Sources */,
+				03C381241F11EF8200FDDA62 /* ItemTypeCell.swift in Sources */,
 				031F6C961F0F2F8A00D0E310 /* DefaultTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

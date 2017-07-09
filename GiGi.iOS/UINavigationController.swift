@@ -34,10 +34,9 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 	{
 		guard let newController = viewController as? EnhancedViewController else { return }
 
+		// 如果 Controller 里面有 Placeholder，则创建 SearchBar，并根据 Controller 的设置调整 SearchBar
 		if let placeholder = newController.searchPlaceHolder
 		{
-			searchBar.textColor = Theme.colors[6]
-
 			if (searchBar.superview == nil)
 			{
 				view.addSubview(searchBar)
@@ -48,14 +47,22 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 				searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.edgeMargin).isActive = true
 				searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.edgeMargin + Constants.statusBarHeight).isActive = true
 			}
-			searchBar.isHidden = false
-			let string = NSAttributedString(string: placeholder,
-			                                attributes: [NSAttributedStringKey.foregroundColor: Theme.colors[6], NSAttributedStringKey.font: Theme.SearchBarTextFont])
-			self.searchBar.attributedPlaceholder = string
-		}
 
-		if let items = viewController.navigationItem.leftBarButtonItems { searchBar.leftView = buttonFromBarButtonItem(item: items[0]) } else { searchBar.leftView = UIView() }
-		if let items = viewController.navigationItem.rightBarButtonItems { searchBar.rightView = buttonFromBarButtonItem(item: items[0]) } else { searchBar.rightView = UIView() }
+			searchBar.isHidden = false
+			searchBar.textColor = Theme.colors[6]
+			self.searchBar.placeholder = placeholder
+			self.searchBar.navigationItem = viewController.navigationItem
+
+			if let delegate = newController.searchDelegate
+			{
+				searchBar.searchDelegate = delegate
+				searchBar.becomeFirstResponder()
+			} else
+			{
+				if searchBar.isFirstResponder { searchBar.resignFirstResponder() }
+				searchBar.searchDelegate = nil
+			}
+		}
 
 		UIView.animate(withDuration: Constants.defaultTransitionDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations:
 			{
@@ -65,15 +72,6 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 			{ (_) in
 				if newController.searchPlaceHolder == nil { self.searchBar.isHidden = true } else { self.searchBar.isHidden = false }
 		})
-	}
-
-	func buttonFromBarButtonItem(item: UIBarButtonItem) -> UIButton
-	{
-		let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: item.image!.size.width + 15, height: item.image!.size.height - 1)))
-		button.tintColor = Theme.colors[5]
-		button.setImage(item.image!, for: .normal)
-		button.addTarget(item.target!, action: item.action!, for: .touchUpInside)
-		return button
 	}
 
 	func navigationController(_ navigationController: UIKit.UINavigationController,
