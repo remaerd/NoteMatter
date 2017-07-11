@@ -52,7 +52,7 @@
 		034280A11F03EBE600D238AA /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280A01F03EBE600D238AA /* Defaults.swift */; };
 		034280A31F03FD2C00D238AA /* Timepiece.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 034280A21F03FD2C00D238AA /* Timepiece.framework */; };
 		034280A51F04083D00D238AA /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280A41F04083D00D238AA /* UINavigationController.swift */; };
-		034280A81F0410B700D238AA /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280A71F0410B700D238AA /* Cell.swift */; };
+		034280A81F0410B700D238AA /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280A71F0410B700D238AA /* ItemCell.swift */; };
 		034280AC1F0410CE00D238AA /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280AB1F0410CE00D238AA /* SearchBar.swift */; };
 		034280AE1F043E7F00D238AA /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034280AD1F043E7F00D238AA /* UIViewController.swift */; };
 		038A1F141F0AB3BE00586B6C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038A1F121F0AB3B600586B6C /* CloudKit.framework */; };
@@ -167,7 +167,7 @@
 		034280A01F03EBE600D238AA /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		034280A21F03FD2C00D238AA /* Timepiece.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timepiece.framework; path = Carthage/Build/iOS/Timepiece.framework; sourceTree = "<group>"; };
 		034280A41F04083D00D238AA /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
-		034280A71F0410B700D238AA /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		034280A71F0410B700D238AA /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		034280AB1F0410CE00D238AA /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		034280AD1F043E7F00D238AA /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		038A1F121F0AB3B600586B6C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -458,7 +458,7 @@
 		034280A61F04109C00D238AA /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				034280A71F0410B700D238AA /* Cell.swift */,
+				034280A71F0410B700D238AA /* ItemCell.swift */,
 				03C381231F11EF8200FDDA62 /* ItemTypeCell.swift */,
 				0327C1111F090E0400EACD3C /* KeyboardToolbar.swift */,
 				034280AB1F0410CE00D238AA /* SearchBar.swift */,
@@ -740,7 +740,7 @@
 				0342809D1F03DC9600D238AA /* UICollectionViewController.swift in Sources */,
 				031F6C931F0F251B00D0E310 /* DragableButton.swift in Sources */,
 				0327C1041F073EBB00EACD3C /* Localization.swift in Sources */,
-				034280A81F0410B700D238AA /* Cell.swift in Sources */,
+				034280A81F0410B700D238AA /* ItemCell.swift in Sources */,
 				03427F701F00E04600D238AA /* LaunchViewController.swift in Sources */,
 				031F6C9C1F0FEB7E00D0E310 /* UICollectionViewController-Dragable.swift in Sources */,
 				0327C1091F081D6300EACD3C /* PreferencesViewController.swift in Sources */,

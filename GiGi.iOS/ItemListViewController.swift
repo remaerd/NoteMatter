@@ -32,7 +32,7 @@ class ItemListViewController: UICollectionViewController
 	override func loadView()
 	{
 		super.loadView()
-		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
+		collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
 		let button = addDragableButton()
 		button.delegate = self
 		notificationToken = self.item.children.addNotificationBlock
@@ -71,7 +71,7 @@ extension ItemListViewController
 
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 	{
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCell
 
 		if let placeholderIndexPath = newInsertIndexPath, placeholderIndexPath.row == indexPath.row
 		{
@@ -90,13 +90,13 @@ extension ItemListViewController
 			{
 				let childItem = item.children[indexPath.row]
 				if let icon = childItem.itemType.icon, let image = UIImage(named: icon) { cell.icon = image }
-				cell.accessory = Cell.AccessoryType.action
+				cell.accessory = ItemCell.AccessoryType.action
 				cell.titleLabel.text = childItem.title
 				cell.tintColor = Theme.colors[6]
 			} else
 			{
 				cell.titleLabel.text = ".item.preferences".localized
-				cell.accessory = Cell.AccessoryType.arrow
+				cell.accessory = ItemCell.AccessoryType.arrow
 				cell.icon = UIImage(named:"List-Preferences")
 				cell.tintColor = Theme.colors[6]
 			}

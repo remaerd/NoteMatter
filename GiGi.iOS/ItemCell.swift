@@ -9,7 +9,7 @@
 import UIKit
 import GiGi
 
-class Cell: UICollectionViewCell
+class ItemCell: UICollectionViewCell
 {
 	enum AccessoryType: String
 	{
