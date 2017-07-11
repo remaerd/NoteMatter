@@ -60,6 +60,7 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 			} else
 			{
 				if searchBar.isFirstResponder { searchBar.resignFirstResponder() }
+				searchBar.close()
 				searchBar.searchDelegate = nil
 			}
 		}

@@ -19,14 +19,16 @@ protocol DragableButtonDelegate: NSObjectProtocol
 class DragableButton: UIView
 {
 	weak var delegate: DragableButtonDelegate?
+	let imageView: UIImageView
 
 	override init(frame: CGRect)
 	{
+		imageView = UIImageView(image: #imageLiteral(resourceName: "List-Plus"))
+
 		super.init(frame: frame)
 		backgroundColor = Theme.colors[6]
 		layer.cornerRadius = Constants.bigButtonCornerRadius
-		let image = #imageLiteral(resourceName: "List-Plus")
-		let imageView = UIImageView(image: image)
+
 		imageView.contentMode = .center
 		imageView.tintColor = Theme.colors[0]
 		self.addSubview(imageView)
@@ -51,11 +53,15 @@ class DragableButton: UIView
 		switch gesture.state
 		{
 		case .began:
-
+			UIView.animate(withDuration: Constants.defaultTransitionDuration / 2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseInOut, animations:
+			{
+				self.imageView.alpha = 0
+				self.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
+			}, completion: nil)
 			break
 		case .changed:
-			delegate?.didPanned(dragableButton: self, toPoint: point)
-			self.transform = CGAffineTransform.init(translationX: point.x, y: point.y)
+			delegate?.didPanned(dragableButton: self, toPoint: gesture.location(in: self.superview))
+			self.transform = CGAffineTransform.init(translationX: point.x, y: point.y - Constants.bigButtonBottomMargin).scaledBy(x: 1.2, y: 1.2)
 			break
 		case .ended:
 			if let delegate = delegate
@@ -65,6 +71,7 @@ class DragableButton: UIView
 			}
 			UIView.animate(withDuration: Constants.defaultTransitionDuration / 2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseInOut, animations:
 			{
+				self.imageView.alpha = 1
 				self.transform = CGAffineTransform.identity
 			}, completion: nil)
 			break

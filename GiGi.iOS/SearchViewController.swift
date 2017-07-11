@@ -86,7 +86,7 @@ extension SearchViewController: SearchBarDelegate
 
 	}
 
-	func searchBarDidChanged(_ searchBar: SearchBar, content: String?)
+	func searchBarDidChanged(_ searchBar: SearchBar, content: String)
 	{
 
 	}

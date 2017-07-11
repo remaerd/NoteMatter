@@ -6,8 +6,10 @@
 //  Copyright © 2017 Zheng Xingzhi. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import GiGi
+import RealmSwift
 
 class ItemCreatorViewController: UIViewController
 {
@@ -17,14 +19,25 @@ class ItemCreatorViewController: UIViewController
 	override weak var searchDelegate: SearchBarDelegate? { return self }
 
 	let item: Item
-	var itemTypes: [ItemType]
+	var itemTypes: Results<LocalItemType>
 	var itemTypesCollectionView: UICollectionView
+	var newItemTitle: String = ""
+	let index: Int
 
-	init(item: Item)
+	init(item: Item, index: Int = 0)
 	{
 		self.item = item
-		self.itemTypes = []
+		self.index = index
+		self.itemTypes = Application.shared.database.objects(LocalItemType.self)
+
+		let itemHeight = Constants.bigButtonSize + Constants.itemButtonDescriptionHeight + Constants.edgeMargin
+		let margin = (UIScreen.main.bounds.width - (Constants.bigButtonSize * Constants.numberOfItemTypesPerRow) - (Constants.itemButtonColumnMargin * Constants.numberOfItemTypesPerRow - 1)) / 2
+
 		let itemTypesLayout = UICollectionViewFlowLayout()
+		itemTypesLayout.itemSize = CGSize(width: Constants.bigButtonSize, height: itemHeight)
+		itemTypesLayout.minimumLineSpacing = Constants.itemButtonLineMargin
+		itemTypesLayout.minimumInteritemSpacing = Constants.itemButtonColumnMargin
+		itemTypesLayout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
 		itemTypesCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: itemTypesLayout)
 
 		super.init(nibName: nil, bundle: nil)
@@ -38,8 +51,9 @@ class ItemCreatorViewController: UIViewController
 	override func loadView()
 	{
 		super.loadView()
-
 		view.addSubview(itemTypesCollectionView)
+		itemTypesCollectionView.delegate = self
+		itemTypesCollectionView.dataSource = self
 		itemTypesCollectionView.alwaysBounceVertical = true
 		itemTypesCollectionView.keyboardDismissMode = .interactive
 		itemTypesCollectionView.backgroundColor = Theme.colors[0]
@@ -50,11 +64,6 @@ class ItemCreatorViewController: UIViewController
 		itemTypesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
 		itemTypesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 		itemTypesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight).isActive = true
-	}
-
-	override func viewDidAppear(_ animated: Bool)
-	{
-		super.viewDidAppear(animated)
 	}
 }
 
@@ -72,14 +81,43 @@ extension ItemCreatorViewController: UICollectionViewDelegate, UICollectionViewD
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 	{
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+		let item = itemTypes[indexPath.row]
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemTypeCell
+
+		let color: UIColor
+		switch item.genre
+		{
+		case ItemTypeGenre.system.rawValue: color = Theme.colors[7]; break
+		case ItemTypeGenre.legal.rawValue: color = Theme.colors[8]; break
+		case ItemTypeGenre.creation.rawValue: color = Theme.colors[9]; break
+		case ItemTypeGenre.life.rawValue: color = Theme.colors[10]; break
+		case ItemTypeGenre.health.rawValue: color = Theme.colors[11]; break
+		case ItemTypeGenre.work.rawValue: color = Theme.colors[12]; break
+		case ItemTypeGenre.business.rawValue: color = Theme.colors[13]; break
+		default: color = Theme.colors[14]; break
+		}
+		cell.iconView.backgroundColor = color
+		cell.iconView.tintColor = Theme.colors[1]
+		cell.descriptionLabel.text = item.title?.localized
+
+		if let icon = item.icon, let iconImage = UIImage(named:icon) { cell.iconView.image = iconImage }
 		return cell
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
-
+		let itemType = itemTypes[indexPath.row]
+		do
+		{
+			try Application.shared.database.write
+			{
+				let item = Item(parent: self.item, itemType: itemType, title: newItemTitle, index: index)
+				Application.shared.database.add(item)
+			}
+			navigationController?.popViewController(animated: true)
+		} catch { print(error) }
 	}
+
 }
 
 extension ItemCreatorViewController: SearchBarDelegate
@@ -94,8 +132,8 @@ extension ItemCreatorViewController: SearchBarDelegate
 
 	}
 
-	func searchBarDidChanged(_ searchBar: SearchBar, content: String?)
+	func searchBarDidChanged(_ searchBar: SearchBar, content: String)
 	{
-
+		newItemTitle = content
 	}
 }

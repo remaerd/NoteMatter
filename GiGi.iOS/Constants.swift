@@ -22,9 +22,13 @@ struct Constants
 	static let moveActivePercent : CGFloat = 0.18
 	static let moveDeactivePercent : CGFloat = 0.15
 	static let bigButtonSize : CGFloat = 64
-	static let bigButtonMargin : CGFloat = 10
 	static let bigButtonBottomMargin: CGFloat = 18
 	static let bigButtonCornerRadius : CGFloat = 13
+	static let itemButtonColumnMargin : CGFloat = 10
+	static let itemButtonLineMargin : CGFloat = 20
+	static let itemButtonDescriptionHeight: CGFloat = 36
+	static let numberOfItemTypesPerRow: CGFloat = 4
+	static let numberOfRowOfItemButtons: CGFloat = 2
 	static let edgeMargin : CGFloat = 10
 	static let searchBarHeight : CGFloat = 36
 	static let defaultCornerRadius : CGFloat = 8

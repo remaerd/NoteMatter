@@ -184,7 +184,7 @@ class EdgeIndicator : UIView
 	lazy var imageView : UIImageView =
 		{
 			let view = UIImageView(frame: CGRect.zero)
-			view.tintColor = Theme.colors[7]
+			view.tintColor = Theme.colors[1]
 			view.contentMode = UIViewContentMode.center
 			if self.cornerType == .left { view.frame = CGRect(x:UIScreen.main.bounds.width - 44, y:0, width:44, height:44) } else if self.cornerType == .right { view.frame = CGRect(x:0, y:0, width:44, height:44) }
 			self.addSubview(view)
@@ -203,7 +203,7 @@ class EdgeIndicator : UIView
 
 	init(frame: CGRect, cornerType: CornerType)
 	{
-		if Theme.isMorning { self.blurEffect = UIBlurEffect(style: .dark) } else { self.blurEffect = UIBlurEffect(style: .light) }
+		if Theme.isMorning { self.blurEffect = UIBlurEffect(style: .dark) } else { self.blurEffect = UIBlurEffect(style: .extraLight) }
 
 		self.blurView = UIVisualEffectView(effect: self.blurEffect)
 		self.cornerType = cornerType

@@ -115,7 +115,7 @@ extension ItemEditorViewController: UITextViewDelegate
 		return true
 	}
 
-	func textViewDidEndEditing(_ textView: UITextView)
+	func textViewShouldEndEditing(_ textView: UITextView) -> Bool
 	{
 		editorView.isEditable = false
 		editorView.isSelectable = false
@@ -128,5 +128,6 @@ extension ItemEditorViewController: UITextViewDelegate
 		}
 		hideSearchBar(hidden: false)
 		setNeedsStatusBarAppearanceUpdate()
+		return true
 	}
 }

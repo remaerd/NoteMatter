@@ -11,7 +11,7 @@ import GiGi
 
 protocol SearchBarDelegate: NSObjectProtocol
 {
-	func searchBarDidChanged(_ searchBar: SearchBar, content: String?)
+	func searchBarDidChanged(_ searchBar: SearchBar, content: String)
 	func searchBarDidTappedSearchButton(_ searchBar: SearchBar)
 	func searchBarDidTappedCloseButton(_ searchBar: SearchBar)
 }
@@ -40,6 +40,7 @@ class SearchBar: UITextField
 		rightViewMode = .always
 		textAlignment = .center
 		returnKeyType = .continue
+		enablesReturnKeyAutomatically = true
 		layer.cornerRadius = Constants.defaultCornerRadius
 	}
 
@@ -57,7 +58,9 @@ class SearchBar: UITextField
 
 	@objc func textViewDidChanged(notification: NSNotification)
 	{
-		searchDelegate?.searchBarDidChanged(self, content: text)
+		var string = ""
+		if let text = text { string = text }
+		searchDelegate?.searchBarDidChanged(self, content: string)
 	}
 
 	override func textRect(forBounds bounds: CGRect) -> CGRect
@@ -92,6 +95,15 @@ class SearchBar: UITextField
 		if let items = navigationItem?.leftBarButtonItems { leftView = barButton(item: items[0]) } else { leftView = UIView() }
 		if let items = navigationItem?.rightBarButtonItems { rightView = barButton(item: items[0]) } else { rightView = UIView() }
 	}
+
+	func close()
+	{
+		if let view = leftView { view.isHidden = false }
+		rightView = rightButton
+		textAlignment = .center
+		placeholderDidChanged()
+		text = nil
+	}
 }
 
 extension SearchBar: UITextFieldDelegate
@@ -100,10 +112,11 @@ extension SearchBar: UITextFieldDelegate
 	{
 		if (Theme.isMorning) { keyboardAppearance = .light } else { keyboardAppearance = .dark }
 		let image = UIImage(named: "Navigation-Close")!
+
 		let closeButton = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: image.size.width + 15, height: image.size.height - 1)))
-		closeButton.tintColor = Theme.colors[5]
-		closeButton.setImage(image, for: .normal)
 		closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+		closeButton.setImage(image, for: .normal)
+		closeButton.tintColor = Theme.colors[5]
 		rightView = closeButton
 		textAlignment = .left
 
@@ -129,22 +142,20 @@ extension SearchBar: UITextFieldDelegate
 
 	@objc func closeButtonTapped()
 	{
-		if (self.isEditing) { resignFirstResponder() } else { close() }
-	}
-
-	func close()
-	{
-		if let view = leftView { view.isHidden = false }
-		searchDelegate?.searchBarDidTappedCloseButton(self)
-		placeholderDidChanged()
-		rightView = rightButton
-		textAlignment = .center
-		text = nil
+		if (self.isEditing) { resignFirstResponder() } else
+		{
+			searchDelegate?.searchBarDidTappedCloseButton(self)
+			close()
+		}
 	}
 
 	func textFieldDidEndEditing(_ textField: UITextField)
 	{
-		if let text = text, !text.isEmpty { searchDelegate?.searchBarDidTappedSearchButton(self) } else { close() }
+		if let text = text, !text.isEmpty { searchDelegate?.searchBarDidTappedSearchButton(self) } else
+		{
+			searchDelegate?.searchBarDidTappedCloseButton(self)
+			close()
+		}
 	}
 
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool

@@ -23,6 +23,7 @@ class Cell: UICollectionViewCell
 	private var _accessoryView: UIImageView?
 	private var _iconView: UIImageView?
 	private var _seperator: CALayer?
+	private var _titleLeadingConstraint: NSLayoutConstraint!
 
 	var accessory: AccessoryType = AccessoryType.none
 	{
@@ -33,8 +34,10 @@ class Cell: UICollectionViewCell
 				if (_accessoryView == nil)
 				{
 					_accessoryView = UIImageView()
-					_accessoryView!.translatesAutoresizingMaskIntoConstraints = false
 					contentView.addSubview(_accessoryView!)
+					_accessoryView!.translatesAutoresizingMaskIntoConstraints = false
+					_accessoryView!.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+					_accessoryView!.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -1).isActive = true
 				}
 				let accessoryImage = UIImage(named: accessory.rawValue)
 				_accessoryView?.image = accessoryImage
@@ -56,6 +59,10 @@ class Cell: UICollectionViewCell
 					contentView.addSubview(_iconView!)
 					_iconView!.contentMode = .center
 					_iconView!.translatesAutoresizingMaskIntoConstraints = false
+					_iconView!.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+					_iconView!.widthAnchor.constraint(equalToConstant: Constants.cellHeight - 1).isActive = true
+					_iconView!.heightAnchor.constraint(equalToConstant: Constants.cellHeight - 1).isActive = true
+					_iconView!.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1).isActive = true
 				}
 				_iconView?.image = icon
 				_iconView?.isHidden = false
@@ -67,9 +74,14 @@ class Cell: UICollectionViewCell
 	override init(frame: CGRect)
 	{
 		super.init(frame: frame)
-		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		titleLabel.font = Theme.CellFont
 		contentView.addSubview(titleLabel)
+		titleLabel.translatesAutoresizingMaskIntoConstraints = false
+		titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+		titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+		titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1).isActive = true
+		_titleLeadingConstraint = titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15)
+		_titleLeadingConstraint.isActive = true
 		redrawSeperator()
 	}
 
@@ -78,54 +90,14 @@ class Cell: UICollectionViewCell
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	override func prepareForReuse()
-	{
-		super.prepareForReuse()
-	}
-
-	override func willMove(toWindow newWindow: UIWindow?)
-	{
-		super.willMove(toWindow: newWindow)
-
-		var titleLabelLeftMargin : CGFloat = 15
-
-		if let iconView = _iconView
-		{
-			iconView.removeConstraints(iconView.constraints)
-			iconView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-			iconView.widthAnchor.constraint(equalToConstant: Constants.cellHeight - 1).isActive = true
-			iconView.heightAnchor.constraint(equalToConstant: Constants.cellHeight - 1).isActive = true
-			iconView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1).isActive = true
-		}
-
-		if let accessoryView = _accessoryView
-		{
-			titleLabelLeftMargin = 55
-			accessoryView.removeConstraints(accessoryView.constraints)
-			accessoryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
-			accessoryView.widthAnchor.constraint(equalToConstant: accessoryView.image!.size.width).isActive = true
-			accessoryView.heightAnchor.constraint(equalToConstant: accessoryView.image!.size.height).isActive = true
-			accessoryView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -1).isActive = true
-		}
-
-		titleLabel.removeConstraints(titleLabel.constraints)
-		titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: titleLabelLeftMargin).isActive = true
-		titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-		titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-		titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1).isActive = true
-	}
-
 	func redrawSeperator()
 	{
 		if let seperator = _seperator { seperator.removeFromSuperlayer() }
-		if icon != nil
-		{
-			_seperator = drawSeperator(y: frame.height - 1, left: 55, right: Constants.edgeMargin)
-		} else
-		{
-			_seperator = drawSeperator(y: frame.height - 1, left: 15, right: Constants.edgeMargin)
-		}
+		var leftMargin : CGFloat = 15
+		if icon != nil { leftMargin = 55 }
+		_seperator = drawSeperator(y: frame.height - 1, left: leftMargin, right: Constants.edgeMargin)
 		contentView.layer.addSublayer(_seperator!)
+		_titleLeadingConstraint.constant = leftMargin
 	}
 
 	override func tintColorDidChange()

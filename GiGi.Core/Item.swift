@@ -73,12 +73,12 @@ public final class Item: Object
 		return ["_title","created","updated","opened"]
 	}
 
-	public convenience init(parent: Item, itemType: LocalItemType, title: String, identifier: String = NSUUID().uuidString)
+	public convenience init(parent: Item, itemType: LocalItemType, title: String, index: Int? = nil, identifier: String = NSUUID().uuidString)
 	{
 		self.init()
 		self.identifier = identifier
 		self._title = title
 		self.itemType = itemType
-		parent.children.append(self)
+		if let index = index { parent.children.insert(self, at: index) } else { parent.children.append(self) }
 	}
 }
