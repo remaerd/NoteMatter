@@ -6,11 +6,21 @@
   Copyright © 2017 Zheng Xingzhi. All rights reserved.
 */
 
+".type.folder" = "Empty Folder";
+".type.document" = "Empty Document";
 
-".item.inbox" = "Inbox";
 ".item.welcome" = "Dream & act as one";
 ".item.rootFolder" = "Luminnote";
 ".item.preferences" = "Preferences";
+
+".item.actions.reschdule" = "Reschedule";
+".item.actions.share" = "Share";
+".item.actions.move" = "Move to...";
+".item.actions.rename" = "Rename";
+".item.actions.encrypt" = "Encrypt";
+".item.actions.decrypt" = "Decrypt";
+".item.actions.delete" = "Delete";
+".item.actions.cancel" = "Cancel";
 
 ".preferences.membership" = "Membership";
 ".preferences.assistant" = "Assistant";
@@ -19,3 +29,15 @@
 ".preferences.ios" = "iOS integration";
 ".preferences.security" = "Security";
 ".preferences.about" = "About Luminnote";
+
+"add.placeholder.1" = "How can I help?";
+"add.placeholder.2" = "What are you dealing with?";
+"add.placeholder.3" = "What is troubling you?";
+"add.placeholder.4" = "What do you need?";
+"add.placeholder.5" = "What to do next?";
+"add.placeholder.6" = "What's in mind?";
+"add.placeholder.7" = "How's things?";
+"add.placeholder.8" = "How you doing?";
+"add.placeholder.9" = "How can I help?";
+"add.placeholder.10" = "How can I help?";
+"add.placeholder.11" = "How can I help?";

@@ -1,3 +1,5 @@
+# Think and do as one
+
 Life confuses us: We work hard without reason; We dream big without action; We walk but looking too far; We run but losing destination.
 
 **Luminnote** is the most intimate assistant for dealing with messes. It helps you organizing thoughts; Getting things done; Cultivating good habits; Leaving good memories in your live. Think and act as one, live better today than yesterday.
