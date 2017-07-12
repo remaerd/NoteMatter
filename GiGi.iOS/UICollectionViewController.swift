@@ -11,7 +11,7 @@ import GiGi
 
 class UICollectionViewController: UIKit.UICollectionViewController, EnhancedViewController
 {
-	static let headerHeight = UIScreen.main.bounds.height - Defaults.listHeight.float
+	var headerHeight: CGFloat { return UIScreen.main.bounds.height - Defaults.listHeight.float }
 
 	var backgroundTintColor : UIColor { return Theme.colors[1] }
 	var pushTransition : TransitionType { return TransitionType.default }
@@ -31,7 +31,7 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 		layout.sectionInset = UIEdgeInsets(top: 0, left: Constants.edgeMargin, bottom: 0, right: Constants.edgeMargin)
 		layout.itemSize = CGSize(width: UIScreen.main.bounds.width - Constants.edgeMargin * 2, height: Constants.cellHeight)
 		layout.scrollDirection = .vertical
-		layout.headerReferenceSize = CGSize(width: 0, height: headerHeight)
+		layout.headerReferenceSize = CGSize(width: 0, height: UIScreen.main.bounds.height - Defaults.listHeight.float)
 		layout.footerReferenceSize = CGSize(width: 0, height: Constants.edgeMargin + Constants.defaultCornerRadius)
 		return layout
 	}
@@ -55,7 +55,8 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 		maskLayer.backgroundColor = UIColor.black.cgColor
 		scrollMaskLayer.backgroundColor = UIColor.black.cgColor
 		automaticallyAdjustsScrollViewInsets = false
-		if #available(iOS 11.0, *) {
+		if #available(iOS 11.0, *)
+		{
 			collectionView?.contentInsetAdjustmentBehavior = .never
 		} else {
 			// Fallback on earlier versions
@@ -65,13 +66,17 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 		maskView.layer.addSublayer(scrollMaskLayer)
 
 		collectionView?.mask = maskView
-		renderMask()
-
-		collectionView!.tintColor = Theme.colors[6]
-		collectionView!.backgroundColor = Theme.colors[0]
 		collectionView!.alwaysBounceVertical = true
 		collectionView!.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
 		collectionView!.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "footer")
+	}
+
+	override func viewWillAppear(_ animated: Bool)
+	{
+		super.viewWillAppear(animated)
+		collectionView!.tintColor = Theme.colors[6]
+		collectionView!.backgroundColor = Theme.colors[0]
+		renderMask()
 	}
 
 	override func viewWillLayoutSubviews()
@@ -83,9 +88,9 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 	func renderMask()
 	{
 		let maskY = Constants.searchBarHeight + Constants.edgeMargin * 2 + Constants.statusBarHeight
-		var maskHeaderHeight = UICollectionViewController.headerHeight - maskY - collectionView!.contentOffset.y
+		var maskHeaderHeight = headerHeight - maskY - collectionView!.contentOffset.y
 		if (maskHeaderHeight < 0) { maskHeaderHeight = 0 }
-		var maskHeight = (CGFloat)(collectionView!.numberOfItems(inSection: 0)) * Constants.cellHeight + Constants.defaultCornerRadius
+		var maskHeight = (CGFloat)(collectionView!.numberOfItems(inSection: 0)) * Constants.cellHeight
 		if maskHeight < Defaults.listHeight.float - Constants.edgeMargin { maskHeight = Defaults.listHeight.float - Constants.edgeMargin }
 		maskView.frame = CGRect(origin: CGPoint(x: 0, y: collectionView!.contentOffset.y + maskHeaderHeight + maskY), size: collectionView!.bounds.size)
 		maskLayer.frame = CGRect(x: Constants.edgeMargin, y: 0, width: collectionView!.bounds.size.width - Constants.edgeMargin * 2, height: maskHeight)

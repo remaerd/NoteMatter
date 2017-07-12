@@ -38,7 +38,6 @@ class PreferencesViewController: UICollectionViewController
 	{
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCell
 		cell.titleLabel.text = menuNames[indexPath.row].localized
-		cell.accessory = ItemCell.AccessoryType.arrow
 		cell.tintColor = Theme.colors[6]
 		if (indexPath.row < menuIcons.count) { cell.icon = UIImage(named: menuIcons[indexPath.row]) } else { cell.icon = UIImage() }
 		return cell

@@ -75,9 +75,10 @@ extension ItemListViewController
 
 		if let placeholderIndexPath = newInsertIndexPath, placeholderIndexPath.row == indexPath.row
 		{
-			cell.backgroundColor = Theme.colors[3]
-			cell.titleLabel.text = ".item.insert".localized
+			cell.icon = #imageLiteral(resourceName: "List-Plus")
+			cell.titleLabel.text = ".list.insert".localized
 			cell.tintColor = Theme.colors[0]
+			cell.backgroundColor = Theme.colors[3]
 		} else
 		{
 			var itemIndex: Int?
@@ -90,13 +91,12 @@ extension ItemListViewController
 			{
 				let childItem = item.children[indexPath.row]
 				if let icon = childItem.itemType.icon, let image = UIImage(named: icon) { cell.icon = image }
-				cell.accessory = ItemCell.AccessoryType.action
+				cell.actions = [ItemAction.reschedule, ItemAction.share, ItemAction.move, ItemAction.rename, ItemAction.delete]
 				cell.titleLabel.text = childItem.title
 				cell.tintColor = Theme.colors[6]
 			} else
 			{
 				cell.titleLabel.text = ".item.preferences".localized
-				cell.accessory = ItemCell.AccessoryType.arrow
 				cell.icon = UIImage(named:"List-Preferences")
 				cell.tintColor = Theme.colors[6]
 			}
@@ -122,52 +122,6 @@ extension ItemListViewController
 		{
 			let viewController = PreferencesViewController()
 			navigationController?.pushViewController(viewController, animated: true)
-		}
-	}
-}
-
-extension ItemListViewController: DragableButtonDelegate
-{
-	func shouldEnd(dragableButton: DragableButton, toPoint: CGPoint) -> Bool
-	{
-		if let indexPath = newInsertIndexPath
-		{
-			newInsertIndexPath = nil
-			let viewController = ItemCreatorViewController(item: item, index: indexPath.row)
-			navigationController?.pushViewController(viewController, animated: true)
-			return false
-		} else { return false }
-	}
-
-	func didTapped(dragableButton: DragableButton)
-	{
-		let creatorViewController = ItemCreatorViewController(item:item)
-		self.navigationController?.pushViewController(creatorViewController, animated: true)
-	}
-
-	func didPanned(dragableButton: DragableButton, toPoint: CGPoint)
-	{
-		if let indexPath = collectionView?.indexPathForItem(at: toPoint)
-		{
-			if let oldIndexPath = newInsertIndexPath
-			{
-				if oldIndexPath.row != indexPath.row && indexPath.row <= item.children.count
-				{
-					newInsertIndexPath = indexPath
-					collectionView?.moveItem(at: oldIndexPath, to: indexPath)
-				}
-			} else if indexPath.row <= item.children.count
-			{
-				newInsertIndexPath = indexPath
-				collectionView?.insertItems(at: [indexPath])
-			}
-		} else
-		{
-			if let insertedIndexPath = newInsertIndexPath
-			{
-				newInsertIndexPath = nil
-				collectionView?.deleteItems(at: [insertedIndexPath])
-			}
 		}
 	}
 }

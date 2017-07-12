@@ -13,7 +13,7 @@ struct Constants
 {
 	static let statusBarHeight : CGFloat = 20
 	static let keyboardBarHeight : CGFloat = 48
-	static let cellHeight : CGFloat = 47
+	static let cellHeight : CGFloat = 48
 	static let iconCellHeight : CGFloat = 44
 	static let topBarHeight : CGFloat = 49
 	static let thumbHeight : CGFloat = 255

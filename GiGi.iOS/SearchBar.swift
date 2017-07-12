@@ -52,7 +52,6 @@ class SearchBar: UITextField
 	override func willMove(toWindow newWindow: UIWindow?)
 	{
 		super.willMove(toWindow: newWindow)
-		backgroundColor = Theme.colors[0]
 		NotificationCenter.default.addObserver(self, selector: #selector(textViewDidChanged(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
 	}
 

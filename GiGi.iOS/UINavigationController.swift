@@ -19,6 +19,7 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 	var rightEdgeGesture : UIScreenEdgePanGestureRecognizer?
 
 	lazy var searchBar: SearchBar = SearchBar()
+	lazy var slideTransition = SlideTransition(navigationController:self)
 
 	override func loadView()
 	{
@@ -66,12 +67,13 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 		}
 
 		UIView.animate(withDuration: Constants.defaultTransitionDuration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations:
-			{
-				if (newController.searchPlaceHolder == nil ) { self.searchBar.alpha = 0 } else { self.searchBar.alpha = 1 }
-				self.view.backgroundColor = newController.backgroundTintColor
+		{
+			if (newController.searchPlaceHolder == nil ) { self.searchBar.alpha = 0 } else { self.searchBar.alpha = 1 }
+			self.view.backgroundColor = newController.backgroundTintColor
+			self.searchBar.backgroundColor = Theme.colors[0]
 		}, completion:
-			{ (_) in
-				if newController.searchPlaceHolder == nil { self.searchBar.isHidden = true } else { self.searchBar.isHidden = false }
+		{ (_) in
+			if newController.searchPlaceHolder == nil { self.searchBar.isHidden = true } else { self.searchBar.isHidden = false }
 		})
 	}
 
@@ -110,6 +112,6 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 	func navigationController(_ navigationController: UIKit.UINavigationController,
 	                          interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
 	{
-		return nil
+		if self.slideTransition.isStarted { return self.slideTransition } else { return nil }
 	}
 }
