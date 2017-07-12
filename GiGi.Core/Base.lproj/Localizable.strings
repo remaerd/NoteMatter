@@ -13,14 +13,15 @@
 ".item.rootFolder" = "Luminnote";
 ".item.preferences" = "Preferences";
 
-".item.actions.reschdule" = "Reschedule";
-".item.actions.share" = "Share";
-".item.actions.move" = "Move to...";
-".item.actions.rename" = "Rename";
-".item.actions.encrypt" = "Encrypt";
-".item.actions.decrypt" = "Decrypt";
-".item.actions.delete" = "Delete";
-".item.actions.cancel" = "Cancel";
+".list.insert" = "Insert here...";
+".list.actions.reschedule" = "Reschedule";
+".list.actions.share" = "Share";
+".list.actions.move" = "Move to...";
+".list.actions.rename" = "Rename";
+".list.actions.encrypt" = "Encrypt";
+".list.actions.decrypt" = "Decrypt";
+".list.actions.delete" = "Delete";
+".list.actions.cancel" = "Cancel";
 
 ".preferences.membership" = "Membership";
 ".preferences.assistant" = "Assistant";

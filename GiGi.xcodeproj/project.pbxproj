@@ -62,6 +62,9 @@
 		038A1F1A1F0AB9D300586B6C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038A1F171F0AB9D300586B6C /* RealmSwift.framework */; };
 		038A1F1B1F0AB9D300586B6C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038A1F171F0AB9D300586B6C /* RealmSwift.framework */; };
 		038CBF281F0B8E210048F5FA /* ContentStorage-Autofill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038CBF271F0B8E210048F5FA /* ContentStorage-Autofill.swift */; };
+		039DB5F31F1544A2005A70CB /* SlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DB5F21F1544A2005A70CB /* SlideTransition.swift */; };
+		039DB5F51F1544B8005A70CB /* ActionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DB5F41F1544B8005A70CB /* ActionListViewController.swift */; };
+		039DB5F71F1610EA005A70CB /* ItemListViewController+AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039DB5F61F1610EA005A70CB /* ItemListViewController+AddButton.swift */; };
 		03C381221F11EC7C00FDDA62 /* ItemCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C381211F11EC7C00FDDA62 /* ItemCreatorViewController.swift */; };
 		03C381241F11EF8200FDDA62 /* ItemTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C381231F11EF8200FDDA62 /* ItemTypeCell.swift */; };
 		03C381261F12300D00FDDA62 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C381251F12300D00FDDA62 /* SearchViewController.swift */; };
@@ -175,6 +178,9 @@
 		038A1F161F0AB9D200586B6C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		038A1F171F0AB9D300586B6C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		038CBF271F0B8E210048F5FA /* ContentStorage-Autofill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentStorage-Autofill.swift"; sourceTree = "<group>"; };
+		039DB5F21F1544A2005A70CB /* SlideTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTransition.swift; sourceTree = "<group>"; };
+		039DB5F41F1544B8005A70CB /* ActionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListViewController.swift; sourceTree = "<group>"; };
+		039DB5F61F1610EA005A70CB /* ItemListViewController+AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController+AddButton.swift"; sourceTree = "<group>"; };
 		03C381211F11EC7C00FDDA62 /* ItemCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCreatorViewController.swift; sourceTree = "<group>"; };
 		03C381231F11EF8200FDDA62 /* ItemTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTypeCell.swift; sourceTree = "<group>"; };
 		03C381251F12300D00FDDA62 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				031F6C951F0F2F8A00D0E310 /* DefaultTransition.swift */,
+				039DB5F21F1544A2005A70CB /* SlideTransition.swift */,
 			);
 			path = "Custom Transitions";
 			sourceTree = "<group>";
@@ -311,10 +318,12 @@
 			children = (
 				03427F6F1F00E04600D238AA /* LaunchViewController.swift */,
 				034280991F03D38A00D238AA /* ItemListViewController.swift */,
+				039DB5F61F1610EA005A70CB /* ItemListViewController+AddButton.swift */,
 				0327C1051F080E6F00EACD3C /* ItemEditorViewController.swift */,
 				03C381211F11EC7C00FDDA62 /* ItemCreatorViewController.swift */,
 				0327C1081F081D6300EACD3C /* PreferencesViewController.swift */,
 				03C381251F12300D00FDDA62 /* SearchViewController.swift */,
+				039DB5F41F1544B8005A70CB /* ActionListViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -747,11 +756,14 @@
 				034280AE1F043E7F00D238AA /* UIViewController.swift in Sources */,
 				031F6C8F1F0E935900D0E310 /* UINavigationController-Edge.swift in Sources */,
 				03C381221F11EC7C00FDDA62 /* ItemCreatorViewController.swift in Sources */,
+				039DB5F31F1544A2005A70CB /* SlideTransition.swift in Sources */,
 				034280A51F04083D00D238AA /* UINavigationController.swift in Sources */,
 				0327C1071F080F2300EACD3C /* ItemEditorViewController.swift in Sources */,
+				039DB5F51F1544B8005A70CB /* ActionListViewController.swift in Sources */,
 				034280AC1F0410CE00D238AA /* SearchBar.swift in Sources */,
 				03C381261F12300D00FDDA62 /* SearchViewController.swift in Sources */,
 				03427F6E1F00E04600D238AA /* AppDelegate.swift in Sources */,
+				039DB5F71F1610EA005A70CB /* ItemListViewController+AddButton.swift in Sources */,
 				0327C0FA1F056BE200EACD3C /* View.swift in Sources */,
 				0342809B1F03D3B500D238AA /* ItemListViewController.swift in Sources */,
 				03C381241F11EF8200FDDA62 /* ItemTypeCell.swift in Sources */,

@@ -13,14 +13,15 @@
 ".item.rootFolder" = "曙光笔记";
 ".item.preferences" = "偏好设定";
 
-".item.actions.reschdule" = "闹钟";
-".item.actions.share" = "分享";
-".item.actions.move" = "移动到...";
-".item.actions.rename" = "重命名";
-".item.actions.encrypt" = "加密";
-".item.actions.decrypt" = "解密";
-".item.actions.delete" = "删除";
-".item.actions.cancel" = "取消";
+".list.insert" = "在这里添加...";
+".list.actions.reschedule" = "闹钟";
+".list.actions.share" = "分享";
+".list.actions.move" = "移动到...";
+".list.actions.rename" = "重命名";
+".list.actions.encrypt" = "加密";
+".list.actions.decrypt" = "解密";
+".list.actions.delete" = "删除";
+".list.actions.cancel" = "取消";
 
 ".preferences.membership" = "高级会员";
 ".preferences.assistant" = "效率助手";
