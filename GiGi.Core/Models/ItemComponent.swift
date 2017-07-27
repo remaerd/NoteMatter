@@ -78,7 +78,7 @@ public final class ItemComponent: Object
 
 	@objc public dynamic var identifier: String = ""
 
-	@objc public dynamic var componentType : String = ComponentType.body.rawValue
+	@objc public dynamic var _componentType : String = ComponentType.body.rawValue
 
 	// TODO: 实现“时光穿越”功能，记录内容的删除时间
 	//	public dynamic var deactivated: Date?
@@ -107,31 +107,29 @@ public final class ItemComponent: Object
 
 	public override class func  ignoredProperties() -> [String]
 	{
-		return ["content", "innerStyles"]
+		return ["content", "innerStyles", "componentType"]
 	}
 
-	public convenience init(item: Item, componentType: ComponentType, index: Int? = nil, identifier: String = NSUUID().uuidString)
+	public convenience init(item: Item, componentType: ComponentType = ComponentType.body, index: Int? = nil, identifier: String = NSUUID().uuidString)
 	{
 		self.init()
 		self.identifier = identifier
-		self.componentType = componentType.rawValue
+		self.componentType = componentType
 		if let at = index { item.components.insert(self, at: at) } else { item.components.append(self) }
 	}
 }
 
 public extension ItemComponent
 {
+	public var componentType: ComponentType
+	{
+		get { if let type = ComponentType(rawValue: _componentType) { return type } else { return ComponentType.body } }
+		set { _componentType = newValue.rawValue }
+	}
+	
 	public var content: String
 	{
-		get
-		{
-			guard let type = ComponentType.init(rawValue: self.componentType) else { return "" }
-			if let value = indexedContent, type.searchable == true { return value } else if let value = _unindexedContent, type.searchable == false { return value } else { return "" }
-		}
-		set(value)
-		{
-			guard let type = ComponentType.init(rawValue: self.componentType) else { return }
-			if type.searchable == true { indexedContent = value } else if type.searchable == false { _unindexedContent = value }
-		}
+		get { if let value = indexedContent, componentType.searchable == true { return value } else if let value = _unindexedContent, componentType.searchable == false { return value } else { return "" } }
+		set(value) { if componentType.searchable == true { indexedContent = value } else { _unindexedContent = value } }
 	}
 }
