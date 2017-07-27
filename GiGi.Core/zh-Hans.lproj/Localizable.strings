@@ -1,20 +1,24 @@
-/* 
-  Localizable.strings
-  GiGi
+/*
+ Localizable.strings
+ GiGi
+ 
+ Created by Sean Cheng on 01/07/2017.
+ Copyright © 2017 Zheng Xingzhi. All rights reserved.
+ */
 
-  Created by Sean Cheng on 01/07/2017.
-  Copyright © 2017 Zheng Xingzhi. All rights reserved.
-*/
-
-".type.folder" = "空白文件夹";
+".type.folder" = "空文件夹";
 ".type.document" = "空白文档";
 
 ".item.welcome" = "知行合一地活着";
 ".item.rootFolder" = "曙光笔记";
-".item.preferences" = "偏好设定";
+".item.preferences" = "设置";
+
+".alert.rename.title" = "重命名";
+".alert.rename.confirm" = "确认";
+".alert.rename.cancel" = "取消";
 
 ".list.insert" = "在这里添加...";
-".list.actions.reschedule" = "闹钟";
+".list.actions.reschedule" = "定时提醒";
 ".list.actions.share" = "分享";
 ".list.actions.move" = "移动到...";
 ".list.actions.rename" = "重命名";
@@ -31,10 +35,12 @@
 ".preferences.security" = "安全设置";
 ".preferences.about" = "关于曙光笔记";
 
+"search.placeholder" = "输入并找到...";
+
 "add.placeholder.1" = "我应该做什么事情，才能获得 ta 的欢心?";
 "add.placeholder.2" = "明天晚上 9 点买牛奶";
 "add.placeholder.3" = "每周 10 点给父母打电话";
-"add.placeholder.4" = "今年的目标清单";
+"add.placeholder.4" = "今年的目标";
 "add.placeholder.5" = "干嘛?";
 "add.placeholder.6" = "要干点啥?";
 "add.placeholder.7" = "哈啰。";
@@ -42,3 +48,24 @@
 "add.placeholder.9" = "有啥烦心事呐？";
 "add.placeholder.10" = "我在听。";
 "add.placeholder.11" = "来啦。";
+
+".error.title.0" = "哎呀呀...";
+".error.title.1" = "晕菜...";
+".error.title.2" = "崩了!";
+".error.title.3" = "哦哦哦哦哦哦哦哦哦哦!";
+".error.title.4" = "不要要要要...";
+".error.title.5" = "挂了...";
+".error.title.6" = "Oopsy!";
+".error.title.7" = "Whoopee!";
+".error.title.8" = "Aye-yai-yai!";
+".error.title.9" = "Wowzers!";
+
+".style.paragraph.regular" = "正文";
+".style.paragraph.header1" = "大标题";
+".style.paragraph.header2" = "副标题";
+".style.paragraph.header3" = "小标题";
+".style.paragraph.list" = "符号列表";
+".style.paragraph.numlist" = "数字列表";
+".style.paragraph.quote" = "引文";
+
+

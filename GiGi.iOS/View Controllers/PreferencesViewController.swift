@@ -11,10 +11,10 @@ import GiGi
 
 class PreferencesViewController: UICollectionViewController
 {
-  let menuNames = [".preferences.membership", ".preferences.assistant", ".preferences.experience",
-                   ".preferences.solutions", ".preferences.ios", ".preferences.security", ".preferences.about"]
+  let menuNames = [".preferences.membership", ".preferences.assistant", ".preferences.solutions",
+                   ".preferences.experience", ".preferences.ios", ".preferences.security", ".preferences.about"]
 
-	let menuIcons = ["List-Membership","List-Assistant","List-Visual","List-Solution","List-iOS","List-Security"]
+	let menuIcons = ["List-Membership","List-Visual","List-Assistant","List-Solution","List-iOS","List-Security"]
 
 	override var searchPlaceHolder : String? { return ".item.preferences".localized }
 

@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  GiGi
-
-  Created by Sean Cheng on 01/07/2017.
-  Copyright © 2017 Zheng Xingzhi. All rights reserved.
-*/
+/*
+ Localizable.strings
+ GiGi
+ 
+ Created by Sean Cheng on 01/07/2017.
+ Copyright © 2017 Zheng Xingzhi. All rights reserved.
+ */
 
 ".type.folder" = "Empty Folder";
 ".type.document" = "Empty Document";
@@ -23,6 +23,10 @@
 ".list.actions.delete" = "Delete";
 ".list.actions.cancel" = "Cancel";
 
+".alert.rename.title" = "Rename";
+".alert.rename.confirm" = "Confirm";
+".alert.rename.cancel" = "Cancel";
+
 ".preferences.membership" = "Membership";
 ".preferences.assistant" = "Assistant";
 ".preferences.experience" = "Experience";
@@ -30,6 +34,8 @@
 ".preferences.ios" = "iOS integration";
 ".preferences.security" = "Security";
 ".preferences.about" = "About Luminnote";
+
+"search.placeholder" = "Type to find...";
 
 "add.placeholder.1" = "How can I help?";
 "add.placeholder.2" = "What are you dealing with?";
@@ -42,3 +48,25 @@
 "add.placeholder.9" = "How can I help?";
 "add.placeholder.10" = "How can I help?";
 "add.placeholder.11" = "How can I help?";
+
+".style.paragraph.regular" = "Regular";
+".style.paragraph.header1" = "Header 1";
+".style.paragraph.header2" = "Header 2";
+".style.paragraph.header3" = "Header 3";
+".style.paragraph.list" = "List";
+".style.paragraph.numlist" = "Num. List";
+".style.paragraph.quote" = "Quote";
+
+".error.title.0" = "Oops!";
+".error.title.1" = "Whoops!";
+".error.title.2" = "Ouch!";
+".error.title.3" = "Darn!";
+".error.title.4" = "Uh-Oh!";
+".error.title.5" = "Whoops-a-daisy!";
+".error.title.6" = "Oopsy!";
+".error.title.7" = "Whoopee!";
+".error.title.8" = "Aye-yai-yai!";
+".error.title.9" = "Wowzers!";
+
+
+

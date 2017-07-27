@@ -118,7 +118,6 @@ extension ActionListViewController
 	func scrollToOffest(cellMaxY: CGFloat, gestureY: CGFloat, previousY: CGFloat)
 	{
 		let offestY = (UIScreen.main.bounds.height - Defaults.listHeight.float - cellMaxY) - (Constants.cellHeight / 2) + previousY - (gestureY * 3)
-		print(offestY)
 		let offest = CGPoint(x: 0, y: offestY)
 		collectionView?.contentOffset = offest
 		if !quickMode && gestureY < -10 { quickMode = true } else if (quickMode)

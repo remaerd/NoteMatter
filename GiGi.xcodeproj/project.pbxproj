@@ -13,6 +13,17 @@
 		037A39811F29DDDD00F25BB0 /* Welcome.md in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F731F29B604009DE50E /* Welcome.md */; };
 		037A39821F29DDE000F25BB0 /* Harmony.json in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F7C1F29B604009DE50E /* Harmony.json */; };
 		037A39831F29E18E00F25BB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F711F29B604009DE50E /* Localizable.strings */; };
+		037A39851F29E36B00F25BB0 /* ItemListViewController-List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39841F29E36B00F25BB0 /* ItemListViewController-List.swift */; };
+		037A39871F29E38700F25BB0 /* ItemListViewController-Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39861F29E38700F25BB0 /* ItemListViewController-Action.swift */; };
+		037A398A1F29E3F200F25BB0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39891F29E3F200F25BB0 /* Alert.swift */; };
+		037A398C1F2A1CA800F25BB0 /* ItemListViewController-Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A398B1F2A1CA800F25BB0 /* ItemListViewController-Add.swift */; };
+		037A398E1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A398D1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift */; };
+		037A399C1F2A222900F25BB0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 037A399E1F2A222900F25BB0 /* logo.png */; };
+		037A399F1F2A222C00F25BB0 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 037A39A11F2A222C00F25BB0 /* logo@2x.png */; };
+		037A39A21F2A223600F25BB0 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 037A39A41F2A223600F25BB0 /* logo@3x.png */; };
+		037A39A81F2A22E700F25BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */; };
+		037A39AC1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39AB1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift */; };
+		037A39AE1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */; };
 		03F12F441F29B430009DE50E /* GiGi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F12F3D1F29B430009DE50E /* GiGi.framework */; };
 		03F12F451F29B430009DE50E /* GiGi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F12F3D1F29B430009DE50E /* GiGi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03F12F8B1F29B6F0009DE50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F511F29B5D3009DE50E /* AppDelegate.swift */; };
@@ -23,7 +34,6 @@
 		03F12F901F29B6F4009DE50E /* ItemTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F611F29B5D3009DE50E /* ItemTypeCell.swift */; };
 		03F12F911F29B6F4009DE50E /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F621F29B5D3009DE50E /* KeyboardToolbar.swift */; };
 		03F12F921F29B6F4009DE50E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F651F29B5D3009DE50E /* SearchBar.swift */; };
-		03F12F931F29B6F8009DE50E /* UICollectionViewController-Dragable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F671F29B5D3009DE50E /* UICollectionViewController-Dragable.swift */; };
 		03F12F941F29B6F8009DE50E /* UICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F681F29B5D3009DE50E /* UICollectionViewController.swift */; };
 		03F12F951F29B6F8009DE50E /* UINavigationController-Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F691F29B5D3009DE50E /* UINavigationController-Edge.swift */; };
 		03F12F961F29B6F8009DE50E /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F6A1F29B5D3009DE50E /* UINavigationController.swift */; };
@@ -32,7 +42,6 @@
 		03F12F991F29B6FD009DE50E /* ActionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F501F29B5D3009DE50E /* ActionListViewController.swift */; };
 		03F12F9A1F29B6FD009DE50E /* ItemCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F5D1F29B5D3009DE50E /* ItemCreatorViewController.swift */; };
 		03F12F9B1F29B6FD009DE50E /* ItemEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F5E1F29B5D3009DE50E /* ItemEditorViewController.swift */; };
-		03F12F9C1F29B6FD009DE50E /* ItemListViewController+AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F5F1F29B5D3009DE50E /* ItemListViewController+AddButton.swift */; };
 		03F12F9D1F29B6FD009DE50E /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F601F29B5D3009DE50E /* ItemListViewController.swift */; };
 		03F12F9E1F29B6FD009DE50E /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F631F29B5D3009DE50E /* LaunchViewController.swift */; };
 		03F12F9F1F29B6FD009DE50E /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F641F29B5D3009DE50E /* PreferencesViewController.swift */; };
@@ -86,6 +95,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		037A39841F29E36B00F25BB0 /* ItemListViewController-List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-List.swift"; sourceTree = "<group>"; };
+		037A39861F29E38700F25BB0 /* ItemListViewController-Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-Action.swift"; sourceTree = "<group>"; };
+		037A39891F29E3F200F25BB0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		037A398B1F2A1CA800F25BB0 /* ItemListViewController-Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-Add.swift"; sourceTree = "<group>"; };
+		037A398D1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidableKeyboardButton.swift; sourceTree = "<group>"; };
+		037A399D1F2A222900F25BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/logo.png; sourceTree = "<group>"; };
+		037A39A01F2A222C00F25BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/logo@2x.png"; sourceTree = "<group>"; };
+		037A39A31F2A223600F25BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/logo@3x.png"; sourceTree = "<group>"; };
+		037A39A51F2A223900F25BB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hans"; path = "zh-Hans.lproj/logo.png"; sourceTree = "<group>"; };
+		037A39A61F2A223C00F25BB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hans"; path = "zh-Hans.lproj/logo@2x.png"; sourceTree = "<group>"; };
+		037A39A71F2A223E00F25BB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hans"; path = "zh-Hans.lproj/logo@3x.png"; sourceTree = "<group>"; };
+		037A39AB1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemEditorViewController-KeyboardToolbar.swift"; sourceTree = "<group>"; };
+		037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentStorage-KeyboardBar.swift"; sourceTree = "<group>"; };
 		03F12F251F29B420009DE50E /* GiGi.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiGi.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F12F3D1F29B430009DE50E /* GiGi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GiGi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F12F4D1F29B531009DE50E /* GiGi.iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiGi.iOS.entitlements; sourceTree = SOURCE_ROOT; };
@@ -101,7 +123,6 @@
 		03F12F5C1F29B5D3009DE50E /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		03F12F5D1F29B5D3009DE50E /* ItemCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCreatorViewController.swift; sourceTree = "<group>"; };
 		03F12F5E1F29B5D3009DE50E /* ItemEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditorViewController.swift; sourceTree = "<group>"; };
-		03F12F5F1F29B5D3009DE50E /* ItemListViewController+AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController+AddButton.swift"; sourceTree = "<group>"; };
 		03F12F601F29B5D3009DE50E /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		03F12F611F29B5D3009DE50E /* ItemTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTypeCell.swift; sourceTree = "<group>"; };
 		03F12F621F29B5D3009DE50E /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
@@ -109,13 +130,11 @@
 		03F12F641F29B5D3009DE50E /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		03F12F651F29B5D3009DE50E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		03F12F661F29B5D3009DE50E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		03F12F671F29B5D3009DE50E /* UICollectionViewController-Dragable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController-Dragable.swift"; sourceTree = "<group>"; };
 		03F12F681F29B5D3009DE50E /* UICollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewController.swift; sourceTree = "<group>"; };
 		03F12F691F29B5D3009DE50E /* UINavigationController-Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController-Edge.swift"; sourceTree = "<group>"; };
 		03F12F6A1F29B5D3009DE50E /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		03F12F6B1F29B5D3009DE50E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		03F12F6C1F29B5D3009DE50E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		03F12F6E1F29B5D3009DE50E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		03F12F701F29B604009DE50E /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		03F12F721F29B604009DE50E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		03F12F741F29B604009DE50E /* Base */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = Base; path = Base.lproj/Welcome.md; sourceTree = "<group>"; };
@@ -176,6 +195,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		037A39881F29E3D800F25BB0 /* Exhancers */ = {
+			isa = PBXGroup;
+			children = (
+				03F12F6C1F29B5D3009DE50E /* View.swift */,
+				037A39891F29E3F200F25BB0 /* Alert.swift */,
+			);
+			path = Exhancers;
+			sourceTree = "<group>";
+		};
+		037A398F1F2A215900F25BB0 /* Logo */ = {
+			isa = PBXGroup;
+			children = (
+				037A399E1F2A222900F25BB0 /* logo.png */,
+				037A39A11F2A222C00F25BB0 /* logo@2x.png */,
+				037A39A41F2A223600F25BB0 /* logo@3x.png */,
+			);
+			name = Logo;
+			sourceTree = "<group>";
+		};
 		03F12F1A1F29B404009DE50E = {
 			isa = PBXGroup;
 			children = (
@@ -201,11 +239,11 @@
 			children = (
 				03F12F511F29B5D3009DE50E /* AppDelegate.swift */,
 				03F12F551F29B5D3009DE50E /* Constants.swift */,
-				03F12F6C1F29B5D3009DE50E /* View.swift */,
 				03F12F8A1F29B68C009DE50E /* Custom Views */,
 				03F12F881F29B66F009DE50E /* Custom View Controllers */,
 				03F12F891F29B681009DE50E /* View Controllers */,
 				03F12F561F29B5D3009DE50E /* Custom Transitions */,
+				037A39881F29E3D800F25BB0 /* Exhancers */,
 				03F12F871F29B64D009DE50E /* Miscellanous */,
 			);
 			path = GiGi.iOS;
@@ -225,8 +263,8 @@
 			children = (
 				03F12F701F29B604009DE50E /* Application.swift */,
 				03F12F761F29B604009DE50E /* Constants.swift */,
-				03F12FB71F29B872009DE50E /* Extensions */,
 				03F12FB61F29B7EE009DE50E /* Models */,
+				03F12FB71F29B872009DE50E /* Extensions */,
 				03F12FB21F29B76B009DE50E /* Miscellanous */,
 			);
 			path = GiGi.Core;
@@ -235,9 +273,9 @@
 		03F12F871F29B64D009DE50E /* Miscellanous */ = {
 			isa = PBXGroup;
 			children = (
+				037A398F1F2A215900F25BB0 /* Logo */,
 				03F12F521F29B5D3009DE50E /* Assets.xcassets */,
 				03F12F4D1F29B531009DE50E /* GiGi.iOS.entitlements */,
-				03F12F6D1F29B5D3009DE50E /* LaunchScreen.strings */,
 				03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */,
 				03F12F5B1F29B5D3009DE50E /* Info.plist */,
 			);
@@ -247,7 +285,6 @@
 		03F12F881F29B66F009DE50E /* Custom View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				03F12F671F29B5D3009DE50E /* UICollectionViewController-Dragable.swift */,
 				03F12F681F29B5D3009DE50E /* UICollectionViewController.swift */,
 				03F12F691F29B5D3009DE50E /* UINavigationController-Edge.swift */,
 				03F12F6A1F29B5D3009DE50E /* UINavigationController.swift */,
@@ -263,8 +300,11 @@
 				03F12F501F29B5D3009DE50E /* ActionListViewController.swift */,
 				03F12F5D1F29B5D3009DE50E /* ItemCreatorViewController.swift */,
 				03F12F5E1F29B5D3009DE50E /* ItemEditorViewController.swift */,
-				03F12F5F1F29B5D3009DE50E /* ItemListViewController+AddButton.swift */,
+				037A39AB1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift */,
 				03F12F601F29B5D3009DE50E /* ItemListViewController.swift */,
+				037A39841F29E36B00F25BB0 /* ItemListViewController-List.swift */,
+				037A39861F29E38700F25BB0 /* ItemListViewController-Action.swift */,
+				037A398B1F2A1CA800F25BB0 /* ItemListViewController-Add.swift */,
 				03F12F631F29B5D3009DE50E /* LaunchViewController.swift */,
 				03F12F641F29B5D3009DE50E /* PreferencesViewController.swift */,
 			);
@@ -278,6 +318,7 @@
 				03F12F5C1F29B5D3009DE50E /* ItemCell.swift */,
 				03F12F611F29B5D3009DE50E /* ItemTypeCell.swift */,
 				03F12F621F29B5D3009DE50E /* KeyboardToolbar.swift */,
+				037A398D1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift */,
 				03F12F651F29B5D3009DE50E /* SearchBar.swift */,
 			);
 			path = "Custom Views";
@@ -300,8 +341,9 @@
 			children = (
 				03F12F841F29B604009DE50E /* Theme.swift */,
 				03F12F791F29B604009DE50E /* Database.swift */,
-				03F12F771F29B604009DE50E /* ContentStorage-Autofill.swift */,
 				03F12F781F29B604009DE50E /* ContentStorage.swift */,
+				03F12F771F29B604009DE50E /* ContentStorage-Autofill.swift */,
+				037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */,
 				03F12F7E1F29B604009DE50E /* Item.swift */,
 				03F12F7F1F29B604009DE50E /* ItemComponent.swift */,
 				03F12F801F29B604009DE50E /* ItemType.swift */,
@@ -464,7 +506,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F12FA21F29B707009DE50E /* Assets.xcassets in Resources */,
+				037A399F1F2A222C00F25BB0 /* logo@2x.png in Resources */,
 				037A39831F29E18E00F25BB0 /* Localizable.strings in Resources */,
+				037A39A81F2A22E700F25BB0 /* LaunchScreen.storyboard in Resources */,
+				037A39A21F2A223600F25BB0 /* logo@3x.png in Resources */,
+				037A399C1F2A222900F25BB0 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,15 +569,19 @@
 			files = (
 				03F12F901F29B6F4009DE50E /* ItemTypeCell.swift in Sources */,
 				03F12FA11F29B702009DE50E /* SlideTransition.swift in Sources */,
+				037A398C1F2A1CA800F25BB0 /* ItemListViewController-Add.swift in Sources */,
+				037A39851F29E36B00F25BB0 /* ItemListViewController-List.swift in Sources */,
+				037A398A1F29E3F200F25BB0 /* Alert.swift in Sources */,
+				037A39871F29E38700F25BB0 /* ItemListViewController-Action.swift in Sources */,
 				03F12F8B1F29B6F0009DE50E /* AppDelegate.swift in Sources */,
 				03F12FA01F29B702009DE50E /* DefaultTransition.swift in Sources */,
-				03F12F931F29B6F8009DE50E /* UICollectionViewController-Dragable.swift in Sources */,
+				037A398E1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift in Sources */,
 				03F12F8E1F29B6F4009DE50E /* DragableButton.swift in Sources */,
 				03F12F951F29B6F8009DE50E /* UINavigationController-Edge.swift in Sources */,
+				037A39AC1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift in Sources */,
 				03F12F9F1F29B6FD009DE50E /* PreferencesViewController.swift in Sources */,
 				03F12F9B1F29B6FD009DE50E /* ItemEditorViewController.swift in Sources */,
 				03F12F8C1F29B6F0009DE50E /* Constants.swift in Sources */,
-				03F12F9C1F29B6FD009DE50E /* ItemListViewController+AddButton.swift in Sources */,
 				03F12F8D1F29B6F0009DE50E /* View.swift in Sources */,
 				03F12F971F29B6F8009DE50E /* UIViewController.swift in Sources */,
 				03F12F9A1F29B6FD009DE50E /* ItemCreatorViewController.swift in Sources */,
@@ -554,6 +604,7 @@
 			files = (
 				03F12FA81F29B760009DE50E /* Database.swift in Sources */,
 				03F12FAD1F29B760009DE50E /* Localization.swift in Sources */,
+				037A39AE1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift in Sources */,
 				03F12FA91F29B760009DE50E /* Defaults.swift in Sources */,
 				03F12FAC1F29B760009DE50E /* ItemType.swift in Sources */,
 				03F12FA31F29B760009DE50E /* Application.swift in Sources */,
@@ -580,20 +631,39 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		037A399E1F2A222900F25BB0 /* logo.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				037A399D1F2A222900F25BB0 /* Base */,
+				037A39A51F2A223900F25BB0 /* zh-Hans */,
+			);
+			name = logo.png;
+			sourceTree = "<group>";
+		};
+		037A39A11F2A222C00F25BB0 /* logo@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				037A39A01F2A222C00F25BB0 /* Base */,
+				037A39A61F2A223C00F25BB0 /* zh-Hans */,
+			);
+			name = "logo@2x.png";
+			sourceTree = "<group>";
+		};
+		037A39A41F2A223600F25BB0 /* logo@3x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				037A39A31F2A223600F25BB0 /* Base */,
+				037A39A71F2A223E00F25BB0 /* zh-Hans */,
+			);
+			name = "logo@3x.png";
+			sourceTree = "<group>";
+		};
 		03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				03F12F541F29B5D3009DE50E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		03F12F6D1F29B5D3009DE50E /* LaunchScreen.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				03F12F6E1F29B5D3009DE50E /* zh-Hans */,
-			);
-			name = LaunchScreen.strings;
 			sourceTree = "<group>";
 		};
 		03F12F711F29B604009DE50E /* Localizable.strings */ = {

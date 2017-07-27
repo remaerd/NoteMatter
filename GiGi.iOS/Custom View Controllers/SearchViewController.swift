@@ -17,7 +17,7 @@ class SearchViewController: UIViewController
 
 	override var pushTransition: TransitionType { return .bottom }
 	override var popTransition : TransitionType { return .bottom }
-	override var searchPlaceHolder : String? { return "search.placeholder" }
+	override var searchPlaceHolder : String? { return "search.placeholder".localized }
 	override weak var searchDelegate: SearchBarDelegate? { return self }
 
 	init()

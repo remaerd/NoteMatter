@@ -8,26 +8,25 @@
 
 import UIKit
 
-extension ItemListViewController: DragableButtonDelegate
+extension ItemListViewController
 {
-	func shouldEnd(dragableButton: DragableButton, toPoint: CGPoint) -> Bool
+	func didEnd(dragableButton: DragableButton, toPoint: CGPoint)
 	{
 		if let indexPath = newInsertIndexPath
 		{
 			newInsertIndexPath = nil
 			let viewController = ItemCreatorViewController(item: item, index: indexPath.row)
 			navigationController?.pushViewController(viewController, animated: true)
-			return false
-		} else { return false }
+		}
 	}
-
+	
 	func didTapped(dragableButton: DragableButton)
 	{
 		let creatorViewController = ItemCreatorViewController(item:item)
 		self.navigationController?.pushViewController(creatorViewController, animated: true)
 	}
-
-	func didPanned(dragableButton: DragableButton, toPoint: CGPoint)
+	
+	func didPanned(dragableButton: DragableButton, toPoint: CGPoint) -> CGFloat
 	{
 		if let indexPath = collectionView?.indexPathForItem(at: toPoint)
 		{
@@ -43,6 +42,7 @@ extension ItemListViewController: DragableButtonDelegate
 				newInsertIndexPath = indexPath
 				collectionView?.insertItems(at: [indexPath])
 			}
+			return 0
 		} else
 		{
 			if let insertedIndexPath = newInsertIndexPath
@@ -50,6 +50,8 @@ extension ItemListViewController: DragableButtonDelegate
 				newInsertIndexPath = nil
 				collectionView?.deleteItems(at: [insertedIndexPath])
 			}
+			return 1
 		}
 	}
 }
+

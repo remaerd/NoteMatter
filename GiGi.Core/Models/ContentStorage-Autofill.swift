@@ -20,7 +20,7 @@ internal extension ContentStorage
 			if let autoFillCharacter = autofillCharacters[string] { return autoFillCharacter }
 			return nil
 		}
-
+		
 		func removeRelativeCharacter(_ prevString: NSAttributedString, range: NSRange) -> Bool
 		{
 			if let autoFilledCharacter = autofillCharacters[prevString.string]
@@ -35,7 +35,7 @@ internal extension ContentStorage
 			}
 			return false
 		}
-
+		
 		if range.length == 1
 		{
 			// If you are deleting a character. str property is empty. We need to get it from the attributedString
@@ -44,3 +44,4 @@ internal extension ContentStorage
 		} else if let insertString = insertRelativeCharacter(string, range: range) { string = "\(string)\(insertString)" }
 	}
 }
+
