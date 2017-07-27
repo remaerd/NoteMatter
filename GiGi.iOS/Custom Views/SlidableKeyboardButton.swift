@@ -66,7 +66,7 @@ class SlidableKeyboardButton: UIButton
 		
 		sliderComponents = UIStackView(arrangedSubviews: imageButtons)
 		sliderContainer.addSubview(sliderComponents)
-		if (showTitle) { sliderTabBackground = UIImageView(image: #imageLiteral(resourceName: "Keyboard-Background-Left")) } else { sliderTabBackground = UIImageView(image: #imageLiteral(resourceName: "Keyboard-Background-Center")) }
+		if (showTitle) { sliderTabBackground = UIImageView(image: #imageLiteral(resourceName: "Background-Keyboard-Slider-Left")) } else { sliderTabBackground = UIImageView(image: #imageLiteral(resourceName: "Background-Keyboard-Slider-Center")) }
 		
 		super.init(frame: CGRect.zero)
 		
