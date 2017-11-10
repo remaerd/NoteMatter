@@ -19,9 +19,6 @@
 		037A398A1F29E3F200F25BB0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39891F29E3F200F25BB0 /* Alert.swift */; };
 		037A398C1F2A1CA800F25BB0 /* ItemListViewController-Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A398B1F2A1CA800F25BB0 /* ItemListViewController-Add.swift */; };
 		037A398E1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A398D1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift */; };
-		037A399C1F2A222900F25BB0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 037A399E1F2A222900F25BB0 /* logo.png */; };
-		037A399F1F2A222C00F25BB0 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 037A39A11F2A222C00F25BB0 /* logo@2x.png */; };
-		037A39A21F2A223600F25BB0 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 037A39A41F2A223600F25BB0 /* logo@3x.png */; };
 		037A39A81F2A22E700F25BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */; };
 		037A39AC1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39AB1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift */; };
 		037A39AE1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */; };
@@ -120,12 +117,6 @@
 		037A39891F29E3F200F25BB0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		037A398B1F2A1CA800F25BB0 /* ItemListViewController-Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-Add.swift"; sourceTree = "<group>"; };
 		037A398D1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidableKeyboardButton.swift; sourceTree = "<group>"; };
-		037A399D1F2A222900F25BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/logo.png; sourceTree = "<group>"; };
-		037A39A01F2A222C00F25BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/logo@2x.png"; sourceTree = "<group>"; };
-		037A39A31F2A223600F25BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/logo@3x.png"; sourceTree = "<group>"; };
-		037A39A51F2A223900F25BB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hans"; path = "zh-Hans.lproj/logo.png"; sourceTree = "<group>"; };
-		037A39A61F2A223C00F25BB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hans"; path = "zh-Hans.lproj/logo@2x.png"; sourceTree = "<group>"; };
-		037A39A71F2A223E00F25BB0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hans"; path = "zh-Hans.lproj/logo@3x.png"; sourceTree = "<group>"; };
 		037A39AB1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemEditorViewController-KeyboardToolbar.swift"; sourceTree = "<group>"; };
 		037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentStorage-KeyboardBar.swift"; sourceTree = "<group>"; };
 		03DBF9251F2F2EE400508098 /* ItemComponent-Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemComponent-Content.swift"; sourceTree = "<group>"; };
@@ -258,16 +249,6 @@
 			path = Exhancers;
 			sourceTree = "<group>";
 		};
-		037A398F1F2A215900F25BB0 /* Logo */ = {
-			isa = PBXGroup;
-			children = (
-				037A399E1F2A222900F25BB0 /* logo.png */,
-				037A39A11F2A222C00F25BB0 /* logo@2x.png */,
-				037A39A41F2A223600F25BB0 /* logo@3x.png */,
-			);
-			name = Logo;
-			sourceTree = "<group>";
-		};
 		03F12F1A1F29B404009DE50E = {
 			isa = PBXGroup;
 			children = (
@@ -293,23 +274,23 @@
 			children = (
 				03F12F511F29B5D3009DE50E /* AppDelegate.swift */,
 				03F12F551F29B5D3009DE50E /* Constants.swift */,
-				03F12F8A1F29B68C009DE50E /* Custom Views */,
-				03F12F881F29B66F009DE50E /* Custom View Controllers */,
-				03F12F891F29B681009DE50E /* View Controllers */,
-				03F12F561F29B5D3009DE50E /* Custom Transitions */,
+				03F12F8A1F29B68C009DE50E /* CustomViews */,
+				03F12F881F29B66F009DE50E /* CustomViewControllers */,
+				03F12F891F29B681009DE50E /* ViewControllers */,
+				03F12F561F29B5D3009DE50E /* CustomTransitions */,
 				037A39881F29E3D800F25BB0 /* Exhancers */,
 				03F12F871F29B64D009DE50E /* Miscellanous */,
 			);
 			path = GiGi.iOS;
 			sourceTree = "<group>";
 		};
-		03F12F561F29B5D3009DE50E /* Custom Transitions */ = {
+		03F12F561F29B5D3009DE50E /* CustomTransitions */ = {
 			isa = PBXGroup;
 			children = (
 				03F12F571F29B5D3009DE50E /* DefaultTransition.swift */,
 				03F12F581F29B5D3009DE50E /* SlideTransition.swift */,
 			);
-			path = "Custom Transitions";
+			path = CustomTransitions;
 			sourceTree = "<group>";
 		};
 		03F12F6F1F29B604009DE50E /* GiGi.Core */ = {
@@ -327,7 +308,6 @@
 		03F12F871F29B64D009DE50E /* Miscellanous */ = {
 			isa = PBXGroup;
 			children = (
-				037A398F1F2A215900F25BB0 /* Logo */,
 				03F12F521F29B5D3009DE50E /* Assets.xcassets */,
 				03F12F4D1F29B531009DE50E /* GiGi.iOS.entitlements */,
 				03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */,
@@ -336,7 +316,7 @@
 			name = Miscellanous;
 			sourceTree = "<group>";
 		};
-		03F12F881F29B66F009DE50E /* Custom View Controllers */ = {
+		03F12F881F29B66F009DE50E /* CustomViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				03F12F681F29B5D3009DE50E /* UICollectionViewController.swift */,
@@ -345,10 +325,10 @@
 				03F12F6B1F29B5D3009DE50E /* UIViewController.swift */,
 				03F12F661F29B5D3009DE50E /* SearchViewController.swift */,
 			);
-			path = "Custom View Controllers";
+			path = CustomViewControllers;
 			sourceTree = "<group>";
 		};
-		03F12F891F29B681009DE50E /* View Controllers */ = {
+		03F12F891F29B681009DE50E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				03F12F501F29B5D3009DE50E /* ActionListViewController.swift */,
@@ -362,10 +342,10 @@
 				03F12F631F29B5D3009DE50E /* LaunchViewController.swift */,
 				03F12F641F29B5D3009DE50E /* PreferencesViewController.swift */,
 			);
-			path = "View Controllers";
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		03F12F8A1F29B68C009DE50E /* Custom Views */ = {
+		03F12F8A1F29B68C009DE50E /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				03F12F591F29B5D3009DE50E /* DragableButton.swift */,
@@ -375,7 +355,7 @@
 				037A398D1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift */,
 				03F12F651F29B5D3009DE50E /* SearchBar.swift */,
 			);
-			path = "Custom Views";
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		03F12FB21F29B76B009DE50E /* Miscellanous */ = {
@@ -592,11 +572,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F12FA21F29B707009DE50E /* Assets.xcassets in Resources */,
-				037A399F1F2A222C00F25BB0 /* logo@2x.png in Resources */,
 				037A39831F29E18E00F25BB0 /* Localizable.strings in Resources */,
 				037A39A81F2A22E700F25BB0 /* LaunchScreen.storyboard in Resources */,
-				037A39A21F2A223600F25BB0 /* logo@3x.png in Resources */,
-				037A399C1F2A222900F25BB0 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,33 +700,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		037A399E1F2A222900F25BB0 /* logo.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				037A399D1F2A222900F25BB0 /* Base */,
-				037A39A51F2A223900F25BB0 /* zh-Hans */,
-			);
-			name = logo.png;
-			sourceTree = "<group>";
-		};
-		037A39A11F2A222C00F25BB0 /* logo@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				037A39A01F2A222C00F25BB0 /* Base */,
-				037A39A61F2A223C00F25BB0 /* zh-Hans */,
-			);
-			name = "logo@2x.png";
-			sourceTree = "<group>";
-		};
-		037A39A41F2A223600F25BB0 /* logo@3x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				037A39A31F2A223600F25BB0 /* Base */,
-				037A39A71F2A223E00F25BB0 /* zh-Hans */,
-			);
-			name = "logo@3x.png";
-			sourceTree = "<group>";
-		};
 		03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
