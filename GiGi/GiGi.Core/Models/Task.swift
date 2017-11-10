@@ -19,8 +19,6 @@ public final class Task: Object
 		case yearly
 	}
 
-	@objc public dynamic var itemComponent: ItemComponent!
-
 	@objc public dynamic var start: Date?
 
 	@objc public dynamic var end: Date?
@@ -41,14 +39,11 @@ public final class Task: Object
 
 	@objc public dynamic var daysOfYear: String?
 
-	public override class func indexedProperties() -> [String]
-	{
-		return ["start"]
-	}
-
-	public convenience init(component: ItemComponent, date: Date?)
-	{
-		self.init()
-		self.itemComponent = component
-	}
+	@objc public dynamic var location: Data?
+	
+	public let item = LinkingObjects(fromType: Item.self, property: "task")
+	
+	public let itemComponent = LinkingObjects(fromType: ItemComponent.self, property: "task")
+	
+	public override class func indexedProperties() -> [String] { return ["start"] }
 }

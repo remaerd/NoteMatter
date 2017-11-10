@@ -84,6 +84,7 @@ public final class ItemComponent: Object
 
 	@objc public dynamic var identifier: String = ""
 
+	@objc public dynamic var task: Task!
 	@objc public dynamic var _componentType : String = ComponentType.body.rawValue
 
 	// TODO: 实现“时光穿越”功能，记录内容的删除时间
@@ -94,12 +95,10 @@ public final class ItemComponent: Object
 	@objc fileprivate dynamic var _unindexedContent: String?
 
 	@objc private dynamic var _innerStyles: Data?
-
+	
 	public var innerStyles = [(range: NSRange, style: ComponentInnerStyle)]()
 
 	public let item = LinkingObjects(fromType: Item.self, property: "components")
-
-	public let task = LinkingObjects(fromType: Task.self, property: "itemComponent")
 
 	public override class func primaryKey() -> String?
 	{

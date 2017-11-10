@@ -32,34 +32,29 @@ public extension Realm
 	{
 		var objects = [Object]()
 
-		let folderType = LocalItemType.InternalItemType.folder
-		let folderTypeItem = try LocalItemType(identifier: folderType.identifier, genre: .system)
-		folderTypeItem.favouriteIndex = 0
-		folderTypeItem.title = folderType.title
-		folderTypeItem.icon = folderType.icon
-		objects.append(folderTypeItem)
-
-		let documentType = LocalItemType.InternalItemType.document
-		let documentTypeItem = try LocalItemType(identifier: documentType.identifier, genre: .system)
-		documentTypeItem.favouriteIndex = 0
-		documentTypeItem.title = documentType.title
-		documentTypeItem.icon = documentType.icon
-		objects.append(documentTypeItem)
-
+		var document: LocalItemType!
+		var folder: LocalItemType!
+		
+		for type in LocalItemType.internalTypes
+		{
+			let object = try LocalItemType(identifier: type.identifier, genre: .system)
+			object.title = type.title
+			object.icon = type.icon
+			objects.append(object)
+			if type == .folder { folder = object } else if type == .document { document = object }
+		}
+		
 		let rootFolderType = Item.InternalItem.rootFolder
 		let rootFolder = Item()
 		rootFolder.identifier = rootFolderType.identifier
 		rootFolder.title = rootFolderType.title
-		rootFolder.itemType = folderTypeItem
+		rootFolder.itemType = folder
 		objects.append(rootFolder)
 
 		let welcomeType = Item.InternalItem.welcome
-		let welcome = Item(parent: rootFolder, itemType: documentTypeItem, title: welcomeType.title, identifier: welcomeType.identifier)
+		let welcome = Item(parent: rootFolder, itemType: document, title: welcomeType.title, identifier: welcomeType.identifier)
 		objects.append(welcome)
 
-		try self.write(
-		{
-			self.add(objects)
-		})
+		try self.write({ self.add(objects) })
 	}
 }

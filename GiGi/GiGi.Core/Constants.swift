@@ -15,10 +15,3 @@ extension URL
 	static let localDatabaseDirectory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last!.appendingPathComponent("Databases")
 	static let welcomeDocument = bundle.url(forResource: "Welcome", withExtension: "md")!
 }
-
-extension String
-{
-	static let systemItemType = [LocalItemType.InternalItemType.folder,LocalItemType.InternalItemType.document]
-	static let systemItemIdentifiers = [Item.InternalItem.rootFolder.identifier]
-	static let systemItem = [Item.InternalItem.rootFolder]
-}

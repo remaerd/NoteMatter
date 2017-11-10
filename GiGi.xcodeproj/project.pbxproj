@@ -312,6 +312,7 @@
 				03F12F4D1F29B531009DE50E /* GiGi.iOS.entitlements */,
 				03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */,
 				03C2EDB41FB5FCDC0087A2AD /* Info.plist */,
+				03F12F711F29B604009DE50E /* Localizable.strings */,
 				03C7ECE01FB5FD5C008571E3 /* InfoPlist.strings */,
 			);
 			name = Miscellanous;
@@ -362,7 +363,6 @@
 			isa = PBXGroup;
 			children = (
 				03F12F7D1F29B604009DE50E /* Info.plist */,
-				03F12F711F29B604009DE50E /* Localizable.strings */,
 				03F12F731F29B604009DE50E /* Welcome.md */,
 				03F12F7B1F29B604009DE50E /* GiGi.h */,
 				03F12F7C1F29B604009DE50E /* Harmony.json */,

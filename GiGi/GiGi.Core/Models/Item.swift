@@ -38,45 +38,96 @@ public final class Item: Object
 			}
 		}
 	}
-
-	@objc public dynamic var identifier: String = ""
-
-	@objc public dynamic var itemType: LocalItemType!
-
-	@objc private dynamic var _title: String = ""
-
-	@objc public dynamic var created: Date = Date()
-
-	@objc public dynamic var updated: Date = Date()
-
-	@objc public dynamic var opened: Date = Date()
-
-	public let components = List<ItemComponent>()
 	
-	internal var cachedComponents = NSTextStorage()
+	public enum DashboardType
+	{
+		case assistant
+		case today
+		case tomorrow
+		case later
+		case anytime
+		case completed
+		case calendar
+		case keyword(keyword: String)
+		
+		var identifier: String
+		{
+			switch self
+			{
+			case .assistant: return ".dashboard.assistant"
+			case .today: return ".dashboard.today"
+			case .tomorrow: return ".dashboard.tomorrow"
+			case .later: return ".dashboard.later"
+			case .anytime: return ".dashboard.dashboard.anytime"
+			case .completed: return ".dashboard.completed"
+			case .calendar: return ".dashboard.today"
+			case .keyword(let keyword): return keyword
+			}
+		}
+	}
+	
+	static let internalItemIdentifiers = [Item.InternalItem.rootFolder.identifier]
+	static let internalItems = [Item.InternalItem.rootFolder]
+	
+	var cachedComponents = NSTextStorage()
+	var notificationToken: NotificationToken?
+	weak var delegate: ItemDelegate?
+	
+	@objc public dynamic var identifier: String = ""
+	@objc public dynamic var itemType: LocalItemType!
+	@objc public dynamic var created: Date = Date()
+	@objc public dynamic var updated: Date = Date()
+	@objc public dynamic var opened: Date = Date()
+	@objc public dynamic var task: Task?
+	
+	public let components = List<ItemComponent>()
 
 	public let children = List<Item>()
-
 	public let parent = LinkingObjects(fromType: Item.self, property: "children")
-
-	public var notificationToken: NotificationToken?
 	
-	public weak var delegate: ItemDelegate?
+	@objc private dynamic var _title: String = ""
 	
 	public var title: String
 	{
-		get { if String.systemItemIdentifiers.contains(identifier) { return _title.localized } else { return _title }}
+		get { if Item.internalItemIdentifiers.contains(identifier) { return _title.localized } else { return _title }}
 		set { _title = newValue }
 	}
+	
+	@objc public dynamic var _dashboardTypes: String = ""
 
+	public var dashboardTypes: [DashboardType]
+	{
+		get
+		{
+			let types = _dashboardTypes.split(separator: ",")
+			var dashboardTypes = [DashboardType]()
+			for type in types
+			{
+				switch type
+				{
+				case ".dashboard.assistant": dashboardTypes.append(DashboardType.assistant); break
+				case ".dashboard.today":  dashboardTypes.append(DashboardType.today); break
+				case ".dashboard.tomorrow":  dashboardTypes.append(DashboardType.tomorrow); break
+				case ".dashboard.later": dashboardTypes.append(DashboardType.later); break
+				case ".dashboard.dashboard.anytime":  dashboardTypes.append(DashboardType.anytime); break
+				case ".dashboard.completed": dashboardTypes.append(DashboardType.completed); break
+				case ".dashboard.today": dashboardTypes.append(DashboardType.calendar); break
+				default: dashboardTypes.append(DashboardType.keyword(keyword: String(type))); break
+				}
+			}
+			return dashboardTypes
+		}
+		set
+		{
+			var types = [String]()
+			for type in dashboardTypes { types.append(type.identifier) }
+			_dashboardTypes = types.joined(separator: ",")
+		}
+	}
+	
 	public override class func primaryKey() -> String?
 	{
 		return "identifier"
-	}
-
-	public override class func  ignoredProperties() -> [String]
-	{
-		return ["title"]
 	}
 
 	public override class func indexedProperties() -> [String]
@@ -87,9 +138,11 @@ public final class Item: Object
 	public convenience init(parent: Item, itemType: LocalItemType, title: String, index: Int? = nil, identifier: String = NSUUID().uuidString)
 	{
 		self.init()
+		self.dashboardTypes = [.assistant, .today, .later, .anytime]
 		self.identifier = identifier
-		self._title = title
 		self.itemType = itemType
+		self.title = title
+		self.task = Task()
 		if let index = index { parent.children.insert(self, at: index) } else { parent.children.append(self) }
 	}
 }

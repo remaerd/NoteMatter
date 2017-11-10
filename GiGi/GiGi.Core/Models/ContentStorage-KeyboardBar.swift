@@ -27,15 +27,15 @@ public extension ContentStorage
 		for component in components
 		{
 			var add = false
-			if let _ = components.first?.task.first { add = true }
+			if let _ = components.first?.task { add = true }
 			if !add
 			{
-				guard let task = component.task.first else { break }
+				guard let task = component.task else { break }
 				Application.shared.database.delete(task)
 			} else
 			{
-				if let _ = component.task.first { break }
-				let task = Task(component: component, date: nil)
+				if let _ = component.task { break }
+				let task = Task()
 				Application.shared.database.add(task)
 			}
 		}

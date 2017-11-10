@@ -6,11 +6,12 @@
  Copyright © 2017 Zheng Xingzhi. All rights reserved.
  */
 
+".type.task" = "Task";
 ".type.folder" = "Project";
 ".type.document" = "Document";
 
-".item.welcome" = "Dream & act as one";
-".item.rootFolder" = "Luminnote";
+".item.welcome" = "Think, act and live.";
+".item.rootFolder" = "Illuminote";
 ".item.preferences" = "Preferences";
 
 ".list.insert" = "Insert here...";
@@ -32,7 +33,7 @@
 ".preferences.icons" = "Achievement Icons";
 ".preferences.solutions" = "Solutions";
 ".preferences.experience" = "Experience";
-".preferences.ios" = "iOS integration";
+".preferences.extensions" = "Extensions";
 ".preferences.security" = "Security";
 
 "search.placeholder" = "Type to find...";

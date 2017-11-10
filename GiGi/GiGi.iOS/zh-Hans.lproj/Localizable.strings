@@ -6,6 +6,7 @@
  Copyright © 2017 Zheng Xingzhi. All rights reserved.
  */
 
+".type.task" = "任务";
 ".type.folder" = "项目";
 ".type.document" = "笔记";
 

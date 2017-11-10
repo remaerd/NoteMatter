@@ -24,22 +24,16 @@ extension ItemListViewController
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 	{
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCell
+		let childItem = item.children[indexPath.row]
+		if let icon = childItem.itemType.icon, let image = UIImage(named: icon) { cell.icon = image }
 		
-		var itemIndex: Int?
-		if let placeholderIndexPath = newInsertIndexPath
-		{
-			if (indexPath.row < placeholderIndexPath.row) { itemIndex = indexPath.row } else { itemIndex = indexPath.row + 1 }
-		} else if (indexPath.row < self.item.children.count) { itemIndex = indexPath.row }
+		if childItem.itemType.isFolder { cell.actions = [.rename, .move, .convert, .delete, .cancel] }
+		else { cell.actions = [.reschedule, .move, .convert, .delete, .cancel] }
 		
-		if itemIndex != nil
-		{
-			let childItem = item.children[indexPath.row]
-			if let icon = childItem.itemType.icon, let image = UIImage(named: icon) { cell.icon = image }
-			cell.actions = [.reschedule, .move, .convert, .rename, .delete]
-			cell.titleLabel.text = childItem.title
-			cell.tintColor = Theme.colors[6]
-			cell.delegate = self
-		}
+		cell.titleLabel.text = childItem.title.localized
+		cell.tintColor = Theme.colors[6]
+		cell.delegate = self
+		
 		return cell
 	}
 	
