@@ -18,10 +18,15 @@ protocol SearchBarDelegate: NSObjectProtocol
 
 class SearchBar: UITextField
 {
-	var rightButton: UIButton?
+	
 
 	weak var searchDelegate: SearchBarDelegate?
 
+	var rightButton: UIButton?
+	{
+		didSet { if rightButton != nil { rightView = rightButton } else { rightView = UIView() } }
+	}
+	
 	var navigationItem: UINavigationItem?
 	{
 		didSet { setBarButtons() }
@@ -92,7 +97,7 @@ class SearchBar: UITextField
 		}
 
 		if let items = navigationItem?.leftBarButtonItems { leftView = barButton(item: items[0]) } else { leftView = UIView() }
-		if let items = navigationItem?.rightBarButtonItems { rightView = barButton(item: items[0]) } else { rightView = UIView() }
+		if let items = navigationItem?.rightBarButtonItems { rightButton = barButton(item: items[0]) } else { rightView = nil }
 	}
 
 	func close()

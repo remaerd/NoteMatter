@@ -35,19 +35,20 @@ class ItemListViewController: UICollectionViewController
 	override func loadView()
 	{
 		super.loadView()
-		enableAddButton()
+		
+		navigationItem.rightBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Plus"), style: .plain, target: self, action: #selector(didTappAddButton))]
+		navigationItem.leftBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Menu"), style: .plain, target: self, action: #selector(didTappMenuButton))]
 		collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
+		
 		notificationToken = self.item.children.observe
-		{ (_) in
-			self.collectionView?.reloadData()
+		{ (result) in
+			
 		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool)
 	{
 		super.viewWillAppear(true)
-		addButton?.backgroundColor = Theme.colors[5]
-		addButton?.imageView.tintColor = Theme.colors[0]
 		self.collectionView?.reloadData()
 	}
 	
@@ -57,3 +58,15 @@ class ItemListViewController: UICollectionViewController
 	}
 }
 
+extension ItemListViewController
+{
+	@objc func didTappAddButton()
+	{
+		navigationController?.pushViewController(ItemCreatorViewController(item: self.item), animated: true)
+	}
+	
+	@objc func didTappMenuButton()
+	{
+		navigationController?.pushViewController(PreferencesViewController(), animated: true)
+	}
+}

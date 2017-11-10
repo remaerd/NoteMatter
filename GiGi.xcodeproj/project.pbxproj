@@ -17,11 +17,11 @@
 		037A39851F29E36B00F25BB0 /* ItemListViewController-List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39841F29E36B00F25BB0 /* ItemListViewController-List.swift */; };
 		037A39871F29E38700F25BB0 /* ItemListViewController-Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39861F29E38700F25BB0 /* ItemListViewController-Action.swift */; };
 		037A398A1F29E3F200F25BB0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39891F29E3F200F25BB0 /* Alert.swift */; };
-		037A398C1F2A1CA800F25BB0 /* ItemListViewController-Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A398B1F2A1CA800F25BB0 /* ItemListViewController-Add.swift */; };
 		037A398E1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A398D1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift */; };
 		037A39A81F2A22E700F25BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */; };
 		037A39AC1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39AB1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift */; };
 		037A39AE1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */; };
+		03C7ECDE1FB5FD5C008571E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03C7ECE01FB5FD5C008571E3 /* InfoPlist.strings */; };
 		03DBF9261F2F2EE400508098 /* ItemComponent-Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DBF9251F2F2EE400508098 /* ItemComponent-Content.swift */; };
 		03DBF92A1F2F391C00508098 /* Item-Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DBF9291F2F391C00508098 /* Item-Cache.swift */; };
 		03F12F441F29B430009DE50E /* GiGi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F12F3D1F29B430009DE50E /* GiGi.framework */; };
@@ -29,7 +29,6 @@
 		03F12F8B1F29B6F0009DE50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F511F29B5D3009DE50E /* AppDelegate.swift */; };
 		03F12F8C1F29B6F0009DE50E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F551F29B5D3009DE50E /* Constants.swift */; };
 		03F12F8D1F29B6F0009DE50E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F6C1F29B5D3009DE50E /* View.swift */; };
-		03F12F8E1F29B6F4009DE50E /* DragableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F591F29B5D3009DE50E /* DragableButton.swift */; };
 		03F12F8F1F29B6F4009DE50E /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F5C1F29B5D3009DE50E /* ItemCell.swift */; };
 		03F12F901F29B6F4009DE50E /* ItemTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F611F29B5D3009DE50E /* ItemTypeCell.swift */; };
 		03F12F911F29B6F4009DE50E /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F621F29B5D3009DE50E /* KeyboardToolbar.swift */; };
@@ -115,10 +114,12 @@
 		037A39841F29E36B00F25BB0 /* ItemListViewController-List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-List.swift"; sourceTree = "<group>"; };
 		037A39861F29E38700F25BB0 /* ItemListViewController-Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-Action.swift"; sourceTree = "<group>"; };
 		037A39891F29E3F200F25BB0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		037A398B1F2A1CA800F25BB0 /* ItemListViewController-Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-Add.swift"; sourceTree = "<group>"; };
 		037A398D1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidableKeyboardButton.swift; sourceTree = "<group>"; };
 		037A39AB1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemEditorViewController-KeyboardToolbar.swift"; sourceTree = "<group>"; };
 		037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentStorage-KeyboardBar.swift"; sourceTree = "<group>"; };
+		03C2EDB31FB5FCDC0087A2AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		03C7ECDF1FB5FD5C008571E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		03C7ECE11FB5FD5E008571E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		03DBF9251F2F2EE400508098 /* ItemComponent-Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemComponent-Content.swift"; sourceTree = "<group>"; };
 		03DBF9291F2F391C00508098 /* Item-Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-Cache.swift"; sourceTree = "<group>"; };
 		03F12F251F29B420009DE50E /* GiGi.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiGi.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +133,6 @@
 		03F12F571F29B5D3009DE50E /* DefaultTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTransition.swift; sourceTree = "<group>"; };
 		03F12F581F29B5D3009DE50E /* SlideTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTransition.swift; sourceTree = "<group>"; };
 		03F12F591F29B5D3009DE50E /* DragableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragableButton.swift; sourceTree = "<group>"; };
-		03F12F5B1F29B5D3009DE50E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03F12F5C1F29B5D3009DE50E /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		03F12F5D1F29B5D3009DE50E /* ItemCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCreatorViewController.swift; sourceTree = "<group>"; };
 		03F12F5E1F29B5D3009DE50E /* ItemEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditorViewController.swift; sourceTree = "<group>"; };
@@ -311,7 +311,8 @@
 				03F12F521F29B5D3009DE50E /* Assets.xcassets */,
 				03F12F4D1F29B531009DE50E /* GiGi.iOS.entitlements */,
 				03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */,
-				03F12F5B1F29B5D3009DE50E /* Info.plist */,
+				03C2EDB41FB5FCDC0087A2AD /* Info.plist */,
+				03C7ECE01FB5FD5C008571E3 /* InfoPlist.strings */,
 			);
 			name = Miscellanous;
 			sourceTree = "<group>";
@@ -338,7 +339,6 @@
 				03F12F601F29B5D3009DE50E /* ItemListViewController.swift */,
 				037A39841F29E36B00F25BB0 /* ItemListViewController-List.swift */,
 				037A39861F29E38700F25BB0 /* ItemListViewController-Action.swift */,
-				037A398B1F2A1CA800F25BB0 /* ItemListViewController-Add.swift */,
 				03F12F631F29B5D3009DE50E /* LaunchViewController.swift */,
 				03F12F641F29B5D3009DE50E /* PreferencesViewController.swift */,
 			);
@@ -572,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F12FA21F29B707009DE50E /* Assets.xcassets in Resources */,
+				03C7ECDE1FB5FD5C008571E3 /* InfoPlist.strings in Resources */,
 				037A39831F29E18E00F25BB0 /* Localizable.strings in Resources */,
 				037A39A81F2A22E700F25BB0 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -627,14 +628,12 @@
 			files = (
 				03F12F901F29B6F4009DE50E /* ItemTypeCell.swift in Sources */,
 				03F12FA11F29B702009DE50E /* SlideTransition.swift in Sources */,
-				037A398C1F2A1CA800F25BB0 /* ItemListViewController-Add.swift in Sources */,
 				037A39851F29E36B00F25BB0 /* ItemListViewController-List.swift in Sources */,
 				037A398A1F29E3F200F25BB0 /* Alert.swift in Sources */,
 				037A39871F29E38700F25BB0 /* ItemListViewController-Action.swift in Sources */,
 				03F12F8B1F29B6F0009DE50E /* AppDelegate.swift in Sources */,
 				03F12FA01F29B702009DE50E /* DefaultTransition.swift in Sources */,
 				037A398E1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift in Sources */,
-				03F12F8E1F29B6F4009DE50E /* DragableButton.swift in Sources */,
 				03F12F951F29B6F8009DE50E /* UINavigationController-Edge.swift in Sources */,
 				037A39AC1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift in Sources */,
 				03F12F9F1F29B6FD009DE50E /* PreferencesViewController.swift in Sources */,
@@ -700,6 +699,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		03C2EDB41FB5FCDC0087A2AD /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03C2EDB31FB5FCDC0087A2AD /* Base */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		03C7ECE01FB5FD5C008571E3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03C7ECDF1FB5FD5C008571E3 /* en */,
+				03C7ECE11FB5FD5E008571E3 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -44,12 +44,7 @@ extension ItemListViewController: ItemCellDelegate
 				
 			}
 			
-			func encryptItem()
-			{
-				
-			}
-			
-			func decryptItem()
+			func convertItem()
 			{
 				
 			}
@@ -82,18 +77,14 @@ extension ItemListViewController: ItemCellDelegate
 			
 			func deleteItem()
 			{
-				do
-				{
-					try Application.shared.database.write { Application.shared.database.delete(selectedItem) }} catch { error.alert() }
+				do { try Application.shared.database.write { Application.shared.database.delete(selectedItem) }} catch { error.alert() }
 			}
 			
 			switch actions[actionIndex]
 			{
 			case .reschedule: rescheduleItem(); break
-			case .share: shareItem(); break
 			case .move: moveItem(); break
-			case .encrypt: encryptItem(); break
-			case .decrypt: decryptItem(); break
+			case .convert: convertItem(); break
 			case .rename: renameItem(); break
 			case .delete: deleteItem(); break
 			case .cancel: return

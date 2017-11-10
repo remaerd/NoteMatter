@@ -12,11 +12,9 @@ import GiGi
 public enum ItemAction
 {
 	case reschedule
-	case share
 	case move
 	case rename
-	case encrypt
-	case decrypt
+	case convert
 	case delete
 	case cancel
 
@@ -24,13 +22,11 @@ public enum ItemAction
 	{
 		switch self
 		{
-		case .reschedule: return UIImage(named:"List-Reminder")
-		case .share: return UIImage(named:"List-Share")
-		case .move: return UIImage(named:"List-Folder")
-		case .rename: return UIImage(named:"List-Rename")
-		case .encrypt: return UIImage(named:"List-Secret")
-		case .decrypt: return UIImage(named:"List-Secret")
-		case .delete: return UIImage(named:"List-Delete")
+		case .reschedule: return #imageLiteral(resourceName: "List-Brief")
+		case .move: return #imageLiteral(resourceName: "List-Move")
+		case .rename: return #imageLiteral(resourceName: "List-Rename")
+		case .convert: return #imageLiteral(resourceName: "List-Convert")
+		case .delete: return #imageLiteral(resourceName: "List-Delete")
 		case .cancel: return nil
 		}
 	}
@@ -40,11 +36,9 @@ public enum ItemAction
 		switch self
 		{
 		case .reschedule: return ".list.actions.reschedule".localized
-		case .share: return ".list.actions.share".localized
-		case .move: return ".list.actions.move".localized
 		case .rename: return ".list.actions.rename".localized
-		case .encrypt: return ".list.actions.encrypt".localized
-		case .decrypt: return ".list.actions.encrypt".localized
+		case .move: return ".list.actions.move".localized
+		case .convert: return ".list.actions.convert".localized
 		case .delete: return ".list.actions.delete".localized
 		case .cancel: return ".list.actions.cancel".localized
 		}

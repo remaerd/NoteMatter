@@ -6,48 +6,30 @@
  Copyright © 2017 Zheng Xingzhi. All rights reserved.
  */
 
-".type.folder" = "空文件夹";
-".type.document" = "空白文档";
+".type.folder" = "项目";
+".type.document" = "笔记";
 
-".item.welcome" = "知行合一地活着";
+".item.welcome" = "思考，行动，点亮人生。";
 ".item.rootFolder" = "曙光笔记";
-".item.preferences" = "设置";
-
-".alert.rename.title" = "重命名";
-".alert.rename.confirm" = "确认";
-".alert.rename.cancel" = "取消";
+".item.preferences" = "使用偏好";
 
 ".list.insert" = "在这里添加...";
-".list.actions.reschedule" = "定时提醒";
-".list.actions.share" = "分享";
-".list.actions.move" = "移动到...";
+".list.actions.reschedule" = "提醒";
 ".list.actions.rename" = "重命名";
-".list.actions.encrypt" = "加密";
-".list.actions.decrypt" = "解密";
+".list.actions.move" = "移动到...";
+".list.actions.convert" = "转换成...";
 ".list.actions.delete" = "删除";
 ".list.actions.cancel" = "取消";
 
-".preferences.membership" = "高级会员";
+".preferences.membership" = "曙光计划";
 ".preferences.assistant" = "效率助手";
-".preferences.experience" = "视觉体验";
+".preferences.icons" = "成就图标";
 ".preferences.solutions" = "解决方案";
-".preferences.ios" = "系统增强";
+".preferences.experience" = "视觉体验";
+".preferences.extensions" = "系统增强";
 ".preferences.security" = "安全设置";
-".preferences.about" = "关于曙光笔记";
 
 "search.placeholder" = "输入并找到...";
-
-"add.placeholder.1" = "我应该做什么事情，才能获得 ta 的欢心?";
-"add.placeholder.2" = "明天晚上 9 点买牛奶";
-"add.placeholder.3" = "每周 10 点给父母打电话";
-"add.placeholder.4" = "今年的目标";
-"add.placeholder.5" = "干嘛?";
-"add.placeholder.6" = "要干点啥?";
-"add.placeholder.7" = "哈啰。";
-"add.placeholder.8" = "想我没？";
-"add.placeholder.9" = "有啥烦心事呐？";
-"add.placeholder.10" = "我在听。";
-"add.placeholder.11" = "来啦。";
 
 ".error.title.0" = "哎呀呀...";
 ".error.title.1" = "晕菜...";

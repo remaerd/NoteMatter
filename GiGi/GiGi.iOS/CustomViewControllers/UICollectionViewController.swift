@@ -19,7 +19,6 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 	var searchPlaceHolder : String? { return nil }
 	weak var searchDelegate: SearchBarDelegate? { return nil }
 	
-	var addButton: DragableButton?
 	let maskLayer = CALayer()
 	let scrollMaskLayer = CALayer()
 	let maskView = UIView()
@@ -92,7 +91,6 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 		var maskHeaderHeight = headerHeight - maskY - collectionView!.contentOffset.y
 		if (maskHeaderHeight < 0) { maskHeaderHeight = 0 }
 		var maskIndex = collectionView!.numberOfItems(inSection: 0)
-		if addButton != nil { maskIndex += 1 }
 		var maskHeight = (CGFloat)(maskIndex) * Constants.cellHeight
 		if maskHeight < Defaults.listHeight.float - Constants.edgeMargin { maskHeight = Defaults.listHeight.float - Constants.edgeMargin }
 		maskView.frame = CGRect(origin: CGPoint(x: 0, y: collectionView!.contentOffset.y + maskHeaderHeight + maskY), size: collectionView!.bounds.size)
@@ -111,29 +109,6 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 	}
 	
 	override var shouldAutorotate: Bool { return false }
-}
-
-extension UICollectionViewController: DragableButtonDelegate
-{
-	func enableAddButton()
-	{
-		let addButton = DragableButton()
-		addButton.delegate = self
-		view.addSubview(addButton)
-		addButton.translatesAutoresizingMaskIntoConstraints = false
-		addButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.bigButtonBottomMargin).isActive = true
-		addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-		addButton.widthAnchor.constraint(equalToConstant: Constants.bigButtonSize).isActive = true
-		addButton.heightAnchor.constraint(equalToConstant: Constants.bigButtonSize).isActive = true
-		
-		self.addButton = addButton
-		
-		if let layout = self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
-		{
-			layout.footerReferenceSize = CGSize(width: 0, height: Constants.edgeMargin + Constants.cellHeight)
-			self.collectionView?.collectionViewLayout.invalidateLayout()
-		}
-	}
 }
 
 extension UICollectionViewController

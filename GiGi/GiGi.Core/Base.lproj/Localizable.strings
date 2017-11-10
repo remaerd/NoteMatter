@@ -6,8 +6,8 @@
  Copyright © 2017 Zheng Xingzhi. All rights reserved.
  */
 
-".type.folder" = "Empty Folder";
-".type.document" = "Empty Document";
+".type.folder" = "Project";
+".type.document" = "Document";
 
 ".item.welcome" = "Dream & act as one";
 ".item.rootFolder" = "Luminnote";
@@ -29,25 +29,13 @@
 
 ".preferences.membership" = "Membership";
 ".preferences.assistant" = "Assistant";
-".preferences.experience" = "Experience";
+".preferences.icons" = "Achievement Icons";
 ".preferences.solutions" = "Solutions";
+".preferences.experience" = "Experience";
 ".preferences.ios" = "iOS integration";
 ".preferences.security" = "Security";
-".preferences.about" = "About Luminnote";
 
 "search.placeholder" = "Type to find...";
-
-"add.placeholder.1" = "How can I help?";
-"add.placeholder.2" = "What are you dealing with?";
-"add.placeholder.3" = "What is troubling you?";
-"add.placeholder.4" = "What do you need?";
-"add.placeholder.5" = "What to do next?";
-"add.placeholder.6" = "What's in mind?";
-"add.placeholder.7" = "How's things?";
-"add.placeholder.8" = "How you doing?";
-"add.placeholder.9" = "How can I help?";
-"add.placeholder.10" = "How can I help?";
-"add.placeholder.11" = "How can I help?";
 
 ".style.paragraph.regular" = "Regular";
 ".style.paragraph.header1" = "Header 1";
