@@ -13,8 +13,6 @@ import RealmSwift
 
 class ItemCreatorViewController: UIViewController
 {
-	override var pushTransition: TransitionType { return .bottom }
-	override var popTransition : TransitionType { return .bottom }
 	override var searchPlaceHolder : String? { return "item.title" }
 	override weak var searchDelegate: SearchBarDelegate? { return self }
 
@@ -33,7 +31,7 @@ class ItemCreatorViewController: UIViewController
 		let itemHeight = Constants.bigButtonSize + Constants.itemButtonDescriptionHeight + Constants.edgeMargin
 		let margin = (UIScreen.main.bounds.width - (Constants.bigButtonSize * Constants.numberOfItemTypesPerRow) - (Constants.itemButtonColumnMargin * Constants.numberOfItemTypesPerRow - 1)) / 2
 
-		let itemTypesLayout = UICollectionViewFlowLayout()
+		let itemTypesLayout = UIKit.UICollectionViewFlowLayout()
 		itemTypesLayout.itemSize = CGSize(width: Constants.bigButtonSize, height: itemHeight)
 		itemTypesLayout.minimumLineSpacing = Constants.itemButtonLineMargin
 		itemTypesLayout.minimumInteritemSpacing = Constants.itemButtonColumnMargin

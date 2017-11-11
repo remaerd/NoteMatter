@@ -97,7 +97,7 @@ class SearchBar: UITextField
 		}
 
 		if let items = navigationItem?.leftBarButtonItems { leftView = barButton(item: items[0]) } else { leftView = UIView() }
-		if let items = navigationItem?.rightBarButtonItems { rightButton = barButton(item: items[0]) } else { rightView = nil }
+		if let items = navigationItem?.rightBarButtonItems { rightButton = barButton(item: items[0]) } else { rightButton = nil }
 	}
 
 	func close()

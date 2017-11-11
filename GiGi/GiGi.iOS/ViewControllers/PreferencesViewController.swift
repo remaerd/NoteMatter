@@ -11,6 +11,9 @@ import GiGi
 
 class PreferencesViewController: UICollectionViewController
 {
+	override var pushTransition: TransitionType { return .right }
+	override var popTransition : TransitionType { return .left }
+	
   let menuNames = [".preferences.assistant", ".preferences.icons", ".preferences.solutions",
                    ".preferences.experience", ".preferences.extensions", ".preferences.security"]
 

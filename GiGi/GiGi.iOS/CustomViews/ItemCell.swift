@@ -81,10 +81,19 @@ class ItemCell: UICollectionViewCell
 
 		if let iconView = _iconView { iconView.tintColor = Theme.colors[4] }
 		if let accessoryView = _accessoryView { accessoryView.tintColor = Theme.colors[3] }
-		backgroundColor = Theme.colors[0]
+//		backgroundColor = Theme.colors[0]
 		titleLabel.textColor = tintColor
 
 		redrawSeperator()
+	}
+	
+	override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
+	{
+		let size = contentView.systemLayoutSizeFitting(layoutAttributes.size, withHorizontalFittingPriority: .defaultHigh, verticalFittingPriority: .defaultLow)
+		var newFrame = layoutAttributes.frame
+		newFrame.size.width = CGFloat(ceilf(Float(size.width)))
+		layoutAttributes.frame = newFrame
+		return layoutAttributes
 	}
 
 	override func prepareForReuse()
@@ -101,14 +110,14 @@ class ItemCell: UICollectionViewCell
 		{
 			if highlight
 			{
-				self.backgroundColor = Theme.colors[6]
+//				self.backgroundColor = Theme.colors[6]
 				self.titleLabel.textColor = Theme.colors[0]
 				self._iconView?.tintColor = Theme.colors[0]
 				self._accessoryView?.tintColor = Theme.colors[0]
 				self._seperator?.removeFromSuperlayer()
 			} else
 			{
-				self.backgroundColor = Theme.colors[0]
+//				self.backgroundColor = Theme.colors[0]
 				self.titleLabel.textColor = Theme.colors[6]
 				self._iconView?.tintColor = Theme.colors[4]
 				self._accessoryView?.tintColor = Theme.colors[6]
