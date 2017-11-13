@@ -23,7 +23,7 @@ extension ItemListViewController: ItemCellDelegate
 		self.renameConfirmAction = nil
 	}
 	
-	@objc func itemCellDidTriggerAction(cell:ItemCell, actionIndex: Int)
+	@objc func itemCell(_ cell: ItemCell, didTriggerAction index: Int)
 	{
 		if let actions = cell.actions, let indexPath = collectionView?.indexPath(for: cell)
 		{
@@ -80,7 +80,7 @@ extension ItemListViewController: ItemCellDelegate
 				do { try Application.shared.database.write { Application.shared.database.delete(selectedItem) }} catch { error.alert() }
 			}
 			
-			switch actions[actionIndex]
+			switch actions[index]
 			{
 			case .reschedule: rescheduleItem(); break
 			case .move: moveItem(); break

@@ -36,7 +36,7 @@ class LaunchViewController: UIKit.UIViewController
 			self.navigationController?.setViewControllers([controller], animated: animated)
 		} catch
 		{
-			print(error)
+			error.alert()
 		}
 	}
 	

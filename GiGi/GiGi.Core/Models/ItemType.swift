@@ -14,7 +14,7 @@ public protocol ItemType
 	var genre: Int { get set }
 
 	var isFolder: Bool { get set }
-	var title: String? { get set }
+	var title: String { get set }
 	var introduction: String? { get set }
 	var tags: String? { get set }
 	var icon: String? { get set }
@@ -77,7 +77,7 @@ public final class LocalItemType: Object, ItemType
 	@objc public dynamic var genre: Int = ItemTypeGenre.undefined.rawValue
 	@objc public dynamic var isFolder: Bool = false
 	
-	@objc public dynamic var title: String?
+	@objc public dynamic var title: String = ""
 	@objc public dynamic var introduction: String?
 	@objc public dynamic var tags: String?
 	@objc public dynamic var icon: String?
@@ -94,7 +94,7 @@ public final class LocalItemType: Object, ItemType
 		return ["title", "tags"]
 	}
 
-	public convenience init(identifier: String = NSUUID().uuidString, genre: ItemTypeGenre = ItemTypeGenre.undefined) throws
+	public convenience init(identifier: String = NSUUID().uuidString, genre: ItemTypeGenre = ItemTypeGenre.undefined)
 	{
 		self.init()
 		self.identifier = identifier
@@ -108,7 +108,7 @@ public struct RemoteItemType: ItemType
 	public var genre: Int = ItemTypeGenre.undefined.rawValue
 	public var isFolder: Bool = false
 	
-	public var title: String?
+	public var title: String = ""
 	public var introduction: String?
 	public var tags: String?
 	public var icon: String?

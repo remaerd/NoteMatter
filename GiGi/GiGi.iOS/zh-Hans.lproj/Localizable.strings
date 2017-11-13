@@ -10,9 +10,15 @@
 ".type.folder" = "项目";
 ".type.document" = "笔记";
 
-".item.welcome" = "思考，行动，点亮人生。";
+".item.welcome" = "精通曙光笔记";
 ".item.rootFolder" = "曙光笔记";
 ".item.preferences" = "使用偏好";
+".item.welcome.1" = "轻按来打开笔记";
+".item.welcome.2" = "轻按方框来完成并隐藏笔记";
+".item.welcome.3" = "滑动手机右方边缘来添加新笔记";
+".item.welcome.4" = "向右滑动笔记后，上下拖动来移动 / 转换 / 删除笔记";
+".item.welcome.5" = "按住笔记来调整位置";
+".item.welcome.6" = "向下滑动来搜索";
 
 ".list.insert" = "在这里添加...";
 ".list.actions.reschedule" = "提醒";

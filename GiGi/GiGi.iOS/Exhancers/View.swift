@@ -1,22 +1,20 @@
 //
 //  View.swift
-//  GiGi
+//  GiGi.iOS
 //
-//  Created by Sean Cheng on 30/06/2017.
-//  Copyright © 2017 Zheng Xingzhi. All rights reserved.
+//  Created by Sean Cheng on 13/11/2017.
 //
 
 import UIKit
-import GiGi
 
 extension UIView
 {
-	func drawSeperator(y: CGFloat, left: CGFloat, right: CGFloat, color: UIColor = Theme.colors[1]) -> CALayer
+	func setCornerRadius(corners: UIRectCorner, radius: CGFloat)
 	{
-		let seperator = CALayer()
-		seperator.backgroundColor = color.cgColor
-		let width = UIScreen.main.bounds.width - right + left
-		seperator.frame = CGRect(x: left, y: self.bounds.height - 1, width: width, height: 0.5)
-		return seperator
+		let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+		let maskLayer = CAShapeLayer()
+		maskLayer.frame = self.bounds
+		maskLayer.path = maskPath.cgPath
+		self.layer.mask = maskLayer
 	}
 }

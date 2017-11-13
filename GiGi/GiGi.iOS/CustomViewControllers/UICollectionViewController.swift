@@ -30,7 +30,7 @@ class UICollectionViewBackgroundView: UICollectionReusableView
 	}
 }
 
-class UICollectionViewFlowLayout: UIKit.UICollectionViewFlowLayout
+class UICollectionViewFlowLayout: UIKit.UICollectionViewFlowLayout, UICollectionViewDelegateFlowLayout
 {
 	override init()
 	{
@@ -39,7 +39,6 @@ class UICollectionViewFlowLayout: UIKit.UICollectionViewFlowLayout
 		minimumInteritemSpacing = 0
 		scrollDirection = .vertical
 		sectionInset = UIEdgeInsets(top: 0, left: Constants.edgeMargin, bottom: 0, right: Constants.edgeMargin)
-		headerReferenceSize = CGSize(width: 0, height: UIScreen.main.bounds.height - Defaults.listHeight.float)
 		footerReferenceSize = CGSize(width: 0, height: Constants.edgeMargin)
 		register(UICollectionViewBackgroundView.self, forDecorationViewOfKind: "background")
 	}
@@ -49,48 +48,25 @@ class UICollectionViewFlowLayout: UIKit.UICollectionViewFlowLayout
 		super.prepare()
 		guard let collectionView = self.collectionView else { return }
 		estimatedItemSize = CGSize(width: collectionView.bounds.width - Constants.edgeMargin * 2, height: Constants.cellHeight)
-		print(estimatedItemSize)
 	}
 	
 	required init?(coder aDecoder: NSCoder)
 	{
 		fatalError("init(coder:) has not been implemented")
 	}
-	
-	override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]?
-	{
-		guard let attributesArray = super.layoutAttributesForElements(in: rect) else { return nil }
-		var result = attributesArray
-		for attributes in attributesArray
-		{
-			if attributes.representedElementCategory != .cell { break }
-			let decoration = UICollectionViewLayoutAttributes(forDecorationViewOfKind: "background", with: attributes.indexPath)
-			var frame = attributes.frame
-			// 若这个不是最后的内容，则延长一下背景，让他感觉是连在一起的
-			if collectionView?.numberOfItems(inSection: attributes.indexPath.section) != attributes.indexPath.row + 1
-			{ frame.size.height += Constants.cellHeight }
-			decoration.frame = frame
-			decoration.zIndex -= 1
-			print(attributes)
-			result.append(decoration)
-		}
-		return result
-	}
 }
 
 class UICollectionViewController: UIKit.UICollectionViewController, EnhancedViewController
 {
-	var headerHeight: CGFloat { return UIScreen.main.bounds.height - Defaults.listHeight.float }
-	
 	var backgroundTintColor : UIColor { return Theme.colors[1] }
 	var pushTransition : TransitionType { return TransitionType.default }
 	var popTransition : TransitionType { return TransitionType.default }
 	var searchPlaceHolder : String? { return nil }
 	weak var searchDelegate: SearchBarDelegate? { return nil }
 	
-//	let maskLayer = CALayer()
-//	let scrollMaskLayer = CALayer()
-//	let maskView = UIView()
+	let maskLayer = CALayer()
+	let scrollMaskLayer = CALayer()
+	let maskView = UIView()
 	
 	init()
 	{
@@ -106,17 +82,16 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 	{
 		super.loadView()
 		
-		customBackButton()
-//		maskLayer.cornerRadius = Constants.defaultCornerRadius
-//		maskLayer.backgroundColor = UIColor.black.cgColor
-//		scrollMaskLayer.backgroundColor = UIColor.black.cgColor
+		maskLayer.cornerRadius = Constants.defaultCornerRadius
+		maskLayer.backgroundColor = UIColor.black.cgColor
+		scrollMaskLayer.backgroundColor = UIColor.black.cgColor
 		automaticallyAdjustsScrollViewInsets = false
 		if #available(iOS 11.0, *) { collectionView?.contentInsetAdjustmentBehavior = .never }
 		
-//		maskView.layer.addSublayer(maskLayer)
-//		maskView.layer.addSublayer(scrollMaskLayer)
+		maskView.layer.addSublayer(maskLayer)
+		maskView.layer.addSublayer(scrollMaskLayer)
 		
-//		collectionView?.mask = maskView
+		collectionView?.mask = maskView
 		collectionView!.alwaysBounceVertical = true
 		collectionView!.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
 		collectionView!.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "footer")
@@ -127,26 +102,21 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 		super.viewWillAppear(animated)
 		collectionView!.tintColor = Theme.colors[6]
 		collectionView!.backgroundColor = Theme.colors[1]
-//		renderMask()
+		renderMask()
 	}
 	
 	override func viewWillLayoutSubviews()
 	{
 		super.viewWillLayoutSubviews()
-//		renderMask()
+		renderMask()
 	}
 	
-//	func renderMask()
-//	{
-//		let maskY = Constants.searchBarHeight + Constants.edgeMargin * 2 + Constants.statusBarHeight
-//		var maskHeaderHeight = headerHeight - maskY - collectionView!.contentOffset.y
-//		if (maskHeaderHeight < 0) { maskHeaderHeight = 0 }
-//		var maskIndex = collectionView!.numberOfItems(inSection: 0)
-//		var maskHeight = (CGFloat)(maskIndex) * Constants.cellHeight
-//		if maskHeight < Defaults.listHeight.float - Constants.edgeMargin { maskHeight = Defaults.listHeight.float - Constants.edgeMargin }
-//		maskView.frame = CGRect(origin: CGPoint(x: 0, y: collectionView!.contentOffset.y + maskHeaderHeight + maskY), size: collectionView!.bounds.size)
-//		maskLayer.frame = CGRect(x: Constants.edgeMargin, y: 0, width: collectionView!.bounds.size.width - Constants.edgeMargin * 2, height: maskHeight)
-//	}
+	func renderMask()
+	{
+		let maskY = Constants.searchBarHeight + Constants.edgeMargin * 2 + Constants.statusBarHeight
+		maskView.frame = CGRect(origin: CGPoint(x: 0, y: collectionView!.contentOffset.y + maskY), size: collectionView!.bounds.size)
+		maskLayer.frame = CGRect(x: Constants.edgeMargin, y: 0, width: collectionView!.bounds.size.width - Constants.edgeMargin * 2, height: UIScreen.main.bounds.height)
+	}
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle
 	{
@@ -160,6 +130,26 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 	}
 	
 	override var shouldAutorotate: Bool { return false }
+}
+
+extension UICollectionViewController: UICollectionViewDelegateFlowLayout
+{
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
+	{
+		if section == 0 { return CGSize(width: 0, height: UIScreen.main.bounds.height - Defaults.listHeight.float - Constants.edgeMargin) }
+		return CGSize.zero
+	}
+	
+	override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
+	{
+		if collectionView.numberOfItems(inSection: indexPath.section) == 1 { cell.backgroundView?.layer.cornerRadius = Constants.defaultCornerRadius }
+		else
+		{
+			if indexPath.row == 0 { cell.backgroundView?.setCornerRadius(corners: [.topLeft,.topRight], radius: Constants.edgeMargin) }
+			else if collectionView.numberOfItems(inSection: indexPath.section) - 1 == indexPath.row
+			{ cell.backgroundView?.setCornerRadius(corners: [.bottomLeft,.bottomRight], radius: Constants.edgeMargin) }
+		}
+	}
 }
 
 extension UICollectionViewController

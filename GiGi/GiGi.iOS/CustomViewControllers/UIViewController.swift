@@ -84,10 +84,4 @@ class UIViewController: UIKit.UIViewController, EnhancedViewController
 		if backgroundTintColor.isVisibleOnWhiteBackground == false { return UIStatusBarStyle.default }
 		return UIStatusBarStyle.lightContent
 	}
-
-	override func loadView()
-	{
-		super.loadView()
-		customBackButton()
-	}
 }

@@ -93,15 +93,14 @@ public final class Item: Object
 		set { _title = newValue }
 	}
 	
-	@objc public dynamic var _dashboardTypes: String = ""
+	let _dashboardTypes = List<String>()
 
 	public var dashboardTypes: [DashboardType]
 	{
 		get
 		{
-			let types = _dashboardTypes.split(separator: ",")
 			var dashboardTypes = [DashboardType]()
-			for type in types
+			for type in _dashboardTypes
 			{
 				switch type
 				{
@@ -119,9 +118,8 @@ public final class Item: Object
 		}
 		set
 		{
-			var types = [String]()
-			for type in dashboardTypes { types.append(type.identifier) }
-			_dashboardTypes = types.joined(separator: ",")
+			_dashboardTypes.removeAll()
+			for type in dashboardTypes { _dashboardTypes.append(type.identifier) }
 		}
 	}
 	

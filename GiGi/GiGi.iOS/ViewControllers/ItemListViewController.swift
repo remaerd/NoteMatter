@@ -12,7 +12,7 @@ import RealmSwift
 
 class ItemListViewController: UICollectionViewController
 {
-	override var searchPlaceHolder : String? { return item.title }
+	override var searchPlaceHolder : String? { return item.title.localized }
 	
 	var renameConfirmAction: UIAlertAction?
 	var renameTextfield: UITextField?
@@ -42,7 +42,16 @@ class ItemListViewController: UICollectionViewController
 		
 		notificationToken = self.item.children.observe
 		{ (result) in
-			
+			switch result
+			{
+			case .initial(let results):
+				break
+			case .error(let error):
+				break
+			case .update(_, let deletions, let insertions, let modifications):
+				
+				break
+			}
 		}
 	}
 	

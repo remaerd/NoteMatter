@@ -25,10 +25,17 @@ extension ItemListViewController
 	{
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCell
 		let childItem = item.children[indexPath.row]
-		if let icon = childItem.itemType.icon, let image = UIImage(named: icon) { cell.icon = image }
 		
-		if childItem.itemType.isFolder { cell.actions = [.rename, .move, .convert, .delete, .cancel] }
-		else { cell.actions = [.reschedule, .move, .convert, .delete, .cancel] }
+		if childItem.itemType.isFolder
+		{
+			cell.itemType = .folder
+			cell.actions = [.rename, .move, .convert, .delete, .cancel]
+		}
+		else
+		{
+			cell.itemType = .default
+			cell.actions = [.reschedule, .move, .convert, .delete, .cancel]
+		}
 		
 		cell.titleLabel.text = childItem.title.localized
 		cell.tintColor = Theme.colors[6]

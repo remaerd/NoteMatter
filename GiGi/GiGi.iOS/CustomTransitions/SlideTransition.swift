@@ -117,13 +117,13 @@ extension SlideTransition
 		targetVCSnapshot?.removeFromSuperview()
 		self.navigationController.searchBar.isHidden = false
 
-		let cell = actionListViewController.collectionView?.cellForItem(at: indexPath) as! ItemCell
+		let cell = actionListViewController.collectionView?.cellForItem(at: indexPath) as! Cell
 		cell.isHighlighted = false
 		actionListViewController.collectionView?.deselectItem(at: indexPath, animated: false)
 		actionListViewController.collectionView?.isScrollEnabled = false
 		targetViewController?.view.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
 		targetViewController?.view.isHidden = false
-		itemCell.delegate?.itemCellDidTriggerAction?(cell: itemCell, actionIndex: indexPath.row)
+		itemCell.delegate?.itemCell?(itemCell, didTriggerAction: indexPath.row)
 		UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations:
 			{
 				self.navigationController.searchBar.alpha = 1
@@ -193,7 +193,7 @@ extension SlideTransition: ActionListViewControllerDelegate
 {
 	func actionListView(_ actionListView: ActionListViewController, didSelectAction actionIndex: Int)
 	{
-		itemCell.delegate?.itemCellDidTriggerAction?(cell: itemCell, actionIndex: actionIndex)
+		itemCell.delegate?.itemCell?(itemCell, didTriggerAction: actionIndex)
 		self.navigationController.popViewController(animated: true)
 	}
 }

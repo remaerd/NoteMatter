@@ -9,7 +9,7 @@
 import UIKit
 import GiGi
 
-public enum ItemAction
+public enum ActionType
 {
 	case reschedule
 	case move
@@ -54,7 +54,7 @@ class ActionListViewController: UICollectionViewController
 {
 	override var pushTransition : TransitionType { return TransitionType.right }
 	override var popTransition : TransitionType { return TransitionType.left }
-	var actions : [ItemAction] = [] { didSet { collectionView?.reloadData() } }
+	var actions : [ActionType] = [] { didSet { collectionView?.reloadData() } }
 
 	var quickMode: Bool = false
 	var currentActionIndex: Int = -1
@@ -64,7 +64,7 @@ class ActionListViewController: UICollectionViewController
 	{
 		super.loadView()
 		self.clearsSelectionOnViewWillAppear = true
-		collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
+		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
 	}
 
 	override func viewWillDisappear(_ animated: Bool)
@@ -72,7 +72,7 @@ class ActionListViewController: UICollectionViewController
 		super.viewWillAppear(animated)
 		if currentActionIndex >= 0
 		{
-			let cell = self.collectionView?.cellForItem(at: IndexPath(row: currentActionIndex, section: 0)) as! ItemCell
+			let cell = self.collectionView?.cellForItem(at: IndexPath(row: currentActionIndex, section: 0)) as! Cell
 			cell.isHighlighted(highlight: false)
 			currentActionIndex = -1
 		}
@@ -93,8 +93,7 @@ extension ActionListViewController
 
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 	{
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCell
-		cell.hideAccessory = true
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
 		if let icon = actions[indexPath.row].icon { cell.icon = icon }
 		cell.titleLabel.text = actions[indexPath.row].title.localized
 		cell.tintColor = Theme.colors[7]
@@ -122,12 +121,12 @@ extension ActionListViewController
 				if currentActionIndex >= 0
 				{
 					let previousIndex = IndexPath(row: currentActionIndex, section: 0)
-					let previousCell = collectionView?.cellForItem(at: previousIndex) as! ItemCell
+					let previousCell = collectionView?.cellForItem(at: previousIndex) as! Cell
 					collectionView?.deselectItem(at: previousIndex, animated: false)
 					previousCell.isHighlighted(highlight: false, animateDuration: 0.2)
 				}
 				let currentIndex = IndexPath(row: newIndex, section: 0)
-				let currentCell = collectionView?.cellForItem(at: currentIndex) as! ItemCell
+				let currentCell = collectionView?.cellForItem(at: currentIndex) as! Cell
 				collectionView?.selectItem(at: currentIndex, animated: false, scrollPosition: [])
 				currentCell.isHighlighted(highlight: true, animateDuration: 0.2)
 				currentActionIndex = newIndex

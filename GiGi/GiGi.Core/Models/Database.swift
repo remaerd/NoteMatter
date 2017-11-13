@@ -37,7 +37,7 @@ public extension Realm
 		
 		for type in LocalItemType.internalTypes
 		{
-			let object = try LocalItemType(identifier: type.identifier, genre: .system)
+			let object = LocalItemType(identifier: type.identifier, genre: .system)
 			object.title = type.title
 			object.icon = type.icon
 			objects.append(object)
@@ -51,10 +51,14 @@ public extension Realm
 		rootFolder.itemType = folder
 		objects.append(rootFolder)
 
-		let welcomeType = Item.InternalItem.welcome
-		let welcome = Item(parent: rootFolder, itemType: document, title: welcomeType.title, identifier: welcomeType.identifier)
-		objects.append(welcome)
-
+		let guidesType = Item.InternalItem.welcome
+		let guide = Item(parent: rootFolder, itemType: folder, title: guidesType.title, identifier: guidesType.identifier)
+		for title in [".item.welcome.1",".item.welcome.2",".item.welcome.3",".item.welcome.4",".item.welcome.5",".item.welcome.6"]
+		{
+			let item = Item(parent: guide, itemType: document, title: title)
+			objects.append(item)
+		}
+		
 		try self.write({ self.add(objects) })
 	}
 }

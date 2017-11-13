@@ -34,7 +34,9 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 	                          animated: Bool)
 	{
 		guard let newController = viewController as? EnhancedViewController else { return }
-
+		(viewController as? UICollectionViewController)?.customBackButton()
+		(viewController as? UIViewController)?.customBackButton()
+		
 		// 如果 Controller 里面有 Placeholder，则创建 SearchBar，并根据 Controller 的设置调整 SearchBar
 		if let placeholder = newController.searchPlaceHolder
 		{

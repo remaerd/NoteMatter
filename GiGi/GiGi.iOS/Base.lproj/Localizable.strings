@@ -10,17 +10,23 @@
 ".type.folder" = "Project";
 ".type.document" = "Document";
 
-".item.welcome" = "Think, act and live.";
+".item.welcome" = "Mastering Illuminote";
+".item.welcome.1" = "Tap to open note";
+".item.welcome.2" = "Tap the checkbox to finish and hide a note";
+".item.welcome.3" = "To create new note, slide the right edge of the screen";
+".item.welcome.4" = "Slide right, then move up and down to move / convert / delete a note";
+".item.welcome.5" = "Tap and hold to move a note";
+".item.welcome.6" = "Slide down to search";
+
 ".item.rootFolder" = "Illuminote";
 ".item.preferences" = "Preferences";
 
+".list.new" = "New ";
 ".list.insert" = "Insert here...";
 ".list.actions.reschedule" = "Reschedule";
-".list.actions.share" = "Share";
 ".list.actions.move" = "Move to...";
+".list.actions.convert" = "Convert to...";
 ".list.actions.rename" = "Rename";
-".list.actions.encrypt" = "Encrypt";
-".list.actions.decrypt" = "Decrypt";
 ".list.actions.delete" = "Delete";
 ".list.actions.cancel" = "Cancel";
 
@@ -56,6 +62,3 @@
 ".error.title.7" = "Whoopee!";
 ".error.title.8" = "Aye-yai-yai!";
 ".error.title.9" = "Wowzers!";
-
-
-
