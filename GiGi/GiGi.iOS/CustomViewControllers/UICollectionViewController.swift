@@ -61,7 +61,6 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 	var backgroundTintColor : UIColor { return Theme.colors[1] }
 	var pushTransition : TransitionType { return TransitionType.default }
 	var popTransition : TransitionType { return TransitionType.default }
-	var searchPlaceHolder : String? { return nil }
 	weak var searchDelegate: SearchBarDelegate? { return nil }
 	
 	let maskLayer = CALayer()

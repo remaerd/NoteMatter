@@ -19,11 +19,10 @@ class PreferencesViewController: UICollectionViewController
 
 	let menuIcons = ["List-Assistant","List-Badges","List-Solution","List-Experiences","List-Extensions","List-Security"]
 
-	override var searchPlaceHolder : String? { return ".item.preferences".localized }
-
 	override func loadView()
 	{
 		super.loadView()
+		title = ".item.preferences".localized
 		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
 	}
 
@@ -58,6 +57,22 @@ class PreferencesViewController: UICollectionViewController
 
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
-
+		if indexPath.section == 0
+		{
+			navigationController?.pushViewController(MembershipViewController(), animated: true)
+		}
+		else
+		{
+			switch indexPath.row
+			{
+			case 0: navigationController?.pushViewController(AssistantViewController(), animated: true); break
+			case 1: navigationController?.pushViewController(IconListViewController(), animated: true); break
+			case 2: navigationController?.pushViewController(SolutionListViewController(), animated: true); break
+			case 3: navigationController?.pushViewController(ExperienceViewController(), animated: true); break
+			case 4: navigationController?.pushViewController(ExtensionViewController(), animated: true); break
+			case 5: navigationController?.pushViewController(SecurityViewController(), animated: true); break
+			default: break
+			}
+		}
 	}
 }

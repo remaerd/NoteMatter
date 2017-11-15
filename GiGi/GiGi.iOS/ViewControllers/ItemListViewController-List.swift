@@ -18,15 +18,15 @@ extension ItemListViewController
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
 	{
-		return item.children.count
+		return item.children!.count
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 	{
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCell
-		let childItem = item.children[indexPath.row]
+		let childItem = item.children![indexPath.row]
 		
-		if childItem.itemType.isFolder
+		if (childItem as! Item).type.isFolder
 		{
 			cell.itemType = .folder
 			cell.actions = [.rename, .move, .convert, .delete, .cancel]
@@ -37,7 +37,7 @@ extension ItemListViewController
 			cell.actions = [.reschedule, .move, .convert, .delete, .cancel]
 		}
 		
-		cell.titleLabel.text = childItem.title.localized
+		cell.titleLabel.text = (childItem as AnyObject).title.localized
 		cell.tintColor = Theme.colors[6]
 		cell.delegate = self
 		
@@ -46,14 +46,14 @@ extension ItemListViewController
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
-		let selectedItem = self.item.children[indexPath.row]
-		switch selectedItem.itemType.identifier
+		let selectedItem = self.item.children![indexPath.row]
+		switch (selectedItem as! Item).type.identifier
 		{
 		case LocalItemType.InternalItemType.folder.identifier:
-			self.navigationController?.pushViewController(ItemListViewController(item: selectedItem), animated: true)
+			self.navigationController?.pushViewController(ItemListViewController(item: selectedItem as! Item), animated: true)
 			break
 		default:
-			self.navigationController?.pushViewController(ItemEditorViewController(item: selectedItem), animated: true)
+			self.navigationController?.pushViewController(ItemEditorViewController(item: selectedItem as! Item), animated: true)
 			break
 		}
 	}

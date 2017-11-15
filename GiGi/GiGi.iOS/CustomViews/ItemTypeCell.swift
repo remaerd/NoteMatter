@@ -9,7 +9,7 @@
 import UIKit
 import GiGi
 
-class ItemTypeCell: UICollectionViewCell
+class IconCell: UICollectionViewCell
 {
 	var iconView: UIImageView = UIImageView()
 	var descriptionLabel: UILabel = UILabel()

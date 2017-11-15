@@ -7,17 +7,15 @@
 
 import GiGi
 import UIKit
-import RealmSwift
 
 class ItemCreatorViewController: UICollectionViewController
 {
 	let item : Item
-	let solutions : Results<LocalItemType>
+	var solutions : [LocalItemType]!
 	
 	init(item: Item)
 	{
 		self.item = item
-		self.solutions = Application.shared.database.objects(LocalItemType.self)
 		super.init()
 	}
 	
@@ -29,6 +27,9 @@ class ItemCreatorViewController: UICollectionViewController
 	override func loadView()
 	{
 		super.loadView()
+		do { self.solutions = try LocalItemType.all() }
+		catch { error.alert() }
+		collectionView?.reloadData()
 		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
 	}
 }
@@ -62,9 +63,10 @@ extension ItemCreatorViewController
 	@objc func createItem()
 	{
 		let solution = solutions[collectionView!.indexPathsForSelectedItems![0].row]
-		Application.shared.database.beginWrite()
-		let item = Item(parent: self.item, itemType: solution, title: ".list.new".localized + solution.title.lowercased())
-		Application.shared.database.add(item)
-		do { try Application.shared.database.commitWrite() } catch { error.alert() }
+		let item = try! Item.insert()
+		item.parent = self.item
+		item.type = solution
+		item.title = ".list.new".localized + solution.title.localized.lowercased()
+		do { try item.save() } catch { error.alert() }
 	}
 }

@@ -1,26 +1,18 @@
 //
 //  ItemComponent.swift
-//  GiGi
+//  GiGi.iOS
 //
-//  Created by Sean Cheng on 26/06/2017.
-//  Copyright © 2017 Zheng Xingzhi. All rights reserved.
+//  Created by Sean Cheng on 14/11/2017.
+//
 //
 
-import RealmSwift
+import Foundation
+import CoreData
 
-public final class ItemComponent: Object
+@objc(ItemComponent)
+public class ItemComponent: NSManagedObject, Model
 {
-	static var regularStyle =
-	{
-		let style = NSMutableParagraphStyle()
-		style.minimumLineHeight = 26
-		style.maximumLineHeight = 26
-		return [
-			NSAttributedStringKey.paragraphStyle: style,
-			NSAttributedStringKey.foregroundColor: Theme.colors[6],
-			NSAttributedStringKey.font: Theme.EditorRegularFont
-		]
-	}() as [NSAttributedStringKey : Any]
+	public static var database: Database { return Database.defaultDatabase }
 	
 	public enum ComponentInnerStyle: String
 	{
@@ -29,7 +21,7 @@ public final class ItemComponent: Object
 		case strikethrough
 		case placeholder
 		case inlineCode
-
+		
 		public var style: [NSAttributedStringKey: Any]
 		{
 			switch self
@@ -42,7 +34,7 @@ public final class ItemComponent: Object
 			}
 		}
 	}
-
+	
 	public enum ComponentType: String
 	{
 		case body = ".components.body"
@@ -52,7 +44,7 @@ public final class ItemComponent: Object
 		case unorderedListItem = ".components.unorderedList"
 		case orderedListItem = ".components.orderedList"
 		case quote = ".components.quote"
-
+		
 		public var style: [NSAttributedStringKey:Any]
 		{
 			switch self
@@ -66,7 +58,7 @@ public final class ItemComponent: Object
 			case .quote: return [ NSAttributedStringKey.font: Theme.EditorHeader4Font, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
 			}
 		}
-
+		
 		public var searchable : Bool
 		{
 			switch self
@@ -80,61 +72,5 @@ public final class ItemComponent: Object
 			case .quote: return true
 			}
 		}
-	}
-
-	@objc public dynamic var identifier: String = ""
-
-	@objc public dynamic var task: Task!
-	@objc public dynamic var _componentType : String = ComponentType.body.rawValue
-
-	// TODO: 实现“时光穿越”功能，记录内容的删除时间
-	//	public dynamic var deactivated: Date?
-
-	@objc public dynamic var indexedContent: String?
-
-	@objc fileprivate dynamic var _unindexedContent: String?
-
-	@objc private dynamic var _innerStyles: Data?
-	
-	public var innerStyles = [(range: NSRange, style: ComponentInnerStyle)]()
-
-	public let item = LinkingObjects(fromType: Item.self, property: "components")
-
-	public override class func primaryKey() -> String?
-	{
-		return "identifier"
-	}
-
-	public override class func indexedProperties() -> [String]
-	{
-		return ["indexedContent"]
-	}
-
-	public override class func  ignoredProperties() -> [String]
-	{
-		return ["content", "innerStyles", "componentType"]
-	}
-
-	public convenience init(item: Item, componentType: ComponentType = ComponentType.body, index: Int? = nil, identifier: String = NSUUID().uuidString)
-	{
-		self.init()
-		self.identifier = identifier
-		self.componentType = componentType
-		if let at = index { item.components.insert(self, at: at) } else { item.components.append(self) }
-	}
-}
-
-public extension ItemComponent
-{
-	public var componentType: ComponentType
-	{
-		get { if let type = ComponentType(rawValue: _componentType) { return type } else { return ComponentType.body } }
-		set { _componentType = newValue.rawValue }
-	}
-	
-	public var content: String
-	{
-		get { if let value = indexedContent, componentType.searchable == true { return value } else if let value = _unindexedContent, componentType.searchable == false { return value } else { return "" } }
-		set(value) { if componentType.searchable == true { indexedContent = value } else { _unindexedContent = value } }
 	}
 }

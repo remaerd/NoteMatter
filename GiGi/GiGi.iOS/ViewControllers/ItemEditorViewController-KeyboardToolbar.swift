@@ -13,7 +13,7 @@ extension ItemEditorViewController : KeyboardToolbarDelegate
 {
 	func didSetParagraphStyle(style: ItemComponent.ComponentType)
 	{
-		do { try storage.setParagraphStyle(style: style) } catch { error.alert() }
+//		do { try storage.setParagraphStyle(style: style) } catch { error.alert() }
 	}
 	
 	func didSetTask(task: Task?)

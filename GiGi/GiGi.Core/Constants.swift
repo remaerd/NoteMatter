@@ -13,5 +13,7 @@ extension URL
 	static let bundle = Bundle(identifier: "com.zhengxingzhi.gigi.core")!
 	static let syncDatabase = URL(string: "https://localhost:9080")!
 	static let localDatabaseDirectory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last!.appendingPathComponent("Databases")
-	static let welcomeDocument = bundle.url(forResource: "Welcome", withExtension: "md")!
+	
+	static let defaultDatabaseModelUrl = URL.bundle.url(forResource: "GiGi", withExtension: "momd")!
+	static let defaultDatabaseUrl = URL.localDatabaseDirectory.appendingPathComponent("GiGi.sqlite")
 }

@@ -30,7 +30,7 @@
 
 ".preferences.membership" = "曙光计划";
 ".preferences.assistant" = "效率助手";
-".preferences.icons" = "成就图标";
+
 ".preferences.solutions" = "解决方案";
 ".preferences.experience" = "视觉体验";
 ".preferences.extensions" = "系统增强";
@@ -57,4 +57,13 @@
 ".style.paragraph.numlist" = "数字列表";
 ".style.paragraph.quote" = "引文";
 
+".preferences.icons" = "成就图标";
 
+"Icon-Illuminote" = "曙光笔记";
+"Icon-Empiricism" = "经验主义";
+"Icon-Rationalism" = "理性主义";
+"Icon-Idealism" = "理想主义";
+"Icon-Pragmatism" = "实用主义";
+"Icon-Perfectionism" = "完美主义";
+"Icon-Altruism" = "利他主义";
+"Icon-Elitism" = "精英主义";

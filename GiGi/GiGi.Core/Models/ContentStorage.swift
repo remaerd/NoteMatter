@@ -27,7 +27,7 @@ public class ContentStorage : NSTextStorage
 	{
 		self.item = item
 		super.init()
-		self.item.cache()
+//		self.item.cache()
 		self.item.delegate = self
 	}
 	
@@ -77,10 +77,11 @@ extension ContentStorage
 	
 	open override func replaceCharacters(in range: NSRange, with str: String)
 	{
-		guard let result = item.replaceCachedComponents(range, with: str) else { return }
-		beginEditing()
-		edited([.editedCharacters, .editedAttributes], range: result.range, changeInLength: result.newLength)
-		endEditing()
+		super.replaceCharacters(in: range, with: str)
+//		guard let result = item.replaceCachedComponents(range, with: str) else { return }
+//		beginEditing()
+//		edited([.editedCharacters, .editedAttributes], range: result.range, changeInLength: result.newLength)
+//		endEditing()
 	}
 	
 	public override func processEditing()

@@ -11,8 +11,6 @@ import GiGi
 
 class ItemEditorViewController: UIViewController
 {
-	override var searchPlaceHolder : String? { return storage.item.title }
-	
 	let keyboardToolbar = KeyboardToolbar()
 	
 	let storage: ContentStorage
@@ -23,7 +21,7 @@ class ItemEditorViewController: UIViewController
 	init(item:Item)
 	{
 		storage = ContentStorage(item:item)
-		
+
 		let manager = NSLayoutManager()
 		
 		let container = NSTextContainer()
@@ -63,6 +61,7 @@ class ItemEditorViewController: UIViewController
 	{
 		super.loadView()
 		
+		title = storage.item.title
 		view.addSubview(editorView)
 		editorView.translatesAutoresizingMaskIntoConstraints = false
 		editorView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true

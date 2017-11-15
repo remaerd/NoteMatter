@@ -17,14 +17,12 @@ class SearchViewController: UIViewController
 
 	override var pushTransition: TransitionType { return .bottom }
 	override var popTransition : TransitionType { return .bottom }
-	override var searchPlaceHolder : String? { return "search.placeholder".localized }
 	override weak var searchDelegate: SearchBarDelegate? { return self }
 
 	init()
 	{
 		let itemTypesLayout = UICollectionViewFlowLayout()
 		resultsCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: itemTypesLayout)
-
 		super.init(nibName: nil, bundle: nil)
 	}
 
@@ -36,12 +34,13 @@ class SearchViewController: UIViewController
 	override func loadView()
 	{
 		super.loadView()
+		title = "search.placeholder".localized
 		view.addSubview(resultsCollectionView)
 		resultsCollectionView.alwaysBounceVertical = true
 		resultsCollectionView.keyboardDismissMode = .interactive
 		resultsCollectionView.backgroundColor = Theme.colors[0]
 		resultsCollectionView.layer.cornerRadius = Constants.defaultCornerRadius
-		resultsCollectionView.register(ItemTypeCell.self, forCellWithReuseIdentifier: "cell")
+		resultsCollectionView.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
 		resultsCollectionView.translatesAutoresizingMaskIntoConstraints = false
 		resultsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 		resultsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true

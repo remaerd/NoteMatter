@@ -28,7 +28,7 @@ struct Constants
 	
 	static let slideMinmalCommitWidth : CGFloat = 44
 	
-	static let bigButtonSize : CGFloat = 64
+	static let bigButtonSize : CGFloat = 60
 	static let bigButtonBottomMargin: CGFloat = 16
 	static let bigButtonCornerRadius : CGFloat = 13
 	

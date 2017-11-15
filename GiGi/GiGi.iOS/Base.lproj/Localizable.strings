@@ -36,7 +36,6 @@
 
 ".preferences.membership" = "Membership";
 ".preferences.assistant" = "Assistant";
-".preferences.icons" = "Achievement Icons";
 ".preferences.solutions" = "Solutions";
 ".preferences.experience" = "Experience";
 ".preferences.extensions" = "Extensions";
@@ -62,3 +61,14 @@
 ".error.title.7" = "Whoopee!";
 ".error.title.8" = "Aye-yai-yai!";
 ".error.title.9" = "Wowzers!";
+
+".preferences.icons" = "Achievement Icons";
+
+"Icon-Illuminote" = "Illuminote";
+"Icon-Empiricism" = "Empiricism";
+"Icon-Rationalism" = "Rationalism";
+"Icon-Idealism" = "Idealism";
+"Icon-Pragmatism" = "Pragmatism";
+"Icon-Perfectionism" = "Perfectionism";
+"Icon-Altruism" = "Altruism";
+"Icon-Elitism" = "Elitism";

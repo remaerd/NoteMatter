@@ -23,7 +23,6 @@ protocol EnhancedViewController
 	var backgroundTintColor : UIColor { get }
 	var pushTransition: TransitionType { get }
 	var popTransition : TransitionType { get }
-	var searchPlaceHolder : String? { get }
 	weak var searchDelegate: SearchBarDelegate? { get }
 }
 
@@ -76,7 +75,6 @@ class UIViewController: UIKit.UIViewController, EnhancedViewController
 	var backgroundTintColor : UIColor { return Theme.colors[1] }
 	var pushTransition : TransitionType { return TransitionType.default }
 	var popTransition : TransitionType { return TransitionType.default }
-	var searchPlaceHolder : String? { return nil }
 	weak var searchDelegate: SearchBarDelegate? { return nil }
 
 	override var preferredStatusBarStyle: UIStatusBarStyle

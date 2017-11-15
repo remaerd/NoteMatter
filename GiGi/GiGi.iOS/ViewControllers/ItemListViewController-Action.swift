@@ -27,7 +27,7 @@ extension ItemListViewController: ItemCellDelegate
 	{
 		if let actions = cell.actions, let indexPath = collectionView?.indexPath(for: cell)
 		{
-			let selectedItem = item.children[indexPath.row]
+			guard let selectedItem = item.children?[indexPath.row] as? Item else { return }
 			
 			func rescheduleItem()
 			{
@@ -60,9 +60,10 @@ extension ItemListViewController: ItemCellDelegate
 				})
 				
 				self.renameConfirmAction = UIAlertAction(title: ".alert.rename.confirm".localized, style: .default, handler:
-					{ (_) in
-						do { try Application.shared.database.write { if let text = self.renameTextfield?.text { selectedItem.title = text } } } catch { error.alert() }
-						self.finish()
+				{ (_) in
+					if let text = self.renameTextfield?.text { selectedItem.title = text }
+					do { try selectedItem.save() } catch { error.alert() }
+					self.finish()
 				})
 				
 				let cancelAction = UIAlertAction(title: ".alert.rename.cancel".localized, style: .cancel, handler:
@@ -77,7 +78,7 @@ extension ItemListViewController: ItemCellDelegate
 			
 			func deleteItem()
 			{
-				do { try Application.shared.database.write { Application.shared.database.delete(selectedItem) }} catch { error.alert() }
+				do { try selectedItem.destroy() } catch { error.alert() }
 			}
 			
 			switch actions[index]

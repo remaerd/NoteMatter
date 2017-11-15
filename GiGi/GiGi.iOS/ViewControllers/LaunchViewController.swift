@@ -30,13 +30,16 @@ class LaunchViewController: UIKit.UIViewController
 		do
 		{
 			try Application.start()
-			guard let item = Application.shared.database.objects(Item.self).filter("identifier == %@", Item.InternalItem.rootFolder.identifier).first else { throw LaunchException.rootFolderNotFound }
-			
-			let controller = ItemListViewController(item: item)
-			self.navigationController?.setViewControllers([controller], animated: animated)
+			if let item = try Item.findOne(NSPredicate(format: "identifier == %@", Item.InternalItem.rootFolder.identifier))
+			{
+				let controller = ItemListViewController(item: item)
+				self.navigationController?.setViewControllers([controller], animated: animated)
+			}
+			else { throw LaunchException.rootFolderNotFound }
 		} catch
 		{
 			error.alert()
+			print(error)
 		}
 	}
 	
