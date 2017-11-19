@@ -5,7 +5,6 @@
 //  Created by Sean Cheng on 12/11/2017.
 //
 
-import GiGi
 import UIKit
 
 @objc protocol ItemCellDelegate: NSObjectProtocol
@@ -51,6 +50,7 @@ class ItemCell: Cell
 	}
 	
 	var actions: [ActionType]? = nil { didSet { setActions() } }
+	weak var delegate: ItemCellDelegate?
 	var taskButton = UIButton()
 	
 	override init(frame: CGRect)
@@ -77,7 +77,7 @@ class ItemCell: Cell
 	
 	func setActions()
 	{
-		guard let _ = actions else { rightView = nil; return }
+		rightView?.removeFromSuperview()
 		let button = UIButton(frame: frame)
 		button.setImage(#imageLiteral(resourceName: "Accessory-Action"), for: .normal)
 		button.addTarget(self, action: #selector(didTappedAccessoryButton), for: .touchUpInside)

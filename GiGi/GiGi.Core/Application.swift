@@ -11,12 +11,12 @@ import CoreData
 public struct Application
 {
 	static public var shared: Application!
-
+	static public var themeColor = UIColor.black
+	
 	static public func start() throws
 	{
 		print(URL.localDatabaseDirectory)
-		
-		try Theme.load()
+
 		var isFirstlaunch = true
 		var isDirectory: ObjCBool = true
 		if FileManager.default.fileExists(atPath: URL.localDatabaseDirectory.path, isDirectory: &isDirectory) == true, isDirectory.boolValue == true { isFirstlaunch = false }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GiGi
 
 class UINavigationController: UIKit.UINavigationController, UINavigationControllerDelegate
 {
@@ -34,6 +33,16 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 		searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.edgeMargin).isActive = true
 		searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.edgeMargin).isActive = true
 		searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.edgeMargin + Constants.statusBarHeight).isActive = true
+	}
+	
+	// 解决一个因 ModalViewController 和 UICollectionViewController 之间滚动会出现的 BUG
+	override func present(_ viewControllerToPresent: UIKit.UIViewController, animated flag: Bool, completion: (() -> Void)? = nil)
+	{
+		if let controller = visibleViewController as? UICollectionViewController, let view = controller.collectionView, let items = view.indexPathsForSelectedItems, items.count != 0
+		{
+			view.deselectItem(at: items[0], animated: false)
+		}
+		super.present(viewControllerToPresent, animated: flag, completion: completion)
 	}
 
 	func navigationController(_ navigationController: UIKit.UINavigationController,

@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import GiGi
 
 class PreferencesViewController: UICollectionViewController
 {
-	override var pushTransition: TransitionType { return .right }
-	override var popTransition : TransitionType { return .left }
+	override var pushTransition: TransitionType { return .bottom }
+	override var popTransition : TransitionType { return .bottom }
 	
   let menuNames = [".preferences.assistant", ".preferences.icons", ".preferences.solutions",
                    ".preferences.experience", ".preferences.extensions", ".preferences.security"]
@@ -24,19 +23,29 @@ class PreferencesViewController: UICollectionViewController
 		super.loadView()
 		title = ".item.preferences".localized
 		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
+		collectionView?.register(SwitchCell.self, forCellWithReuseIdentifier: "switcher")
+		navigationItem.leftBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Close"), style: .plain, target: self, action: #selector(didTappedCloseButton))]
 	}
+	
+	@objc func didTappedCloseButton()
+	{
+		navigationController?.popViewController(animated: true)
+	}
+}
 
+extension PreferencesViewController
+{
 	override func numberOfSections(in collectionView: UICollectionView) -> Int
 	{
 		return 2
 	}
-
+	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
 	{
 		if section == 0 { return 1 }
 		return menuNames.count
 	}
-
+	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 	{
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
@@ -49,12 +58,20 @@ class PreferencesViewController: UICollectionViewController
 		}
 		else
 		{
+			if indexPath.row == 0
+			{
+				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
+				cell.titleLabel.text = menuNames[indexPath.row].localized
+				cell.icon = UIImage(named: menuIcons[indexPath.row])
+				cell.switcher.isOn = Defaults.assistant.bool
+				return cell
+			}
 			cell.titleLabel.text = menuNames[indexPath.row].localized
 			cell.icon = UIImage(named: menuIcons[indexPath.row])
 		}
 		return cell
 	}
-
+	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
 		if indexPath.section == 0

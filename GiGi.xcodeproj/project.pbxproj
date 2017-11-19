@@ -27,7 +27,6 @@
 		031B2DDD1FBA001D00A01489 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2DDB1FBA001200A01489 /* Model.swift */; };
 		031B2DDE1FBA005000A01489 /* ContentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F781F29B604009DE50E /* ContentStorage.swift */; };
 		037A39811F29DDDD00F25BB0 /* Welcome.md in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F731F29B604009DE50E /* Welcome.md */; };
-		037A39821F29DDE000F25BB0 /* Harmony.json in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F7C1F29B604009DE50E /* Harmony.json */; };
 		037A39831F29E18E00F25BB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F711F29B604009DE50E /* Localizable.strings */; };
 		037A39851F29E36B00F25BB0 /* ItemListViewController-List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39841F29E36B00F25BB0 /* ItemListViewController-List.swift */; };
 		037A39871F29E38700F25BB0 /* ItemListViewController-Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39861F29E38700F25BB0 /* ItemListViewController-Action.swift */; };
@@ -39,14 +38,26 @@
 		039FF0001FBC1D0D007C9539 /* IconListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F5D1F29B5D3009DE50E /* IconListViewController.swift */; };
 		039FF0021FBC1FBA007C9539 /* MembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FF0011FBC1FBA007C9539 /* MembershipViewController.swift */; };
 		039FF0041FBC1FF5007C9539 /* AssistantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FF0031FBC1FF5007C9539 /* AssistantViewController.swift */; };
-		039FF0061FBC2001007C9539 /* AssistantRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FF0051FBC2001007C9539 /* AssistantRuleViewController.swift */; };
 		039FF0081FBC2012007C9539 /* SolutionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FF0071FBC2012007C9539 /* SolutionListViewController.swift */; };
 		039FF00A1FBC205F007C9539 /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FF0091FBC205F007C9539 /* ExperienceViewController.swift */; };
 		039FF00C1FBC206E007C9539 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FF00B1FBC206E007C9539 /* ExtensionViewController.swift */; };
 		039FF00E1FBC2077007C9539 /* SecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FF00D1FBC2077007C9539 /* SecurityViewController.swift */; };
+		039FF0101FBDC939007C9539 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FF00F1FBDC939007C9539 /* SwitchCell.swift */; };
+		039FF0121FBDF0E2007C9539 /* PickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FF0111FBDF0E2007C9539 /* PickerCell.swift */; };
+		039FF0171FBEF92B007C9539 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FF0151FBEF91D007C9539 /* Security.swift */; };
+		039FF0181FBEF9F1007C9539 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039FF0131FBEF8BB007C9539 /* LocalAuthentication.framework */; };
+		03BD086D1FC00BA700AC5312 /* Harmony.json in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F7C1F29B604009DE50E /* Harmony.json */; };
+		03BD086F1FC025D900AC5312 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD086E1FC025D900AC5312 /* DatePickerCell.swift */; };
 		03C7ECDE1FB5FD5C008571E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03C7ECE01FB5FD5C008571E3 /* InfoPlist.strings */; };
 		03C7ECE41FB865C1008571E3 /* ItemCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7ECE31FB865C1008571E3 /* ItemCreatorViewController.swift */; };
 		03C7ECE71FB8669C008571E3 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7ECE61FB8669C008571E3 /* ItemCell.swift */; };
+		03D22BE41FC004AF0054BE9C /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D22BE31FC004AF0054BE9C /* ModalViewController.swift */; };
+		03D22BE71FC0076C0054BE9C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F841F29B604009DE50E /* Theme.swift */; };
+		03D22BE81FC0076C0054BE9C /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F7A1F29B604009DE50E /* Defaults.swift */; };
+		03D22BEA1FC008DA0054BE9C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D22BE91FC008DA0054BE9C /* Font.swift */; };
+		03D22BEC1FC0094F0054BE9C /* Font-Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D22BEB1FC0094F0054BE9C /* Font-Application.swift */; };
+		03D22BED1FC009780054BE9C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D22BE91FC008DA0054BE9C /* Font.swift */; };
+		03D22BEF1FC00ABE0054BE9C /* Font-Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D22BEE1FC00ABE0054BE9C /* Font-Editor.swift */; };
 		03F12F441F29B430009DE50E /* GiGi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F12F3D1F29B430009DE50E /* GiGi.framework */; };
 		03F12F451F29B430009DE50E /* GiGi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03F12F3D1F29B430009DE50E /* GiGi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03F12F8B1F29B6F0009DE50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F511F29B5D3009DE50E /* AppDelegate.swift */; };
@@ -72,10 +83,8 @@
 		03F12FA41F29B760009DE50E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F751F29B604009DE50E /* Color.swift */; };
 		03F12FA51F29B760009DE50E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F761F29B604009DE50E /* Constants.swift */; };
 		03F12FA81F29B760009DE50E /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F791F29B604009DE50E /* NSManagedObject.swift */; };
-		03F12FA91F29B760009DE50E /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F7A1F29B604009DE50E /* Defaults.swift */; };
 		03F12FAD1F29B760009DE50E /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F811F29B604009DE50E /* Localization.swift */; };
 		03F12FAE1F29B760009DE50E /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F821F29B604009DE50E /* MarkdownParser.swift */; };
-		03F12FB01F29B760009DE50E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F841F29B604009DE50E /* Theme.swift */; };
 		03F12FB11F29B762009DE50E /* GiGi.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F12F7B1F29B604009DE50E /* GiGi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03F12FC71F29B9F5009DE50E /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F811F29B604009DE50E /* Localization.swift */; };
 		03F12FC81F29BAE8009DE50E /* Sentry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F12FC01F29B900009DE50E /* Sentry.framework */; };
@@ -144,16 +153,24 @@
 		037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentStorage-KeyboardBar.swift"; sourceTree = "<group>"; };
 		039FF0011FBC1FBA007C9539 /* MembershipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipViewController.swift; sourceTree = "<group>"; };
 		039FF0031FBC1FF5007C9539 /* AssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantViewController.swift; sourceTree = "<group>"; };
-		039FF0051FBC2001007C9539 /* AssistantRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantRuleViewController.swift; sourceTree = "<group>"; };
 		039FF0071FBC2012007C9539 /* SolutionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionListViewController.swift; sourceTree = "<group>"; };
 		039FF0091FBC205F007C9539 /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
 		039FF00B1FBC206E007C9539 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 		039FF00D1FBC2077007C9539 /* SecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityViewController.swift; sourceTree = "<group>"; };
+		039FF00F1FBDC939007C9539 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwitchCell.swift; path = GiGi/GiGi.iOS/Cells/SwitchCell.swift; sourceTree = SOURCE_ROOT; };
+		039FF0111FBDF0E2007C9539 /* PickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCell.swift; sourceTree = "<group>"; };
+		039FF0131FBEF8BB007C9539 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/LocalAuthentication.framework; sourceTree = DEVELOPER_DIR; };
+		039FF0151FBEF91D007C9539 /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
+		03BD086E1FC025D900AC5312 /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		03C2EDB31FB5FCDC0087A2AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		03C7ECDF1FB5FD5C008571E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03C7ECE11FB5FD5E008571E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		03C7ECE31FB865C1008571E3 /* ItemCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCreatorViewController.swift; sourceTree = "<group>"; };
 		03C7ECE61FB8669C008571E3 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		03D22BE31FC004AF0054BE9C /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		03D22BE91FC008DA0054BE9C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		03D22BEB1FC0094F0054BE9C /* Font-Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font-Application.swift"; sourceTree = "<group>"; };
+		03D22BEE1FC00ABE0054BE9C /* Font-Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font-Editor.swift"; sourceTree = "<group>"; };
 		03F12F251F29B420009DE50E /* GiGi.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiGi.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F12F3D1F29B430009DE50E /* GiGi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GiGi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F12F4D1F29B531009DE50E /* GiGi.iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiGi.iOS.entitlements; sourceTree = SOURCE_ROOT; };
@@ -227,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				039FF0181FBEF9F1007C9539 /* LocalAuthentication.framework in Frameworks */,
 				031B2D801FB9A25300A01489 /* Alamofire.framework in Frameworks */,
 				031B2D811FB9A25800A01489 /* CommonCrypto.framework in Frameworks */,
 				031B2D7E1FB9A20C00A01489 /* CoreData.framework in Frameworks */,
@@ -272,7 +290,6 @@
 			children = (
 				039FF0011FBC1FBA007C9539 /* MembershipViewController.swift */,
 				039FF0031FBC1FF5007C9539 /* AssistantViewController.swift */,
-				039FF0051FBC2001007C9539 /* AssistantRuleViewController.swift */,
 				03F12F5D1F29B5D3009DE50E /* IconListViewController.swift */,
 				039FF0071FBC2012007C9539 /* SolutionListViewController.swift */,
 				039FF0091FBC205F007C9539 /* ExperienceViewController.swift */,
@@ -287,6 +304,7 @@
 			children = (
 				037A39891F29E3F200F25BB0 /* Alert.swift */,
 				031B2D771FB98A1400A01489 /* View.swift */,
+				03D22BEB1FC0094F0054BE9C /* Font-Application.swift */,
 			);
 			path = Exhancers;
 			sourceTree = "<group>";
@@ -296,6 +314,9 @@
 			children = (
 				03F12F5C1F29B5D3009DE50E /* Cell.swift */,
 				03C7ECE61FB8669C008571E3 /* ItemCell.swift */,
+				039FF00F1FBDC939007C9539 /* SwitchCell.swift */,
+				039FF0111FBDF0E2007C9539 /* PickerCell.swift */,
+				03BD086E1FC025D900AC5312 /* DatePickerCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -378,6 +399,7 @@
 				03F12F6B1F29B5D3009DE50E /* UIViewController.swift */,
 				03F12F681F29B5D3009DE50E /* UICollectionViewController.swift */,
 				03F12F661F29B5D3009DE50E /* SearchViewController.swift */,
+				03D22BE31FC004AF0054BE9C /* ModalViewController.swift */,
 			);
 			path = CustomViewControllers;
 			sourceTree = "<group>";
@@ -417,7 +439,6 @@
 				031B2D871FB9B91900A01489 /* GiGi.xcdatamodeld */,
 				03F12F7D1F29B604009DE50E /* Info.plist */,
 				03F12F731F29B604009DE50E /* Welcome.md */,
-				03F12F7C1F29B604009DE50E /* Harmony.json */,
 				03F12F7B1F29B604009DE50E /* GiGi.h */,
 			);
 			name = Miscellanous;
@@ -430,7 +451,6 @@
 				031B2DC91FB9FB6800A01489 /* ItemComponent.swift */,
 				031B2DC51FB9FB6800A01489 /* LocalItemType.swift */,
 				031B2DC71FB9FB6800A01489 /* Task.swift */,
-				03F12F841F29B604009DE50E /* Theme.swift */,
 				03F12F781F29B604009DE50E /* ContentStorage.swift */,
 				037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */,
 				03F12F821F29B604009DE50E /* MarkdownParser.swift */,
@@ -445,7 +465,8 @@
 				031B2DAA1FB9DB3000A01489 /* Database.swift */,
 				031B2DDB1FBA001200A01489 /* Model.swift */,
 				03F12F751F29B604009DE50E /* Color.swift */,
-				03F12F7A1F29B604009DE50E /* Defaults.swift */,
+				039FF0151FBEF91D007C9539 /* Security.swift */,
+				03D22BEE1FC00ABE0054BE9C /* Font-Editor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -453,6 +474,7 @@
 		03F12FB81F29B8D9009DE50E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				039FF0131FBEF8BB007C9539 /* LocalAuthentication.framework */,
 				031B2D791FB9A0DF00A01489 /* Cartfile */,
 				031B2D7C1FB9A1FC00A01489 /* MicrosoftAzureMobile.framework */,
 				031B2D7B1FB9A1E900A01489 /* CoreData.framework */,
@@ -481,6 +503,10 @@
 			isa = PBXGroup;
 			children = (
 				03F12F811F29B604009DE50E /* Localization.swift */,
+				03F12F841F29B604009DE50E /* Theme.swift */,
+				03D22BE91FC008DA0054BE9C /* Font.swift */,
+				03F12F7A1F29B604009DE50E /* Defaults.swift */,
+				03F12F7C1F29B604009DE50E /* Harmony.json */,
 			);
 			path = GiGi.Universal;
 			sourceTree = "<group>";
@@ -628,6 +654,7 @@
 				03F12FA21F29B707009DE50E /* Assets.xcassets in Resources */,
 				03C7ECDE1FB5FD5C008571E3 /* InfoPlist.strings in Resources */,
 				037A39831F29E18E00F25BB0 /* Localizable.strings in Resources */,
+				03BD086D1FC00BA700AC5312 /* Harmony.json in Resources */,
 				037A39A81F2A22E700F25BB0 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,7 +665,6 @@
 			files = (
 				037A39811F29DDDD00F25BB0 /* Welcome.md in Resources */,
 				039FEFFF1FBBD7C2007C9539 /* Localizable.strings in Resources */,
-				037A39821F29DDE000F25BB0 /* Harmony.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,13 +715,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D22BEA1FC008DA0054BE9C /* Font.swift in Sources */,
 				03F12F901F29B6F4009DE50E /* ItemTypeCell.swift in Sources */,
+				03D22BEC1FC0094F0054BE9C /* Font-Application.swift in Sources */,
 				03F12FA11F29B702009DE50E /* SlideTransition.swift in Sources */,
 				03C7ECE71FB8669C008571E3 /* ItemCell.swift in Sources */,
 				039FF00E1FBC2077007C9539 /* SecurityViewController.swift in Sources */,
 				039FF00A1FBC205F007C9539 /* ExperienceViewController.swift in Sources */,
 				037A39851F29E36B00F25BB0 /* ItemListViewController-List.swift in Sources */,
 				037A398A1F29E3F200F25BB0 /* Alert.swift in Sources */,
+				03BD086F1FC025D900AC5312 /* DatePickerCell.swift in Sources */,
 				037A39871F29E38700F25BB0 /* ItemListViewController-Action.swift in Sources */,
 				03F12F8B1F29B6F0009DE50E /* AppDelegate.swift in Sources */,
 				039FF00C1FBC206E007C9539 /* ExtensionViewController.swift in Sources */,
@@ -706,18 +735,22 @@
 				037A39AC1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift in Sources */,
 				03C7ECE41FB865C1008571E3 /* ItemCreatorViewController.swift in Sources */,
 				03F12F9F1F29B6FD009DE50E /* PreferencesViewController.swift in Sources */,
+				03D22BE81FC0076C0054BE9C /* Defaults.swift in Sources */,
 				039FF0021FBC1FBA007C9539 /* MembershipViewController.swift in Sources */,
 				03F12F9B1F29B6FD009DE50E /* ItemEditorViewController.swift in Sources */,
 				031B2D781FB98A1400A01489 /* View.swift in Sources */,
 				03F12F8C1F29B6F0009DE50E /* Constants.swift in Sources */,
+				039FF0121FBDF0E2007C9539 /* PickerCell.swift in Sources */,
 				03F12F971F29B6F8009DE50E /* UIViewController.swift in Sources */,
 				039FF0081FBC2012007C9539 /* SolutionListViewController.swift in Sources */,
-				039FF0061FBC2001007C9539 /* AssistantRuleViewController.swift in Sources */,
 				03F12FC71F29B9F5009DE50E /* Localization.swift in Sources */,
+				03D22BE41FC004AF0054BE9C /* ModalViewController.swift in Sources */,
 				03F12F9E1F29B6FD009DE50E /* LaunchViewController.swift in Sources */,
 				03F12F9D1F29B6FD009DE50E /* ItemListViewController.swift in Sources */,
 				03F12F981F29B6F8009DE50E /* SearchViewController.swift in Sources */,
+				03D22BE71FC0076C0054BE9C /* Theme.swift in Sources */,
 				03F12F941F29B6F8009DE50E /* UICollectionViewController.swift in Sources */,
+				039FF0101FBDC939007C9539 /* SwitchCell.swift in Sources */,
 				03F12F921F29B6F4009DE50E /* SearchBar.swift in Sources */,
 				03F12F961F29B6F8009DE50E /* UINavigationController.swift in Sources */,
 				03F12F991F29B6FD009DE50E /* ActionListViewController.swift in Sources */,
@@ -731,11 +764,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				039FF0171FBEF92B007C9539 /* Security.swift in Sources */,
 				031B2DDD1FBA001D00A01489 /* Model.swift in Sources */,
 				031B2DD71FB9FB7100A01489 /* Task.swift in Sources */,
 				03F12FA81F29B760009DE50E /* NSManagedObject.swift in Sources */,
 				03F12FAD1F29B760009DE50E /* Localization.swift in Sources */,
-				03F12FA91F29B760009DE50E /* Defaults.swift in Sources */,
 				03F12FA31F29B760009DE50E /* Application.swift in Sources */,
 				031B2DD81FB9FB7100A01489 /* ItemComponent.swift in Sources */,
 				031B2DD61FB9FB7100A01489 /* LocalItemType.swift in Sources */,
@@ -743,8 +776,9 @@
 				031B2DD41FB9FB7100A01489 /* Item.swift in Sources */,
 				03F12FA51F29B760009DE50E /* Constants.swift in Sources */,
 				031B2DAB1FB9DB3000A01489 /* Database.swift in Sources */,
+				03D22BEF1FC00ABE0054BE9C /* Font-Editor.swift in Sources */,
+				03D22BED1FC009780054BE9C /* Font.swift in Sources */,
 				03F12FAE1F29B760009DE50E /* MarkdownParser.swift in Sources */,
-				03F12FB01F29B760009DE50E /* Theme.swift in Sources */,
 				031B2DC21FB9E31C00A01489 /* GiGi.xcdatamodeld in Sources */,
 				031B2DDE1FBA005000A01489 /* ContentStorage.swift in Sources */,
 			);

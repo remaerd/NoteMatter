@@ -22,6 +22,7 @@
 ".item.preferences" = "Preferences";
 
 ".list.new" = "New ";
+".list.unlock" = "Unlock secret folder";
 ".list.insert" = "Insert here...";
 ".list.actions.reschedule" = "Reschedule";
 ".list.actions.move" = "Move to...";
@@ -35,11 +36,7 @@
 ".alert.rename.cancel" = "Cancel";
 
 ".preferences.membership" = "Membership";
-".preferences.assistant" = "Assistant";
 ".preferences.solutions" = "Solutions";
-".preferences.experience" = "Experience";
-".preferences.extensions" = "Extensions";
-".preferences.security" = "Security";
 
 "search.placeholder" = "Type to find...";
 
@@ -61,6 +58,54 @@
 ".error.title.7" = "Whoopee!";
 ".error.title.8" = "Aye-yai-yai!";
 ".error.title.9" = "Wowzers!";
+
+".preferences.assistant" = "Assistant";
+".preferences.assistant.level" = "Level";
+".preferences.assistant.level.strict" = "Strict";
+".preferences.assistant.level.loose" = "Loose";
+".preferences.assistant.level.custom" = "Customize";
+".preferences.assistant.rules.briefing" = "Daily briefing";
+".preferences.assistant.rules.lazy" = "Infrequently use";
+".preferences.assistant.rules.tooManyTasks" = "Too many “Anytime” tasks";
+".preferences.assistant.rules.dalay" = "Task delay limit";
+
+".preferences.assistant.rules.lazy.disable" = "No warning";
+".preferences.assistant.rules.lazy.week" = "after a week";
+".preferences.assistant.rules.lazy.month" = "after a month";
+
+".preferences.assistant.rules.tooManyTasks.disable" = "No warning";
+".preferences.assistant.rules.tooManyTasks.3" = "more than 3 tasks";
+".preferences.assistant.rules.tooManyTasks.10" = "more than 10 tasks";
+
+".preferences.assistant.rules.dalay.disable" = "No warning";
+".preferences.assistant.rules.dalay.1" = "Once";
+".preferences.assistant.rules.dalay.2" = "Twice";
+
+".preferences.experience" = "Experience";
+".preferences.experience.sound" = "Sound Effect";
+".preferences.experience.hideCompletedTasks" = "Hide completed tasks";
+
+".preferences.experience.mode" = "Theme";
+".preferences.experience.mode.auto" = "Auto Switch";
+".preferences.experience.mode.day" = "Day";
+".preferences.experience.mode.night" = "Night";
+".preferences.experience.time.day" = "Day time";
+".preferences.experience.time.night" = "Night time";
+
+".preferences.extensions" = "Extensions";
+".preferences.extensions.today" = "Today extension";
+".preferences.extensions.share" = "Share extension";
+".preferences.extensions.siri" = "Siri";
+".preferences.extensions.calendar" = "Calendar";
+".preferences.extensions.reminders" = "Reminders";
+".preferences.extensions.spotlight" = "Spotlight";
+".preferences.extensions.inactived" = "Inactivated";
+
+".preferences.security" = "Security";
+".preferences.security.set" = "Set password";
+".preferences.security.reset" = "Reset password";
+".preferences.security.touchid" = "Unlock with Touch ID";
+".preferences.security.faceid" = "Unlock with Face ID";
 
 ".preferences.icons" = "Achievement Icons";
 

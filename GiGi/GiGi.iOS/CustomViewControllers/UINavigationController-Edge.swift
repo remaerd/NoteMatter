@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GiGi
 
 extension UINavigationController : UIGestureRecognizerDelegate
 {

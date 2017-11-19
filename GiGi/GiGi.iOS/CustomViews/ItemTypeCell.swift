@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GiGi
 
 class IconCell: UICollectionViewCell
 {
@@ -33,7 +32,7 @@ class IconCell: UICollectionViewCell
 		descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
 		descriptionLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
 		descriptionLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-		descriptionLabel.font = Theme.SolutionFont
+		descriptionLabel.font = Font.SolutionFont
 		descriptionLabel.numberOfLines = 2
 		descriptionLabel.textAlignment = .center
 		descriptionLabel.textColor = Theme.colors[7]

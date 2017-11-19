@@ -19,7 +19,6 @@ class LaunchViewController: UIKit.UIViewController
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
-		
 		view.backgroundColor = UIColor(hex: "282A2E")
 	}
 	
@@ -29,6 +28,7 @@ class LaunchViewController: UIKit.UIViewController
 		super.viewDidAppear(animated)
 		do
 		{
+			try Theme.load()
 			try Application.start()
 			if let item = try Item.findOne(NSPredicate(format: "identifier == %@", Item.InternalItem.rootFolder.identifier))
 			{

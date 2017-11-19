@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GiGi
 
 internal enum TransitionType
 {
@@ -51,7 +50,7 @@ extension EnhancedViewController where Self:UIKit.UIViewController
 
 	func customBackButton()
 	{
-		if let navController = navigationController, navController.viewControllers.count > 1
+		if let navController = navigationController, navController.viewControllers.count > 1 && navigationItem.leftBarButtonItems == nil
 		{
 			let item = UIBarButtonItem(image: UIImage(named: "Navigation-Back")!, style: .plain, target: self, action: #selector(backButtonTapped))
 			self.navigationItem.leftBarButtonItems = [item]

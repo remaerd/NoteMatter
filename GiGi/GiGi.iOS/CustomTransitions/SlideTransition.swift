@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GiGi
 
 class SlideTransition: NSObject, UIViewControllerInteractiveTransitioning, UICollectionViewDelegate
 {

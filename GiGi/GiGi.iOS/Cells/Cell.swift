@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GiGi
 
 class Cell: UICollectionViewCell
 {
@@ -15,17 +14,19 @@ class Cell: UICollectionViewCell
 	{
 		case `default`
 		case add
+		case uncheck
+		case checked
+		case description(string: String)
 	}
 	
-	weak var delegate: ItemCellDelegate?
+	let titleLabel: UILabel = UILabel()
+	let seperator = UIView()
 	
-	var titleLabel: UILabel = UILabel()
 	var icon: UIImage? { didSet { setIcon() } }
 	var accessoryType: AccessoryType? { didSet { setAccessoryType() } }
 	var leftView: UIView? { didSet { setLeftView() } }
 	var rightView: UIView? { didSet { setRightView() } }
 	
-	private var _seperator: CALayer?
 	private var _titleLeadingConstraint: NSLayoutConstraint!
 	private var _seperatorLeadingConstraint: NSLayoutConstraint!
 	
@@ -35,7 +36,7 @@ class Cell: UICollectionViewCell
 		
 		contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.cellHeight).isActive = true
 		titleLabel.numberOfLines = 0
-		titleLabel.font = Theme.CellFont
+		titleLabel.font = Font.CellFont
 		contentView.addSubview(titleLabel)
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.cellHeight).isActive = true
@@ -44,12 +45,8 @@ class Cell: UICollectionViewCell
 		_titleLeadingConstraint = titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15)
 		_titleLeadingConstraint.isActive = true
 		
-		let backgroundView = UIView()
-		backgroundView.backgroundColor = Theme.colors[0]
-		self.backgroundView = backgroundView
-		
-		let seperator = UIView()
-		seperator.backgroundColor = Theme.colors[1]
+		self.backgroundView = UIView()
+
 		contentView.addSubview(seperator)
 		seperator.translatesAutoresizingMaskIntoConstraints = false
 		seperator.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
@@ -70,7 +67,8 @@ class Cell: UICollectionViewCell
 
 		if let leftView = leftView { leftView.tintColor = Theme.colors[4] }
 		if let rightView = rightView { rightView.tintColor = Theme.colors[3] }
-//		backgroundColor = Theme.colors[0]
+		backgroundView?.backgroundColor = Theme.colors[0]
+		seperator.backgroundColor = Theme.colors[1]
 		titleLabel.textColor = tintColor
 	}
 	
@@ -126,6 +124,14 @@ extension Cell
 		{
 		case .add: rightView = UIImageView(image: #imageLiteral(resourceName: "Accessory-Add"))
 		case .default: rightView = UIImageView(image: #imageLiteral(resourceName: "Accessory-Default"))
+		case .uncheck: rightView = UIImageView(image: #imageLiteral(resourceName: "Accessory-Deselected"))
+		case .checked: rightView = UIImageView(image: #imageLiteral(resourceName: "Accessory-Selected"))
+		case .description(let string):
+			let label = UILabel()
+			label.font = Font.CellDescriptionFont
+			label.textColor = Theme.colors[3]
+			label.text = string
+			rightView = label
 		}
 	}
 
@@ -154,8 +160,7 @@ extension Cell
 			contentView.addSubview(rightView!)
 			rightView?.contentMode = .center
 			rightView?.translatesAutoresizingMaskIntoConstraints = false
-			rightView?.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-			rightView?.widthAnchor.constraint(equalToConstant: Constants.cellHeight - 1).isActive = true
+			rightView?.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.edgeMargin).isActive = true
 			rightView?.heightAnchor.constraint(equalToConstant: Constants.cellHeight - 1).isActive = true
 			rightView?.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
 		}

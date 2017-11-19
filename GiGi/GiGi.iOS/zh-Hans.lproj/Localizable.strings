@@ -10,16 +10,17 @@
 ".type.folder" = "项目";
 ".type.document" = "笔记";
 
-".item.welcome" = "精通曙光笔记";
+".item.welcome" = "用拇指玩转曙光笔记";
 ".item.rootFolder" = "曙光笔记";
 ".item.preferences" = "使用偏好";
 ".item.welcome.1" = "轻按来打开笔记";
-".item.welcome.2" = "轻按方框来完成并隐藏笔记";
-".item.welcome.3" = "滑动手机右方边缘来添加新笔记";
-".item.welcome.4" = "向右滑动笔记后，上下拖动来移动 / 转换 / 删除笔记";
+".item.welcome.2" = "轻按左侧方框来完成并隐藏笔记";
+".item.welcome.3" = "从右侧边缘向左滑动来添加新笔记";
+".item.welcome.4" = "按住笔记向右滑动后，上下拖动来移动 / 转换 / 删除笔记";
 ".item.welcome.5" = "按住笔记来调整位置";
 ".item.welcome.6" = "向下滑动来搜索";
 
+".list.unlock" = "解锁加密内容";
 ".list.insert" = "在这里添加...";
 ".list.actions.reschedule" = "提醒";
 ".list.actions.rename" = "重命名";
@@ -29,12 +30,7 @@
 ".list.actions.cancel" = "取消";
 
 ".preferences.membership" = "曙光计划";
-".preferences.assistant" = "效率助手";
-
 ".preferences.solutions" = "解决方案";
-".preferences.experience" = "视觉体验";
-".preferences.extensions" = "系统增强";
-".preferences.security" = "安全设置";
 
 "search.placeholder" = "输入并找到...";
 
@@ -57,8 +53,55 @@
 ".style.paragraph.numlist" = "数字列表";
 ".style.paragraph.quote" = "引文";
 
-".preferences.icons" = "成就图标";
+".preferences.assistant" = "效率助手";
+".preferences.assistant.level" = "严厉程度";
+".preferences.assistant.level.strict" = "严格";
+".preferences.assistant.level.loose" = "轻松";
+".preferences.assistant.level.custom" = "自定义规则";
+".preferences.assistant.rules.briefing" = "每日任务简报";
+".preferences.assistant.rules.lazy" = "长期闲置软件";
+".preferences.assistant.rules.tooManyTasks" = "太多无限期任务";
+".preferences.assistant.rules.dalay" = "多次拖延任务";
 
+".preferences.assistant.rules.lazy.disable" = "无警报";
+".preferences.assistant.rules.lazy.week" = "超过 7 天";
+".preferences.assistant.rules.lazy.month" = "超过 1 个月";
+
+".preferences.assistant.rules.tooManyTasks.disable" = "无警报";
+".preferences.assistant.rules.tooManyTasks.3" = "超过 3 个";
+".preferences.assistant.rules.tooManyTasks.10" = "超过 10 个";
+
+".preferences.assistant.rules.dalay.disable" = "无警报";
+".preferences.assistant.rules.dalay.1" = "超过 1 次";
+".preferences.assistant.rules.dalay.2" = "超过 2 次";
+
+".preferences.experience" = "使用体验";
+".preferences.experience.sound" = "音效";
+".preferences.experience.hideCompletedTasks" = "隐藏完成任务";
+
+".preferences.experience.mode" = "主题";
+".preferences.experience.mode.auto" = "根据时间自动切换";
+".preferences.experience.mode.day" = "白日";
+".preferences.experience.mode.night" = "黑夜";
+".preferences.experience.time.day" = "白日";
+".preferences.experience.time.night" = "黑夜";
+
+".preferences.extensions" = "系统增强";
+".preferences.extensions.today" = "锁屏组件";
+".preferences.extensions.share" = "分享组件";
+".preferences.extensions.siri" = "Siri";
+".preferences.extensions.calendar" = "日历";
+".preferences.extensions.reminders" = "提醒事项";
+".preferences.extensions.spotlight" = "聚焦";
+".preferences.extensions.inactived" = "未激活";
+
+".preferences.security" = "安全设置";
+".preferences.security.set" = "设置密码";
+".preferences.security.reset" = "更改密码";
+".preferences.security.touchid" = "用触控 ID 解锁";
+".preferences.security.faceid" = "用面容 ID 解锁";
+
+".preferences.icons" = "成就图标";
 "Icon-Illuminote" = "曙光笔记";
 "Icon-Empiricism" = "经验主义";
 "Icon-Rationalism" = "理性主义";

@@ -9,7 +9,6 @@ import Foundation
 //
 
 import UIKit
-import GiGi
 
 protocol KeyboardSlidableButtonDelegate: NSObjectProtocol
 {

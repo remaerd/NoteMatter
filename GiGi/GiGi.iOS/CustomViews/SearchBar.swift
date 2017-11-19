@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GiGi
 
 protocol SearchBarDelegate: NSObjectProtocol
 {
@@ -81,7 +80,7 @@ class SearchBar: UITextField
 	{
 		if let placeholder = placeholder
 		{
-			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor: Theme.colors[6], NSAttributedStringKey.font: Theme.SearchBarTextFont])
+			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor: Theme.colors[6], NSAttributedStringKey.font: Font.SearchBarTextFont])
 		}
 	}
 
@@ -128,7 +127,7 @@ extension SearchBar: UITextFieldDelegate
 
 		if let placeholder = placeholder
 		{
-			let attributes = [NSAttributedStringKey.foregroundColor: Theme.colors[3], NSAttributedStringKey.font: Theme.SearchBarTextFont] as [NSAttributedStringKey : Any]
+			let attributes = [NSAttributedStringKey.foregroundColor: Theme.colors[3], NSAttributedStringKey.font: Font.SearchBarTextFont] as [NSAttributedStringKey : Any]
 			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: attributes)
 		}
 	}

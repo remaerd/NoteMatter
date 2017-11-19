@@ -7,28 +7,6 @@
 //
 
 import UIKit
-import GiGi
-
-class UICollectionViewBackgroundView: UICollectionReusableView
-{
-	override init(frame: CGRect)
-	{
-		super.init(frame: frame)
-		layer.cornerRadius = Constants.defaultCornerRadius
-		backgroundColor = Theme.colors[0]
-	}
-	
-	required init?(coder aDecoder: NSCoder)
-	{
-		fatalError("init(coder:) has not been implemented")
-	}
-	
-	override func prepareForReuse()
-	{
-		super.prepareForReuse()
-		backgroundColor = Theme.colors[0]
-	}
-}
 
 class UICollectionViewFlowLayout: UIKit.UICollectionViewFlowLayout, UICollectionViewDelegateFlowLayout
 {
@@ -40,7 +18,6 @@ class UICollectionViewFlowLayout: UIKit.UICollectionViewFlowLayout, UICollection
 		scrollDirection = .vertical
 		sectionInset = UIEdgeInsets(top: 0, left: Constants.edgeMargin, bottom: 0, right: Constants.edgeMargin)
 		footerReferenceSize = CGSize(width: 0, height: Constants.edgeMargin)
-		register(UICollectionViewBackgroundView.self, forDecorationViewOfKind: "background")
 	}
 	
 	override func prepare()
@@ -81,10 +58,12 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 	{
 		super.loadView()
 		
+		automaticallyAdjustsScrollViewInsets = false
+		clearsSelectionOnViewWillAppear = true
+		
 		maskLayer.cornerRadius = Constants.defaultCornerRadius
 		maskLayer.backgroundColor = UIColor.black.cgColor
 		scrollMaskLayer.backgroundColor = UIColor.black.cgColor
-		automaticallyAdjustsScrollViewInsets = false
 		if #available(iOS 11.0, *) { collectionView?.contentInsetAdjustmentBehavior = .never }
 		
 		maskView.layer.addSublayer(maskLayer)
@@ -99,6 +78,7 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 	override func viewWillAppear(_ animated: Bool)
 	{
 		super.viewWillAppear(animated)
+		collectionView?.reloadData()
 		collectionView!.tintColor = Theme.colors[6]
 		collectionView!.backgroundColor = Theme.colors[1]
 		renderMask()
@@ -144,6 +124,8 @@ extension UICollectionViewController: UICollectionViewDelegateFlowLayout
 		if collectionView.numberOfItems(inSection: indexPath.section) == 1 { cell.backgroundView?.layer.cornerRadius = Constants.defaultCornerRadius }
 		else
 		{
+			cell.backgroundView = UIView()
+			cell.backgroundView?.backgroundColor = Theme.colors[0]
 			if indexPath.row == 0 { cell.backgroundView?.setCornerRadius(corners: [.topLeft,.topRight], radius: Constants.edgeMargin) }
 			else if collectionView.numberOfItems(inSection: indexPath.section) - 1 == indexPath.row
 			{ cell.backgroundView?.setCornerRadius(corners: [.bottomLeft,.bottomRight], radius: Constants.edgeMargin) }

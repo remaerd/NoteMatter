@@ -33,8 +33,11 @@ class ItemListViewController: UICollectionViewController
 	{
 		super.loadView()
 		
+		if item.identifier == Item.InternalItem.rootFolder.identifier
+		{
+			navigationItem.leftBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Menu"), style: .plain, target: self, action: #selector(didTappMenuButton))]
+		}
 		navigationItem.rightBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Plus"), style: .plain, target: self, action: #selector(didTappAddButton))]
-		navigationItem.leftBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Menu"), style: .plain, target: self, action: #selector(didTappMenuButton))]
 		collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
 	}
 	

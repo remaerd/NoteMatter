@@ -9,6 +9,11 @@
 import UIKit
 import Sentry
 
+enum AppException: Error
+{
+	case internalError(message: String)
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
 {

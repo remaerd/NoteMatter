@@ -12,6 +12,48 @@ import CoreData
 @objc(ItemComponent)
 public class ItemComponent: NSManagedObject, Model
 {
+	public static var EditorRegularFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorItalicFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .italic, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorBoldFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .headline).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorHeader1Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title1).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .heavy, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorHeader2Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorHeader3Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title3).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorHeader4Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title3).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+	
 	public static var database: Database { return Database.defaultDatabase }
 	
 	public enum ComponentInnerStyle: String
@@ -26,11 +68,11 @@ public class ItemComponent: NSManagedObject, Model
 		{
 			switch self
 			{
-			case .bold: return [NSAttributedStringKey.font: Theme.EditorBoldFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
-			case .italic: return [NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
-			case .strikethrough: return [NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
-			case .placeholder: return [NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
-			case .inlineCode: return [NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
+			case .bold: return [NSAttributedStringKey.font: EditorBoldFont, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .italic: return [NSAttributedStringKey.font: EditorRegularFont, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .strikethrough: return [NSAttributedStringKey.font: EditorRegularFont, NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
+			case .placeholder: return [NSAttributedStringKey.font: EditorRegularFont, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .inlineCode: return [NSAttributedStringKey.font: EditorRegularFont, NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
 			}
 		}
 	}
@@ -49,13 +91,13 @@ public class ItemComponent: NSManagedObject, Model
 		{
 			switch self
 			{
-			case .body: return [NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
-			case .header1: return [ NSAttributedStringKey.font: Theme.EditorHeader2Font, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
-			case .header2: return [ NSAttributedStringKey.font: Theme.EditorHeader3Font, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
-			case .header3: return [ NSAttributedStringKey.font: Theme.EditorHeader4Font, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
-			case .unorderedListItem: return [ NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
-			case .orderedListItem: return [ NSAttributedStringKey.font: Theme.EditorRegularFont, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
-			case .quote: return [ NSAttributedStringKey.font: Theme.EditorHeader4Font, NSAttributedStringKey.foregroundColor: Theme.colors[6]]
+			case .body: return [NSAttributedStringKey.font: Font.EditorRegularFont, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .header1: return [ NSAttributedStringKey.font: Font.EditorHeader2Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .header2: return [ NSAttributedStringKey.font: Font.EditorHeader3Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .header3: return [ NSAttributedStringKey.font: Font.EditorHeader4Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .unorderedListItem: return [ NSAttributedStringKey.font: Font.EditorRegularFont, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .orderedListItem: return [ NSAttributedStringKey.font: Font.EditorRegularFont, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .quote: return [ NSAttributedStringKey.font: Font.EditorHeader4Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
 			}
 		}
 		
