@@ -11,7 +11,7 @@ import UIKit
 class ItemCreatorViewController: UICollectionViewController
 {
 	let item : Item
-	var solutions : [LocalItemType]!
+	var solutions : [Solution]!
 	
 	init(item: Item)
 	{
@@ -27,7 +27,7 @@ class ItemCreatorViewController: UICollectionViewController
 	override func loadView()
 	{
 		super.loadView()
-		do { self.solutions = try LocalItemType.all() }
+		do { self.solutions = try Solution.all() }
 		catch { error.alert() }
 		collectionView?.reloadData()
 		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
@@ -66,7 +66,7 @@ extension ItemCreatorViewController
 		let solution = solutions[collectionView!.indexPathsForSelectedItems![0].row]
 		let item = try! Item.insert()
 		item.parent = self.item
-		item.type = solution
+		item.solution = solution
 		item.title = ".list.new".localized + solution.title.localized.lowercased()
 		do { try item.save() } catch { error.alert() }
 	}

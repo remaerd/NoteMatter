@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 {
 	var window: UIWindow?
 
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+	func initialize()
 	{
 		do
 		{
@@ -29,10 +29,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		{
 			print(error)
 		}
-
+		
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.rootViewController = UINavigationController(rootViewController: LaunchViewController())
 		window?.makeKeyAndVisible()
+	}
+	
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+	{
+		initialize()
+		return true
+	}
+	
+	func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool
+	{
+		initialize()
 		return true
 	}
 }

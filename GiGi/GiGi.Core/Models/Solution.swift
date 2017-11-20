@@ -1,5 +1,5 @@
 //
-//  LocalItemType.swift
+//  Solution.swift
 //  GiGi.iOS
 //
 //  Created by Sean Cheng on 14/11/2017.
@@ -9,14 +9,14 @@
 import Foundation
 import CoreData
 
-@objc(LocalItemType)
-public class LocalItemType: NSManagedObject, Model
+@objc(Solution)
+public class Solution: NSManagedObject, Model
 {
 	public static var database: Database { return Database.defaultDatabase }
 	
-	static let internalTypes : [LocalItemType.InternalItemType] = [.task,.folder,.document]
+	static let internalSolutions : [Solution.InternalSolution] = [.task,.folder,.document]
 	
-	public enum InternalItemType
+	public enum InternalSolution
 	{
 		case task
 		case folder

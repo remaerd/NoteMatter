@@ -10,15 +10,10 @@
 ".type.folder" = "项目";
 ".type.document" = "笔记";
 
-".item.welcome" = "用拇指玩转曙光笔记";
-".item.rootFolder" = "曙光笔记";
 ".item.preferences" = "使用偏好";
-".item.welcome.1" = "轻按来打开笔记";
-".item.welcome.2" = "轻按左侧方框来完成并隐藏笔记";
-".item.welcome.3" = "从右侧边缘向左滑动来添加新笔记";
-".item.welcome.4" = "按住笔记向右滑动后，上下拖动来移动 / 转换 / 删除笔记";
-".item.welcome.5" = "按住笔记来调整位置";
-".item.welcome.6" = "向下滑动来搜索";
+".item.rootFolder" = "曙光笔记";
+".item.welcome" = "来自 GiGi 的问候";
+".item.faq" = "曙光秘籍一指禅";
 
 ".list.unlock" = "解锁加密内容";
 ".list.insert" = "在这里添加...";
@@ -89,9 +84,15 @@
 ".preferences.extensions" = "系统增强";
 ".preferences.extensions.today" = "锁屏组件";
 ".preferences.extensions.share" = "分享组件";
-".preferences.extensions.siri" = "Siri";
 ".preferences.extensions.calendar" = "日历";
+
 ".preferences.extensions.reminders" = "提醒事项";
+".preferences.extensions.reminders.alert.title" = "没有权限访问“提醒事项”数据";
+".preferences.extensions.reminders.alert.description" = "请打开“设置”并授权软件访问“提醒事项”中的内容";
+".preferences.extensions.calendar.alert.title" = "没有权限访问“日历”数据";
+".preferences.extensions.calendar.alert.description" = "请打开“设置”并授权软件访问“日历”中的内容";
+
+".preferences.extensions.siri" = "Siri";
 ".preferences.extensions.spotlight" = "聚焦";
 ".preferences.extensions.inactived" = "未激活";
 

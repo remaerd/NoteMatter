@@ -7,21 +7,21 @@
 
 import CoreData
 
-extension Item
+public extension Item
 {
 	@NSManaged public var identifier: String
 	@NSManaged public var title: String
-	@NSManaged public var type: LocalItemType
-	
 	@NSManaged public var createdAt: Date
 	@NSManaged public var updatedAt: Date
 	@NSManaged public var openedAt: Date
 	
+	@NSManaged public var task: Task
+	@NSManaged public var solution: Solution
+	
 	@NSManaged public var parent: Item?
 	@NSManaged public var children: NSOrderedSet?
-	@NSManaged public var components: NSOrderedSet?
-	@NSManaged public var task: Task
 	
+	@NSManaged public var components: NSOrderedSet?
 }
 
 // MARK: Generated accessors for children
@@ -92,36 +92,19 @@ extension Item
 	@NSManaged public func removeFromComponents(_ values: NSOrderedSet)
 }
 
-extension LocalItemType
+extension Solution
 {
 	@NSManaged public var identifier: String
 	@NSManaged public var title: String
-	
 	@NSManaged public var introduction: String?
-	@NSManaged public var isFolder: Bool
-	@NSManaged public var genre: Int16
-	
-	@NSManaged public var icon: String?
 	@NSManaged public var tags: String?
 	
-	@NSManaged public var items: NSSet?
+	@NSManaged public var index: Int32
+	@NSManaged public var genre: Int16
+	@NSManaged public var icon: String?
+	@NSManaged public var isFolder: Bool
 }
 
-// MARK: Generated accessors for items
-extension LocalItemType
-{
-	@objc(addItemsObject:)
-	@NSManaged public func addToItems(_ value: Item)
-	
-	@objc(removeItemsObject:)
-	@NSManaged public func removeFromItems(_ value: Item)
-	
-	@objc(addItems:)
-	@NSManaged public func addToItems(_ values: NSSet)
-	
-	@objc(removeItems:)
-	@NSManaged public func removeFromItems(_ values: NSSet)
-}
 
 extension ItemComponent
 {

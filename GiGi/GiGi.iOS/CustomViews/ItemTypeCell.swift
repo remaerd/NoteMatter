@@ -1,5 +1,5 @@
 //
-//  ItemTypeCell.swift
+//  IconCell.swift
 //  GiGi.iOS
 //
 //  Created by Sean Cheng on 09/07/2017.

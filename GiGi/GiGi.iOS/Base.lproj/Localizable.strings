@@ -95,10 +95,19 @@
 ".preferences.extensions" = "Extensions";
 ".preferences.extensions.today" = "Today extension";
 ".preferences.extensions.share" = "Share extension";
-".preferences.extensions.siri" = "Siri";
+
 ".preferences.extensions.calendar" = "Calendar";
+".preferences.extensions.calendar.disabled" = "Calendar";
+
 ".preferences.extensions.reminders" = "Reminders";
+".preferences.extensions.reminders.alert.title" = "Permission denied";
+".preferences.extensions.reminders.alert.description" = "Go to settings.app to change related permission";
+".preferences.extensions.reminders.alert.title" = "Permission denied";
+".preferences.extensions.reminders.alert.description" = "Go to settings.app to change related permission";
+
+".preferences.extensions.siri" = "Siri";
 ".preferences.extensions.spotlight" = "Spotlight";
+
 ".preferences.extensions.inactived" = "Inactivated";
 
 ".preferences.security" = "Security";

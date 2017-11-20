@@ -5,6 +5,7 @@
 //  Created by Sean Cheng on 15/11/2017.
 //
 
+import GiGi
 import UIKit
 
 class ExtensionViewController: UICollectionViewController
@@ -28,7 +29,7 @@ extension ExtensionViewController
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
 	{
-		return 6
+		if #available(*, iOS 11.0) { return 6 } else { return 5 }
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
@@ -49,26 +50,117 @@ extension ExtensionViewController
 			return cell
 		case 2:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
-			cell.titleLabel.text = ".preferences.extensions.siri".localized
-			cell.icon = #imageLiteral(resourceName: "List-Siri")
+			cell.titleLabel.text = ".preferences.extensions.reminders".localized
+			cell.switcher.addTarget(self, action: #selector(didTappedReminderSwitch(switcher:)), for: .touchUpInside)
+			if Defaults.extensionReminder.bool && EventManager.shared.reminderStatus == .authorized { cell.switcher.isOn = true }
+			cell.icon = #imageLiteral(resourceName: "List-Reminders")
 			return cell
 		case 3:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
 			cell.titleLabel.text = ".preferences.extensions.calendar".localized
+			cell.switcher.addTarget(self, action: #selector(didTappedCalendarSwitch(switcher:)), for: .touchUpInside)
+			if Defaults.extensionCalendar.bool && EventManager.shared.calendarStatus == .authorized { cell.switcher.isOn = true }
 			cell.icon = #imageLiteral(resourceName: "List-Calendar")
 			return cell
 		case 4:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
-			cell.titleLabel.text = ".preferences.extensions.reminders".localized
-			cell.icon = #imageLiteral(resourceName: "List-Reminders")
+			cell.titleLabel.text = ".preferences.extensions.spotlight".localized
+			cell.switcher.addTarget(self, action: #selector(didTappedSpotlightSwitch(switcher:)), for: .touchUpInside)
+			cell.switcher.isOn = Defaults.extensionSpotlight.bool
+			cell.icon = #imageLiteral(resourceName: "List-Spotlight")
 			return cell
 		case 5:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
-			cell.titleLabel.text = ".preferences.extensions.spotlight".localized
-			cell.icon = #imageLiteral(resourceName: "List-Spotlight")
+			cell.titleLabel.text = ".preferences.extensions.siri".localized
+			cell.switcher.addTarget(self, action: #selector(didTappedSiriSwitch(switcher:)), for: .touchUpInside)
+			if Defaults.extensionSiri.bool && EventManager.shared.calendarStatus == .authorized { cell.switcher.isOn = true }
+			cell.icon = #imageLiteral(resourceName: "List-Siri")
 			return cell
 		default: fatalError()
 		}
+	}
+}
+
+extension ExtensionViewController
+{
+	@objc func didTappedReminderSwitch(switcher: UISwitch)
+	{
+		func disable()
+		{
+			switcher.isOn = false
+			Defaults.extensionReminder.set(value: false)
+			self.alert(title: ".preferences.extensions.reminders.alert.title".localized, message: ".preferences.extensions.reminders.alert.description".localized)
+		}
+		
+		func ask()
+		{
+			EventManager.shared.activate(type: .reminder, completion:
+			{ (result, error) in
+				OperationQueue.main.addOperation
+				{
+					if result == false { disable(); return }
+					Defaults.extensionReminder.set(value: true)
+					switcher.isOn = result
+				}
+				
+			})
+		}
+		
+		if !switcher.isOn { Defaults.extensionReminder.set(value: false) }
+		else
+		{
+			switch EventManager.shared.reminderStatus
+			{
+			case .authorized: Defaults.extensionReminder.set(value: true); break
+			case .notDetermined: ask(); break
+			default: disable(); break
+			}
+		}
+	}
+	
+	@objc func didTappedCalendarSwitch(switcher: UISwitch)
+	{
+		func disable()
+		{
+			switcher.isOn = false
+			Defaults.extensionCalendar.set(value: false)
+			self.alert(title: ".preferences.extensions.calendar.alert.title".localized, message: ".preferences.extensions.calendar.alert.description".localized)
+		}
+		
+		func ask()
+		{
+			EventManager.shared.activate(type: .event, completion:
+			{ (result, error) in
+				OperationQueue.main.addOperation
+				{
+					if result == false { disable(); return }
+					Defaults.extensionCalendar.set(value: true)
+					switcher.isOn = result
+				}
+				
+			})
+		}
+		
+		if !switcher.isOn { Defaults.extensionCalendar.set(value: false) }
+		else
+		{
+			switch EventManager.shared.calendarStatus
+			{
+			case .authorized: Defaults.extensionCalendar.set(value: true); break
+			case .notDetermined: ask(); break
+			default: disable(); break
+			}
+		}
+	}
+	
+	@objc func didTappedSiriSwitch(switcher: UISwitch)
+	{
+		Defaults.extensionSiri.set(value: switcher.isOn)
+	}
+	
+	@objc func didTappedSpotlightSwitch(switcher: UISwitch)
+	{
+		Defaults.extensionSpotlight.set(value: switcher.isOn)
 	}
 }
 

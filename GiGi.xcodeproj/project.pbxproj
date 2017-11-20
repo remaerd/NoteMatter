@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03006D751FC1EB4D0058BD95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F521F29B5D3009DE50E /* Assets.xcassets */; };
+		03006D771FC24C410058BD95 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03006D761FC24C410058BD95 /* StoreKit.framework */; };
+		03006D7C1FC24F420058BD95 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03006D7B1FC24F420058BD95 /* EventManager.swift */; };
+		03006D7E1FC24F580058BD95 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03006D7D1FC24F580058BD95 /* EventKit.framework */; };
 		030778C21F4EFDEF00A0331C /* ContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030778C11F4EFDEF00A0331C /* ContentTests.swift */; };
 		030778C41F4EFDEF00A0331C /* GiGi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F12F3D1F29B430009DE50E /* GiGi.framework */; };
 		031B2D781FB98A1400A01489 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2D771FB98A1400A01489 /* View.swift */; };
@@ -21,7 +25,7 @@
 		031B2DAB1FB9DB3000A01489 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2DAA1FB9DB3000A01489 /* Database.swift */; };
 		031B2DC21FB9E31C00A01489 /* GiGi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 031B2D871FB9B91900A01489 /* GiGi.xcdatamodeld */; };
 		031B2DD41FB9FB7100A01489 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2DC31FB9FB6800A01489 /* Item.swift */; };
-		031B2DD61FB9FB7100A01489 /* LocalItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2DC51FB9FB6800A01489 /* LocalItemType.swift */; };
+		031B2DD61FB9FB7100A01489 /* Solution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2DC51FB9FB6800A01489 /* Solution.swift */; };
 		031B2DD71FB9FB7100A01489 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2DC71FB9FB6800A01489 /* Task.swift */; };
 		031B2DD81FB9FB7100A01489 /* ItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2DC91FB9FB6800A01489 /* ItemComponent.swift */; };
 		031B2DDD1FBA001D00A01489 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2DDB1FBA001200A01489 /* Model.swift */; };
@@ -48,6 +52,15 @@
 		039FF0181FBEF9F1007C9539 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039FF0131FBEF8BB007C9539 /* LocalAuthentication.framework */; };
 		03BD086D1FC00BA700AC5312 /* Harmony.json in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F7C1F29B604009DE50E /* Harmony.json */; };
 		03BD086F1FC025D900AC5312 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD086E1FC025D900AC5312 /* DatePickerCell.swift */; };
+		03BD08761FC1A97400AC5312 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03BD08751FC1A97400AC5312 /* NotificationCenter.framework */; };
+		03BD08791FC1A97400AC5312 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD08781FC1A97400AC5312 /* TodayViewController.swift */; };
+		03BD087C1FC1A97400AC5312 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BD087A1FC1A97400AC5312 /* MainInterface.storyboard */; };
+		03BD08801FC1A97400AC5312 /* GiGi.iOS.Dashboard.Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03BD08741FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		03BD088C1FC1A9A200AC5312 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BD088B1FC1A9A200AC5312 /* ActionViewController.swift */; };
+		03BD088F1FC1A9A200AC5312 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BD088D1FC1A9A200AC5312 /* MainInterface.storyboard */; };
+		03BD08931FC1A9A200AC5312 /* GiGi.iOS.Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03BD08891FC1A9A200AC5312 /* GiGi.iOS.Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		03BD08BF1FC1BF9D00AC5312 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03BD08BD1FC1BF7900AC5312 /* Intents.framework */; };
+		03BD08C41FC1DFCF00AC5312 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03BD08C31FC1DFCF00AC5312 /* CoreSpotlight.framework */; };
 		03C7ECDE1FB5FD5C008571E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03C7ECE01FB5FD5C008571E3 /* InfoPlist.strings */; };
 		03C7ECE41FB865C1008571E3 /* ItemCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7ECE31FB865C1008571E3 /* ItemCreatorViewController.swift */; };
 		03C7ECE71FB8669C008571E3 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7ECE61FB8669C008571E3 /* ItemCell.swift */; };
@@ -105,6 +118,20 @@
 			remoteGlobalIDString = 03F12F241F29B420009DE50E;
 			remoteInfo = GiGi.iOS;
 		};
+		03BD087E1FC1A97400AC5312 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03F12F1B1F29B404009DE50E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03BD08731FC1A97300AC5312;
+			remoteInfo = GiGi.iOS.Today;
+		};
+		03BD08911FC1A9A200AC5312 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03F12F1B1F29B404009DE50E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03BD08881FC1A9A200AC5312;
+			remoteInfo = GiGi.iOS.Share;
+		};
 		03F12F421F29B430009DE50E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03F12F1B1F29B404009DE50E /* Project object */;
@@ -115,6 +142,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		03BD08841FC1A97400AC5312 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				03BD08931FC1A9A200AC5312 /* GiGi.iOS.Share.appex in Embed App Extensions */,
+				03BD08801FC1A97400AC5312 /* GiGi.iOS.Dashboard.Today.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03F12F491F29B430009DE50E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -129,6 +168,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03006D761FC24C410058BD95 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		03006D781FC24C690058BD95 /* GiGi.iOS.Dashboard.Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiGi.iOS.Dashboard.Today.entitlements; sourceTree = "<group>"; };
+		03006D791FC24C720058BD95 /* GiGi.iOS.Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiGi.iOS.Share.entitlements; sourceTree = "<group>"; };
+		03006D7B1FC24F420058BD95 /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+		03006D7D1FC24F580058BD95 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
+		03006D7F1FC252460058BD95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		030778BF1F4EFDEF00A0331C /* GiGi.Core.iOS.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiGi.Core.iOS.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		030778C11F4EFDEF00A0331C /* ContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTests.swift; sourceTree = "<group>"; };
 		030778C31F4EFDEF00A0331C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,7 +185,7 @@
 		031B2D881FB9B91900A01489 /* GiGi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GiGi.xcdatamodel; sourceTree = "<group>"; };
 		031B2DAA1FB9DB3000A01489 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		031B2DC31FB9FB6800A01489 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		031B2DC51FB9FB6800A01489 /* LocalItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalItemType.swift; sourceTree = "<group>"; };
+		031B2DC51FB9FB6800A01489 /* Solution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
 		031B2DC71FB9FB6800A01489 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		031B2DC91FB9FB6800A01489 /* ItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemComponent.swift; sourceTree = "<group>"; };
 		031B2DDB1FBA001200A01489 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -162,7 +207,18 @@
 		039FF0131FBEF8BB007C9539 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/LocalAuthentication.framework; sourceTree = DEVELOPER_DIR; };
 		039FF0151FBEF91D007C9539 /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
 		03BD086E1FC025D900AC5312 /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
-		03C2EDB31FB5FCDC0087A2AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		03BD08741FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GiGi.iOS.Dashboard.Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		03BD08751FC1A97400AC5312 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		03BD08781FC1A97400AC5312 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		03BD087B1FC1A97400AC5312 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		03BD087D1FC1A97400AC5312 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03BD08891FC1A9A200AC5312 /* GiGi.iOS.Share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GiGi.iOS.Share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		03BD088B1FC1A9A200AC5312 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		03BD088E1FC1A9A200AC5312 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		03BD08901FC1A9A200AC5312 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03BD08A51FC1AC5100AC5312 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = Library/Frameworks/IntentsUI.framework; sourceTree = DEVELOPER_DIR; };
+		03BD08BD1FC1BF7900AC5312 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/Intents.framework; sourceTree = DEVELOPER_DIR; };
+		03BD08C31FC1DFCF00AC5312 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/CoreSpotlight.framework; sourceTree = DEVELOPER_DIR; };
 		03C7ECDF1FB5FD5C008571E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03C7ECE11FB5FD5E008571E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		03C7ECE31FB865C1008571E3 /* ItemCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCreatorViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +286,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03BD08711FC1A97300AC5312 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03BD08761FC1A97400AC5312 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03BD08861FC1A9A200AC5312 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03F12F221F29B420009DE50E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,6 +308,7 @@
 				031B2D861FB9B69400A01489 /* AudioToolbox.framework in Frameworks */,
 				03F12F441F29B430009DE50E /* GiGi.framework in Frameworks */,
 				03F12FC81F29BAE8009DE50E /* Sentry.framework in Frameworks */,
+				03006D771FC24C410058BD95 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +316,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03006D7E1FC24F580058BD95 /* EventKit.framework in Frameworks */,
+				03BD08C41FC1DFCF00AC5312 /* CoreSpotlight.framework in Frameworks */,
+				03BD08BF1FC1BF9D00AC5312 /* Intents.framework in Frameworks */,
 				039FF0181FBEF9F1007C9539 /* LocalAuthentication.framework in Frameworks */,
 				031B2D801FB9A25300A01489 /* Alamofire.framework in Frameworks */,
 				031B2D811FB9A25800A01489 /* CommonCrypto.framework in Frameworks */,
@@ -258,6 +333,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03006D7A1FC24EBF0058BD95 /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				03006D781FC24C690058BD95 /* GiGi.iOS.Dashboard.Today.entitlements */,
+				03006D791FC24C720058BD95 /* GiGi.iOS.Share.entitlements */,
+			);
+			name = Entitlements;
+			sourceTree = "<group>";
+		};
+		03006D801FC28CD90058BD95 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				03006D7B1FC24F420058BD95 /* EventManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		030778C01F4EFDEF00A0331C /* Core.Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +373,8 @@
 				03F12FC61F29B9E7009DE50E /* GiGi.Universal */,
 				03F12F6F1F29B604009DE50E /* GiGi.Core */,
 				03F12F4F1F29B5D3009DE50E /* GiGi.iOS */,
+				03BD08771FC1A97400AC5312 /* GiGi.iOS.Dashboard.Today */,
+				03BD088A1FC1A9A200AC5312 /* GiGi.iOS.Share */,
 			);
 			path = GiGi;
 			sourceTree = "<group>";
@@ -309,6 +403,26 @@
 			path = Exhancers;
 			sourceTree = "<group>";
 		};
+		03BD08771FC1A97400AC5312 /* GiGi.iOS.Dashboard.Today */ = {
+			isa = PBXGroup;
+			children = (
+				03BD08781FC1A97400AC5312 /* TodayViewController.swift */,
+				03BD087A1FC1A97400AC5312 /* MainInterface.storyboard */,
+				03BD087D1FC1A97400AC5312 /* Info.plist */,
+			);
+			path = GiGi.iOS.Dashboard.Today;
+			sourceTree = "<group>";
+		};
+		03BD088A1FC1A9A200AC5312 /* GiGi.iOS.Share */ = {
+			isa = PBXGroup;
+			children = (
+				03BD088B1FC1A9A200AC5312 /* ActionViewController.swift */,
+				03BD088D1FC1A9A200AC5312 /* MainInterface.storyboard */,
+				03BD08901FC1A9A200AC5312 /* Info.plist */,
+			);
+			path = GiGi.iOS.Share;
+			sourceTree = "<group>";
+		};
 		03C7ECE51FB8664F008571E3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +440,7 @@
 			children = (
 				030778CB1F4EFF8000A0331C /* GiGi */,
 				030778CA1F4EFDFF00A0331C /* Tests */,
+				03006D7A1FC24EBF0058BD95 /* Entitlements */,
 				03F12FB81F29B8D9009DE50E /* Frameworks */,
 				03F12F261F29B420009DE50E /* Products */,
 			);
@@ -337,6 +452,8 @@
 				03F12F251F29B420009DE50E /* GiGi.iOS.app */,
 				03F12F3D1F29B430009DE50E /* GiGi.framework */,
 				030778BF1F4EFDEF00A0331C /* GiGi.Core.iOS.Tests.xctest */,
+				03BD08741FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today.appex */,
+				03BD08891FC1A9A200AC5312 /* GiGi.iOS.Share.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -371,6 +488,7 @@
 			children = (
 				03F12F701F29B604009DE50E /* Application.swift */,
 				03F12F761F29B604009DE50E /* Constants.swift */,
+				03006D801FC28CD90058BD95 /* Managers */,
 				03F12FB61F29B7EE009DE50E /* Models */,
 				03F12FB71F29B872009DE50E /* Extensions */,
 				03F12FB21F29B76B009DE50E /* Miscellanous */,
@@ -384,7 +502,7 @@
 				03F12F521F29B5D3009DE50E /* Assets.xcassets */,
 				03F12F4D1F29B531009DE50E /* GiGi.iOS.entitlements */,
 				03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */,
-				03C2EDB41FB5FCDC0087A2AD /* Info.plist */,
+				03006D7F1FC252460058BD95 /* Info.plist */,
 				03F12F711F29B604009DE50E /* Localizable.strings */,
 				03C7ECE01FB5FD5C008571E3 /* InfoPlist.strings */,
 			);
@@ -449,7 +567,7 @@
 			children = (
 				031B2DC31FB9FB6800A01489 /* Item.swift */,
 				031B2DC91FB9FB6800A01489 /* ItemComponent.swift */,
-				031B2DC51FB9FB6800A01489 /* LocalItemType.swift */,
+				031B2DC51FB9FB6800A01489 /* Solution.swift */,
 				031B2DC71FB9FB6800A01489 /* Task.swift */,
 				03F12F781F29B604009DE50E /* ContentStorage.swift */,
 				037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */,
@@ -474,12 +592,18 @@
 		03F12FB81F29B8D9009DE50E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03006D7D1FC24F580058BD95 /* EventKit.framework */,
+				03006D761FC24C410058BD95 /* StoreKit.framework */,
+				03BD08C31FC1DFCF00AC5312 /* CoreSpotlight.framework */,
+				03BD08BD1FC1BF7900AC5312 /* Intents.framework */,
 				039FF0131FBEF8BB007C9539 /* LocalAuthentication.framework */,
 				031B2D791FB9A0DF00A01489 /* Cartfile */,
 				031B2D7C1FB9A1FC00A01489 /* MicrosoftAzureMobile.framework */,
 				031B2D7B1FB9A1E900A01489 /* CoreData.framework */,
 				031B2D7A1FB9A1DB00A01489 /* AudioToolbox.framework */,
 				03F12FC31F29B906009DE50E /* iOS */,
+				03BD08751FC1A97400AC5312 /* NotificationCenter.framework */,
+				03BD08A51FC1AC5100AC5312 /* IntentsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -544,6 +668,40 @@
 			productReference = 030778BF1F4EFDEF00A0331C /* GiGi.Core.iOS.Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		03BD08731FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03BD08811FC1A97400AC5312 /* Build configuration list for PBXNativeTarget "GiGi.iOS.Dashboard.Today" */;
+			buildPhases = (
+				03BD08701FC1A97300AC5312 /* Sources */,
+				03BD08711FC1A97300AC5312 /* Frameworks */,
+				03BD08721FC1A97300AC5312 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GiGi.iOS.Dashboard.Today;
+			productName = GiGi.iOS.Today;
+			productReference = 03BD08741FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		03BD08881FC1A9A200AC5312 /* GiGi.iOS.Share */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03BD08941FC1A9A200AC5312 /* Build configuration list for PBXNativeTarget "GiGi.iOS.Share" */;
+			buildPhases = (
+				03BD08851FC1A9A200AC5312 /* Sources */,
+				03BD08861FC1A9A200AC5312 /* Frameworks */,
+				03BD08871FC1A9A200AC5312 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GiGi.iOS.Share;
+			productName = GiGi.iOS.Share;
+			productReference = 03BD08891FC1A9A200AC5312 /* GiGi.iOS.Share.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		03F12F241F29B420009DE50E /* GiGi.iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03F12F351F29B420009DE50E /* Build configuration list for PBXNativeTarget "GiGi.iOS" */;
@@ -553,11 +711,14 @@
 				03F12F231F29B420009DE50E /* Resources */,
 				03F12F491F29B430009DE50E /* Embed Frameworks */,
 				03F12FCB1F29BBC7009DE50E /* ShellScript */,
+				03BD08841FC1A97400AC5312 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				03F12F431F29B430009DE50E /* PBXTargetDependency */,
+				03BD087F1FC1A97400AC5312 /* PBXTargetDependency */,
+				03BD08921FC1A9A200AC5312 /* PBXTargetDependency */,
 			);
 			name = GiGi.iOS;
 			productName = GiGi.iOS;
@@ -588,7 +749,7 @@
 		03F12F1B1F29B404009DE50E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0910;
 				TargetAttributes = {
 					030778BE1F4EFDEF00A0331C = {
@@ -596,9 +757,36 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 03F12F241F29B420009DE50E;
 					};
+					03BD08731FC1A97300AC5312 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+						};
+					};
+					03BD08881FC1A9A200AC5312 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+						};
+					};
 					03F12F241F29B420009DE50E = {
 						CreatedOnToolsVersion = 9.0;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.DataProtection = {
 								enabled = 1;
 							};
@@ -607,6 +795,9 @@
 							};
 							com.apple.Push = {
 								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 0;
 							};
 							com.apple.iCloud = {
 								enabled = 1;
@@ -633,6 +824,8 @@
 			projectRoot = "";
 			targets = (
 				03F12F241F29B420009DE50E /* GiGi.iOS */,
+				03BD08731FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today */,
+				03BD08881FC1A9A200AC5312 /* GiGi.iOS.Share */,
 				03F12F3C1F29B430009DE50E /* GiGi.Core */,
 				030778BE1F4EFDEF00A0331C /* GiGi.Core.iOS.Tests */,
 			);
@@ -644,6 +837,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03BD08721FC1A97300AC5312 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03006D751FC1EB4D0058BD95 /* Assets.xcassets in Resources */,
+				03BD087C1FC1A97400AC5312 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03BD08871FC1A9A200AC5312 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03BD088F1FC1A9A200AC5312 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +921,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03BD08701FC1A97300AC5312 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03BD08791FC1A97400AC5312 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03BD08851FC1A9A200AC5312 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03BD088C1FC1A9A200AC5312 /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03F12F211F29B420009DE50E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -771,7 +997,7 @@
 				03F12FAD1F29B760009DE50E /* Localization.swift in Sources */,
 				03F12FA31F29B760009DE50E /* Application.swift in Sources */,
 				031B2DD81FB9FB7100A01489 /* ItemComponent.swift in Sources */,
-				031B2DD61FB9FB7100A01489 /* LocalItemType.swift in Sources */,
+				031B2DD61FB9FB7100A01489 /* Solution.swift in Sources */,
 				03F12FA41F29B760009DE50E /* Color.swift in Sources */,
 				031B2DD41FB9FB7100A01489 /* Item.swift in Sources */,
 				03F12FA51F29B760009DE50E /* Constants.swift in Sources */,
@@ -779,6 +1005,7 @@
 				03D22BEF1FC00ABE0054BE9C /* Font-Editor.swift in Sources */,
 				03D22BED1FC009780054BE9C /* Font.swift in Sources */,
 				03F12FAE1F29B760009DE50E /* MarkdownParser.swift in Sources */,
+				03006D7C1FC24F420058BD95 /* EventManager.swift in Sources */,
 				031B2DC21FB9E31C00A01489 /* GiGi.xcdatamodeld in Sources */,
 				031B2DDE1FBA005000A01489 /* ContentStorage.swift in Sources */,
 			);
@@ -797,6 +1024,16 @@
 			target = 03F12F241F29B420009DE50E /* GiGi.iOS */;
 			targetProxy = 03225A6E1F4F21F700BF1E5D /* PBXContainerItemProxy */;
 		};
+		03BD087F1FC1A97400AC5312 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03BD08731FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today */;
+			targetProxy = 03BD087E1FC1A97400AC5312 /* PBXContainerItemProxy */;
+		};
+		03BD08921FC1A9A200AC5312 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03BD08881FC1A9A200AC5312 /* GiGi.iOS.Share */;
+			targetProxy = 03BD08911FC1A9A200AC5312 /* PBXContainerItemProxy */;
+		};
 		03F12F431F29B430009DE50E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 03F12F3C1F29B430009DE50E /* GiGi.Core */;
@@ -805,12 +1042,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		03C2EDB41FB5FCDC0087A2AD /* Info.plist */ = {
+		03BD087A1FC1A97400AC5312 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				03C2EDB31FB5FCDC0087A2AD /* Base */,
+				03BD087B1FC1A97400AC5312 /* Base */,
 			);
-			name = Info.plist;
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		03BD088D1FC1A9A200AC5312 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03BD088E1FC1A9A200AC5312 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		03C7ECE01FB5FD5C008571E3 /* InfoPlist.strings */ = {
@@ -972,6 +1217,172 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiGi.iOS.app/GiGi.iOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03BD08821FC1A97400AC5312 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = GiGi.iOS.Dashboard.Today.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "$(SRCROOT)/GiGi/GiGi.iOS.Dashboard.Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios.dashboard.gigi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		03BD08831FC1A97400AC5312 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = GiGi.iOS.Dashboard.Today.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "$(SRCROOT)/GiGi/GiGi.iOS.Dashboard.Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios.dashboard.gigi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03BD08951FC1A9A200AC5312 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = GiGi.iOS.Share.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "$(SRCROOT)/GiGi/GiGi.iOS.Share/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		03BD08961FC1A9A200AC5312 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = GiGi.iOS.Share.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "$(SRCROOT)/GiGi/GiGi.iOS.Share/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1238,6 +1649,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.core;
@@ -1310,6 +1722,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.core;
 				PRODUCT_NAME = GiGi;
@@ -1332,6 +1745,24 @@
 			buildConfigurations = (
 				030778C71F4EFDEF00A0331C /* Debug */,
 				030778C81F4EFDEF00A0331C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03BD08811FC1A97400AC5312 /* Build configuration list for PBXNativeTarget "GiGi.iOS.Dashboard.Today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03BD08821FC1A97400AC5312 /* Debug */,
+				03BD08831FC1A97400AC5312 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03BD08941FC1A9A200AC5312 /* Build configuration list for PBXNativeTarget "GiGi.iOS.Share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03BD08951FC1A9A200AC5312 /* Debug */,
+				03BD08961FC1A9A200AC5312 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Timepiece
 
 public enum Defaults : String
 {
@@ -16,6 +17,10 @@ public enum Defaults : String
 	case listHeight = "list-height"
 	case soundEffect = "sound-effect"
 	case hideCompletedTasks = "hide-completed-tasks"
+	case extensionSiri = "siri"
+	case extensionCalendar = "calendar"
+	case extensionReminder = "reminder"
+	case extensionSpotlight = "spotlight"
 	case assistant = "assistant"
 	case assistantLevel = "assistant-level"
 	case assistantBriefing = "assistant-briefing"
@@ -28,8 +33,8 @@ public enum Defaults : String
 		switch self
 		{
 		case .themeType: return 0
-		case .dayTime: return 600
-		case .nightTime: return 2000
+		case .dayTime: return Date(year: 1970, month: 1, day: 1, hour: 6, minute: 0, second: 0)
+		case .nightTime: return Date(year: 1970, month: 1, day: 1, hour: 20, minute: 0, second: 0)
 		case .listHeight: return Float(250.0)
 		case .soundEffect: return true
 		case .hideCompletedTasks: return true
@@ -39,6 +44,10 @@ public enum Defaults : String
 		case .assistantLazy: return 1
 		case .assistantBusy: return 1
 		case .assistantDelay: return 1
+		case .extensionSiri: return false
+		case .extensionCalendar: return false
+		case .extensionReminder: return false
+		case .extensionSpotlight: return true
 		}
 	}
 }

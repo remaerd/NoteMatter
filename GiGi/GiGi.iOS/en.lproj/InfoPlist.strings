@@ -7,3 +7,5 @@
 */
 
 "CFBundleDisplayName" = "Illuminote";
+"NSCalendarsUsageDescription" = "Integrate Calendar.app with Illuminote";
+"NSRemindersUsageDescription" = "Integrate Reminders.app with Illuminote";

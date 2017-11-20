@@ -7,3 +7,5 @@
 */
 
 "CFBundleDisplayName" = "曙光笔记";
+"NSCalendarsUsageDescription" = "使用“曙光笔记”来管理“提醒事项”中的任务";
+"NSRemindersUsageDescription" = "使用“曙光笔记”来管理“日历”中的时间";

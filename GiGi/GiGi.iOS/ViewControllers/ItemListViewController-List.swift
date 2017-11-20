@@ -26,7 +26,7 @@ extension ItemListViewController
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCell
 		let childItem = item.children![indexPath.row]
 		
-		if (childItem as! Item).type.isFolder
+		if (childItem as! Item).solution.isFolder
 		{
 			cell.itemType = .folder
 			cell.actions = [.rename, .move, .convert, .delete, .cancel]
@@ -47,9 +47,9 @@ extension ItemListViewController
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
 		let selectedItem = self.item.children![indexPath.row]
-		switch (selectedItem as! Item).type.identifier
+		switch (selectedItem as! Item).solution.identifier
 		{
-		case LocalItemType.InternalItemType.folder.identifier:
+		case Solution.InternalSolution.folder.identifier:
 			self.navigationController?.pushViewController(ItemListViewController(item: selectedItem as! Item), animated: true)
 			break
 		default:

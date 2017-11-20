@@ -58,28 +58,28 @@ extension Database
 		try FileManager.default.createDirectory(at: URL.localDatabaseDirectory, withIntermediateDirectories: false, attributes: nil)
 		Database.defaultDatabase = try Database(type: .default, modelURL: URL.defaultDatabaseModelUrl, url: URL.defaultDatabaseUrl)
 		
-		var folderType: LocalItemType!
-		var documentType: LocalItemType!
+		var folderType: Solution!
+		var documentType: Solution!
 		
-		for type in LocalItemType.internalTypes
+		for solutionType in Solution.internalSolutions
 		{
-			let itemType = try LocalItemType.insert()
-			itemType.identifier = type.identifier
-			itemType.title = type.title
-			itemType.icon = type.icon
-			if type == .document { documentType = itemType } else if type == .folder { folderType = itemType }
+			let solution = try Solution.insert()
+			solution.identifier = solutionType.identifier
+			solution.title = solutionType.title
+			solution.icon = solutionType.icon
+			if solutionType == .document { documentType = solution } else if solutionType == .folder { folderType = solution }
 		}
 		
 		let rootFolder = try Item.insert()
 		rootFolder.identifier = Item.InternalItem.rootFolder.identifier
 		rootFolder.title = Item.InternalItem.rootFolder.title
-		rootFolder.type = documentType
+		rootFolder.solution = documentType
 		try rootFolder.save()
 		
 		let welcomeFolder = try Item.insert()
 		welcomeFolder.identifier = Item.InternalItem.welcome.identifier
 		welcomeFolder.title = Item.InternalItem.welcome.title
-		welcomeFolder.type = folderType
+		welcomeFolder.solution = folderType
 		welcomeFolder.parent = rootFolder
 		try welcomeFolder.save()
 		
@@ -88,7 +88,7 @@ extension Database
 			let guideDocument = try Item.insert()
 			guideDocument.identifier = NSUUID.init().uuidString
 			guideDocument.title = guide
-			guideDocument.type = documentType
+			guideDocument.solution = documentType
 			guideDocument.parent = welcomeFolder
 			try guideDocument.save()
 		}

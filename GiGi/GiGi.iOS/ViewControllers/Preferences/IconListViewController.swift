@@ -52,7 +52,7 @@ class IconListViewController: UIViewController
 		iconsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.edgeMargin).isActive = true
 		iconsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.edgeMargin).isActive = true
 		
-		let margin = (view.bounds.width - (Constants.bigButtonSize * Constants.numberOfItemTypesPerRow) - (Constants.itemButtonColumnMargin * Constants.numberOfItemTypesPerRow - 1) - Constants.edgeMargin * 2) / 2
+		let margin = (view.bounds.width - (Constants.bigButtonSize * Constants.numberOfIconsPerRow) - (Constants.itemButtonColumnMargin * Constants.numberOfIconsPerRow - 1) - Constants.edgeMargin * 2) / 2
 		
 		let layout = iconsView.collectionViewLayout as! UIKit.UICollectionViewFlowLayout
 		layout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)

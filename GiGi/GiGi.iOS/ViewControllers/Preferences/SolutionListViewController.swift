@@ -10,7 +10,7 @@ import Foundation
 
 class SolutionListViewController: UICollectionViewController
 {
-	var solutions: [LocalItemType]!
+	var solutions: [Solution]!
 	
 	override func loadView()
 	{
@@ -18,7 +18,7 @@ class SolutionListViewController: UICollectionViewController
 		title = ".preferences.solutions".localized
 		collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
 		
-		do { solutions = try LocalItemType.all() }
+		do { solutions = try Solution.all() }
 		catch { error.alert() }
 	}
 }
@@ -51,7 +51,7 @@ extension SolutionListViewController: ItemCellDelegate
 {
 	func itemCell(_ cell: ItemCell, didTriggerAction index: Int)
 	{
-		func delete(solution: LocalItemType)
+		func delete(solution: Solution)
 		{
 			do { try solution.destroy() }
 			catch { error.alert() }

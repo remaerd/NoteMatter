@@ -21,8 +21,8 @@ class SearchViewController: UIViewController
 
 	init()
 	{
-		let itemTypesLayout = UICollectionViewFlowLayout()
-		resultsCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: itemTypesLayout)
+		let layout = UICollectionViewFlowLayout()
+		resultsCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
 		super.init(nibName: nil, bundle: nil)
 	}
 

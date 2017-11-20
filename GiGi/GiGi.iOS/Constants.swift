@@ -35,7 +35,7 @@ struct Constants
 	static let itemButtonColumnMargin : CGFloat = 10
 	static let itemButtonLineMargin : CGFloat = 20
 	static let itemButtonDescriptionHeight: CGFloat = 36
-	static let numberOfItemTypesPerRow: CGFloat = 4
+	static let numberOfIconsPerRow: CGFloat = 4
 	static let numberOfRowOfItemButtons: CGFloat = 2
 	
 	static let edgeMargin : CGFloat = 10

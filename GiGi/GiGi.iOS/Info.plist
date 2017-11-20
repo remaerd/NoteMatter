@@ -22,6 +22,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Move calendar events into Illuminote</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>Move reminder events into Illuminote</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

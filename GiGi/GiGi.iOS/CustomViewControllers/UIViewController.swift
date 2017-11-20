@@ -56,6 +56,13 @@ extension EnhancedViewController where Self:UIKit.UIViewController
 			self.navigationItem.leftBarButtonItems = [item]
 		}
 	}
+	
+	func alert(title: String, message: String)
+	{
+		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+		UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+	}
 }
 
 extension UIKit.UIViewController
