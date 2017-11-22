@@ -2,7 +2,6 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B48" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1">
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="openedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -24,7 +23,7 @@
         <attribute name="genre" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="icon" attributeType="String" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
-        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="index" attributeType="Integer 32" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="introduction" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFolder" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="tags" optional="YES" attributeType="String" syncable="YES"/>
@@ -46,7 +45,7 @@
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="task" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="180"/>
         <element name="ItemComponent" positionX="-36" positionY="9" width="128" height="135"/>
         <element name="Solution" positionX="-54" positionY="-9" width="128" height="165"/>
         <element name="Task" positionX="-18" positionY="36" width="128" height="240"/>

@@ -26,22 +26,15 @@ public class Item: NSManagedObject, Model
 	{
 		case rootFolder
 		case welcome
+		case thumb
 		
 		public var title: String
 		{
 			switch self
 			{
 			case .welcome: return ".item.welcome"
+			case .thumb: return ".item.thumb"
 			case .rootFolder: return ".item.rootFolder"
-			}
-		}
-		
-		public var identifier: String
-		{
-			switch self
-			{
-			case .welcome: return "fbe2f6b3-184b-4f17-8b92-fca3003591be"
-			case .rootFolder: return "97d3ce02-96f7-4a4a-88e8-7d6091291431"
 			}
 		}
 	}
@@ -73,9 +66,8 @@ public class Item: NSManagedObject, Model
 		}
 	}
 	
-	static let internalItemIdentifiers = [Item.InternalItem.rootFolder.identifier]
+	static let internalItemTitles = [Item.InternalItem.rootFolder.title]
 	static let internalItems = [Item.InternalItem.rootFolder]
-	
 	
 	public override func awakeFromInsert()
 	{

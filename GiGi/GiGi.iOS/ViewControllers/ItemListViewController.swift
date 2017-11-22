@@ -33,7 +33,7 @@ class ItemListViewController: UICollectionViewController
 	{
 		super.loadView()
 		
-		if item.identifier == Item.InternalItem.rootFolder.identifier
+		if item.title == Item.InternalItem.rootFolder.title
 		{
 			navigationItem.leftBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Menu"), style: .plain, target: self, action: #selector(didTappMenuButton))]
 		}

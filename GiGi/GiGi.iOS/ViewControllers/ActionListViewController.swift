@@ -72,8 +72,8 @@ class ActionListViewController: UICollectionViewController
 		super.viewWillAppear(animated)
 		if currentActionIndex >= 0
 		{
-			let cell = self.collectionView?.cellForItem(at: IndexPath(row: currentActionIndex, section: 0)) as! Cell
-			cell.isHighlighted(highlight: false)
+			let cell = self.collectionView?.cellForItem(at: IndexPath(row: currentActionIndex, section: 0)) as? Cell
+			cell?.isHighlighted(highlight: false)
 			currentActionIndex = -1
 		}
 	}

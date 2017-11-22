@@ -113,7 +113,8 @@ public extension Model where Self : NSManagedObject {
 	
 	
 	// Delete
-	public func destroy() throws {
+	public func destroy() throws
+	{
 		self.managedObjectContext?.delete(self)
 		do {
 			try self.managedObjectContext?.save()

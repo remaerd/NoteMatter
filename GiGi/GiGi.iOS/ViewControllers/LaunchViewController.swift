@@ -30,7 +30,7 @@ class LaunchViewController: UIKit.UIViewController
 		{
 			try Theme.load()
 			try Application.start()
-			if let item = try Item.findOne(NSPredicate(format: "identifier == %@", Item.InternalItem.rootFolder.identifier))
+			if let item = try Item.findOne(NSPredicate(format: "title == %@", Item.InternalItem.rootFolder.title))
 			{
 				let controller = ItemListViewController(item: item)
 				self.navigationController?.setViewControllers([controller], animated: animated)

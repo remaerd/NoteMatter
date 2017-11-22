@@ -14,7 +14,7 @@ public class Solution: NSManagedObject, Model
 {
 	public static var database: Database { return Database.defaultDatabase }
 	
-	static let internalSolutions : [Solution.InternalSolution] = [.task,.folder,.document]
+	static let internalSolutions : [Solution.InternalSolution] = [.task, .document, .folder]
 	
 	public enum InternalSolution
 	{
@@ -51,5 +51,12 @@ public class Solution: NSManagedObject, Model
 			case .folder: return "List-Folder"
 			}
 		}
+	}
+	
+	public override func awakeFromInsert()
+	{
+		super.awakeFromInsert()
+		let solution = try! Solution.find(nil, sortDescriptors: [NSSortDescriptor(key: "index", ascending: false)], properties: ["index"], limit: 1)
+		if solution.count == 0 { self.index = 0 } else { index = solution[0].index + Int32(arc4random_uniform(10000)) }
 	}
 }

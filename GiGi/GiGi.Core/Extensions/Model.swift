@@ -9,7 +9,6 @@ import CoreData
 
 public extension Item
 {
-	@NSManaged public var identifier: String
 	@NSManaged public var title: String
 	@NSManaged public var createdAt: Date
 	@NSManaged public var updatedAt: Date

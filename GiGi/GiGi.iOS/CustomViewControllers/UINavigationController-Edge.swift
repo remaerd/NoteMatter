@@ -130,7 +130,7 @@ extension UINavigationController : UIGestureRecognizerDelegate
 				// SoundEffect.play(.PanSuccess)
 				let barButton : UIBarButtonItem
 				if currentEdgeIndicator?.cornerType == .left { barButton = visibleViewController!.navigationItem.leftBarButtonItems![indicator.panState - 1] as UIBarButtonItem } else { barButton = visibleViewController!.navigationItem.rightBarButtonItems![indicator.panState - 1] as UIBarButtonItem }
-				barButton.target?.performSelector(inBackground: barButton.action!, with: ["index":indicator.panState - 1])
+				Timer.scheduledTimer(timeInterval: 0.1, target: barButton.target!, selector: barButton.action!, userInfo: ["index":indicator.panState - 1], repeats: false)
 			}
 			
 			UIView.animate(withDuration: 0.4, animations:

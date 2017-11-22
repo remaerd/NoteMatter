@@ -124,15 +124,14 @@ extension SlideTransition
 		targetViewController?.view.isHidden = false
 		itemCell.delegate?.itemCell?(itemCell, didTriggerAction: indexPath.row)
 		UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations:
-			{
-				self.navigationController.searchBar.alpha = 1
-				self.targetViewController?.view.transform = CGAffineTransform.identity
-				self.actionListViewController.view.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
+		{
+			self.navigationController.searchBar.alpha = 1
+			self.targetViewController?.view.transform = CGAffineTransform.identity
+			self.actionListViewController.view.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
 		}, completion: { (_) -> Void in
 			self.actionListViewController.view.transform = CGAffineTransform.identity
 			self.transitionContext?.cancelInteractiveTransition()
 			self.transitionContext?.completeTransition(false)
-
 			self.reset()
 			self.actionListViewController.collectionView?.isScrollEnabled = true
 		})

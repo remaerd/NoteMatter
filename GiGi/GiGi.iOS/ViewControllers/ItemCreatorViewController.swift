@@ -27,7 +27,7 @@ class ItemCreatorViewController: UICollectionViewController
 	override func loadView()
 	{
 		super.loadView()
-		do { self.solutions = try Solution.all() }
+		do { self.solutions = try Solution.all([NSSortDescriptor(key: "index", ascending: true)]) }
 		catch { error.alert() }
 		collectionView?.reloadData()
 		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")

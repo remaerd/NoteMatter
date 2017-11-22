@@ -24,12 +24,6 @@ class ModalViewController: UIPresentationController
 		self.dimmingView.frame = self.containerView!.bounds
 		self.dimmingView.alpha = 0
 		self.containerView?.insertSubview(self.dimmingView, belowSubview: self.presentedView!)
-		
-		let blurEffect = UIBlurEffect(style: .extraLight)
-		let blurView = UIVisualEffectView(effect: blurEffect)
-		blurView.frame = self.presentedView!.bounds
-		presentedView?.insertSubview(blurView, at: 0)
-		
 		presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (context) in self.dimmingView.alpha = 0.3 }, completion: nil)
 	}
 	

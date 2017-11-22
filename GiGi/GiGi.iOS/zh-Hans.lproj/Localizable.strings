@@ -15,6 +15,7 @@
 ".item.welcome" = "来自 GiGi 的问候";
 ".item.faq" = "曙光秘籍一指禅";
 
+".list.new" = "新";
 ".list.unlock" = "解锁加密内容";
 ".list.insert" = "在这里添加...";
 ".list.actions.reschedule" = "提醒";

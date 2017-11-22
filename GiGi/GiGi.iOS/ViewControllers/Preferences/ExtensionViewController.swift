@@ -72,7 +72,7 @@ extension ExtensionViewController
 		case 5:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
 			cell.titleLabel.text = ".preferences.extensions.siri".localized
-			cell.switcher.addTarget(self, action: #selector(didTappedSiriSwitch(switcher:)), for: .touchUpInside)
+			if #available(iOS 11.0, *) { cell.switcher.addTarget(self, action: #selector(didTappedSiriSwitch(switcher:)), for: .touchUpInside) }
 			if Defaults.extensionSiri.bool && EventManager.shared.calendarStatus == .authorized { cell.switcher.isOn = true }
 			cell.icon = #imageLiteral(resourceName: "List-Siri")
 			return cell
@@ -153,9 +153,42 @@ extension ExtensionViewController
 		}
 	}
 	
+	@available(iOS, introduced: 11.0)
 	@objc func didTappedSiriSwitch(switcher: UISwitch)
 	{
-		Defaults.extensionSiri.set(value: switcher.isOn)
+		func disable()
+		{
+			switcher.isOn = false
+			Defaults.extensionSiri.set(value: false)
+			self.alert(title: ".preferences.extensions.siri.alert.title".localized, message: ".preferences.extensions.siri.alert.description".localized)
+		}
+		
+		func ask()
+		{
+			SiriManager.shared.activate( completion:
+			{(status) in
+				OperationQueue.main.addOperation
+				{
+					if status != .authorized { disable(); return }
+					Defaults.extensionCalendar.set(value: true)
+					switcher.isOn = true
+				}
+			})
+		}
+		
+		if !switcher.isOn { Defaults.extensionSiri.set(value: false) }
+		else
+		{
+			switch SiriManager.shared.status
+			{
+			case .authorized:
+				Defaults.extensionSiri.set(value: switcher.isOn); break
+			case .notDetermined:
+				ask(); break
+			default: disable();
+				break
+			}
+		}
 	}
 	
 	@objc func didTappedSpotlightSwitch(switcher: UISwitch)

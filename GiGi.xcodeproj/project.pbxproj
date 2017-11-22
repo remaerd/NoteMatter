@@ -30,6 +30,14 @@
 		031B2DD81FB9FB7100A01489 /* ItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2DC91FB9FB6800A01489 /* ItemComponent.swift */; };
 		031B2DDD1FBA001D00A01489 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2DDB1FBA001200A01489 /* Model.swift */; };
 		031B2DDE1FBA005000A01489 /* ContentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F781F29B604009DE50E /* ContentStorage.swift */; };
+		0370AE741FC33C4700E584C0 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370AE731FC33C4700E584C0 /* IntentHandler.swift */; };
+		0370AE7B1FC33C4800E584C0 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03BD08A51FC1AC5100AC5312 /* IntentsUI.framework */; };
+		0370AE7E1FC33C4800E584C0 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370AE7D1FC33C4800E584C0 /* IntentViewController.swift */; };
+		0370AE811FC33C4800E584C0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0370AE7F1FC33C4800E584C0 /* MainInterface.storyboard */; };
+		0370AE851FC33C4800E584C0 /* GiGi.iOS.SiriUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0370AE7A1FC33C4700E584C0 /* GiGi.iOS.SiriUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0370AE881FC33C4800E584C0 /* GiGi.iOS.Siri.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0370AE711FC33C4700E584C0 /* GiGi.iOS.Siri.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0370AE901FC33CAE00E584C0 /* SiriManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370AE8F1FC33CAE00E584C0 /* SiriManager.swift */; };
+		0370AE921FC3D1B600E584C0 /* Database-Prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370AE911FC3D1B600E584C0 /* Database-Prepare.swift */; };
 		037A39811F29DDDD00F25BB0 /* Welcome.md in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F731F29B604009DE50E /* Welcome.md */; };
 		037A39831F29E18E00F25BB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F711F29B604009DE50E /* Localizable.strings */; };
 		037A39851F29E36B00F25BB0 /* ItemListViewController-List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39841F29E36B00F25BB0 /* ItemListViewController-List.swift */; };
@@ -118,6 +126,20 @@
 			remoteGlobalIDString = 03F12F241F29B420009DE50E;
 			remoteInfo = GiGi.iOS;
 		};
+		0370AE831FC33C4800E584C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03F12F1B1F29B404009DE50E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0370AE791FC33C4700E584C0;
+			remoteInfo = GiGi.iOS.SiriUI;
+		};
+		0370AE861FC33C4800E584C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03F12F1B1F29B404009DE50E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0370AE701FC33C4700E584C0;
+			remoteInfo = GiGi.iOS.Siri;
+		};
 		03BD087E1FC1A97400AC5312 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03F12F1B1F29B404009DE50E /* Project object */;
@@ -149,7 +171,9 @@
 			dstSubfolderSpec = 13;
 			files = (
 				03BD08931FC1A9A200AC5312 /* GiGi.iOS.Share.appex in Embed App Extensions */,
+				0370AE881FC33C4800E584C0 /* GiGi.iOS.Siri.appex in Embed App Extensions */,
 				03BD08801FC1A97400AC5312 /* GiGi.iOS.Dashboard.Today.appex in Embed App Extensions */,
+				0370AE851FC33C4800E584C0 /* GiGi.iOS.SiriUI.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +214,15 @@
 		031B2DC91FB9FB6800A01489 /* ItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemComponent.swift; sourceTree = "<group>"; };
 		031B2DDB1FBA001200A01489 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0325E2811F3B03BE002543D5 /* Timepiece.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timepiece.framework; path = Carthage/Build/iOS/Timepiece.framework; sourceTree = "<group>"; };
+		0370AE711FC33C4700E584C0 /* GiGi.iOS.Siri.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GiGi.iOS.Siri.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0370AE731FC33C4700E584C0 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		0370AE751FC33C4700E584C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0370AE7A1FC33C4700E584C0 /* GiGi.iOS.SiriUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GiGi.iOS.SiriUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0370AE7D1FC33C4800E584C0 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		0370AE801FC33C4800E584C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		0370AE821FC33C4800E584C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0370AE8F1FC33CAE00E584C0 /* SiriManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriManager.swift; sourceTree = "<group>"; };
+		0370AE911FC3D1B600E584C0 /* Database-Prepare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database-Prepare.swift"; sourceTree = "<group>"; };
 		037A39841F29E36B00F25BB0 /* ItemListViewController-List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-List.swift"; sourceTree = "<group>"; };
 		037A39861F29E38700F25BB0 /* ItemListViewController-Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-Action.swift"; sourceTree = "<group>"; };
 		037A39891F29E3F200F25BB0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -286,6 +319,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0370AE6E1FC33C4700E584C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0370AE771FC33C4700E584C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0370AE7B1FC33C4800E584C0 /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03BD08711FC1A97300AC5312 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -346,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				03006D7B1FC24F420058BD95 /* EventManager.swift */,
+				0370AE8F1FC33CAE00E584C0 /* SiriManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -375,6 +424,8 @@
 				03F12F4F1F29B5D3009DE50E /* GiGi.iOS */,
 				03BD08771FC1A97400AC5312 /* GiGi.iOS.Dashboard.Today */,
 				03BD088A1FC1A9A200AC5312 /* GiGi.iOS.Share */,
+				0370AE721FC33C4700E584C0 /* GiGi.iOS.Siri */,
+				0370AE7C1FC33C4800E584C0 /* GiGi.iOS.SiriUI */,
 			);
 			path = GiGi;
 			sourceTree = "<group>";
@@ -392,6 +443,25 @@
 			);
 			path = Preferences;
 			sourceTree = "<group>";
+		};
+		0370AE721FC33C4700E584C0 /* GiGi.iOS.Siri */ = {
+			isa = PBXGroup;
+			children = (
+				0370AE731FC33C4700E584C0 /* IntentHandler.swift */,
+				0370AE751FC33C4700E584C0 /* Info.plist */,
+			);
+			path = GiGi.iOS.Siri;
+			sourceTree = SOURCE_ROOT;
+		};
+		0370AE7C1FC33C4800E584C0 /* GiGi.iOS.SiriUI */ = {
+			isa = PBXGroup;
+			children = (
+				0370AE7D1FC33C4800E584C0 /* IntentViewController.swift */,
+				0370AE7F1FC33C4800E584C0 /* MainInterface.storyboard */,
+				0370AE821FC33C4800E584C0 /* Info.plist */,
+			);
+			path = GiGi.iOS.SiriUI;
+			sourceTree = SOURCE_ROOT;
 		};
 		037A39881F29E3D800F25BB0 /* Exhancers */ = {
 			isa = PBXGroup;
@@ -454,6 +524,8 @@
 				030778BF1F4EFDEF00A0331C /* GiGi.Core.iOS.Tests.xctest */,
 				03BD08741FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today.appex */,
 				03BD08891FC1A9A200AC5312 /* GiGi.iOS.Share.appex */,
+				0370AE711FC33C4700E584C0 /* GiGi.iOS.Siri.appex */,
+				0370AE7A1FC33C4700E584C0 /* GiGi.iOS.SiriUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -565,9 +637,9 @@
 		03F12FB61F29B7EE009DE50E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				031B2DC51FB9FB6800A01489 /* Solution.swift */,
 				031B2DC31FB9FB6800A01489 /* Item.swift */,
 				031B2DC91FB9FB6800A01489 /* ItemComponent.swift */,
-				031B2DC51FB9FB6800A01489 /* Solution.swift */,
 				031B2DC71FB9FB6800A01489 /* Task.swift */,
 				03F12F781F29B604009DE50E /* ContentStorage.swift */,
 				037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */,
@@ -581,6 +653,7 @@
 			children = (
 				03F12F791F29B604009DE50E /* NSManagedObject.swift */,
 				031B2DAA1FB9DB3000A01489 /* Database.swift */,
+				0370AE911FC3D1B600E584C0 /* Database-Prepare.swift */,
 				031B2DDB1FBA001200A01489 /* Model.swift */,
 				03F12F751F29B604009DE50E /* Color.swift */,
 				039FF0151FBEF91D007C9539 /* Security.swift */,
@@ -668,6 +741,40 @@
 			productReference = 030778BF1F4EFDEF00A0331C /* GiGi.Core.iOS.Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		0370AE701FC33C4700E584C0 /* GiGi.iOS.Siri */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0370AE8C1FC33C4800E584C0 /* Build configuration list for PBXNativeTarget "GiGi.iOS.Siri" */;
+			buildPhases = (
+				0370AE6D1FC33C4700E584C0 /* Sources */,
+				0370AE6E1FC33C4700E584C0 /* Frameworks */,
+				0370AE6F1FC33C4700E584C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GiGi.iOS.Siri;
+			productName = GiGi.iOS.Siri;
+			productReference = 0370AE711FC33C4700E584C0 /* GiGi.iOS.Siri.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		0370AE791FC33C4700E584C0 /* GiGi.iOS.SiriUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0370AE891FC33C4800E584C0 /* Build configuration list for PBXNativeTarget "GiGi.iOS.SiriUI" */;
+			buildPhases = (
+				0370AE761FC33C4700E584C0 /* Sources */,
+				0370AE771FC33C4700E584C0 /* Frameworks */,
+				0370AE781FC33C4700E584C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GiGi.iOS.SiriUI;
+			productName = GiGi.iOS.SiriUI;
+			productReference = 0370AE7A1FC33C4700E584C0 /* GiGi.iOS.SiriUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		03BD08731FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03BD08811FC1A97400AC5312 /* Build configuration list for PBXNativeTarget "GiGi.iOS.Dashboard.Today" */;
@@ -719,6 +826,8 @@
 				03F12F431F29B430009DE50E /* PBXTargetDependency */,
 				03BD087F1FC1A97400AC5312 /* PBXTargetDependency */,
 				03BD08921FC1A9A200AC5312 /* PBXTargetDependency */,
+				0370AE841FC33C4800E584C0 /* PBXTargetDependency */,
+				0370AE871FC33C4800E584C0 /* PBXTargetDependency */,
 			);
 			name = GiGi.iOS;
 			productName = GiGi.iOS;
@@ -756,6 +865,14 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 03F12F241F29B420009DE50E;
+					};
+					0370AE701FC33C4700E584C0 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					0370AE791FC33C4700E584C0 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
 					};
 					03BD08731FC1A97300AC5312 = {
 						CreatedOnToolsVersion = 9.1;
@@ -797,7 +914,7 @@
 								enabled = 1;
 							};
 							com.apple.Siri = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.iCloud = {
 								enabled = 1;
@@ -828,6 +945,8 @@
 				03BD08881FC1A9A200AC5312 /* GiGi.iOS.Share */,
 				03F12F3C1F29B430009DE50E /* GiGi.Core */,
 				030778BE1F4EFDEF00A0331C /* GiGi.Core.iOS.Tests */,
+				0370AE701FC33C4700E584C0 /* GiGi.iOS.Siri */,
+				0370AE791FC33C4700E584C0 /* GiGi.iOS.SiriUI */,
 			);
 		};
 /* End PBXProject section */
@@ -837,6 +956,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0370AE6F1FC33C4700E584C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0370AE781FC33C4700E584C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0370AE811FC33C4800E584C0 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -921,6 +1055,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0370AE6D1FC33C4700E584C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0370AE741FC33C4700E584C0 /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0370AE761FC33C4700E584C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0370AE7E1FC33C4800E584C0 /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03BD08701FC1A97300AC5312 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -992,6 +1142,7 @@
 			files = (
 				039FF0171FBEF92B007C9539 /* Security.swift in Sources */,
 				031B2DDD1FBA001D00A01489 /* Model.swift in Sources */,
+				0370AE921FC3D1B600E584C0 /* Database-Prepare.swift in Sources */,
 				031B2DD71FB9FB7100A01489 /* Task.swift in Sources */,
 				03F12FA81F29B760009DE50E /* NSManagedObject.swift in Sources */,
 				03F12FAD1F29B760009DE50E /* Localization.swift in Sources */,
@@ -1004,6 +1155,7 @@
 				031B2DAB1FB9DB3000A01489 /* Database.swift in Sources */,
 				03D22BEF1FC00ABE0054BE9C /* Font-Editor.swift in Sources */,
 				03D22BED1FC009780054BE9C /* Font.swift in Sources */,
+				0370AE901FC33CAE00E584C0 /* SiriManager.swift in Sources */,
 				03F12FAE1F29B760009DE50E /* MarkdownParser.swift in Sources */,
 				03006D7C1FC24F420058BD95 /* EventManager.swift in Sources */,
 				031B2DC21FB9E31C00A01489 /* GiGi.xcdatamodeld in Sources */,
@@ -1024,6 +1176,16 @@
 			target = 03F12F241F29B420009DE50E /* GiGi.iOS */;
 			targetProxy = 03225A6E1F4F21F700BF1E5D /* PBXContainerItemProxy */;
 		};
+		0370AE841FC33C4800E584C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0370AE791FC33C4700E584C0 /* GiGi.iOS.SiriUI */;
+			targetProxy = 0370AE831FC33C4800E584C0 /* PBXContainerItemProxy */;
+		};
+		0370AE871FC33C4800E584C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0370AE701FC33C4700E584C0 /* GiGi.iOS.Siri */;
+			targetProxy = 0370AE861FC33C4800E584C0 /* PBXContainerItemProxy */;
+		};
 		03BD087F1FC1A97400AC5312 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 03BD08731FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today */;
@@ -1042,6 +1204,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0370AE7F1FC33C4800E584C0 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0370AE801FC33C4800E584C0 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		03BD087A1FC1A97400AC5312 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1217,6 +1387,168 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiGi.iOS.app/GiGi.iOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0370AE8A1FC33C4800E584C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = GiGi.iOS.SiriUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.gigi.ios.GiGi-iOS-SiriUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0370AE8B1FC33C4800E584C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = GiGi.iOS.SiriUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.gigi.ios.GiGi-iOS-SiriUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0370AE8D1FC33C4800E584C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = GiGi.iOS.Siri/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.gigi.ios.GiGi-iOS-Siri";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0370AE8E1FC33C4800E584C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = GiGi.iOS.Siri/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.gigi.ios.GiGi-iOS-Siri";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1745,6 +2077,24 @@
 			buildConfigurations = (
 				030778C71F4EFDEF00A0331C /* Debug */,
 				030778C81F4EFDEF00A0331C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0370AE891FC33C4800E584C0 /* Build configuration list for PBXNativeTarget "GiGi.iOS.SiriUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0370AE8A1FC33C4800E584C0 /* Debug */,
+				0370AE8B1FC33C4800E584C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0370AE8C1FC33C4800E584C0 /* Build configuration list for PBXNativeTarget "GiGi.iOS.Siri" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0370AE8D1FC33C4800E584C0 /* Debug */,
+				0370AE8E1FC33C4800E584C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

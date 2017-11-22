@@ -18,7 +18,7 @@ class SolutionListViewController: UICollectionViewController
 		title = ".preferences.solutions".localized
 		collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
 		
-		do { solutions = try Solution.all() }
+		do { solutions = try Solution.all([NSSortDescriptor(key: "index", ascending: true)]) }
 		catch { error.alert() }
 	}
 }

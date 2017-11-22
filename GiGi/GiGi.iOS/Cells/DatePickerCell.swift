@@ -46,16 +46,20 @@ class DatePickerController: UIKit.UIViewController
 	{
 		super.loadView()
 		
-		view.addSubview(pickerView)
 		view.backgroundColor = UIColor.clear
-		pickerView.addTarget(self, action: #selector(didChangeDate), for: .valueChanged)
-		pickerView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-		pickerView.translatesAutoresizingMaskIntoConstraints = false
-		pickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-		pickerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-		pickerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-		pickerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-		pickerView.layer.cornerRadius = Constants.defaultCornerRadius
+		
+		let blurEffect = UIBlurEffect(style: .extraLight)
+		let blurView = UIVisualEffectView(effect: blurEffect)
+		blurView.layer.cornerRadius = Constants.defaultCornerRadius
+		blurView.clipsToBounds = true
+		view.addSubview(blurView)
+		blurView.contentView.addSubview(pickerView)
+		
+		blurView.translatesAutoresizingMaskIntoConstraints = false
+		blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+		blurView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+		blurView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		blurView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 	}
 	
 	@objc func didChangeDate()

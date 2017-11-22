@@ -8,7 +8,17 @@
 import CoreData
 import Foundation
 
-public struct Database
+public enum NSManagedObjectChange
+{
+	case all
+	case update
+	case insert
+	case delete
+}
+
+public typealias NSManagedObjectObserverCompletionBlock = (NSManagedObject, NSManagedObjectChange)
+
+public class Database: NSObject
 {
 	public enum Exception : Error
 	{
@@ -22,9 +32,10 @@ public struct Database
 		case memory
 	}
 	
-	let model       : NSManagedObjectModel
-	let context     : NSManagedObjectContext
-	let coordinator : NSPersistentStoreCoordinator
+	let model       			: NSManagedObjectModel
+	let context     			: NSManagedObjectContext
+	let coordinator 			: NSPersistentStoreCoordinator
+	var observingObjects	= [NSManagedObjectID: NSManagedObjectObserverCompletionBlock]()
 	
 	static var defaultDatabase : Database!
 	
@@ -48,49 +59,7 @@ public struct Database
 		}
 		self.context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
 		self.context.persistentStoreCoordinator = self.coordinator
-	}
-}
-
-extension Database
-{
-	static func prepare() throws
-	{
-		try FileManager.default.createDirectory(at: URL.localDatabaseDirectory, withIntermediateDirectories: false, attributes: nil)
-		Database.defaultDatabase = try Database(type: .default, modelURL: URL.defaultDatabaseModelUrl, url: URL.defaultDatabaseUrl)
 		
-		var folderType: Solution!
-		var documentType: Solution!
-		
-		for solutionType in Solution.internalSolutions
-		{
-			let solution = try Solution.insert()
-			solution.identifier = solutionType.identifier
-			solution.title = solutionType.title
-			solution.icon = solutionType.icon
-			if solutionType == .document { documentType = solution } else if solutionType == .folder { folderType = solution }
-		}
-		
-		let rootFolder = try Item.insert()
-		rootFolder.identifier = Item.InternalItem.rootFolder.identifier
-		rootFolder.title = Item.InternalItem.rootFolder.title
-		rootFolder.solution = documentType
-		try rootFolder.save()
-		
-		let welcomeFolder = try Item.insert()
-		welcomeFolder.identifier = Item.InternalItem.welcome.identifier
-		welcomeFolder.title = Item.InternalItem.welcome.title
-		welcomeFolder.solution = folderType
-		welcomeFolder.parent = rootFolder
-		try welcomeFolder.save()
-		
-		for guide in [".item.welcome.1",".item.welcome.2",".item.welcome.3",".item.welcome.4",".item.welcome.5",".item.welcome.6"]
-		{
-			let guideDocument = try Item.insert()
-			guideDocument.identifier = NSUUID.init().uuidString
-			guideDocument.title = guide
-			guideDocument.solution = documentType
-			guideDocument.parent = welcomeFolder
-			try guideDocument.save()
-		}
+		super.init()
 	}
 }

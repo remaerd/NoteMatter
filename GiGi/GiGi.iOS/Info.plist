@@ -26,6 +26,8 @@
 	<string>Move calendar events into Illuminote</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>Move reminder events into Illuminote</string>
+	<key>NSSiriUsageDescription</key>
+	<string>Integrate Siri with Illuminote</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

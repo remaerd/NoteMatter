@@ -37,7 +37,9 @@ public struct Theme
 	{
 		let now = Date()
 		let nowInt = now.hour * 100 + now.minute
-		if nowInt > Defaults.dayTime.int && nowInt < Defaults.nightTime.int { return true } else { return false }
+		let dayInt = Defaults.dayTime.date.hour * 100 + Defaults.dayTime.date.minute
+		let nightInt = Defaults.nightTime.date.hour * 100 + Defaults.nightTime.date.minute
+		if nowInt > dayInt && nowInt < nightInt { return true } else { return false }
 	}
 
 	static func load() throws
