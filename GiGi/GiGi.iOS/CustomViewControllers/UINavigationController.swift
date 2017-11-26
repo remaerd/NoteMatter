@@ -10,10 +10,6 @@ import UIKit
 
 class UINavigationController: UIKit.UINavigationController, UINavigationControllerDelegate
 {
-	var currentEdgeIndicator : EdgeIndicator?
-	lazy var leftEdgeIndicator = EdgeIndicator(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Constants.cellHeight), cornerType: .left)
-	lazy var rightEdgeIndicator = EdgeIndicator(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Constants.cellHeight), cornerType: .right)
-
 	var leftEdgeGesture : UIScreenEdgePanGestureRecognizer?
 	var rightEdgeGesture : UIScreenEdgePanGestureRecognizer?
 
@@ -25,7 +21,6 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 		super.loadView()
 		isNavigationBarHidden = true
 		delegate = self
-		enableEdgeGesture()
 		
 		view.addSubview(searchBar)
 		searchBar.translatesAutoresizingMaskIntoConstraints = false
@@ -54,8 +49,7 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 		(viewController as? UIViewController)?.customBackButton()
 		
 		searchBar.textColor = Theme.colors[6]
-		self.searchBar.placeholder = viewController.navigationItem.title
-		self.searchBar.navigationItem = viewController.navigationItem
+		self.searchBar.reset(controller: viewController)
 		
 		if let delegate = newController.searchDelegate
 		{

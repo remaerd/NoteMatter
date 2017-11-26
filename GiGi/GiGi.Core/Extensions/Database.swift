@@ -10,13 +10,12 @@ import Foundation
 
 public enum NSManagedObjectChange
 {
-	case all
 	case update
 	case insert
 	case delete
 }
 
-public typealias NSManagedObjectObserverCompletionBlock = (NSManagedObject, NSManagedObjectChange)
+public typealias NSManagedObjectChangeHandler = (NSManagedObject, NSManagedObjectChange) -> Void
 
 public class Database: NSObject
 {
@@ -35,7 +34,8 @@ public class Database: NSObject
 	let model       			: NSManagedObjectModel
 	let context     			: NSManagedObjectContext
 	let coordinator 			: NSPersistentStoreCoordinator
-	var observingObjects	= [NSManagedObjectID: NSManagedObjectObserverCompletionBlock]()
+	var observingObjects	= [NSManagedObjectID: NSManagedObjectChangeHandler]()
+	var notificationToken	: NSObjectProtocol?
 	
 	static var defaultDatabase : Database!
 	
@@ -61,5 +61,24 @@ public class Database: NSObject
 		self.context.persistentStoreCoordinator = self.coordinator
 		
 		super.init()
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(databaseDidChanged(notification:)), name: .NSManagedObjectContextObjectsDidChange, object: nil)
+	}
+	
+	@objc func databaseDidChanged(notification: Notification)
+	{
+//		let inserts = notification.userInfo?[NSInsertedObjectsKey] as? NSSet
+		let updates = notification.userInfo?[NSUpdatedObjectsKey] as? NSSet
+//		let deletes = notification.userInfo?[NSDeletedObjectsKey] as? NSSet
+//		let refreshs = notification.userInfo?[NSRefreshedObjectsKey] as? NSSet
+//		let invalidates = notification.userInfo?[NSInvalidatedObjectsKey] as? NSSet
+		
+		if let updates = updates
+		{
+			for update in updates
+			{
+				if let object = update as? NSManagedObject, let handler = observingObjects[object.objectID] { handler(object, .update) }
+			}
+		}
 	}
 }

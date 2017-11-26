@@ -12,6 +12,42 @@ import CoreData
 @objc(Solution)
 public class Solution: NSManagedObject, Model
 {
+	public enum ActionType
+	{
+		case reschedule
+		case move
+		case rename
+		case convert
+		case delete
+		case cancel
+		
+		public var icon: String?
+		{
+			switch self
+			{
+			case .reschedule: return "List-Bell"
+			case .move: return "List-Move"
+			case .rename: return "List-Rename"
+			case .convert: return "List-Convert"
+			case .delete: return "List-Delete"
+			case .cancel: return nil
+			}
+		}
+		
+		public var title: String
+		{
+			switch self
+			{
+			case .reschedule: return ".list.actions.reschedule".localized
+			case .rename: return ".list.actions.rename".localized
+			case .move: return ".list.actions.move".localized
+			case .convert: return ".list.actions.convert".localized
+			case .delete: return ".list.actions.delete".localized
+			case .cancel: return ".universal.cancel".localized
+			}
+		}
+	}
+	
 	public static var database: Database { return Database.defaultDatabase }
 	
 	static let internalSolutions : [Solution.InternalSolution] = [.task, .document, .folder]
@@ -58,5 +94,11 @@ public class Solution: NSManagedObject, Model
 		super.awakeFromInsert()
 		let solution = try! Solution.find(nil, sortDescriptors: [NSSortDescriptor(key: "index", ascending: false)], properties: ["index"], limit: 1)
 		if solution.count == 0 { self.index = 0 } else { index = solution[0].index + Int32(arc4random_uniform(10000)) }
+	}
+	
+	public var actions: [ActionType]
+	{
+		if self.isFolder == true { return [.rename, .move, .convert, .delete, .cancel] }
+		else { return  [.reschedule, .move, .convert, .delete, .cancel]  }
 	}
 }

@@ -2,234 +2,191 @@
 //  SlideTransition.swift
 //  GiGi.iOS
 //
-//  Created by Sean Cheng on 12/07/2017.
-//  Copyright © 2017 Zheng Xingzhi. All rights reserved.
+//  Created by Sean Cheng on 23/11/2017.
 //
 
 import UIKit
 
-class SlideTransition: NSObject, UIViewControllerInteractiveTransitioning, UICollectionViewDelegate
+class SlideTransition: NSObject
 {
-	let navigationController	: UINavigationController
-	var targetViewController  : UICollectionViewController?
-	var targetVCSnapshot      : UIView?
-
-	var itemCell            	: ItemCell!
-	var itemCellSnapshot			: UIView!
-	var transitionContext			: UIViewControllerContextTransitioning?
-	var isStarted             : Bool = false
-	var isActive              : Bool = false
-
-	lazy var actionListViewController : ActionListViewController =
+	enum SlideDirection
 	{
-		let controller = ActionListViewController()
-		controller.delegate = self
-		return controller
-	}()
-
+		case left
+		case right
+	}
+	
+	weak var navigationController: UINavigationController?
+	var currentViewController: UICollectionViewController?
+	var newViewController: UICollectionViewController?
+	var slideDirection = SlideDirection.left
+	var currentActionIndex: Int = -1
+	var transitionContext: UIViewControllerContextTransitioning?
+	var isStarted = false
+	var isActive = false
+	var isQuickMode = false
+	var snapshot: UIView?
+	
 	init(navigationController: UINavigationController)
 	{
+		super.init()
 		self.navigationController = navigationController
 	}
 }
 
-// MARK: Slide Transition for Pan Gesture in ItemCell
-
 extension SlideTransition
 {
-	func itemCellDidPanned(gesture: UIPanGestureRecognizer)
+	func scrollToOffest(cellMaxY: CGFloat, gestureY: CGFloat, previousY: CGFloat)
 	{
-		let X = gesture.translation(in: itemCell).x
-		let ratio = X / UIScreen.main.bounds.width
-		switch gesture.state
+		guard let collectionView = newViewController?.collectionView else { return }
+		let offestY = (UIScreen.main.bounds.height - Defaults.listHeight.float - cellMaxY) - (Constants.cellHeight / 2) + previousY - (gestureY * 3)
+		let offest = CGPoint(x: 0, y: offestY)
+		collectionView.contentOffset = offest
+		if !isQuickMode && gestureY < -20 { isQuickMode = true } else if (isQuickMode)
 		{
-		case .began:
-			let snapshotFrame = CGRect(x: 0,y: 0,width: UIScreen.main.bounds.width,height: itemCell.frame.height - 1)
-			itemCellSnapshot = itemCell.resizableSnapshotView(from: snapshotFrame, afterScreenUpdates: false, withCapInsets: UIEdgeInsets.zero)
-			itemCell.addSubview(itemCellSnapshot)
-			itemCell.contentView.isHidden = true
-		case .changed:
-			if X >= 0
+			let newIndex = Int((-gestureY - 20) / 22)
+			if newIndex != currentActionIndex && newIndex >= 0 && newIndex < collectionView.numberOfItems(inSection: 0)
 			{
-				if X <= Constants.slideMinmalCommitWidth
+				if currentActionIndex >= 0
 				{
-					var progress = Float(X / Constants.slideMinmalCommitWidth) - 0.2
-					if progress < 0 { progress = 0 }
-					itemCellSnapshot?.transform = CGAffineTransform(translationX: X, y: 0)
-				} else
-				{
-					if isStarted == false
-					{
-						isStarted = true
-						navigationController.pushViewController(actionListViewController, animated: true)
-					} else
-					{
-						if targetVCSnapshot == nil { targetVCSnapshot = targetViewController?.view.snapshotView(afterScreenUpdates: false) } else
-						{
-							actionListViewController.scrollToOffest(cellMaxY: itemCell.frame.minY,
-							                                        gestureY: gesture.translation(in: itemCell).y,
-							                                        previousY: targetViewController!.collectionView!.contentOffset.y)
-							updateInteractiveTransition(percent: ratio)
-						}
-					}
+					let previousIndex = IndexPath(row: currentActionIndex, section: 0)
+					let previousCell = newViewController?.collectionView?.cellForItem(at: previousIndex) as! Cell
+					newViewController?.collectionView?.deselectItem(at: previousIndex, animated: false)
+					previousCell.isHighlighted(highlight: false, animateDuration: 0.2)
 				}
+				let currentIndex = IndexPath(row: newIndex, section: 0)
+				let currentCell = newViewController?.collectionView?.cellForItem(at: currentIndex) as! Cell
+				collectionView.selectItem(at: currentIndex, animated: false, scrollPosition: [])
+				currentCell.isHighlighted(highlight: true, animateDuration: 0.2)
+				currentActionIndex = newIndex
 			}
-		case .ended:
-			if let indexPaths = actionListViewController.collectionView?.indexPathsForSelectedItems
-			{
-				if (indexPaths.count != 0 && isActive == true) { finishQuickSlideTransition(indexPath: indexPaths[0]) } else if isActive == false { cancelSlideTransition() } else { finishSlideTransition() }
-			}
-		default: break
 		}
 	}
+}
 
+extension SlideTransition: UIViewControllerInteractiveTransitioning
+{
+	func startTransition(cell: ItemCell?)
+	{
+		isStarted = true
+		let controller : UIKit.UIViewController
+		if let cell = cell
+		{
+			slideDirection = .left
+			controller = (navigationController?.visibleViewController as! ItemActionDelegate).itemActionController(forCell: cell)
+		}
+		else
+		{
+			slideDirection = .right
+			controller = (navigationController?.visibleViewController as! EdgeActionDelegate).rightEdgeActionController()
+		}
+		navigationController?.pushViewController(controller, animated: true)
+	}
+	
 	func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning)
 	{
 		self.transitionContext = transitionContext
-		targetViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? UICollectionViewController
-		actionListViewController.actions = itemCell.actions!
-		actionListViewController.navigationItem.rightBarButtonItem = nil
+		currentViewController = transitionContext.viewController(forKey: .from) as? UICollectionViewController
+		newViewController = transitionContext.viewController(forKey: .to) as? UICollectionViewController
 	}
-
-	func updateInteractiveTransition(percent:CGFloat)
+	
+	func updateInteractiveTransition(percent: CGFloat)
 	{
-		if isActive == false
+		if isActive == false && currentViewController != nil
 		{
 			isActive = true
-			actionListViewController.view.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
-			targetViewController?.view.isHidden = true
-			transitionContext?.containerView.addSubview(actionListViewController.view)
-			transitionContext?.containerView.addSubview(targetVCSnapshot!)
-			targetVCSnapshot?.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+			snapshot = currentViewController!.view.snapshotView(afterScreenUpdates: false)
+			currentViewController?.view.isHidden = true
+			
+			transitionContext?.containerView.addSubview(snapshot!)
+			transitionContext?.containerView.addSubview(newViewController!.view)
+			if slideDirection == .left
+			{ newViewController?.view.transform = CGAffineTransform(translationX: -newViewController!.view.bounds.width, y: 0) }
+			else { newViewController?.view.transform = CGAffineTransform(translationX: newViewController!.view.bounds.width, y: 0)}
+			
 			UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations:
-				{
-					self.actionListViewController.view.transform = CGAffineTransform.identity
-			}, completion: nil)
+			{
+				if self.slideDirection == .left { self.snapshot?.transform = CGAffineTransform(translationX: self.newViewController!.view.bounds.width, y: 0) }
+				else { self.snapshot?.transform = CGAffineTransform(translationX: -self.newViewController!.view.bounds.width, y: 0) }
+				self.newViewController?.view.transform = CGAffineTransform.identity
+			}, completion: {(finished) in
+				self.snapshot?.removeFromSuperview()
+			})
 		}
 		transitionContext?.updateInteractiveTransition(percent)
 	}
-
-	func finishQuickSlideTransition(indexPath: IndexPath)
-	{
-		itemCellSnapshot.removeFromSuperview()
-		itemCell.contentView.isHidden = false
-		targetVCSnapshot?.removeFromSuperview()
-		self.navigationController.searchBar.isHidden = false
-
-		let cell = actionListViewController.collectionView?.cellForItem(at: indexPath) as! Cell
-		cell.isHighlighted = false
-		actionListViewController.collectionView?.deselectItem(at: indexPath, animated: false)
-		actionListViewController.collectionView?.isScrollEnabled = false
-		targetViewController?.view.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
-		targetViewController?.view.isHidden = false
-		itemCell.delegate?.itemCell?(itemCell, didTriggerAction: indexPath.row)
-		UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations:
-		{
-			self.navigationController.searchBar.alpha = 1
-			self.targetViewController?.view.transform = CGAffineTransform.identity
-			self.actionListViewController.view.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
-		}, completion: { (_) -> Void in
-			self.actionListViewController.view.transform = CGAffineTransform.identity
-			self.transitionContext?.cancelInteractiveTransition()
-			self.transitionContext?.completeTransition(false)
-			self.reset()
-			self.actionListViewController.collectionView?.isScrollEnabled = true
-		})
-	}
-
-	func finishSlideTransition()
-	{
-		UIView.animate(withDuration: Constants.defaultTransitionDuration / 2,
-		               delay: 0,
-		               usingSpringWithDamping: 0.8,
-		               initialSpringVelocity: 1,
-		               options: UIViewAnimationOptions.curveEaseOut,
-		               animations:
-		{
-			if self.actionListViewController.collectionView!.contentOffset.y < 0
-			{
-				self.actionListViewController.collectionView!.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-			}
-		}, completion: { (_) -> Void in
-			self.targetViewController?.view.removeFromSuperview()
-			self.transitionContext?.finishInteractiveTransition()
-			self.transitionContext?.completeTransition(true)
-			self.reset()
-		})
-	}
-
-	func cancelSlideTransition()
-	{
-		//    if isStarted == true { navigationController.topBar.popNavigationItemAnimated(false) }
-		UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-			self.itemCellSnapshot?.transform = CGAffineTransform.identity
-		}, completion: { (_) -> Void in
-			self.transitionContext?.cancelInteractiveTransition()
-			self.transitionContext?.completeTransition(false)
-			self.reset()
-		})
-	}
-
-	func reset()
-	{
-		isStarted = false
-		isActive = false
-		targetVCSnapshot?.removeFromSuperview()
-		itemCellSnapshot.removeFromSuperview()
-		targetViewController?.view.isHidden = false
-		itemCell.contentView.isHidden = false
-		actionListViewController.quickMode = false
-		actionListViewController.view.transform = CGAffineTransform.identity
-		actionListViewController.currentActionIndex = -1
-		itemCellSnapshot = nil
-		targetVCSnapshot = nil
-		transitionContext = nil
-	}
 }
-
-extension SlideTransition: ActionListViewControllerDelegate
-{
-	func actionListView(_ actionListView: ActionListViewController, didSelectAction actionIndex: Int)
-	{
-		itemCell.delegate?.itemCell?(itemCell, didTriggerAction: actionIndex)
-		self.navigationController.popViewController(animated: true)
-	}
-}
-
-// MARK: Slide Transition for Tapping Accessory View on ItemCell
 
 extension SlideTransition
 {
-	func itemCellDidTappedAccessoryView(cell: ItemCell)
+	func completeTransition()
 	{
-		itemCell = cell
-		isStarted = true
-		isActive = true
-		navigationController.pushViewController(actionListViewController, animated: true)
-		Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(startMove), userInfo: nil, repeats: false)
+		guard let indexPaths = self.newViewController?.collectionView?.indexPathsForSelectedItems else { return }
+		if indexPaths.count != 0 { self.finishTransitionWithQuickAction(indexPath: indexPaths[0]) }
+		else { self.finishTransition() }
 	}
-
-	@objc func startMove()
+	
+	func finishTransitionWithQuickAction(indexPath: IndexPath)
 	{
-		targetVCSnapshot = targetViewController!.view.snapshotView(afterScreenUpdates: false)
-		targetViewController?.view.isHidden = true
-		actionListViewController.view.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
-		transitionContext?.containerView.addSubview(targetVCSnapshot!)
-		transitionContext?.containerView.addSubview(actionListViewController.view)
-		transitionContext?.updateInteractiveTransition(1)
-
-		UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: UIViewAnimationOptions.curveEaseOut, animations:
+		isStarted = false
+		newViewController?.isSlideActionModeEnable = true
+		newViewController?.collectionView((newViewController?.collectionView!)!, didSelectItemAt: indexPath)
+		newViewController?.isSlideActionModeEnable = false
+		
+		let cell = newViewController?.collectionView?.cellForItem(at: indexPath) as! Cell
+		cell.isHighlighted = false
+		
+		if self.slideDirection == .left
+		{ currentViewController?.view.transform = CGAffineTransform(translationX: currentViewController!.view.bounds.width, y: 0) }
+		else { currentViewController?.view.transform = CGAffineTransform(translationX: -currentViewController!.view.bounds.width, y: 0) }
+		
+		currentViewController?.view.isHidden = false
+		navigationController?.searchBar.reset(controller: currentViewController!)
+		UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations:
 		{
-			self.targetVCSnapshot?.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
-			self.actionListViewController.view.transform = CGAffineTransform.identity
-		}, completion: { (_) -> Void in
-			self.targetViewController?.view.isHidden = false
+			self.navigationController?.searchBar.alpha = 1
+			self.currentViewController?.view.transform = CGAffineTransform.identity
+			if self.slideDirection == .left
+			{ self.newViewController?.view.transform = CGAffineTransform(translationX: -self.newViewController!.view.bounds.width, y: 0) }
+			else { self.newViewController?.view.transform = CGAffineTransform(translationX: self.newViewController!.view.bounds.width, y: 0) }
+		}, completion: {(_) in
+			self.newViewController?.view.transform = CGAffineTransform.identity
+			self.transitionContext?.cancelInteractiveTransition()
+			self.transitionContext?.completeTransition(false)
+			self.reset()
+		})
+	}
+	
+	func finishTransition()
+	{
+		self.isStarted = false
+		navigationController?.searchBar.reset(controller: newViewController!)
+		UIView.animate(withDuration: Constants.defaultTransitionDuration / 2, animations:
+		{
+			self.newViewController?.collectionView?.setContentOffset(CGPoint.zero, animated: true)
+		}, completion:
+		{ (_) in
+			self.currentViewController?.view.isHidden = false
 			self.transitionContext?.finishInteractiveTransition()
 			self.transitionContext?.completeTransition(true)
-			self.isStarted = false
-			self.isActive = false
-			self.targetVCSnapshot?.removeFromSuperview()
-			self.targetVCSnapshot = nil
+			self.reset()
 		})
+	}
+	
+	func cancelTransition()
+	{
+		self.transitionContext?.cancelInteractiveTransition()
+		self.transitionContext?.completeTransition(false)
+		self.reset()
+	}
+	
+	func reset()
+	{
+		currentViewController = nil
+		newViewController = nil
+		currentActionIndex = -1
+		isQuickMode = false
+		isActive = false
+		isStarted = false
+		transitionContext = nil
 	}
 }

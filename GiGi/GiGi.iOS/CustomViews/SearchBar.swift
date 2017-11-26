@@ -17,18 +17,23 @@ protocol SearchBarDelegate: NSObjectProtocol
 
 class SearchBar: UITextField
 {
-	
-
 	weak var searchDelegate: SearchBarDelegate?
 
+	var rightEdgeIndicator: EdgeIndicator? { didSet{ didSetIndicator(cornerType: .right) }}
+	var leftEdgeIndicator: EdgeIndicator? { didSet{ didSetIndicator(cornerType: .left) }}
+	var leftEdgeGesture: UIScreenEdgePanGestureRecognizer!
+	var rightEdgeGesture: UIScreenEdgePanGestureRecognizer!
+	
+	var slideTransition: SlideTransition
+	{
+		let delegate = UIApplication.shared.delegate as? AppDelegate
+		let navController = delegate?.window?.rootViewController as? UINavigationController
+		return navController!.slideTransition
+	}
+	
 	var rightButton: UIButton?
 	{
 		didSet { if rightButton != nil { rightView = rightButton } else { rightView = UIView() } }
-	}
-	
-	var navigationItem: UINavigationItem?
-	{
-		didSet { setBarButtons() }
 	}
 
 	override var placeholder: String?
@@ -52,40 +57,42 @@ class SearchBar: UITextField
 	{
 		fatalError("init(coder:) has not been implemented")
 	}
-
-	override func willMove(toWindow newWindow: UIWindow?)
+	
+	override func willMove(toSuperview newSuperview: UIView?)
 	{
-		super.willMove(toWindow: newWindow)
-		NotificationCenter.default.addObserver(self, selector: #selector(textViewDidChanged(notification:)), name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
+		super.willMove(toSuperview: newSuperview)
+		guard let superview = newSuperview else { return }
+		
+		leftEdgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgeDidPanned(gesture:)))
+		leftEdgeGesture.minimumNumberOfTouches = 1
+		leftEdgeGesture.maximumNumberOfTouches = 1
+		leftEdgeGesture.edges = .left
+		
+		rightEdgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(edgeDidPanned(gesture:)))
+		rightEdgeGesture.minimumNumberOfTouches = 1
+		rightEdgeGesture.maximumNumberOfTouches = 1
+		rightEdgeGesture.edges = .right
+		
+		superview.addGestureRecognizer(leftEdgeGesture)
+		superview.addGestureRecognizer(rightEdgeGesture)
 	}
-
-	@objc func textViewDidChanged(notification: NSNotification)
-	{
-		var string = ""
-		if let text = text { string = text }
-		searchDelegate?.searchBarDidChanged(self, content: string)
-	}
-
-	override func textRect(forBounds bounds: CGRect) -> CGRect
-	{
-		return bounds.insetBy(dx: 10, dy: 5)
-	}
-
-	override func editingRect(forBounds bounds: CGRect) -> CGRect
-	{
-		return bounds.insetBy(dx: 10, dy: 5)
-	}
-
+	
 	func placeholderDidChanged()
 	{
-		if let placeholder = placeholder
-		{
-			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor: Theme.colors[6], NSAttributedStringKey.font: Font.SearchBarTextFont])
-		}
+		guard let placeholder = placeholder else { return }
+		attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: Theme.colors[6], .font: Font.SearchBarTextFont])
 	}
 
-	func setBarButtons()
+	func reset(controller: UIKit.UIViewController)
 	{
+		if slideTransition.isStarted
+		{
+			rightButton = nil
+			leftView = UIView()
+			placeholder = ".placeholder.slide".localized
+			return
+		}
+		
 		func barButton(item: UIBarButtonItem) -> UIButton
 		{
 			let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: item.image!.size.width + 15, height: item.image!.size.height - 1)))
@@ -94,9 +101,39 @@ class SearchBar: UITextField
 			button.addTarget(item.target!, action: item.action!, for: .touchUpInside)
 			return button
 		}
-
-		if let items = navigationItem?.leftBarButtonItems { leftView = barButton(item: items[0]) } else { leftView = UIView() }
-		if let items = navigationItem?.rightBarButtonItems { rightButton = barButton(item: items[0]) } else { rightButton = nil }
+		
+		placeholder = controller.navigationItem.title
+		if let item = controller.navigationItem.leftBarButtonItem
+		{
+			leftView = barButton(item: item)
+			leftEdgeIndicator = EdgeIndicator(cornerType: .left, image: item.image!, title: item.title!, more: false)
+			leftEdgeIndicator?.target = item.target
+			leftEdgeIndicator?.action = item.action
+			leftEdgeGesture.isEnabled = true
+		}
+		else
+		{
+			leftView = UIView()
+			leftEdgeIndicator = nil
+			leftEdgeGesture.isEnabled = false
+		}
+		
+		if let item = controller.navigationItem.rightBarButtonItem
+		{
+			rightButton = barButton(item: item)
+			let more : Bool
+			if controller is EdgeActionDelegate { more = true } else { more = false }
+			rightEdgeIndicator = EdgeIndicator(cornerType: .right, image: item.image!, title: item.title!, more: more)
+			rightEdgeIndicator?.target = item.target
+			rightEdgeIndicator?.action = item.action
+			rightEdgeGesture.isEnabled = true
+		}
+		else
+		{
+			rightButton = nil
+			rightEdgeGesture.isEnabled = false
+			rightEdgeIndicator = nil
+		}
 	}
 
 	func close()
@@ -111,6 +148,16 @@ class SearchBar: UITextField
 
 extension SearchBar: UITextFieldDelegate
 {
+	override func textRect(forBounds bounds: CGRect) -> CGRect
+	{
+		return bounds.insetBy(dx: 10, dy: 5)
+	}
+	
+	override func editingRect(forBounds bounds: CGRect) -> CGRect
+	{
+		return bounds.insetBy(dx: 10, dy: 5)
+	}
+	
 	func textFieldDidBeginEditing(_ textField: UITextField)
 	{
 		if (Theme.isMorning) { keyboardAppearance = .light } else { keyboardAppearance = .dark }
@@ -127,7 +174,7 @@ extension SearchBar: UITextFieldDelegate
 
 		if let placeholder = placeholder
 		{
-			let attributes = [NSAttributedStringKey.foregroundColor: Theme.colors[3], NSAttributedStringKey.font: Font.SearchBarTextFont] as [NSAttributedStringKey : Any]
+			let attributes = [.foregroundColor: Theme.colors[3], .font: Font.SearchBarTextFont] as [NSAttributedStringKey : Any]
 			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: attributes)
 		}
 	}

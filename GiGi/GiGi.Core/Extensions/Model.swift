@@ -18,9 +18,9 @@ public extension Item
 	@NSManaged public var solution: Solution
 	
 	@NSManaged public var parent: Item?
-	@NSManaged public var children: NSOrderedSet?
+	@NSManaged public var children: [Item]?
 	
-	@NSManaged public var components: NSOrderedSet?
+	@NSManaged public var components: [ItemComponent]?
 }
 
 // MARK: Generated accessors for children
@@ -119,16 +119,18 @@ extension ItemComponent
 
 extension Task
 {
-	@NSManaged public var completedAt: NSDate?
+	@NSManaged public var startAt: Date?
+	@NSManaged public var endAt: Date?
+	@NSManaged public var completedAt: Date?
+	
 	@NSManaged public var daysOfMonth: String?
 	@NSManaged public var daysOfWeek: String?
 	@NSManaged public var daysOfYear: String?
-	@NSManaged public var endAt: NSDate?
 	@NSManaged public var frequency: Int16
 	@NSManaged public var interval: Int16
 	@NSManaged public var location: NSObject?
 	@NSManaged public var monthsOfYear: String?
-	@NSManaged public var startAt: NSDate?
+
 	@NSManaged public var weeksOfYear: String?
 	@NSManaged public var component: ItemComponent?
 	@NSManaged public var item: Item?

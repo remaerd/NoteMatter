@@ -7,11 +7,6 @@
 
 import UIKit
 
-@objc protocol ItemCellDelegate: NSObjectProtocol
-{
-	@objc optional func itemCell(_ cell:ItemCell, didTriggerAction index: Int)
-}
-
 class ItemCell: Cell
 {
 	enum ItemType
@@ -49,9 +44,8 @@ class ItemCell: Cell
 		}
 	}
 	
-	var actions: [ActionType]? = nil { didSet { setActions() } }
-	weak var delegate: ItemCellDelegate?
 	var taskButton = UIButton()
+	var snapshot: UIView?
 	
 	override init(frame: CGRect)
 	{
@@ -61,7 +55,13 @@ class ItemCell: Cell
 		pan.minimumNumberOfTouches = 1
 		pan.delegate = self
 		addGestureRecognizer(pan)
+		
 		leftView = taskButton
+		
+		let button = UIButton()
+		button.setImage(#imageLiteral(resourceName: "Accessory-Action"), for: .normal)
+		button.addTarget(self, action: #selector(didTappedAccessoryButton), for: .touchUpInside)
+		rightView = button
 	}
 	
 	required init?(coder aDecoder: NSCoder)
@@ -74,27 +74,77 @@ class ItemCell: Cell
 		// 忽略原来的 Cell 会删掉 LeftView 和 RightView
 		return
 	}
-	
-	func setActions()
-	{
-		rightView?.removeFromSuperview()
-		let button = UIButton(frame: frame)
-		button.setImage(#imageLiteral(resourceName: "Accessory-Action"), for: .normal)
-		button.addTarget(self, action: #selector(didTappedAccessoryButton), for: .touchUpInside)
-		rightView = button
-	}
 }
 
 extension ItemCell: UIGestureRecognizerDelegate
 {
 	@objc func didTappedAccessoryButton()
 	{
-		self.slideTransition.itemCellDidTappedAccessoryView(cell: self)
+		let navController = (UIApplication.shared.keyWindow?.rootViewController as! UINavigationController)
+		let newController = (navController.visibleViewController as! ItemActionDelegate).itemActionController(forCell: self)
+		navController.pushViewController(newController, animated: true)
 	}
 	
 	@objc func itemCellDidPanned(gesture: UIPanGestureRecognizer)
 	{
-		self.slideTransition.itemCellDidPanned(gesture: gesture)
+		let x = gesture.translation(in: self).x
+		let ratio = x / self.superview!.bounds.width
+		
+		func startPan()
+		{
+			snapshot = contentView.resizableSnapshotView(from: contentView.frame, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero)!
+			self.addSubview(snapshot!)
+			contentView.isHidden = true
+		}
+		
+		func changePan()
+		{
+			if slideTransition.isStarted
+			{
+				slideTransition.updateInteractiveTransition(percent: x / self.superview!.bounds.width)
+				slideTransition.scrollToOffest(cellMaxY: self.frame.minY, gestureY: gesture.translation(in: self).y, previousY: 0)
+			}
+			else
+			{
+				if x <= 0 { return }
+				if x >= Constants.slideMinmalCommitWidth { slideTransition.startTransition(cell: self) }
+				else
+				{
+					var progess = Float(x / Constants.slideMinmalCommitWidth) - 0.2
+					if progess < 0 { progess = 0 }
+					self.snapshot?.transform = CGAffineTransform(translationX: x, y: 0)
+				}
+			}
+		}
+		
+		func endPan()
+		{
+			if slideTransition.isStarted
+			{
+				self.snapshot?.removeFromSuperview()
+				self.contentView.isHidden = false
+				slideTransition.completeTransition()
+			}
+			else
+			{
+				UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn, animations:
+				{
+					self.snapshot?.transform = CGAffineTransform.identity
+				}, completion: { (_) in
+					self.contentView.isHidden = false
+					self.snapshot?.removeFromSuperview()
+					self.slideTransition.cancelTransition()
+				})
+			}
+		}
+		
+		switch gesture.state
+		{
+		case .began: startPan(); break
+		case .changed: changePan(); break
+		case .ended: endPan(); break
+		default: break
+		}
 	}
 	
 	override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
@@ -103,7 +153,6 @@ extension ItemCell: UIGestureRecognizerDelegate
 		{
 			let translation = gesture.translation(in: self.superview!)
 			if (fabs(translation.x) / fabs(translation.y) <= 1) { return false }
-			self.slideTransition.itemCell = self
 			return true
 		}
 		return false

@@ -24,12 +24,13 @@ extension Database
 			solution.identifier = solutionType.identifier
 			solution.title = solutionType.title
 			solution.icon = solutionType.icon
+			if solutionType == .folder { solution.isFolder = true }
 			if solutionType == .document { documentType = solution } else if solutionType == .folder { folderType = solution }
 		}
 		
 		let rootFolder = try Item.insert()
 		rootFolder.title = Item.InternalItem.rootFolder.title
-		rootFolder.solution = documentType
+		rootFolder.solution = folderType
 		try rootFolder.save()
 		
 		let welcomeDocument = try Item.insert()

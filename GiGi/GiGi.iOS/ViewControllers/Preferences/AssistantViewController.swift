@@ -80,7 +80,7 @@ extension AssistantViewController
 				return cell
 			case 3:
 				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "picker", for: indexPath) as! PickerCell
-				cell.choices = [".preferences.assistant.rules.dalay.disable".localized, ".preferences.assistant.rules.dalay.2".localized, ".preferences.assistant.rules.dalay.1".localized]
+				cell.choices = [".preferences.assistant.rules.dalay.disable".localized, ".preferences.assistant.rules.dalay.1".localized, ".preferences.assistant.rules.dalay.2".localized, ".preferences.assistant.rules.dalay.3".localized]
 				cell.titleLabel.text = ".preferences.assistant.rules.dalay".localized
 				cell.delegate = self
 				cell.selectRow(Defaults.assistantDelay.int)

@@ -9,7 +9,24 @@
 import UIKit
 import GiGi
 
-extension ItemListViewController: ItemCellDelegate
+extension ItemListViewController: EdgeActionDelegate
+{
+	func rightEdgeActionController() -> UICollectionViewController
+	{
+		return ItemCreatorViewController(item: self.item)
+	}
+}
+
+extension ItemListViewController: ItemActionDelegate
+{
+	func itemActionController(forCell cell: ItemCell) -> UICollectionViewController
+	{
+		guard let indexPath = collectionView?.indexPath(for: cell) else { fatalError() }
+		return ItemActionListViewController(item: self.item.children![indexPath.row])
+	}
+}
+
+extension ItemListViewController
 {
 	@objc func textfieldDidChanged()
 	{
@@ -21,75 +38,5 @@ extension ItemListViewController: ItemCellDelegate
 		NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
 		self.renameTextfield = nil
 		self.renameConfirmAction = nil
-	}
-	
-	@objc func itemCell(_ cell: ItemCell, didTriggerAction index: Int)
-	{
-		if let actions = cell.actions, let indexPath = collectionView?.indexPath(for: cell)
-		{
-			guard let selectedItem = item.children?[indexPath.row] as? Item else { return }
-			
-			func rescheduleItem()
-			{
-				
-			}
-			
-			func shareItem()
-			{
-				
-			}
-			
-			func moveItem()
-			{
-				
-			}
-			
-			func convertItem()
-			{
-				
-			}
-			
-			func renameItem()
-			{
-				let alertController = UIAlertController(title: ".alert.rename.title".localized, message: nil, preferredStyle: .alert)
-				alertController.addTextField(configurationHandler:
-					{ (textfield) in
-						NotificationCenter.default.addObserver(self, selector: #selector(self.textfieldDidChanged), name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
-						textfield.text = selectedItem.title
-						self.renameTextfield = textfield
-				})
-				
-				self.renameConfirmAction = UIAlertAction(title: ".alert.rename.confirm".localized, style: .default, handler:
-				{ (_) in
-					if let text = self.renameTextfield?.text { selectedItem.title = text }
-					do { try selectedItem.save() } catch { error.alert() }
-					self.finish()
-				})
-				
-				let cancelAction = UIAlertAction(title: ".alert.rename.cancel".localized, style: .cancel, handler:
-				{ (_) in
-					self.finish()
-				})
-				
-				alertController.addAction(self.renameConfirmAction!)
-				alertController.addAction(cancelAction)
-				UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
-			}
-			
-			func deleteItem()
-			{
-				do { try selectedItem.destroy() } catch { error.alert() }
-			}
-			
-			switch actions[index]
-			{
-			case .reschedule: rescheduleItem(); break
-			case .move: moveItem(); break
-			case .convert: convertItem(); break
-			case .rename: renameItem(); break
-			case .delete: deleteItem(); break
-			case .cancel: return
-			}
-		}
 	}
 }

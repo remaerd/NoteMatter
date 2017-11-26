@@ -10,6 +10,8 @@ import UIKit
 
 class ItemCreatorViewController: UICollectionViewController
 {
+	override var showCloseButton: Bool { return true }
+	
 	let item : Item
 	var solutions : [Solution]!
 	
@@ -17,6 +19,7 @@ class ItemCreatorViewController: UICollectionViewController
 	{
 		self.item = item
 		super.init()
+		title = ".placeholder.new".localized
 	}
 	
 	required init?(coder aDecoder: NSCoder)
@@ -27,7 +30,7 @@ class ItemCreatorViewController: UICollectionViewController
 	override func loadView()
 	{
 		super.loadView()
-		do { self.solutions = try Solution.all([NSSortDescriptor(key: "index", ascending: true)]) }
+		do { self.solutions = try Solution.findAll(nil, sortDescriptors: [NSSortDescriptor(key: "index", ascending: true)]) }
 		catch { error.alert() }
 		collectionView?.reloadData()
 		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
@@ -57,17 +60,12 @@ extension ItemCreatorViewController
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
-		Timer.scheduledTimer(timeInterval: Constants.defaultTransitionDuration + 0.1, target: self, selector: #selector(createItem), userInfo: nil, repeats: false)
-		navigationController?.popViewController(animated: true)
-	}
-	
-	@objc func createItem()
-	{
-		let solution = solutions[collectionView!.indexPathsForSelectedItems![0].row]
+		let solution = solutions[indexPath.row]
 		let item = try! Item.insert()
 		item.parent = self.item
 		item.solution = solution
 		item.title = ".list.new".localized + solution.title.localized.lowercased()
 		do { try item.save() } catch { error.alert() }
+		if !isSlideActionModeEnable { navigationController?.popViewController(animated: true) }
 	}
 }

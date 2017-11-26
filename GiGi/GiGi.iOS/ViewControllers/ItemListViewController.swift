@@ -6,6 +6,7 @@
 //  Copyright © 2017 Zheng Xingzhi. All rights reserved.
 //
 
+import CoreData
 import UIKit
 import GiGi
 
@@ -13,7 +14,6 @@ class ItemListViewController: UICollectionViewController
 {
 	var renameConfirmAction: UIAlertAction?
 	var renameTextfield: UITextField?
-	
 	var newInsertIndexPath: IndexPath?
 	let item: Item
 	
@@ -22,6 +22,9 @@ class ItemListViewController: UICollectionViewController
 		self.item = item
 		super.init()
 		title = item.title.localized
+		item.addObserver { (object, change) in
+			self.collectionView?.reloadData()
+		}
 	}
 	
 	required init?(coder aDecoder: NSCoder)
@@ -35,16 +38,14 @@ class ItemListViewController: UICollectionViewController
 		
 		if item.title == Item.InternalItem.rootFolder.title
 		{
-			navigationItem.leftBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Menu"), style: .plain, target: self, action: #selector(didTappMenuButton))]
+			let item = UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Preferences"), style: .plain, target: self, action: #selector(didTappMenuButton))
+			item.title = ".item.preferences".localized
+			navigationItem.leftBarButtonItem = item
 		}
-		navigationItem.rightBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Plus"), style: .plain, target: self, action: #selector(didTappAddButton))]
+		let rightItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Plus"), style: .plain, target: self, action: #selector(didTappAddButton))
+		rightItem.title = ".placeholder.new".localized
+		navigationItem.rightBarButtonItem = rightItem
 		collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
-	}
-	
-	override func viewWillAppear(_ animated: Bool)
-	{
-		super.viewWillAppear(true)
-		self.collectionView?.reloadData()
 	}
 	
 	deinit

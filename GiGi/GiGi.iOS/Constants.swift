@@ -39,8 +39,9 @@ struct Constants
 	static let numberOfRowOfItemButtons: CGFloat = 2
 	
 	static let edgeMargin : CGFloat = 10
+	static let edgePanMinimumWidth: CGFloat = 64
 	
-	static let defaultCornerRadius : CGFloat = 8
+	static let defaultCornerRadius : CGFloat = 10
 	
 	static let defaultTransitionDuration : TimeInterval = 0.50
 }

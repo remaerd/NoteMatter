@@ -24,7 +24,9 @@ class PreferencesViewController: UICollectionViewController
 		title = ".item.preferences".localized
 		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
 		collectionView?.register(SwitchCell.self, forCellWithReuseIdentifier: "switcher")
-		navigationItem.leftBarButtonItems = [UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Close"), style: .plain, target: self, action: #selector(didTappedCloseButton))]
+		let item = UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Close"), style: .plain, target: self, action: #selector(didTappedCloseButton))
+		item.title = ".item.rootFolder".localized
+		navigationItem.leftBarButtonItem = item
 	}
 	
 	@objc func didTappedCloseButton()

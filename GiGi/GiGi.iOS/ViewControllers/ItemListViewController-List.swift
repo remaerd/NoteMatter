@@ -26,35 +26,48 @@ extension ItemListViewController
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCell
 		let childItem = item.children![indexPath.row]
 		
-		if (childItem as! Item).solution.isFolder
-		{
-			cell.itemType = .folder
-			cell.actions = [.rename, .move, .convert, .delete, .cancel]
-		}
-		else
-		{
-			cell.itemType = .default
-			cell.actions = [.reschedule, .move, .convert, .delete, .cancel]
-		}
+		if childItem.solution.isFolder { cell.itemType = .folder }
+		else { cell.itemType = .default }
 		
-		cell.titleLabel.text = (childItem as AnyObject).title.localized
 		cell.tintColor = Theme.colors[6]
-		cell.delegate = self
-		
+		cell.taskButton.isSelected = (childItem.task.completedAt != nil)
+		cell.titleLabel.text = (childItem as AnyObject).title.localized
+		cell.taskButton.addTarget(self, action: #selector(didTappedTaskButton(button:)), for: .touchUpInside)
 		return cell
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
 		let selectedItem = self.item.children![indexPath.row]
-		switch (selectedItem as! Item).solution.identifier
+		switch selectedItem.solution.identifier
 		{
 		case Solution.InternalSolution.folder.identifier:
-			self.navigationController?.pushViewController(ItemListViewController(item: selectedItem as! Item), animated: true)
+			self.navigationController?.pushViewController(ItemListViewController(item: selectedItem), animated: true)
 			break
 		default:
-			self.navigationController?.pushViewController(ItemEditorViewController(item: selectedItem as! Item), animated: true)
+			self.navigationController?.pushViewController(ItemEditorViewController(item: selectedItem), animated: true)
 			break
 		}
+	}
+}
+
+extension ItemListViewController
+{
+	@objc func didTappedTaskButton(button: UIButton)
+	{
+		let cell = button.superview!.superview! as! ItemCell
+		let indexPath = collectionView!.indexPath(for: cell)!
+		let cellItem = item.children![indexPath.row]
+		if (cellItem.task.completedAt != nil)
+		{
+			cellItem.task.completedAt = nil
+			cell.taskButton.isSelected = false
+		}
+		else
+		{
+			cellItem.task.completedAt = Date()
+			cell.taskButton.isSelected = true
+		}
+		try! cellItem.task.save()
 	}
 }

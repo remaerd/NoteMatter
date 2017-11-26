@@ -27,7 +27,7 @@ extension UINavigationController : UIGestureRecognizerDelegate
 	func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
 	{
 		let edge = gestureRecognizer as! UIScreenEdgePanGestureRecognizer
-		if edge.edges == .left && ((visibleViewController?.navigationItem.leftBarButtonItems) != nil) { return true } else if edge.edges == .right && ((visibleViewController?.navigationItem.leftBarButtonItems) != nil) { return true }
+		if edge.edges == .left && (visibleViewController?.navigationItem.leftBarButtonItem != nil) { return true } else if edge.edges == .right && ((visibleViewController?.navigationItem.leftBarButtonItem) != nil) { return true }
 		return false
 	}
 	
@@ -52,7 +52,7 @@ extension UINavigationController : UIGestureRecognizerDelegate
 			
 			if gesture.edges == .left
 			{
-				items = visibleViewController?.navigationItem.leftBarButtonItems
+				items = visibleViewController?.navigationItem.leftBarButtonItem
 				if items != nil
 				{
 					currentEdgeIndicator = leftEdgeIndicator
@@ -60,7 +60,7 @@ extension UINavigationController : UIGestureRecognizerDelegate
 				}
 			} else if gesture.edges == .right
 			{
-				items = visibleViewController?.navigationItem.rightBarButtonItems
+				items = visibleViewController?.navigationItem.rightBarButtonItem
 				if items != nil
 				{
 					currentEdgeIndicator = rightEdgeIndicator
@@ -129,7 +129,7 @@ extension UINavigationController : UIGestureRecognizerDelegate
 			{
 				// SoundEffect.play(.PanSuccess)
 				let barButton : UIBarButtonItem
-				if currentEdgeIndicator?.cornerType == .left { barButton = visibleViewController!.navigationItem.leftBarButtonItems![indicator.panState - 1] as UIBarButtonItem } else { barButton = visibleViewController!.navigationItem.rightBarButtonItems![indicator.panState - 1] as UIBarButtonItem }
+				if currentEdgeIndicator?.cornerType == .left { barButton = visibleViewController!.navigationItem.leftBarButtonItem![indicator.panState - 1] as UIBarButtonItem } else { barButton = visibleViewController!.navigationItem.rightBarButtonItems![indicator.panState - 1] as UIBarButtonItem }
 				Timer.scheduledTimer(timeInterval: 0.1, target: barButton.target!, selector: barButton.action!, userInfo: ["index":indicator.panState - 1], repeats: false)
 			}
 			

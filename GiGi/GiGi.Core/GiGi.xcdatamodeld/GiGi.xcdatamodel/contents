@@ -20,12 +20,12 @@
         <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="component" inverseEntity="Task" syncable="YES"/>
     </entity>
     <entity name="Solution" representedClassName="Solution" syncable="YES">
-        <attribute name="genre" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="genre" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="icon" attributeType="String" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
-        <attribute name="index" attributeType="Integer 32" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="index" attributeType="Integer 32" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="introduction" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isFolder" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isFolder" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="tags" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
     </entity>
@@ -46,8 +46,8 @@
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="180"/>
-        <element name="ItemComponent" positionX="-36" positionY="9" width="128" height="135"/>
-        <element name="Solution" positionX="-54" positionY="-9" width="128" height="165"/>
-        <element name="Task" positionX="-18" positionY="36" width="128" height="240"/>
+        <element name="ItemComponent" positionX="117" positionY="-18" width="128" height="135"/>
+        <element name="Solution" positionX="-227" positionY="-18" width="128" height="163"/>
+        <element name="Task" positionX="117" positionY="162" width="128" height="240"/>
     </elements>
 </model>

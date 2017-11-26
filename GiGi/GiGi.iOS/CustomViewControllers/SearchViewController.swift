@@ -34,7 +34,7 @@ class SearchViewController: UIViewController
 	override func loadView()
 	{
 		super.loadView()
-		title = "search.placeholder".localized
+		title = ".placeholder.search".localized
 		view.addSubview(resultsCollectionView)
 		resultsCollectionView.alwaysBounceVertical = true
 		resultsCollectionView.keyboardDismissMode = .interactive

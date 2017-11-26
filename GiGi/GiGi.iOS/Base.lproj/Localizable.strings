@@ -6,17 +6,14 @@
  Copyright © 2017 Zheng Xingzhi. All rights reserved.
  */
 
+".universal.cancel" = "Cancel";
+
 ".type.task" = "Task";
 ".type.folder" = "Project";
 ".type.document" = "Document";
 
-".item.welcome" = "Mastering Illuminote";
-".item.welcome.1" = "Tap to open note";
-".item.welcome.2" = "Tap the checkbox to finish and hide a note";
-".item.welcome.3" = "To create new note, slide the right edge of the screen";
-".item.welcome.4" = "Slide right, then move up and down to move / convert / delete a note";
-".item.welcome.5" = "Tap and hold to move a note";
-".item.welcome.6" = "Slide down to search";
+".item.welcome" = "Letters from GiGi";
+".item.thumb" = "Thumb tricks";
 
 ".item.rootFolder" = "Illuminote";
 ".item.preferences" = "Preferences";
@@ -29,16 +26,16 @@
 ".list.actions.convert" = "Convert to...";
 ".list.actions.rename" = "Rename";
 ".list.actions.delete" = "Delete";
-".list.actions.cancel" = "Cancel";
 
 ".alert.rename.title" = "Rename";
 ".alert.rename.confirm" = "Confirm";
-".alert.rename.cancel" = "Cancel";
 
 ".preferences.membership" = "Membership";
 ".preferences.solutions" = "Solutions";
 
-"search.placeholder" = "Type to find...";
+".placeholder.search" = "Type to find...";
+".placeholder.new" = "Create new...";
+".placeholder.slide" = "Slide up & down to select...";
 
 ".style.paragraph.regular" = "Regular";
 ".style.paragraph.header1" = "Header 1";
@@ -66,20 +63,21 @@
 ".preferences.assistant.level.custom" = "Customize";
 ".preferences.assistant.rules.briefing" = "Daily briefing";
 ".preferences.assistant.rules.lazy" = "Infrequently use";
-".preferences.assistant.rules.tooManyTasks" = "Too many “Anytime” tasks";
-".preferences.assistant.rules.dalay" = "Task delay limit";
+".preferences.assistant.rules.tooManyTasks" = "Tasks without schedule";
+".preferences.assistant.rules.dalay" = "Remind delaying tasks";
 
 ".preferences.assistant.rules.lazy.disable" = "No warning";
-".preferences.assistant.rules.lazy.week" = "after a week";
-".preferences.assistant.rules.lazy.month" = "after a month";
+".preferences.assistant.rules.lazy.week" = "a week";
+".preferences.assistant.rules.lazy.month" = "a month";
 
 ".preferences.assistant.rules.tooManyTasks.disable" = "No warning";
-".preferences.assistant.rules.tooManyTasks.3" = "more than 3 tasks";
-".preferences.assistant.rules.tooManyTasks.10" = "more than 10 tasks";
+".preferences.assistant.rules.tooManyTasks.3" = "3";
+".preferences.assistant.rules.tooManyTasks.10" = "10";
 
 ".preferences.assistant.rules.dalay.disable" = "No warning";
-".preferences.assistant.rules.dalay.1" = "Once";
-".preferences.assistant.rules.dalay.2" = "Twice";
+".preferences.assistant.rules.dalay.1" = "1 hour";
+".preferences.assistant.rules.dalay.2" = "30 minutes";
+".preferences.assistant.rules.dalay.3" = "5 minutes";
 
 ".preferences.experience" = "Experience";
 ".preferences.experience.sound" = "Sound Effect";

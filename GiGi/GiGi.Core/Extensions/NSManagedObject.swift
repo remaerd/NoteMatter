@@ -67,7 +67,7 @@ public extension Model where Self : NSManagedObject
 	}
 	
 	
-	public static func findAll(_ options: AnyObject, sortDescriptors: [NSSortDescriptor]? = nil, properties: [String]? = nil, entityName: String? = nil) throws -> [Self]
+	public static func findAll(_ options: AnyObject?, sortDescriptors: [NSSortDescriptor]? = nil, properties: [String]? = nil, entityName: String? = nil) throws -> [Self]
 	{
 		do {
 			let predicate : NSPredicate? = self.predicate(options)
@@ -90,10 +90,11 @@ public extension Model where Self : NSManagedObject
 }
 
 
-public extension Model where Self : NSManagedObject {
-	
+public extension Model where Self : NSManagedObject
+{
 	// Create new Object
-	public static func insert(_ database: Database? = nil, entityName: String? = nil) throws -> Self {
+	public static func insert(_ database: Database? = nil, entityName: String? = nil) throws -> Self
+	{
 		let entity : String
 		if entityName != nil { entity = entityName! }
 		else { entity = self.entityName() }
@@ -103,14 +104,12 @@ public extension Model where Self : NSManagedObject {
 		return item
 	}
 	
-	
 	// Save
 	public func save() throws
 	{
 		do { try self.managedObjectContext?.save()	}
 		catch { throw error }
 	}
-	
 	
 	// Delete
 	public func destroy() throws
@@ -121,6 +120,19 @@ public extension Model where Self : NSManagedObject {
 		} catch {
 			throw error
 		}
+	}
+}
+
+public extension Model where Self: NSManagedObject
+{
+	public func addObserver(handler: @escaping NSManagedObjectChangeHandler)
+	{
+		Self.database.observingObjects[self.objectID] = handler
+	}
+	
+	public func removeObserver()
+	{
+		Self.database.observingObjects.removeValue(forKey: self.objectID)
 	}
 }
 
@@ -160,6 +172,7 @@ public extension Model where Self : NSManagedObject
 	
 	fileprivate static func predicate(_ options: AnyObject?) -> NSPredicate?
 	{
+		if options == nil { return nil }
 		var result : NSPredicate?
 		if let predicate = options as? NSPredicate { result = predicate }
 		else if let dictionary = options as? [String:AnyObject]

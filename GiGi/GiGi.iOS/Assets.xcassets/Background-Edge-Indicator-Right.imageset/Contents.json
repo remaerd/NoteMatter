@@ -2,7 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Background-Edge-Indicator-Right.pdf"
+      "filename" : "Background-Edge-Indicator-Right.pdf",
+      "resizing" : {
+        "mode" : "3-part-horizontal",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1
+        },
+        "cap-insets" : {
+          "right" : 10,
+          "left" : 16
+        }
+      }
     }
   ],
   "info" : {

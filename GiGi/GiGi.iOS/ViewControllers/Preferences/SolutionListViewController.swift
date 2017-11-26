@@ -41,30 +41,15 @@ extension SolutionListViewController
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCell
 		if let image = solutions[indexPath.row].icon, let icon = UIImage(named: image) { cell.icon = icon }
 		cell.titleLabel.text = solutions[indexPath.row].title.localized
-		cell.actions = [.delete, .cancel]
-		cell.delegate = self
 		return cell
 	}
 }
 
-extension SolutionListViewController: ItemCellDelegate
+extension SolutionListViewController: ItemActionDelegate
 {
-	func itemCell(_ cell: ItemCell, didTriggerAction index: Int)
+	func itemActionController(forCell cell: ItemCell) -> UICollectionViewController
 	{
-		func delete(solution: Solution)
-		{
-			do { try solution.destroy() }
-			catch { error.alert() }
-		}
-		
-		let action = cell.actions![index]
 		let indexPath = collectionView!.indexPath(for: cell)!
-		let solution = solutions[indexPath.row]
-		
-		switch action
-		{
-		case .delete: delete(solution: solution); break
-		default: break
-		}
+		return SolutionActionListViewController(solution: solutions[indexPath.row])
 	}
 }

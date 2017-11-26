@@ -23,6 +23,8 @@ protocol EnhancedViewController
 	var pushTransition: TransitionType { get }
 	var popTransition : TransitionType { get }
 	weak var searchDelegate: SearchBarDelegate? { get }
+	var isSlideActionModeEnable: Bool { get set }
+	var showCloseButton: Bool { get }
 }
 
 extension EnhancedViewController where Self:UIKit.UIViewController
@@ -50,10 +52,17 @@ extension EnhancedViewController where Self:UIKit.UIViewController
 
 	func customBackButton()
 	{
-		if let navController = navigationController, navController.viewControllers.count > 1 && navigationItem.leftBarButtonItems == nil
+		if showCloseButton
+		{
+			let item = UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Close"), style: .plain, target: self, action: #selector(backButtonTapped))
+			item.title = ".universal.cancel".localized
+			self.navigationItem.rightBarButtonItem = item
+		}
+		else if let navController = navigationController, navController.viewControllers.count > 1 && navigationItem.leftBarButtonItem == nil
 		{
 			let item = UIBarButtonItem(image: UIImage(named: "Navigation-Back")!, style: .plain, target: self, action: #selector(backButtonTapped))
-			self.navigationItem.leftBarButtonItems = [item]
+			item.title = navController.viewControllers[navController.viewControllers.count - 2].title
+			self.navigationItem.leftBarButtonItem = item
 		}
 	}
 	
@@ -78,6 +87,9 @@ extension UIKit.UIViewController
 
 class UIViewController: UIKit.UIViewController, EnhancedViewController
 {
+	var isSlideActionModeEnable: Bool = false
+	
+	var showCloseButton: Bool { return false }
 	var backgroundTintColor : UIColor { return Theme.colors[1] }
 	var pushTransition : TransitionType { return TransitionType.default }
 	var popTransition : TransitionType { return TransitionType.default }

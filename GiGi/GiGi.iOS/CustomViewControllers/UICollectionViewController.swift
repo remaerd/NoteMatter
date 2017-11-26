@@ -33,8 +33,21 @@ class UICollectionViewFlowLayout: UIKit.UICollectionViewFlowLayout, UICollection
 	}
 }
 
+protocol EdgeActionDelegate
+{
+	func rightEdgeActionController() -> UICollectionViewController
+}
+
+protocol ItemActionDelegate
+{
+	func itemActionController(forCell cell: ItemCell) -> UICollectionViewController
+}
+
 class UICollectionViewController: UIKit.UICollectionViewController, EnhancedViewController
 {
+	var isSlideActionModeEnable: Bool = false
+	
+	var showCloseButton: Bool { return false }
 	var backgroundTintColor : UIColor { return Theme.colors[1] }
 	var pushTransition : TransitionType { return TransitionType.default }
 	var popTransition : TransitionType { return TransitionType.default }

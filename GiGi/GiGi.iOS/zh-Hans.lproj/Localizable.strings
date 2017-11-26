@@ -6,6 +6,8 @@
  Copyright © 2017 Zheng Xingzhi. All rights reserved.
  */
 
+".universal.cancel" = "取消";
+
 ".type.task" = "任务";
 ".type.folder" = "项目";
 ".type.document" = "笔记";
@@ -13,7 +15,7 @@
 ".item.preferences" = "使用偏好";
 ".item.rootFolder" = "曙光笔记";
 ".item.welcome" = "来自 GiGi 的问候";
-".item.faq" = "曙光秘籍一指禅";
+".item.thumb" = "拇指戏法";
 
 ".list.new" = "新";
 ".list.unlock" = "解锁加密内容";
@@ -23,12 +25,13 @@
 ".list.actions.move" = "移动到...";
 ".list.actions.convert" = "转换成...";
 ".list.actions.delete" = "删除";
-".list.actions.cancel" = "取消";
 
 ".preferences.membership" = "曙光计划";
 ".preferences.solutions" = "解决方案";
 
-"search.placeholder" = "输入并找到...";
+".placeholder.search" = "输入并找到...";
+".placeholder.new" = "创建新的...";
+".placeholder.slide" = "上下滑动并选择...";
 
 ".error.title.0" = "哎呀呀...";
 ".error.title.1" = "晕菜...";
@@ -56,20 +59,21 @@
 ".preferences.assistant.level.custom" = "自定义规则";
 ".preferences.assistant.rules.briefing" = "每日任务简报";
 ".preferences.assistant.rules.lazy" = "长期闲置软件";
-".preferences.assistant.rules.tooManyTasks" = "太多无限期任务";
-".preferences.assistant.rules.dalay" = "多次拖延任务";
+".preferences.assistant.rules.tooManyTasks" = "限制无限期任务";
+".preferences.assistant.rules.dalay" = "重复提醒未完成任务";
 
 ".preferences.assistant.rules.lazy.disable" = "无警报";
 ".preferences.assistant.rules.lazy.week" = "超过 7 天";
 ".preferences.assistant.rules.lazy.month" = "超过 1 个月";
 
 ".preferences.assistant.rules.tooManyTasks.disable" = "无警报";
-".preferences.assistant.rules.tooManyTasks.3" = "超过 3 个";
-".preferences.assistant.rules.tooManyTasks.10" = "超过 10 个";
+".preferences.assistant.rules.tooManyTasks.3" = "少于 3 个";
+".preferences.assistant.rules.tooManyTasks.10" = "少于 10 个";
 
 ".preferences.assistant.rules.dalay.disable" = "无警报";
-".preferences.assistant.rules.dalay.1" = "超过 1 次";
-".preferences.assistant.rules.dalay.2" = "超过 2 次";
+".preferences.assistant.rules.dalay.1" = "每 5 分钟";
+".preferences.assistant.rules.dalay.2" = "每 30 分钟";
+".preferences.assistant.rules.dalay.3" = "每 1 小时";
 
 ".preferences.experience" = "使用体验";
 ".preferences.experience.sound" = "音效";
