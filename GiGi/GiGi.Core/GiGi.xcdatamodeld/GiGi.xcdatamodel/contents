@@ -5,11 +5,11 @@
         <attribute name="openedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Item" inverseName="parent" inverseEntity="Item" syncable="YES"/>
-        <relationship name="components" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ItemComponent" inverseName="item" inverseEntity="ItemComponent" syncable="YES"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Item" inverseName="parent" inverseEntity="Item" syncable="YES"/>
+        <relationship name="components" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ItemComponent" inverseName="item" inverseEntity="ItemComponent" syncable="YES"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="children" inverseEntity="Item" syncable="YES"/>
         <relationship name="solution" maxCount="1" deletionRule="Nullify" destinationEntity="Solution" syncable="YES"/>
-        <relationship name="task" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="item" inverseEntity="Task" syncable="YES"/>
+        <relationship name="task" maxCount="1" deletionRule="Cascade" destinationEntity="Task" inverseName="item" inverseEntity="Task" syncable="YES"/>
     </entity>
     <entity name="ItemComponent" representedClassName="ItemComponent" syncable="YES">
         <attribute name="indexedContent" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,7 +17,7 @@
         <attribute name="type" attributeType="String" syncable="YES"/>
         <attribute name="unindexedContent" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="item" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="components" inverseEntity="Item" syncable="YES"/>
-        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="component" inverseEntity="Task" syncable="YES"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Task" inverseName="component" inverseEntity="Task" syncable="YES"/>
     </entity>
     <entity name="Solution" representedClassName="Solution" syncable="YES">
         <attribute name="genre" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
@@ -45,8 +45,8 @@
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="task" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="180"/>
-        <element name="ItemComponent" positionX="117" positionY="-18" width="128" height="135"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="ItemComponent" positionX="117" positionY="-18" width="128" height="133"/>
         <element name="Solution" positionX="-227" positionY="-18" width="128" height="163"/>
         <element name="Task" positionX="117" positionY="162" width="128" height="240"/>
     </elements>

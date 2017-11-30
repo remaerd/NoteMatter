@@ -11,6 +11,9 @@
 ".type.task" = "Task";
 ".type.folder" = "Project";
 ".type.document" = "Document";
+".type.hibit" = "Habit";
+".type.problem" = "Problem";
+".type.diary" = "Diary";
 
 ".item.welcome" = "Letters from GiGi";
 ".item.thumb" = "Thumb tricks";
@@ -36,6 +39,7 @@
 ".placeholder.search" = "Type to find...";
 ".placeholder.new" = "Create new...";
 ".placeholder.slide" = "Slide up & down to select...";
+".placeholder.solution.new" = "New solution...";
 
 ".style.paragraph.regular" = "Regular";
 ".style.paragraph.header1" = "Header 1";

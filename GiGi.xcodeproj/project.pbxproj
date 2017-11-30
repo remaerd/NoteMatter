@@ -33,6 +33,7 @@
 		0324A1751FC69BC000242D6F /* SlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0324A1741FC69BC000242D6F /* SlideTransition.swift */; };
 		0324A1771FC8587C00242D6F /* EdgeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0324A1761FC8587C00242D6F /* EdgeIndicator.swift */; };
 		0324A1791FC85BE200242D6F /* SearchBar-Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0324A1781FC85BE200242D6F /* SearchBar-Edge.swift */; };
+		034DF3711FCF2BE400130A93 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 034DF3701FCF2BE400130A93 /* Icons.xcassets */; };
 		0370AE741FC33C4700E584C0 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370AE731FC33C4700E584C0 /* IntentHandler.swift */; };
 		0370AE7B1FC33C4800E584C0 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03BD08A51FC1AC5100AC5312 /* IntentsUI.framework */; };
 		0370AE7E1FC33C4800E584C0 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370AE7D1FC33C4800E584C0 /* IntentViewController.swift */; };
@@ -41,6 +42,13 @@
 		0370AE881FC33C4800E584C0 /* GiGi.iOS.Siri.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0370AE711FC33C4700E584C0 /* GiGi.iOS.Siri.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0370AE901FC33CAE00E584C0 /* SiriManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370AE8F1FC33CAE00E584C0 /* SiriManager.swift */; };
 		0370AE921FC3D1B600E584C0 /* Database-Prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370AE911FC3D1B600E584C0 /* Database-Prepare.swift */; };
+		03799A2C1FCF9FA100704BFF /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03799A2B1FCF9FA100704BFF /* NotificationManager.swift */; };
+		03799A2E1FCF9FB900704BFF /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03799A2D1FCF9FB900704BFF /* UserNotifications.framework */; };
+		03799A341FCFA05100704BFF /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03799A2D1FCF9FB900704BFF /* UserNotifications.framework */; };
+		03799A361FCFA05100704BFF /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03799A351FCFA05100704BFF /* UserNotificationsUI.framework */; };
+		03799A391FCFA05100704BFF /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03799A381FCFA05100704BFF /* NotificationViewController.swift */; };
+		03799A3C1FCFA05100704BFF /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03799A3A1FCFA05100704BFF /* MainInterface.storyboard */; };
+		03799A401FCFA05100704BFF /* GiGi.iOS.Notification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03799A331FCFA05100704BFF /* GiGi.iOS.Notification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		037A39811F29DDDD00F25BB0 /* Welcome.md in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F731F29B604009DE50E /* Welcome.md */; };
 		037A39831F29E18E00F25BB0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F711F29B604009DE50E /* Localizable.strings */; };
 		037A39851F29E36B00F25BB0 /* ItemListViewController-List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39841F29E36B00F25BB0 /* ItemListViewController-List.swift */; };
@@ -88,7 +96,7 @@
 		03F12F8B1F29B6F0009DE50E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F511F29B5D3009DE50E /* AppDelegate.swift */; };
 		03F12F8C1F29B6F0009DE50E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F551F29B5D3009DE50E /* Constants.swift */; };
 		03F12F8F1F29B6F4009DE50E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F5C1F29B5D3009DE50E /* Cell.swift */; };
-		03F12F901F29B6F4009DE50E /* ItemTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F611F29B5D3009DE50E /* ItemTypeCell.swift */; };
+		03F12F901F29B6F4009DE50E /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F611F29B5D3009DE50E /* IconCell.swift */; };
 		03F12F911F29B6F4009DE50E /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F621F29B5D3009DE50E /* KeyboardToolbar.swift */; };
 		03F12F921F29B6F4009DE50E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F651F29B5D3009DE50E /* SearchBar.swift */; };
 		03F12F941F29B6F8009DE50E /* UICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F681F29B5D3009DE50E /* UICollectionViewController.swift */; };
@@ -142,6 +150,13 @@
 			remoteGlobalIDString = 0370AE701FC33C4700E584C0;
 			remoteInfo = GiGi.iOS.Siri;
 		};
+		03799A3E1FCFA05100704BFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03F12F1B1F29B404009DE50E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03799A321FCFA05100704BFF;
+			remoteInfo = Notification;
+		};
 		03BD087E1FC1A97400AC5312 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03F12F1B1F29B404009DE50E /* Project object */;
@@ -173,6 +188,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				03BD08931FC1A9A200AC5312 /* GiGi.iOS.Share.appex in Embed App Extensions */,
+				03799A401FCFA05100704BFF /* GiGi.iOS.Notification.appex in Embed App Extensions */,
 				0370AE881FC33C4800E584C0 /* GiGi.iOS.Siri.appex in Embed App Extensions */,
 				03BD08801FC1A97400AC5312 /* GiGi.iOS.Dashboard.Today.appex in Embed App Extensions */,
 				0370AE851FC33C4800E584C0 /* GiGi.iOS.SiriUI.appex in Embed App Extensions */,
@@ -219,6 +235,7 @@
 		0324A1761FC8587C00242D6F /* EdgeIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeIndicator.swift; sourceTree = "<group>"; };
 		0324A1781FC85BE200242D6F /* SearchBar-Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchBar-Edge.swift"; sourceTree = "<group>"; };
 		0325E2811F3B03BE002543D5 /* Timepiece.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timepiece.framework; path = Carthage/Build/iOS/Timepiece.framework; sourceTree = "<group>"; };
+		034DF3701FCF2BE400130A93 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		0370AE711FC33C4700E584C0 /* GiGi.iOS.Siri.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GiGi.iOS.Siri.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0370AE731FC33C4700E584C0 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		0370AE751FC33C4700E584C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -228,6 +245,13 @@
 		0370AE821FC33C4800E584C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0370AE8F1FC33CAE00E584C0 /* SiriManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriManager.swift; sourceTree = "<group>"; };
 		0370AE911FC3D1B600E584C0 /* Database-Prepare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database-Prepare.swift"; sourceTree = "<group>"; };
+		03799A2B1FCF9FA100704BFF /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		03799A2D1FCF9FB900704BFF /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/UserNotifications.framework; sourceTree = DEVELOPER_DIR; };
+		03799A331FCFA05100704BFF /* GiGi.iOS.Notification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GiGi.iOS.Notification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		03799A351FCFA05100704BFF /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = Library/Frameworks/UserNotificationsUI.framework; sourceTree = DEVELOPER_DIR; };
+		03799A381FCFA05100704BFF /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		03799A3B1FCFA05100704BFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		03799A3D1FCFA05100704BFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		037A39841F29E36B00F25BB0 /* ItemListViewController-List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-List.swift"; sourceTree = "<group>"; };
 		037A39861F29E38700F25BB0 /* ItemListViewController-Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-Action.swift"; sourceTree = "<group>"; };
 		037A39891F29E3F200F25BB0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -281,7 +305,7 @@
 		03F12F5D1F29B5D3009DE50E /* IconListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconListViewController.swift; sourceTree = "<group>"; };
 		03F12F5E1F29B5D3009DE50E /* ItemEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditorViewController.swift; sourceTree = "<group>"; };
 		03F12F601F29B5D3009DE50E /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
-		03F12F611F29B5D3009DE50E /* ItemTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTypeCell.swift; sourceTree = "<group>"; };
+		03F12F611F29B5D3009DE50E /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		03F12F621F29B5D3009DE50E /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
 		03F12F631F29B5D3009DE50E /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		03F12F641F29B5D3009DE50E /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
@@ -340,6 +364,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03799A301FCFA05100704BFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03799A361FCFA05100704BFF /* UserNotificationsUI.framework in Frameworks */,
+				03799A341FCFA05100704BFF /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03BD08711FC1A97300AC5312 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -370,6 +403,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03799A2E1FCF9FB900704BFF /* UserNotifications.framework in Frameworks */,
 				03006D7E1FC24F580058BD95 /* EventKit.framework in Frameworks */,
 				03BD08C41FC1DFCF00AC5312 /* CoreSpotlight.framework in Frameworks */,
 				03BD08BF1FC1BF9D00AC5312 /* Intents.framework in Frameworks */,
@@ -401,6 +435,7 @@
 			children = (
 				03006D7B1FC24F420058BD95 /* EventManager.swift */,
 				0370AE8F1FC33CAE00E584C0 /* SiriManager.swift */,
+				03799A2B1FCF9FA100704BFF /* NotificationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -472,6 +507,16 @@
 			path = GiGi.iOS.SiriUI;
 			sourceTree = SOURCE_ROOT;
 		};
+		03799A371FCFA05100704BFF /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				03799A381FCFA05100704BFF /* NotificationViewController.swift */,
+				03799A3A1FCFA05100704BFF /* MainInterface.storyboard */,
+				03799A3D1FCFA05100704BFF /* Info.plist */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		037A39881F29E3D800F25BB0 /* Exhancers */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +555,7 @@
 				039FF00F1FBDC939007C9539 /* SwitchCell.swift */,
 				039FF0111FBDF0E2007C9539 /* PickerCell.swift */,
 				03BD086E1FC025D900AC5312 /* DatePickerCell.swift */,
+				03F12F611F29B5D3009DE50E /* IconCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -520,6 +566,7 @@
 				030778CB1F4EFF8000A0331C /* GiGi */,
 				030778CA1F4EFDFF00A0331C /* Tests */,
 				03006D7A1FC24EBF0058BD95 /* Entitlements */,
+				03799A371FCFA05100704BFF /* Notification */,
 				03F12FB81F29B8D9009DE50E /* Frameworks */,
 				03F12F261F29B420009DE50E /* Products */,
 			);
@@ -535,6 +582,7 @@
 				03BD08891FC1A9A200AC5312 /* GiGi.iOS.Share.appex */,
 				0370AE711FC33C4700E584C0 /* GiGi.iOS.Siri.appex */,
 				0370AE7A1FC33C4700E584C0 /* GiGi.iOS.SiriUI.appex */,
+				03799A331FCFA05100704BFF /* GiGi.iOS.Notification.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -581,6 +629,7 @@
 			isa = PBXGroup;
 			children = (
 				03F12F521F29B5D3009DE50E /* Assets.xcassets */,
+				034DF3701FCF2BE400130A93 /* Icons.xcassets */,
 				03F12F4D1F29B531009DE50E /* GiGi.iOS.entitlements */,
 				03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */,
 				03006D7F1FC252460058BD95 /* Info.plist */,
@@ -623,7 +672,6 @@
 			isa = PBXGroup;
 			children = (
 				03F12F591F29B5D3009DE50E /* DragableButton.swift */,
-				03F12F611F29B5D3009DE50E /* ItemTypeCell.swift */,
 				03F12F621F29B5D3009DE50E /* KeyboardToolbar.swift */,
 				037A398D1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift */,
 				03F12F651F29B5D3009DE50E /* SearchBar.swift */,
@@ -675,6 +723,7 @@
 		03F12FB81F29B8D9009DE50E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03799A2D1FCF9FB900704BFF /* UserNotifications.framework */,
 				03006D7D1FC24F580058BD95 /* EventKit.framework */,
 				03006D761FC24C410058BD95 /* StoreKit.framework */,
 				03BD08C31FC1DFCF00AC5312 /* CoreSpotlight.framework */,
@@ -687,6 +736,7 @@
 				03F12FC31F29B906009DE50E /* iOS */,
 				03BD08751FC1A97400AC5312 /* NotificationCenter.framework */,
 				03BD08A51FC1AC5100AC5312 /* IntentsUI.framework */,
+				03799A351FCFA05100704BFF /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -785,6 +835,23 @@
 			productReference = 0370AE7A1FC33C4700E584C0 /* GiGi.iOS.SiriUI.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		03799A321FCFA05100704BFF /* GiGi.iOS.Notification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03799A411FCFA05100704BFF /* Build configuration list for PBXNativeTarget "GiGi.iOS.Notification" */;
+			buildPhases = (
+				03799A2F1FCFA05100704BFF /* Sources */,
+				03799A301FCFA05100704BFF /* Frameworks */,
+				03799A311FCFA05100704BFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GiGi.iOS.Notification;
+			productName = Notification;
+			productReference = 03799A331FCFA05100704BFF /* GiGi.iOS.Notification.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		03BD08731FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03BD08811FC1A97400AC5312 /* Build configuration list for PBXNativeTarget "GiGi.iOS.Dashboard.Today" */;
@@ -838,6 +905,7 @@
 				03BD08921FC1A9A200AC5312 /* PBXTargetDependency */,
 				0370AE841FC33C4800E584C0 /* PBXTargetDependency */,
 				0370AE871FC33C4800E584C0 /* PBXTargetDependency */,
+				03799A3F1FCFA05100704BFF /* PBXTargetDependency */,
 			);
 			name = GiGi.iOS;
 			productName = GiGi.iOS;
@@ -881,6 +949,10 @@
 						ProvisioningStyle = Automatic;
 					};
 					0370AE791FC33C4700E584C0 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					03799A321FCFA05100704BFF = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -952,11 +1024,12 @@
 			targets = (
 				03F12F241F29B420009DE50E /* GiGi.iOS */,
 				03BD08731FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today */,
+				03799A321FCFA05100704BFF /* GiGi.iOS.Notification */,
 				03BD08881FC1A9A200AC5312 /* GiGi.iOS.Share */,
-				03F12F3C1F29B430009DE50E /* GiGi.Core */,
-				030778BE1F4EFDEF00A0331C /* GiGi.Core.iOS.Tests */,
 				0370AE701FC33C4700E584C0 /* GiGi.iOS.Siri */,
 				0370AE791FC33C4700E584C0 /* GiGi.iOS.SiriUI */,
+				03F12F3C1F29B430009DE50E /* GiGi.Core */,
+				030778BE1F4EFDEF00A0331C /* GiGi.Core.iOS.Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -981,6 +1054,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0370AE811FC33C4800E584C0 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03799A311FCFA05100704BFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03799A3C1FCFA05100704BFF /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,6 +1090,7 @@
 				03C7ECDE1FB5FD5C008571E3 /* InfoPlist.strings in Resources */,
 				037A39831F29E18E00F25BB0 /* Localizable.strings in Resources */,
 				03BD086D1FC00BA700AC5312 /* Harmony.json in Resources */,
+				034DF3711FCF2BE400130A93 /* Icons.xcassets in Resources */,
 				037A39A81F2A22E700F25BB0 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1081,6 +1163,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03799A2F1FCFA05100704BFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03799A391FCFA05100704BFF /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		03BD08701FC1A97300AC5312 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1102,7 +1192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D22BEA1FC008DA0054BE9C /* Font.swift in Sources */,
-				03F12F901F29B6F4009DE50E /* ItemTypeCell.swift in Sources */,
+				03F12F901F29B6F4009DE50E /* IconCell.swift in Sources */,
 				03D22BEC1FC0094F0054BE9C /* Font-Application.swift in Sources */,
 				03C7ECE71FB8669C008571E3 /* ItemCell.swift in Sources */,
 				039FF00E1FBC2077007C9539 /* SecurityViewController.swift in Sources */,
@@ -1170,6 +1260,7 @@
 				0370AE901FC33CAE00E584C0 /* SiriManager.swift in Sources */,
 				03F12FAE1F29B760009DE50E /* MarkdownParser.swift in Sources */,
 				03006D7C1FC24F420058BD95 /* EventManager.swift in Sources */,
+				03799A2C1FCF9FA100704BFF /* NotificationManager.swift in Sources */,
 				031B2DC21FB9E31C00A01489 /* GiGi.xcdatamodeld in Sources */,
 				031B2DDE1FBA005000A01489 /* ContentStorage.swift in Sources */,
 			);
@@ -1198,6 +1289,11 @@
 			target = 0370AE701FC33C4700E584C0 /* GiGi.iOS.Siri */;
 			targetProxy = 0370AE861FC33C4800E584C0 /* PBXContainerItemProxy */;
 		};
+		03799A3F1FCFA05100704BFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03799A321FCFA05100704BFF /* GiGi.iOS.Notification */;
+			targetProxy = 03799A3E1FCFA05100704BFF /* PBXContainerItemProxy */;
+		};
 		03BD087F1FC1A97400AC5312 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 03BD08731FC1A97300AC5312 /* GiGi.iOS.Dashboard.Today */;
@@ -1220,6 +1316,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				0370AE801FC33C4800E584C0 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		03799A3A1FCFA05100704BFF /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03799A3B1FCFA05100704BFF /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1435,7 +1539,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.gigi.ios.GiGi-iOS-SiriUI";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios.siriui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1473,7 +1577,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.gigi.ios.GiGi-iOS-SiriUI";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios.siriui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1516,7 +1620,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.gigi.ios.GiGi-iOS-Siri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios.siri;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1554,7 +1658,88 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zhengxingzhi.gigi.ios.GiGi-iOS-Siri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios.siri;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03799A421FCFA05100704BFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Notification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios.notification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		03799A431FCFA05100704BFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6YG8KNT3Y4;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Notification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhengxingzhi.gigi.ios.notification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -2107,6 +2292,15 @@
 			buildConfigurations = (
 				0370AE8D1FC33C4800E584C0 /* Debug */,
 				0370AE8E1FC33C4800E584C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03799A411FCFA05100704BFF /* Build configuration list for PBXNativeTarget "GiGi.iOS.Notification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03799A421FCFA05100704BFF /* Debug */,
+				03799A431FCFA05100704BFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

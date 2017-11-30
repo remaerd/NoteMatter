@@ -18,8 +18,7 @@ public struct Application
 		print(URL.localDatabaseDirectory)
 
 		var isFirstlaunch = true
-		var isDirectory: ObjCBool = true
-		if FileManager.default.fileExists(atPath: URL.localDatabaseDirectory.path, isDirectory: &isDirectory) == true, isDirectory.boolValue == true { isFirstlaunch = false }
+		if FileManager.default.fileExists(atPath: URL.defaultDatabaseUrl.path) { isFirstlaunch = false }
 		if isFirstlaunch { try Database.prepare() }
 		Database.defaultDatabase = try Database(type: .default, modelURL: URL.defaultDatabaseModelUrl, url: URL.defaultDatabaseUrl)
 	}

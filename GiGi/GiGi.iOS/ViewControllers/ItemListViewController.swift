@@ -38,7 +38,7 @@ class ItemListViewController: UICollectionViewController
 		
 		if item.title == Item.InternalItem.rootFolder.title
 		{
-			let item = UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Preferences"), style: .plain, target: self, action: #selector(didTappMenuButton))
+			let item = UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Menu"), style: .plain, target: self, action: #selector(didTappMenuButton))
 			item.title = ".item.preferences".localized
 			navigationItem.leftBarButtonItem = item
 		}

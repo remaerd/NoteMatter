@@ -50,13 +50,16 @@ public class Solution: NSManagedObject, Model
 	
 	public static var database: Database { return Database.defaultDatabase }
 	
-	static let internalSolutions : [Solution.InternalSolution] = [.task, .document, .folder]
+	public static let internalSolutions : [Solution.InternalSolution] = [.task, .document, .folder]
 	
 	public enum InternalSolution
 	{
 		case task
 		case folder
 		case document
+		case problem
+		case diary
+		case habit
 		
 		public var title: String
 		{
@@ -65,6 +68,9 @@ public class Solution: NSManagedObject, Model
 			case .task: return ".type.task"
 			case .document: return ".type.document"
 			case .folder: return ".type.folder"
+			case .problem: return ".type.problem"
+			case .diary: return ".type.diary"
+			case .habit: return ".type.habit"
 			}
 		}
 		
@@ -75,6 +81,9 @@ public class Solution: NSManagedObject, Model
 			case .task: return "f7738220-f217-440e-9ca2-21540c7420b8"
 			case .document: return "42882401-2194-470a-99cd-e2d271eb9891"
 			case .folder: return "5f9e3523-6b0a-40e4-9963-d9dd38159a5f"
+			case .problem: return "259144ad-835c-45f0-8ba8-2cbf5de572ba"
+			case .diary: return "b3ffef87-828b-45b1-a496-56718b57b711"
+			case .habit: return "da5d93dd-b7b7-4183-a085-f986304d8354"
 			}
 		}
 		
@@ -82,9 +91,12 @@ public class Solution: NSManagedObject, Model
 		{
 			switch self
 			{
-			case .task: return "List-Todo"
-			case .document: return "List-Document"
-			case .folder: return "List-Folder"
+			case .task: return "0302-circlecheckmark"
+			case .document: return "0702-document"
+			case .folder: return "0801-folder"
+			case .diary: return "0703-bookclosed"
+			case .problem: return "0312-report"
+			case .habit: return "1304-tulip"
 			}
 		}
 	}

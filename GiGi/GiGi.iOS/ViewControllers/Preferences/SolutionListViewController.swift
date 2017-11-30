@@ -10,16 +10,29 @@ import Foundation
 
 class SolutionListViewController: UICollectionViewController
 {
+	let solutionIndentifiers = [Solution.InternalSolution.task.identifier,
+															Solution.InternalSolution.document.identifier,
+															Solution.InternalSolution.folder.identifier]
+	
 	var solutions: [Solution]!
 	
 	override func loadView()
 	{
 		super.loadView()
 		title = ".preferences.solutions".localized
-		collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
+		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
+		collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "item")
 		
-		do { solutions = try Solution.all([NSSortDescriptor(key: "index", ascending: true)]) }
+		let item = UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Plus"), style: .plain, target: self, action: #selector(addButtonTapped))
+		item.title = ".placeholder.solution.new".localized
+		navigationItem.rightBarButtonItem = item
+		do { solutions = try Solution.findAll(nil, sortDescriptors: [NSSortDescriptor(key: "index", ascending: true)]) }
 		catch { error.alert() }
+	}
+	
+	@objc func addButtonTapped()
+	{
+		
 	}
 }
 
@@ -38,10 +51,21 @@ extension SolutionListViewController
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 	{
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCell
+		let cell : Cell
+		if solutionIndentifiers.contains(solutions[indexPath.row].identifier)
+		{
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
+			cell.accessoryType = .default
+		}
+		else
+		{
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! ItemCell
+		}
 		if let image = solutions[indexPath.row].icon, let icon = UIImage(named: image) { cell.icon = icon }
+		else { cell.icon = #imageLiteral(resourceName: "0702-document")  }
 		cell.titleLabel.text = solutions[indexPath.row].title.localized
 		return cell
+		
 	}
 }
 
