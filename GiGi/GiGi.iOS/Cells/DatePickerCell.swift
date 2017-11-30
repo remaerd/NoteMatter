@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cartography
 
 class DatePickerCell: Cell
 {
@@ -55,11 +56,12 @@ class DatePickerController: UIKit.UIViewController
 		view.addSubview(blurView)
 		blurView.contentView.addSubview(pickerView)
 		
-		blurView.translatesAutoresizingMaskIntoConstraints = false
-		blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-		blurView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-		blurView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-		blurView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+		constrain(blurView, pickerView)
+		{
+			view, pickerView in
+			view.edges == view.superview!.edges
+			pickerView.edges == view.edges
+		}
 	}
 	
 	@objc func didChangeDate()

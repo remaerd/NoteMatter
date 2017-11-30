@@ -8,6 +8,7 @@
 
 import UIKit
 import GiGi
+import Cartography
 
 class SearchViewController: UIViewController
 {
@@ -41,11 +42,15 @@ class SearchViewController: UIViewController
 		resultsCollectionView.backgroundColor = Theme.colors[0]
 		resultsCollectionView.layer.cornerRadius = Constants.defaultCornerRadius
 		resultsCollectionView.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
-		resultsCollectionView.translatesAutoresizingMaskIntoConstraints = false
-		resultsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-		resultsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-		resultsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-		resultsCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight).isActive = true
+		
+		constrain(resultsCollectionView)
+		{
+			view in
+			view.leading == view.superview!.leading
+			view.trailing == view.superview!.trailing
+			view.bottom == view.superview!.bottom
+			view.top == view.superview!.top + Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight
+		}
 	}
 }
 

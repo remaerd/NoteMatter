@@ -6,9 +6,9 @@
 //  Copyright © 2017 Zheng Xingzhi. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import GiGi
+import Cartography
 
 class IconListViewController: UIViewController
 {
@@ -47,18 +47,20 @@ class IconListViewController: UIViewController
 		iconsView.backgroundColor = Theme.colors[0]
 		iconsView.layer.cornerRadius = Constants.defaultCornerRadius
 		iconsView.register(IconCell.self, forCellWithReuseIdentifier: "cell")
-		iconsView.translatesAutoresizingMaskIntoConstraints = false
-		iconsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.edgeMargin).isActive = true
-		iconsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.edgeMargin).isActive = true
-		iconsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.edgeMargin).isActive = true
 		
 		let margin = (view.bounds.width - (Constants.bigButtonSize * Constants.numberOfIconsPerRow) - (Constants.itemButtonColumnMargin * Constants.numberOfIconsPerRow - 1) - Constants.edgeMargin * 2) / 2
 		
 		let layout = iconsView.collectionViewLayout as! UIKit.UICollectionViewFlowLayout
 		layout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
 		
-		let topMargin = view.bounds.height - Defaults.listHeight.float - Constants.edgeMargin
-		iconsView.topAnchor.constraint(equalTo: view.topAnchor, constant: topMargin).isActive = true
+		constrain(iconsView)
+		{
+			iconsView in
+			iconsView.leading == iconsView.superview!.leading + Constants.edgeMargin
+			iconsView.trailing == iconsView.superview!.leading - Constants.edgeMargin
+			iconsView.bottom == iconsView.superview!.bottom - Constants.edgeMargin
+			iconsView.top == iconsView.superview!.top + view.bounds.height - Defaults.listHeight.float - Constants.edgeMargin
+		}
 	}
 }
 

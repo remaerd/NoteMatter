@@ -29,25 +29,25 @@ extension Font
 	
 	public static var EditorHeader1Font: UIFont =
 	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title1).pointSize
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .headline).pointSize
 		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .heavy, fontSize: size), size: size)!
 	}()
 	
 	public static var EditorHeader2Font: UIFont =
 	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2).pointSize
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .headline).pointSize
 		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
 	}()
 	
 	public static var EditorHeader3Font: UIFont =
 	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title3).pointSize
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .headline).pointSize
 		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
 	}()
 	
 	public static var EditorHeader4Font: UIFont =
 	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title3).pointSize
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .headline).pointSize
 		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
 	}()
 }

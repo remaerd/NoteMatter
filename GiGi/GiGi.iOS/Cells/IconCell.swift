@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cartography
 
 class IconCell: UICollectionViewCell
 {
@@ -17,25 +18,31 @@ class IconCell: UICollectionViewCell
 	{
 		super.init(frame: frame)
 
-		addSubview(descriptionLabel)
-		addSubview(iconView)
-
-		iconView.translatesAutoresizingMaskIntoConstraints = false
 		iconView.contentMode = .center
 		iconView.layer.cornerRadius = Constants.bigButtonCornerRadius
-		iconView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-		iconView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-		iconView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-		iconView.heightAnchor.constraint(equalToConstant: Constants.bigButtonSize).isActive = true
-
-		descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-		descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-		descriptionLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-		descriptionLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+		
 		descriptionLabel.font = Font.SolutionFont
 		descriptionLabel.textAlignment = .center
 		descriptionLabel.textColor = Theme.colors[7]
-		descriptionLabel.heightAnchor.constraint(equalToConstant: Constants.itemButtonDescriptionHeight).isActive = true
+		
+		addSubview(descriptionLabel)
+		addSubview(iconView)
+		
+		constrain(iconView)
+		{ view in
+			view.leading == view.superview!.leading
+			view.top == view.superview!.top
+			view.trailing == view.superview!.trailing
+			view.height == Constants.bigButtonSize
+		}
+		
+		constrain(descriptionLabel)
+		{ view in
+			view.bottom == view.superview!.bottom
+			view.leading == view.superview!.leading
+			view.trailing == view.superview!.trailing
+			view.height == Constants.itemButtonDescriptionHeight
+		}
 	}
 
 	required init?(coder aDecoder: NSCoder)

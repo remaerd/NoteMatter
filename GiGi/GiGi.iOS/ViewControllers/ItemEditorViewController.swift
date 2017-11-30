@@ -8,6 +8,7 @@
 
 import UIKit
 import GiGi
+import Cartography
 
 class ItemEditorViewController: UIViewController
 {
@@ -63,12 +64,15 @@ class ItemEditorViewController: UIViewController
 		
 		title = storage.item.title
 		view.addSubview(editorView)
-		editorView.translatesAutoresizingMaskIntoConstraints = false
-		editorView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-		editorView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-		editorView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-		editorTopConstraint = editorView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight)
-		editorTopConstraint?.isActive = true
+		
+		constrain(editorView)
+		{
+			editor in
+			editor.leading == editor.superview!.leading
+			editor.trailing == editor.superview!.trailing
+			editor.bottom == editor.superview!.bottom
+			editorTopConstraint = editor.top == editor.superview!.top + Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cartography
 
 class UINavigationController: UIKit.UINavigationController, UINavigationControllerDelegate
 {
@@ -23,11 +24,15 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 		delegate = self
 		
 		view.addSubview(searchBar)
-		searchBar.translatesAutoresizingMaskIntoConstraints = false
-		searchBar.heightAnchor.constraint(equalToConstant: Constants.searchBarHeight).isActive = true
-		searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.edgeMargin).isActive = true
-		searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.edgeMargin).isActive = true
-		searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.edgeMargin + Constants.statusBarHeight).isActive = true
+		
+		constrain(searchBar)
+		{
+			searchBar in
+			searchBar.height == Constants.searchBarHeight
+			searchBar.leading == searchBar.superview!.leading + Constants.edgeMargin
+			searchBar.trailing == searchBar.superview!.trailing - Constants.edgeMargin
+			searchBar.top == searchBar.superview!.top + Constants.edgeMargin + Constants.statusBarHeight
+		}
 	}
 	
 	// 解决一个因 ModalViewController 和 UICollectionViewController 之间滚动会出现的 BUG

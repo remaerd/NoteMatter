@@ -8,6 +8,7 @@
 
 import UIKit
 import GiGi
+import Cartography
 
 protocol KeyboardToolbarDelegate: NSObjectProtocol
 {
@@ -38,9 +39,12 @@ class KeyboardButton: UIButton
 	override func didMoveToSuperview()
 	{
 		super.didMoveToSuperview()
-		translatesAutoresizingMaskIntoConstraints = false
-		widthAnchor.constraint(equalToConstant: Constants.keyboardButtonWidth).isActive = true
-		heightAnchor.constraint(equalToConstant: Constants.keyboardButtonHeight).isActive = true
+		constrain(self)
+		{
+			view in
+			view.width == Constants.keyboardButtonWidth
+			view.height == Constants.keyboardButtonHeight
+		}
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -87,7 +91,7 @@ let punctuations = [(#imageLiteral(resourceName: "Keyboard-Comma"),".style.punct
 
 class KeyboardToolbar: UIView
 {
-	let toolbarView : UIStackView
+	let toolbarView : UIView
 	let taskView = UIView()
 	let paragraphStyleButton = SlidableKeyboardButton(buttons: styles, showTitle: true)
 	let taskButton = KeyboardButton(image: #imageLiteral(resourceName: "Keyboard-Task"))
@@ -102,30 +106,36 @@ class KeyboardToolbar: UIView
 	
 	init()
 	{
-		toolbarView = UIStackView(arrangedSubviews: [paragraphStyleButton, taskButton, inlineStyleButton, linkButton, braceButton, quoteButton, punctuationButton, dismissButton])
+		toolbarView = UIView()
+		for view in [paragraphStyleButton, taskButton, inlineStyleButton, linkButton, braceButton, quoteButton, punctuationButton, dismissButton] as [UIView]
+		{
+			toolbarView.addSubview(view)
+		}
+		
 		super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Constants.keyboardBarHeight))
 		
 		backgroundColor = Theme.colors[2]
 		tintColor = Theme.colors[6]
 		
-		toolbarView.spacing = Constants.keyboardButtonMargin
-		toolbarView.distribution = .fill
-		toolbarView.alignment = .center
-		toolbarView.axis = .horizontal
+//		toolbarView.spacing = Constants.keyboardButtonMargin
+//		toolbarView.distribution = .fill
+//		toolbarView.alignment = .center
+//		toolbarView.axis = .horizontal
 		taskView.isHidden = true
 		
 		addSubview(toolbarView)
 		addSubview(taskView)
 		
-		toolbarView.translatesAutoresizingMaskIntoConstraints = false
-		toolbarView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-		toolbarView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-		
-		taskView.translatesAutoresizingMaskIntoConstraints = false
-		taskView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-		taskView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-		taskView.bottomAnchor.constraint(equalTo: toolbarView.topAnchor).isActive = true
-		taskView.heightAnchor.constraint(equalToConstant: Constants.keyboardTaskBarHeight).isActive = true
+		constrain(taskView, toolbarView)
+		{
+			view, toolbar in
+			toolbar.centerX == view.superview!.centerX
+			toolbar.centerY == view.superview!.centerY
+			view.leading == view.superview!.leading
+			view.trailing == view.superview!.trailing
+			view.bottom == toolbar.top
+			view.height == Constants.keyboardTaskBarHeight
+		}
 		
 		paragraphStyleButton.addTarget(self, action: #selector(didSelectParagraphStyle), for: .touchUpInside)
 		taskButton.addTarget(self, action: #selector(didTappedTaskButton), for: .touchUpInside)

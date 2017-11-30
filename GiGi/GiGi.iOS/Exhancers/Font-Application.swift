@@ -47,7 +47,7 @@ extension Font
 	
 	public static var TaskHeaderFont: UIFont =
 	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2).pointSize
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .headline).pointSize
 		return UIFont(name: FontFamily.sanFranciscoCompact.fontName(fontWeight: .bold, fontSize: size), size: size)!
 	}()
 	

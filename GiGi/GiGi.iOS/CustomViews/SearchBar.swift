@@ -48,9 +48,9 @@ class SearchBar: UITextField
 		leftViewMode = .always
 		rightViewMode = .always
 		textAlignment = .center
-		returnKeyType = .continue
 		enablesReturnKeyAutomatically = true
 		layer.cornerRadius = Constants.defaultCornerRadius
+		if #available(iOS 9.0, *) { returnKeyType = .continue } else { returnKeyType = .search }
 	}
 
 	required init?(coder aDecoder: NSCoder)

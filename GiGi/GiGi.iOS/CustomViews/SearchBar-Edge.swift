@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cartography
 
 extension SearchBar
 {
@@ -30,11 +31,15 @@ extension SearchBar
 			indicator.isHidden = true
 			gesture.isEnabled = true
 			superview?.addSubview(indicator)
-			indicator.translatesAutoresizingMaskIntoConstraints = false
-			indicator.topAnchor.constraint(equalTo: superview!.topAnchor, constant: Constants.edgeMargin + Constants.statusBarHeight).isActive = true
-			indicator.heightAnchor.constraint(equalToConstant: Constants.searchBarHeight).isActive = true
-			indicator.leadingAnchor.constraint(equalTo: superview!.leadingAnchor, constant: Constants.edgeMargin).isActive = true
-			indicator.trailingAnchor.constraint(equalTo: superview!.trailingAnchor, constant: -Constants.edgeMargin).isActive = true
+			
+			constrain(indicator)
+			{
+				indicator in
+				indicator.top == indicator.superview!.superview!.top + Constants.edgeMargin + Constants.statusBarHeight
+				indicator.height == Constants.searchBarHeight
+				indicator.leading == indicator.superview!.superview!.leading + Constants.edgeMargin
+				indicator.trailing == indicator.superview!.superview!.trailing - Constants.edgeMargin
+			}
 		}
 	}
 	

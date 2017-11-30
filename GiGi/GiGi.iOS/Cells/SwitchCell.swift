@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cartography
 
 class SwitchCell: Cell
 {
@@ -14,12 +15,10 @@ class SwitchCell: Cell
 	override init(frame: CGRect)
 	{
 		super.init(frame: frame)
-		self.addSubview(switcher)
-		switcher.translatesAutoresizingMaskIntoConstraints = false
-		switcher.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.edgeMargin).isActive = true
-		switcher.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+		
 		switcher.onTintColor = Theme.colors[8]
 		switcher.tintColor = Theme.colors[7].withAlphaComponent(0.2)
+		rightView = switcher
 	}
 	
 	required init?(coder aDecoder: NSCoder)

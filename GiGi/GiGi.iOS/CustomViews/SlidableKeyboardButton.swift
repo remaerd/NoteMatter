@@ -1,5 +1,3 @@
-import Foundation
-
 //
 //  SlidableKeyboardButton.swift
 //  GiGi.iOS
@@ -9,6 +7,7 @@ import Foundation
 //
 
 import UIKit
+import Cartography
 
 protocol KeyboardSlidableButtonDelegate: NSObjectProtocol
 {
@@ -22,7 +21,7 @@ class SlidableKeyboardButton: UIButton
 	let showTitle: Bool
 	let alignRight: Bool
 	let sliderContainer = UIView()
-	let sliderComponents: UIStackView
+	let sliderComponents = UIView()
 	let sliderTabBackground: UIView
 	var hideTimer: Timer?
 	
@@ -37,10 +36,10 @@ class SlidableKeyboardButton: UIButton
 			let previousIndex = _selectedIndex
 			if (nullable)
 			{
-				if newValue > sliderComponents.arrangedSubviews.count { _selectedIndex = 0 } else { _selectedIndex = newValue }
+				if newValue > sliderComponents.subviews.count { _selectedIndex = 0 } else { _selectedIndex = newValue }
 			} else
 			{
-				if newValue >= sliderComponents.arrangedSubviews.count { _selectedIndex = 0 } else { _selectedIndex = newValue }
+				if newValue >= sliderComponents.subviews.count { _selectedIndex = 0 } else { _selectedIndex = newValue }
 			}
 			didChangedSelectedIndex(previous: previousIndex, current: _selectedIndex)
 		}
@@ -63,7 +62,11 @@ class SlidableKeyboardButton: UIButton
 			imageButtons.append(newButton)
 		}
 		
-		sliderComponents = UIStackView(arrangedSubviews: imageButtons)
+		for button in imageButtons
+		{
+			sliderComponents.addSubview(button)
+		}
+		
 		sliderContainer.addSubview(sliderComponents)
 		if (showTitle) { sliderTabBackground = UIImageView(image: #imageLiteral(resourceName: "Background-Keyboard-Slider-Left")) } else { sliderTabBackground = UIImageView(image: #imageLiteral(resourceName: "Background-Keyboard-Slider-Center")) }
 		
@@ -81,8 +84,8 @@ class SlidableKeyboardButton: UIButton
 		backgroundColor = Theme.colors[0]
 		showsTouchWhenHighlighted = false
 		
-		sliderComponents.alignment = .center
-		sliderComponents.distribution = .equalCentering
+//		sliderComponents.alignment = .center
+//		sliderComponents.distribution = .equalCentering
 		
 		sliderContainer.isHidden = true
 		sliderContainer.layer.cornerRadius = 4
@@ -151,22 +154,21 @@ class SlidableKeyboardButton: UIButton
 	{
 		if (nullable)
 		{
-			if (current == 0) { sliderComponents.arrangedSubviews[previous - 1].backgroundColor = UIColor.clear } else
+			if (current == 0) { sliderComponents.subviews[previous - 1].backgroundColor = UIColor.clear } else
 			{
-				if (previous != 0) { sliderComponents.arrangedSubviews[previous - 1].backgroundColor = UIColor.clear }
-				sliderComponents.arrangedSubviews[current - 1].backgroundColor = Theme.colors[6]
+				if (previous != 0) { sliderComponents.subviews[previous - 1].backgroundColor = UIColor.clear }
+				sliderComponents.subviews[current - 1].backgroundColor = Theme.colors[6]
 			}
 		} else
 		{
-			sliderComponents.arrangedSubviews[previous].backgroundColor = UIColor.clear
-			sliderComponents.arrangedSubviews[current].backgroundColor = Theme.colors[4]
+			sliderComponents.subviews[previous].backgroundColor = UIColor.clear
+			sliderComponents.subviews[current].backgroundColor = Theme.colors[4]
 		}
 	}
 	
 	override func didMoveToSuperview()
 	{
 		super.didMoveToSuperview()
-		translatesAutoresizingMaskIntoConstraints = false
 		
 		if let imageView = imageView, sliderContainer.superview == nil
 		{
@@ -180,44 +182,44 @@ class SlidableKeyboardButton: UIButton
 		
 		let buttonWidth : CGFloat
 		if showTitle { buttonWidth = Constants.keyboardButtonWidth * 2 + Constants.keyboardButtonMargin } else { buttonWidth = Constants.keyboardButtonWidth }
-		widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
-		heightAnchor.constraint(equalToConstant: Constants.keyboardButtonHeight).isActive = true
 		
-		let numberOfButtons : CGFloat = CGFloat(sliderComponents.arrangedSubviews.count) + 1
-		var barWidth = (numberOfButtons * 28) + ((numberOfButtons + 1) * Constants.keyboardButtonMargin)
-		if (showTitle) { barWidth += Constants.edgeMargin }
-		sliderContainer.widthAnchor.constraint(equalToConstant: barWidth).isActive = true
-		sliderContainer.bottomAnchor.constraint(equalTo: topAnchor, constant: -Constants.edgeMargin).isActive = true
-		sliderContainer.heightAnchor.constraint(equalToConstant: Constants.keyboardSliderBarHeight).isActive = true
-		sliderContainer.translatesAutoresizingMaskIntoConstraints = false
-		
-		if showTitle { sliderContainer.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true } else if alignRight
+		constrain(self, sliderContainer, sliderComponents, sliderTabBackground)
 		{
-			sliderContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Constants.keyboardButtonWidth + Constants.keyboardButtonMargin).isActive = true
-		} else
-		{
-			sliderContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -Constants.keyboardButtonWidth - Constants.keyboardButtonMargin).isActive = true
-		}
-		
-		sliderComponents.translatesAutoresizingMaskIntoConstraints = false
-		sliderComponents.bottomAnchor.constraint(equalTo: sliderContainer.bottomAnchor).isActive = true
-		sliderComponents.trailingAnchor.constraint(equalTo: sliderContainer.trailingAnchor, constant: -10).isActive = true
-		sliderComponents.topAnchor.constraint(equalTo: sliderContainer.topAnchor).isActive = true
-		sliderComponents.leadingAnchor.constraint(equalTo: sliderContainer.leadingAnchor, constant: 10).isActive = true
-		
-		sliderTabBackground.translatesAutoresizingMaskIntoConstraints = false
-		sliderTabBackground.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-		
-		if (showTitle)
-		{
-			sliderTabBackground.heightAnchor.constraint(equalToConstant: 58).isActive = true
-			sliderTabBackground.widthAnchor.constraint(equalToConstant: 69).isActive = true
-			sliderTabBackground.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-		} else
-		{
-			sliderTabBackground.heightAnchor.constraint(equalToConstant: 54).isActive = true
-			sliderTabBackground.widthAnchor.constraint(equalToConstant: 38).isActive = true
-			sliderTabBackground.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -4).isActive = true
+			view, container, components, background in
+			view.width == buttonWidth
+			view.height == Constants.keyboardButtonHeight
+			
+			let numberOfButtons : CGFloat = CGFloat(sliderComponents.subviews.count) + 1
+			var barWidth = (numberOfButtons * 28) + ((numberOfButtons + 1) * Constants.keyboardButtonMargin)
+			if (showTitle) { barWidth += Constants.edgeMargin }
+			
+			container.width == barWidth
+			container.bottom == view.top - Constants.edgeMargin
+			container.height == Constants.keyboardSliderBarHeight
+			
+			if showTitle { container.leading == view.leading }
+			else if alignRight { container.trailing == view.trailing + Constants.keyboardButtonWidth + Constants.keyboardButtonMargin }
+			else { container.leading == view.leading - Constants.keyboardButtonWidth - Constants.keyboardButtonMargin }
+			
+			components.bottom == container.bottom
+			components.leading == container.leading + Constants.edgeMargin
+			components.trailing == container.trailing - Constants.edgeMargin
+			components.top == container.top
+			
+			background.bottom == view.bottom
+			
+			if showTitle
+			{
+				background.height == 58
+				background.width == 69
+				background.leading == view.leading
+			}
+			else
+			{
+				background.height == 54
+				background.width == 38
+				background.leading == view.leading - 4
+			}
 		}
 	}
 }

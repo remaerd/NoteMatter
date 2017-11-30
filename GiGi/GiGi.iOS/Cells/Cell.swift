@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cartography
 
 class Cell: UICollectionViewCell
 {
@@ -34,26 +35,31 @@ class Cell: UICollectionViewCell
 	{
 		super.init(frame: frame)
 		
-		contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.cellHeight).isActive = true
 		titleLabel.numberOfLines = 0
 		titleLabel.font = Font.CellFont
 		contentView.addSubview(titleLabel)
-		titleLabel.translatesAutoresizingMaskIntoConstraints = false
-		titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.cellHeight).isActive = true
-		titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12).isActive = true
-		titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12).isActive = true
-		_titleLeadingConstraint = titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15)
-		_titleLeadingConstraint.isActive = true
-		
+
 		self.backgroundView = UIView()
 
 		contentView.addSubview(seperator)
-		seperator.translatesAutoresizingMaskIntoConstraints = false
-		seperator.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
-		seperator.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-		seperator.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-		_seperatorLeadingConstraint = seperator.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15)
-		_seperatorLeadingConstraint.isActive = true
+		
+		let heightLayout = NSLayoutConstraint.init(item: self.contentView, attribute: NSLayoutAttribute.height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .height, multiplier: 0, constant: Constants.cellHeight)
+		contentView.addConstraint(heightLayout)
+		
+		constrain(titleLabel, seperator)
+		{
+			titleLabel, seperator in
+			
+			titleLabel.trailing == titleLabel.superview!.trailing - Constants.cellHeight
+			titleLabel.top == titleLabel.superview!.top + 12
+			titleLabel.bottom == titleLabel.superview!.bottom - 12
+			_titleLeadingConstraint = titleLabel.leading == titleLabel.superview!.leading + 15
+			
+			seperator.height == 0.5
+			seperator.bottom == seperator.superview!.bottom
+			seperator.trailing == seperator.superview!.trailing
+			_seperatorLeadingConstraint = seperator.leading == seperator.superview!.leading + 15
+		}
 	}
 
 	required init?(coder aDecoder: NSCoder)
@@ -74,9 +80,8 @@ class Cell: UICollectionViewCell
 	
 	override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
 	{
-		let size = contentView.systemLayoutSizeFitting(layoutAttributes.size, withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
 		var newFrame = layoutAttributes.frame
-		newFrame.size.height = size.height
+		newFrame.size = contentView.systemLayoutSizeFitting(layoutAttributes.size, withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
 		layoutAttributes.frame = newFrame
 		return layoutAttributes
 	}
@@ -143,11 +148,15 @@ extension Cell
 		{
 			contentView.addSubview(leftView!)
 			leftView?.contentMode = .center
-			leftView?.translatesAutoresizingMaskIntoConstraints = false
-			leftView?.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-			leftView?.widthAnchor.constraint(equalToConstant: Constants.cellHeight - 1).isActive = true
-			leftView?.heightAnchor.constraint(equalToConstant: Constants.cellHeight - 1).isActive = true
-			leftView?.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+			
+			constrain(leftView!)
+			{
+				leftView in
+				leftView.leading == leftView.superview!.leading
+				leftView.width == Constants.cellHeight - 1
+				leftView.height == Constants.cellHeight - 1
+				leftView.top == leftView.superview!.top
+			}
 		}
 		leftView?.tintColor = Theme.colors[4]
 	}
@@ -157,12 +166,16 @@ extension Cell
 		if let constraints = rightView?.constraints { rightView?.removeConstraints(constraints) }
 		if rightView?.superview == nil
 		{
-			contentView.addSubview(rightView!)
 			rightView?.contentMode = .center
-			rightView?.translatesAutoresizingMaskIntoConstraints = false
-			rightView?.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.edgeMargin).isActive = true
-			rightView?.heightAnchor.constraint(equalToConstant: Constants.cellHeight - 1).isActive = true
-			rightView?.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+			contentView.addSubview(rightView!)
+
+			constrain(rightView!)
+			{
+				view in
+				view.trailing == view.superview!.trailing - Constants.edgeMargin
+				if rightView is UISwitch == false { view.height == Constants.cellHeight - 1 }
+				view.centerY == view.superview!.centerY
+			}
 		}
 		rightView?.tintColor = Theme.colors[3]
 	}

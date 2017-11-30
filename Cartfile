@@ -1,9 +1,8 @@
 github "Alamofire/Alamofire"
 github "kishikawakatsumi/KeychainAccess"
-github "notohiro/SwiftyVersionTracker"
 github "getsentry/sentry-cocoa"
 github "naoty/Timepiece"
-github "JohnEstropia/CoreStore"
+github "robb/cartography"
 
 github "remaerd/Keys"
 github "remaerd/SwiftyChrono"

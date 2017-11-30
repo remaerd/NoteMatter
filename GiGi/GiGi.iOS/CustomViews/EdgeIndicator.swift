@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cartography
 
 class EdgeIndicator : UIView
 {
@@ -42,39 +43,40 @@ class EdgeIndicator : UIView
 		
 		self.addSubview(backgroundImage)
 		backgroundImage.tintColor = Theme.colors[3]
-		backgroundImage.translatesAutoresizingMaskIntoConstraints = false
-		backgroundImage.topAnchor.constraint(equalTo: topAnchor).isActive = true
-		backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-		
+
 		let view = UIImageView(image: image)
 		view.tintColor = Theme.colors[0]
 		view.contentMode = UIViewContentMode.center
 		self.addSubview(view)
-		view.translatesAutoresizingMaskIntoConstraints = false
-		view.topAnchor.constraint(equalTo: topAnchor).isActive = true
-		view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-		view.widthAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-		
+
 		addSubview(label)
 		label.text = title
 		label.font = Font.SearchBarTextFont
 		label.textColor = Theme.colors[5]
-		label.translatesAutoresizingMaskIntoConstraints = false
-		label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-		label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-		label.topAnchor.constraint(equalTo: topAnchor).isActive = true
 		
-		widthConstraint = backgroundImage.widthAnchor.constraint(equalToConstant: Constants.edgePanMinimumWidth)
-		widthConstraint?.isActive = true
-		if self.cornerType == .left
+		constrain(view, backgroundImage, label)
 		{
-			backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-			view.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-		}
-		else if self.cornerType == .right
-		{
-			backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-			view.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+			view, backgroundImage, label in
+			backgroundImage.top == backgroundImage.superview!.top
+			backgroundImage.bottom == backgroundImage.superview!.bottom
+			view.top == view.superview!.top
+			view.bottom == view.superview!.bottom
+			view.width == view.height
+			label.centerX == label.superview!.centerX
+			label.bottom == label.superview!.bottom
+			label.top == label.superview!.top
+			widthConstraint = backgroundImage.width == Constants.edgePanMinimumWidth
+			
+			if self.cornerType == .left
+			{
+				backgroundImage.leading == backgroundImage.superview!.leading
+				view.leading == view.superview!.leading
+			}
+			else if self.cornerType == .right
+			{
+				backgroundImage.trailing == backgroundImage.superview!.trailing
+				view.trailing == view.superview!.trailing
+			}
 		}
 	}
 	
