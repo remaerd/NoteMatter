@@ -15,6 +15,11 @@
 ".type.problem" = "Problem";
 ".type.diary" = "Diary";
 
+".notification.action.done" = "Done";
+".notification.action.1" = "1 hour later";
+".notification.action.3" = "3 hour later";
+".notification.action.24" = "1 day later";
+
 ".item.welcome" = "Letters from GiGi";
 ".item.thumb" = "Thumb tricks";
 

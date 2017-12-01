@@ -84,6 +84,7 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 		
 		collectionView?.mask = maskView
 		collectionView!.alwaysBounceVertical = true
+		collectionView!.register(MonoDashboardView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier:"dashboard")
 		collectionView!.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
 		collectionView!.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "footer")
 	}
@@ -151,7 +152,11 @@ extension UICollectionViewController
 	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
 	{
 		let view: UICollectionReusableView
-		if (kind == UICollectionElementKindSectionHeader) { view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) } else
+		if (kind == UICollectionElementKindSectionHeader)
+		{
+			view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+		}
+		else
 		{
 			view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footer", for: indexPath)
 		}

@@ -19,6 +19,11 @@ class NotificationViewController: UITableViewController, UNNotificationContentEx
 	
 	func didReceive(_ notification: UNNotification)
 	{
-		notification.request
+		
+	}
+	
+	func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void)
+	{
+		
 	}
 }

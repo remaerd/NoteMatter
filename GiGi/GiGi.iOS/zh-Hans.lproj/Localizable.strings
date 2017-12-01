@@ -15,6 +15,11 @@
 ".type.problem" = "困扰";
 ".type.diary" = "日记";
 
+".notification.action.done" = "完成";
+".notification.action.1" = "1 小时后";
+".notification.action.3" = "3 小时后";
+".notification.action.24" = "1 天后";
+
 ".item.preferences" = "使用偏好";
 ".item.rootFolder" = "曙光笔记";
 ".item.welcome" = "来自 GiGi 的问候";

@@ -47,3 +47,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		return true
 	}
 }
+
+extension AppDelegate
+{
+	func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings)
+	{
+		
+	}
+	
+	func application(_ application: UIApplication, didReceive notification: UILocalNotification)
+	{
+		
+	}
+	
+	func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, completionHandler: @escaping () -> Void)
+	{
+		
+	}
+	
+	func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void)
+	{
+		
+	}
+}
+
+extension AppDelegate
+{
+	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+	{
+		
+	}
+	
+	func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
+	{
+		
+	}
+	
+	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any])
+	{
+		
+	}
+	
+	func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void)
+	{
+		
+	}
+	
+	func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [AnyHashable : Any], withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void)
+	{
+		
+	}
+}

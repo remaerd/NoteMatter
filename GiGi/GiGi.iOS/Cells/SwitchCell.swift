@@ -21,6 +21,12 @@ class SwitchCell: Cell
 		rightView = switcher
 	}
 	
+	override func prepareForReuse()
+	{
+		switcher.isOn = false
+		return
+	}
+	
 	required init?(coder aDecoder: NSCoder)
 	{
 		fatalError("init(coder:) has not been implemented")

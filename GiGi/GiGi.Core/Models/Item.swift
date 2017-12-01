@@ -50,7 +50,7 @@ public class Item: NSManagedObject, Model
 		case calendar
 		case keyword(keyword: String)
 		
-		var identifier: String
+		public var identifier: String
 		{
 			switch self
 			{
@@ -58,7 +58,7 @@ public class Item: NSManagedObject, Model
 			case .today: return ".dashboard.today"
 			case .tomorrow: return ".dashboard.tomorrow"
 			case .later: return ".dashboard.later"
-			case .anytime: return ".dashboard.dashboard.anytime"
+			case .anytime: return ".dashboard.anytime"
 			case .completed: return ".dashboard.completed"
 			case .calendar: return ".dashboard.today"
 			case .keyword(let keyword): return keyword
@@ -68,6 +68,34 @@ public class Item: NSManagedObject, Model
 	
 	static let internalItemTitles = [Item.InternalItem.rootFolder.title]
 	static let internalItems = [Item.InternalItem.rootFolder]
+	
+	public var dashboardTypes: [DashboardType]
+	{
+		get
+		{
+			var types = [DashboardType]()
+			for type in dashboardType.components(separatedBy: ",")
+			{
+				switch type
+				{
+				case ".dashboard.assistant": types.append(DashboardType.assistant) ; break
+				case ".dashboard.today": types.append(DashboardType.today); break
+				case ".dashboard.tomorrow": types.append(DashboardType.tomorrow); break
+				case ".dashboard.later": types.append(DashboardType.later); break
+				case ".dashboard.anytime": types.append(DashboardType.anytime); break
+				case ".dashboard.completed": types.append(DashboardType.completed); break
+				case ".dashboard.today": types.append(DashboardType.today); break
+				default: types.append(DashboardType.keyword(keyword: type)); break
+				}
+			}
+			return types
+		}
+		set
+		{
+			var results = newValue[0].identifier
+			for type in 1..<newValue.count { results.append("," + newValue[type].identifier) }
+		}
+	}
 	
 	public override func awakeFromInsert()
 	{

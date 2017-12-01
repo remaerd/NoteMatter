@@ -24,6 +24,8 @@ struct Constants
 	static let keyboardSliderBarHeight : CGFloat = 46
 	static let keyboardSliderIconSize: CGFloat = 36
 	
+	static let dashboardBarHeight: CGFloat = 50
+	
 	static let cellHeight : CGFloat = 48
 	
 	static let slideMinmalCommitWidth : CGFloat = 44

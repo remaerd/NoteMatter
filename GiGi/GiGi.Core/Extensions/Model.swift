@@ -16,6 +16,7 @@ public extension Item
 	
 	@NSManaged public var task: Task
 	@NSManaged public var solution: Solution
+	@NSManaged public var dashboardType: String
 	
 	@NSManaged public var parent: Item?
 	@NSManaged public var children: [Item]?
