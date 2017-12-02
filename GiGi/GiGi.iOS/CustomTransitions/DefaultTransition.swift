@@ -42,6 +42,8 @@ class DefaultTransition: NSObject, UIViewControllerAnimatedTransitioning
 		transitionContext.containerView.addSubview(fromView!)
 		transitionContext.containerView.addSubview(toView!)
 
+//		Sound.transition.play()
+		
 		switch (direction)
 		{
 		case .left: toView?.transform = CGAffineTransform.init(translationX: UIScreen.main.bounds.width, y: 0)

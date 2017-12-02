@@ -60,6 +60,8 @@ extension ItemActionListViewController
 
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
+		Sound.tapCell.play()
+		
 		func rescheduleItem()
 		{
 			

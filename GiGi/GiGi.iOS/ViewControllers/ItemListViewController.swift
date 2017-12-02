@@ -58,11 +58,13 @@ extension ItemListViewController
 {
 	@objc func didTappAddButton()
 	{
+		Sound.tapNavButton.play()
 		navigationController?.pushViewController(ItemCreatorViewController(item: self.item), animated: true)
 	}
 	
 	@objc func didTappMenuButton()
 	{
+		Sound.tapNavButton.play()
 		navigationController?.pushViewController(PreferencesViewController(), animated: true)
 	}
 }

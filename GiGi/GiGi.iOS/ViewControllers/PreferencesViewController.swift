@@ -31,6 +31,7 @@ class PreferencesViewController: UICollectionViewController
 	
 	@objc func didTappedCloseButton()
 	{
+		Sound.tapNavButton.play()
 		navigationController?.popViewController(animated: true)
 	}
 }
@@ -76,6 +77,7 @@ extension PreferencesViewController
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
+		Sound.tapCell.play()
 		if indexPath.section == 0
 		{
 			navigationController?.pushViewController(MembershipViewController(), animated: true)

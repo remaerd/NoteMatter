@@ -38,6 +38,21 @@
 		0331E9A91FD18C0500E4C845 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331E9A81FD18C0500E4C845 /* TaskCell.swift */; };
 		0331E9AB1FD18E8F00E4C845 /* EmptyDashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331E9AA1FD18E8F00E4C845 /* EmptyDashboardCell.swift */; };
 		0331E9AD1FD18EF300E4C845 /* DashboardContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331E9AC1FD18EF300E4C845 /* DashboardContainerController.swift */; };
+		0331E9CC1FD1AAC200E4C845 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331E9CB1FD1AAC200E4C845 /* SoundManager.swift */; };
+		0331E9E81FD1BFB200E4C845 /* switch-on.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9DA1FD1BFAF00E4C845 /* switch-on.caf */; };
+		0331E9E91FD1BFB200E4C845 /* notification-task.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9DB1FD1BFB000E4C845 /* notification-task.caf */; };
+		0331E9EA1FD1BFB200E4C845 /* tap-light.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9DC1FD1BFB000E4C845 /* tap-light.caf */; };
+		0331E9EB1FD1BFB200E4C845 /* slide-cancel.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9DD1FD1BFB000E4C845 /* slide-cancel.caf */; };
+		0331E9EC1FD1BFB200E4C845 /* switch-off.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9DE1FD1BFB000E4C845 /* switch-off.caf */; };
+		0331E9ED1FD1BFB200E4C845 /* modal-up.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9DF1FD1BFB000E4C845 /* modal-up.caf */; };
+		0331E9EE1FD1BFB200E4C845 /* slide-select.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9E01FD1BFB000E4C845 /* slide-select.caf */; };
+		0331E9EF1FD1BFB200E4C845 /* tap-cell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9E11FD1BFB100E4C845 /* tap-cell.caf */; };
+		0331E9F01FD1BFB200E4C845 /* modal-down.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9E21FD1BFB100E4C845 /* modal-down.caf */; };
+		0331E9F11FD1BFB200E4C845 /* checkbox-deselect.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9E31FD1BFB100E4C845 /* checkbox-deselect.caf */; };
+		0331E9F21FD1BFB200E4C845 /* checkbox-select.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9E41FD1BFB100E4C845 /* checkbox-select.caf */; };
+		0331E9F31FD1BFB200E4C845 /* slide-start.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9E51FD1BFB100E4C845 /* slide-start.caf */; };
+		0331E9F41FD1BFB200E4C845 /* alert.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9E61FD1BFB200E4C845 /* alert.caf */; };
+		0331E9F61FD1C06400E4C845 /* tap-nav.caf in Resources */ = {isa = PBXBuildFile; fileRef = 0331E9F51FD1C06400E4C845 /* tap-nav.caf */; };
 		034DF3711FCF2BE400130A93 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 034DF3701FCF2BE400130A93 /* Icons.xcassets */; };
 		0370AE901FC33CAE00E584C0 /* SiriManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370AE8F1FC33CAE00E584C0 /* SiriManager.swift */; };
 		0370AE921FC3D1B600E584C0 /* Database-Prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370AE911FC3D1B600E584C0 /* Database-Prepare.swift */; };
@@ -245,6 +260,21 @@
 		0331E9A81FD18C0500E4C845 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		0331E9AA1FD18E8F00E4C845 /* EmptyDashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDashboardCell.swift; sourceTree = "<group>"; };
 		0331E9AC1FD18EF300E4C845 /* DashboardContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardContainerController.swift; sourceTree = "<group>"; };
+		0331E9CB1FD1AAC200E4C845 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		0331E9DA1FD1BFAF00E4C845 /* switch-on.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "switch-on.caf"; sourceTree = "<group>"; };
+		0331E9DB1FD1BFB000E4C845 /* notification-task.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "notification-task.caf"; sourceTree = "<group>"; };
+		0331E9DC1FD1BFB000E4C845 /* tap-light.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tap-light.caf"; sourceTree = "<group>"; };
+		0331E9DD1FD1BFB000E4C845 /* slide-cancel.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "slide-cancel.caf"; sourceTree = "<group>"; };
+		0331E9DE1FD1BFB000E4C845 /* switch-off.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "switch-off.caf"; sourceTree = "<group>"; };
+		0331E9DF1FD1BFB000E4C845 /* modal-up.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "modal-up.caf"; sourceTree = "<group>"; };
+		0331E9E01FD1BFB000E4C845 /* slide-select.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "slide-select.caf"; sourceTree = "<group>"; };
+		0331E9E11FD1BFB100E4C845 /* tap-cell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tap-cell.caf"; sourceTree = "<group>"; };
+		0331E9E21FD1BFB100E4C845 /* modal-down.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "modal-down.caf"; sourceTree = "<group>"; };
+		0331E9E31FD1BFB100E4C845 /* checkbox-deselect.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "checkbox-deselect.caf"; sourceTree = "<group>"; };
+		0331E9E41FD1BFB100E4C845 /* checkbox-select.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "checkbox-select.caf"; sourceTree = "<group>"; };
+		0331E9E51FD1BFB100E4C845 /* slide-start.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "slide-start.caf"; sourceTree = "<group>"; };
+		0331E9E61FD1BFB200E4C845 /* alert.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alert.caf; sourceTree = "<group>"; };
+		0331E9F51FD1C06400E4C845 /* tap-nav.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tap-nav.caf"; sourceTree = "<group>"; };
 		034DF3701FCF2BE400130A93 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		0370AE8F1FC33CAE00E584C0 /* SiriManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriManager.swift; sourceTree = "<group>"; };
 		0370AE911FC3D1B600E584C0 /* Database-Prepare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database-Prepare.swift"; sourceTree = "<group>"; };
@@ -498,6 +528,27 @@
 			path = Preferences;
 			sourceTree = "<group>";
 		};
+		0331E9AE1FD1AA8400E4C845 /* SoundEffects */ = {
+			isa = PBXGroup;
+			children = (
+				0331E9F51FD1C06400E4C845 /* tap-nav.caf */,
+				0331E9E61FD1BFB200E4C845 /* alert.caf */,
+				0331E9E21FD1BFB100E4C845 /* modal-down.caf */,
+				0331E9DF1FD1BFB000E4C845 /* modal-up.caf */,
+				0331E9E31FD1BFB100E4C845 /* checkbox-deselect.caf */,
+				0331E9E41FD1BFB100E4C845 /* checkbox-select.caf */,
+				0331E9DB1FD1BFB000E4C845 /* notification-task.caf */,
+				0331E9DD1FD1BFB000E4C845 /* slide-cancel.caf */,
+				0331E9E01FD1BFB000E4C845 /* slide-select.caf */,
+				0331E9E51FD1BFB100E4C845 /* slide-start.caf */,
+				0331E9DE1FD1BFB000E4C845 /* switch-off.caf */,
+				0331E9DA1FD1BFAF00E4C845 /* switch-on.caf */,
+				0331E9E11FD1BFB100E4C845 /* tap-cell.caf */,
+				0331E9DC1FD1BFB000E4C845 /* tap-light.caf */,
+			);
+			path = SoundEffects;
+			sourceTree = "<group>";
+		};
 		03799A371FCFA05100704BFF /* GiGi.iOS.Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +563,7 @@
 			isa = PBXGroup;
 			children = (
 				03799A2B1FCF9FA100704BFF /* NotificationManager.swift */,
+				0331E9CB1FD1AAC200E4C845 /* SoundManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -649,6 +701,7 @@
 		03F12F871F29B64D009DE50E /* Miscellanous */ = {
 			isa = PBXGroup;
 			children = (
+				0331E9AE1FD1AA8400E4C845 /* SoundEffects */,
 				03F12F521F29B5D3009DE50E /* Assets.xcassets */,
 				034DF3701FCF2BE400130A93 /* Icons.xcassets */,
 				03F12F4D1F29B531009DE50E /* GiGi.iOS.entitlements */,
@@ -1123,9 +1176,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0331E9EF1FD1BFB200E4C845 /* tap-cell.caf in Resources */,
+				0331E9EE1FD1BFB200E4C845 /* slide-select.caf in Resources */,
+				0331E9EC1FD1BFB200E4C845 /* switch-off.caf in Resources */,
+				0331E9ED1FD1BFB200E4C845 /* modal-up.caf in Resources */,
 				03F12FA21F29B707009DE50E /* Assets.xcassets in Resources */,
+				0331E9F01FD1BFB200E4C845 /* modal-down.caf in Resources */,
+				0331E9F61FD1C06400E4C845 /* tap-nav.caf in Resources */,
+				0331E9EA1FD1BFB200E4C845 /* tap-light.caf in Resources */,
+				0331E9E81FD1BFB200E4C845 /* switch-on.caf in Resources */,
+				0331E9F11FD1BFB200E4C845 /* checkbox-deselect.caf in Resources */,
 				03C7ECDE1FB5FD5C008571E3 /* InfoPlist.strings in Resources */,
 				037A39831F29E18E00F25BB0 /* Localizable.strings in Resources */,
+				0331E9F31FD1BFB200E4C845 /* slide-start.caf in Resources */,
+				0331E9F41FD1BFB200E4C845 /* alert.caf in Resources */,
+				0331E9EB1FD1BFB200E4C845 /* slide-cancel.caf in Resources */,
+				0331E9F21FD1BFB200E4C845 /* checkbox-select.caf in Resources */,
+				0331E9E91FD1BFB200E4C845 /* notification-task.caf in Resources */,
 				03BD086D1FC00BA700AC5312 /* Harmony.json in Resources */,
 				034DF3711FCF2BE400130A93 /* Icons.xcassets in Resources */,
 				037A39A81F2A22E700F25BB0 /* LaunchScreen.storyboard in Resources */,
@@ -1276,6 +1343,7 @@
 				039FF0001FBC1D0D007C9539 /* IconListViewController.swift in Sources */,
 				03B8E91F1FCA6800004EB9E7 /* SolutionActionListViewController.swift in Sources */,
 				0331E9AB1FD18E8F00E4C845 /* EmptyDashboardCell.swift in Sources */,
+				0331E9CC1FD1AAC200E4C845 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

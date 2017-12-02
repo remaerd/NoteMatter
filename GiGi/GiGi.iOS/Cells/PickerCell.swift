@@ -46,7 +46,10 @@ class PickerCell: Cell
 	
 	func didSelectedChanged()
 	{
-		if isSelected { UIApplication.shared.keyWindow?.rootViewController?.present(pickerController, animated: true, completion: nil) }
+		if isSelected
+		{
+			UIApplication.shared.keyWindow?.rootViewController?.present(pickerController, animated: true, completion: nil)
+		}
 	}
 }
 

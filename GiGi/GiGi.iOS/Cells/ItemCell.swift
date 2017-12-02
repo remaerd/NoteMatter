@@ -80,6 +80,7 @@ extension ItemCell: UIGestureRecognizerDelegate
 {
 	@objc func didTappedAccessoryButton()
 	{
+		Sound.tapLight.play()
 		let navController = (UIApplication.shared.keyWindow?.rootViewController as! UINavigationController)
 		let newController = (navController.visibleViewController as! ItemActionDelegate).itemActionController(forCell: self)
 		navController.pushViewController(newController, animated: true)
@@ -107,7 +108,11 @@ extension ItemCell: UIGestureRecognizerDelegate
 			else
 			{
 				if x <= 0 { return }
-				if x >= Constants.slideMinmalCommitWidth { slideTransition.startTransition(cell: self) }
+				if x >= Constants.slideMinmalCommitWidth
+				{
+					Sound.slideStarted.play()
+					slideTransition.startTransition(cell: self)
+				}
 				else
 				{
 					var progess = Float(x / Constants.slideMinmalCommitWidth) - 0.2
@@ -127,6 +132,7 @@ extension ItemCell: UIGestureRecognizerDelegate
 			}
 			else
 			{
+				Sound.slideCancel.play()
 				UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn, animations:
 				{
 					self.snapshot?.transform = CGAffineTransform.identity

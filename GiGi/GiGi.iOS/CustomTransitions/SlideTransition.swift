@@ -53,6 +53,7 @@ extension SlideTransition
 					newViewController?.collectionView?.deselectItem(at: previousIndex, animated: false)
 					previousCell.isHighlighted(highlight: false, animateDuration: 0.2)
 				}
+				Sound.slideSelected.play()
 				let currentIndex = IndexPath(row: newIndex, section: 0)
 				let currentCell = newViewController?.collectionView?.cellForItem(at: currentIndex) as! Cell
 				collectionView.selectItem(at: currentIndex, animated: false, scrollPosition: [])
@@ -158,6 +159,8 @@ extension SlideTransition
 	
 	func finishTransition()
 	{
+		Sound.slideCancel.play()
+		
 		self.isStarted = false
 		navigationController?.searchBar.reset(controller: newViewController!)
 		UIView.animate(withDuration: Constants.defaultTransitionDuration / 2, animations:

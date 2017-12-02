@@ -17,7 +17,8 @@ class SwitchCell: Cell
 		super.init(frame: frame)
 		
 		switcher.onTintColor = Theme.colors[8]
-		switcher.tintColor = Theme.colors[7].withAlphaComponent(0.2)
+		switcher.tintColor = Theme.colors[2]
+		switcher.addTarget(self, action: #selector(didTapped), for: .touchUpInside)
 		rightView = switcher
 	}
 	
@@ -25,6 +26,11 @@ class SwitchCell: Cell
 	{
 		switcher.isOn = false
 		return
+	}
+	
+	@objc func didTapped()
+	{
+		if switcher.isOn { Sound.switchOn.play() } else { Sound.switchOff.play() }
 	}
 	
 	required init?(coder aDecoder: NSCoder)

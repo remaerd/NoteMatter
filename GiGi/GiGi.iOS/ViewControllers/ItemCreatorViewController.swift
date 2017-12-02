@@ -60,6 +60,7 @@ extension ItemCreatorViewController
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
+		Sound.tapCell.play()
 		let solution = solutions[indexPath.row]
 		let item = try! Item.insert()
 		item.parent = self.item

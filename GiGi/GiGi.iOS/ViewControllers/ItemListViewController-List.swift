@@ -36,20 +36,6 @@ extension ItemListViewController
 		return cell
 	}
 	
-	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
-	{
-		let selectedItem = self.item.children![indexPath.row]
-		switch selectedItem.solution.identifier
-		{
-		case Solution.InternalSolution.folder.identifier:
-			self.navigationController?.pushViewController(ItemListViewController(item: selectedItem), animated: true)
-			break
-		default:
-			self.navigationController?.pushViewController(ItemEditorViewController(item: selectedItem), animated: true)
-			break
-		}
-	}
-	
 	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
 	{
 		let view: UICollectionReusableView
@@ -67,6 +53,21 @@ extension ItemListViewController
 		}
 		return view
 	}
+	
+	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+	{
+		let selectedItem = self.item.children![indexPath.row]
+		Sound.tapCell.play()
+		switch selectedItem.solution.identifier
+		{
+		case Solution.InternalSolution.folder.identifier:
+			self.navigationController?.pushViewController(ItemListViewController(item: selectedItem), animated: true)
+			break
+		default:
+			self.navigationController?.pushViewController(ItemEditorViewController(item: selectedItem), animated: true)
+			break
+		}
+	}
 }
 
 extension ItemListViewController
@@ -78,11 +79,13 @@ extension ItemListViewController
 		let cellItem = item.children![indexPath.row]
 		if (cellItem.task.completedAt != nil)
 		{
+			Sound.checkboxDeselect.play()
 			cellItem.task.completedAt = nil
 			cell.taskButton.isSelected = false
 		}
 		else
 		{
+			Sound.checkboxSelect.play()
 			cellItem.task.completedAt = Date()
 			cell.taskButton.isSelected = true
 		}

@@ -76,6 +76,8 @@ class SlidableKeyboardButton: UIButton
 		{
 			titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
 			setTitle(buttons.first!.title, for: .normal)
+			self.setTitleColor(Theme.colors[5], for: .normal)
+			self.setTitleColor(Theme.colors[0], for: .highlighted)
 		} else if let image = image { setImage(image, for: .normal) } else { setImage(buttons.first!.icon, for: .normal) }
 		
 		layer.cornerRadius = 4
@@ -83,9 +85,6 @@ class SlidableKeyboardButton: UIButton
 		layer.shadowColor = Theme.colors[1].cgColor
 		backgroundColor = Theme.colors[0]
 		showsTouchWhenHighlighted = false
-		
-//		sliderComponents.alignment = .center
-//		sliderComponents.distribution = .equalCentering
 		
 		sliderContainer.isHidden = true
 		sliderContainer.layer.cornerRadius = 4
@@ -101,13 +100,9 @@ class SlidableKeyboardButton: UIButton
 		super.touchesBegan(touches, with: event)
 		sliderContainer.isHidden = false
 		sliderTabBackground.isHidden = false
-		UIView.animate(withDuration: 0.2)
-		{
-			self.tintColor = Theme.colors[0]
-			self.titleLabel?.textColor = Theme.colors[0]
-			self.self.sliderContainer.alpha = 1
-			self.self.sliderTabBackground.alpha = 1
-		}
+		self.tintColor = Theme.colors[0]
+		self.self.sliderContainer.alpha = 1
+		self.self.sliderTabBackground.alpha = 1
 		selectedIndex += 1
 	}
 	
@@ -133,15 +128,15 @@ class SlidableKeyboardButton: UIButton
 	@objc func hideSlider()
 	{
 		UIView.animate(withDuration: 0.2, animations:
-			{
-				self.tintColor = Theme.colors[5]
-				self.titleLabel?.textColor = Theme.colors[5]
-				self.sliderContainer.alpha = 0
-				self.sliderTabBackground.alpha = 0
+		{
+			self.tintColor = Theme.colors[5]
+			self.titleLabel?.textColor = Theme.colors[5]
+			self.sliderContainer.alpha = 0
+			self.sliderTabBackground.alpha = 0
 		}, completion:
-			{ (_) in
-				self.sliderContainer.isHidden = true
-				self.sliderTabBackground.isHidden = true
+		{ (_) in
+			self.sliderContainer.isHidden = true
+			self.sliderTabBackground.isHidden = true
 		})
 	}
 	
@@ -182,44 +177,44 @@ class SlidableKeyboardButton: UIButton
 		
 		let buttonWidth : CGFloat
 		if showTitle { buttonWidth = Constants.keyboardButtonWidth * 2 + Constants.keyboardButtonMargin } else { buttonWidth = Constants.keyboardButtonWidth }
-		
-		constrain(self, sliderContainer, sliderComponents, sliderTabBackground)
-		{
-			view, container, components, background in
-			view.width == buttonWidth
-			view.height == Constants.keyboardButtonHeight
-			
-			let numberOfButtons : CGFloat = CGFloat(sliderComponents.subviews.count) + 1
-			var barWidth = (numberOfButtons * 28) + ((numberOfButtons + 1) * Constants.keyboardButtonMargin)
-			if (showTitle) { barWidth += Constants.edgeMargin }
-			
-			container.width == barWidth
-			container.bottom == view.top - Constants.edgeMargin
-			container.height == Constants.keyboardSliderBarHeight
-			
-			if showTitle { container.leading == view.leading }
-			else if alignRight { container.trailing == view.trailing + Constants.keyboardButtonWidth + Constants.keyboardButtonMargin }
-			else { container.leading == view.leading - Constants.keyboardButtonWidth - Constants.keyboardButtonMargin }
-			
-			components.bottom == container.bottom
-			components.leading == container.leading + Constants.edgeMargin
-			components.trailing == container.trailing - Constants.edgeMargin
-			components.top == container.top
-			
-			background.bottom == view.bottom
-			
-			if showTitle
-			{
-				background.height == 58
-				background.width == 69
-				background.leading == view.leading
-			}
-			else
-			{
-				background.height == 54
-				background.width == 38
-				background.leading == view.leading - 4
-			}
-		}
+
+//		constrain(self, sliderContainer, sliderComponents, sliderTabBackground)
+//		{
+//			view, container, components, background in
+//			view.width == buttonWidth
+//			view.height == Constants.keyboardButtonHeight
+//
+//			let numberOfButtons : CGFloat = CGFloat(sliderComponents.subviews.count) + 1
+//			var barWidth = (numberOfButtons * 28) + ((numberOfButtons + 1) * Constants.keyboardButtonMargin)
+//			if (showTitle) { barWidth += Constants.edgeMargin }
+//
+//			container.width == barWidth
+//			container.bottom == view.top - Constants.edgeMargin
+//			container.height == Constants.keyboardSliderBarHeight
+//
+//			if showTitle { container.leading == view.leading }
+//			else if alignRight { container.trailing == view.trailing + Constants.keyboardButtonWidth + Constants.keyboardButtonMargin }
+//			else { container.leading == view.leading - Constants.keyboardButtonWidth - Constants.keyboardButtonMargin }
+//
+//			components.bottom == container.bottom
+//			components.leading == container.leading + Constants.edgeMargin
+//			components.trailing == container.trailing - Constants.edgeMargin
+//			components.top == container.top
+//
+//			background.bottom == view.bottom
+//
+//			if showTitle
+//			{
+//				background.height == 58
+//				background.width == 69
+//				background.leading == view.leading
+//			}
+//			else
+//			{
+//				background.height == 54
+//				background.width == 38
+//				background.leading == view.leading - 4
+//			}
+//		}
 	}
 }

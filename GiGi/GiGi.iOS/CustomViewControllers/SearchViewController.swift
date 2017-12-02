@@ -52,6 +52,18 @@ class SearchViewController: UIViewController
 			view.top == view.superview!.top + Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight
 		}
 	}
+	
+	override func viewWillAppear(_ animated: Bool)
+	{
+		super.viewWillAppear(animated)
+		Sound.modalUp.play()
+	}
+	
+	override func viewWillDisappear(_ animated: Bool)
+	{
+		super.viewWillDisappear(animated)
+		Sound.modalDown.play()
+	}
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource

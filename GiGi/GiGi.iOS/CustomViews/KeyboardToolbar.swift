@@ -29,29 +29,18 @@ class KeyboardButton: UIButton
 		self.init(frame: CGRect.zero)
 		layer.cornerRadius = 4
 		layer.shadowOffset = CGSize(width: 0, height: 1)
-		layer.shadowColor = Theme.colors[1].cgColor
-		showsTouchWhenHighlighted = false
+		layer.shadowColor = Theme.colors[3].cgColor
 		backgroundColor = Theme.colors[0]
+		adjustsImageWhenHighlighted = false
 		tintColor = Theme.colors[5]
 		setImage(image, for: .normal)
-	}
-	
-	override func didMoveToSuperview()
-	{
-		super.didMoveToSuperview()
-		constrain(self)
-		{
-			view in
-			view.width == Constants.keyboardButtonWidth
-			view.height == Constants.keyboardButtonHeight
-		}
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
 	{
 		super.touchesBegan(touches, with: event)
 		backgroundColor = Theme.colors[5]
-		tintColor = Theme.colors[0]
+		imageView?.tintColor = Theme.colors[0]
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -60,7 +49,7 @@ class KeyboardButton: UIButton
 		if let _ = touches.first
 		{
 			backgroundColor = Theme.colors[0]
-			tintColor = Theme.colors[5]
+			imageView?.tintColor = Theme.colors[5]
 		}
 	}
 }
@@ -107,21 +96,48 @@ class KeyboardToolbar: UIView
 	init()
 	{
 		toolbarView = UIView()
+		super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Constants.keyboardBarHeight))
+		
+		if Theme.isMorning { backgroundColor = UIColor.init(hex: "D2D5DB") } else { backgroundColor = UIColor.init(hex: "1A1A1A") }
+		tintColor = Theme.colors[6]
+		taskView.isHidden = true
+		var lastView: UIView?
+		var firstView: UIView?
+		
 		for view in [paragraphStyleButton, taskButton, inlineStyleButton, linkButton, braceButton, quoteButton, punctuationButton, dismissButton] as [UIView]
 		{
 			toolbarView.addSubview(view)
+			if let _lastView = lastView
+			{
+				constrain(view, _lastView)
+				{
+					view, lastView in
+					view.centerY == view.superview!.centerY
+					view.leading == lastView.trailing + 5
+					view.height == 44
+				}
+				lastView = view
+			}
+			else
+			{
+				firstView = view
+				lastView = view
+				constrain(view)
+				{
+					view in
+					view.centerY == view.superview!.centerY
+					view.leading == view.superview!.leading + 19
+					view.height == 44
+				}
+			}
 		}
 		
-		super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Constants.keyboardBarHeight))
-		
-		backgroundColor = Theme.colors[2]
-		tintColor = Theme.colors[6]
-		
-//		toolbarView.spacing = Constants.keyboardButtonMargin
-//		toolbarView.distribution = .fill
-//		toolbarView.alignment = .center
-//		toolbarView.axis = .horizontal
-		taskView.isHidden = true
+		constrain(toolbarView.subviews.last!, firstView!)
+		{
+			view, firstView in
+			view.trailing == view.superview!.trailing - 19
+			firstView.width == view.width * 2
+		}
 		
 		addSubview(toolbarView)
 		addSubview(taskView)
@@ -129,8 +145,7 @@ class KeyboardToolbar: UIView
 		constrain(taskView, toolbarView)
 		{
 			view, toolbar in
-			toolbar.centerX == view.superview!.centerX
-			toolbar.centerY == view.superview!.centerY
+			toolbar.edges == view.superview!.edges
 			view.leading == view.superview!.leading
 			view.trailing == view.superview!.trailing
 			view.bottom == toolbar.top

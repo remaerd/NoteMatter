@@ -68,6 +68,7 @@ extension EnhancedViewController where Self:UIKit.UIViewController
 	
 	func alert(title: String, message: String)
 	{
+		Sound.alert.play()
 		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 		UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
@@ -80,6 +81,7 @@ extension UIKit.UIViewController
 	{
 		DispatchQueue.main.async
 		{
+			Sound.tapNavButton.play()
 			self.navigationController?.popViewController(animated: true)
 		}
 	}

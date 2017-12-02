@@ -83,17 +83,21 @@ extension SearchBar
 						self.slideTransition.startTransition(cell: nil)
 						indicator.label.text = ".placeholder.slide".localized
 					}
-					UIView.animate(withDuration: 0.3, animations:
+					if indicator.widthConstraint?.constant != self.bounds.width + minimumCommitWidth
 					{
-						indicator.backgroundImage.tintColor = Theme.colors[5]
-						indicator.label.textColor = Theme.colors[0]
-						indicator.widthConstraint?.constant = self.bounds.width + minimumCommitWidth
-						indicator.layoutIfNeeded()
-					})
+						Sound.slideStarted.play()
+						UIView.animate(withDuration: 0.3, animations:
+						{
+							indicator.backgroundImage.tintColor = Theme.colors[5]
+							indicator.label.textColor = Theme.colors[0]
+							indicator.widthConstraint?.constant = self.bounds.width + minimumCommitWidth
+							indicator.layoutIfNeeded()
+						})
+					}
 				}
 				else
 				{
-					indicator.label.text = indicator.title
+					if indicator.backgroundImage.tintColor != Theme.colors[3] { Sound.slideCancel.play() }
 					UIView.animate(withDuration: 0.1, animations:
 					{
 						indicator.backgroundImage.tintColor = Theme.colors[3]

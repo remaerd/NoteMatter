@@ -45,5 +45,5 @@ struct Constants
 	
 	static let defaultCornerRadius : CGFloat = 10
 	
-	static let defaultTransitionDuration : TimeInterval = 0.50
+	static let defaultTransitionDuration : TimeInterval = 0.30
 }
