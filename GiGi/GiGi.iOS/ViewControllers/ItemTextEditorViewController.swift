@@ -21,10 +21,11 @@ class ItemTextEditorViewController: UIViewController
 	
 	init(item:Item)
 	{
-		storage = ContentStorage(item:item)
-
-		let manager = NSLayoutManager()
+		ContentStorage.item = item
+		storage = ContentStorage()
+		storage.isEditing = true
 		
+		let manager = NSLayoutManager()
 		let container = NSTextContainer()
 		container.lineFragmentPadding = 0
 		
@@ -38,6 +39,7 @@ class ItemTextEditorViewController: UIViewController
 		editorView.delegate = self
 		editorView.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
 		editorView.backgroundColor = Theme.colors[0]
+		editorView.textColor = Theme.colors[7]
 		editorView.layer.cornerRadius = Constants.defaultCornerRadius
 		editorView.inputAccessoryView = self.keyboardToolbar
 		editorView.keyboardDismissMode = .interactive
@@ -62,7 +64,7 @@ class ItemTextEditorViewController: UIViewController
 	{
 		super.loadView()
 		
-		title = storage.item.title
+		title = ContentStorage.item!.title
 		view.addSubview(editorView)
 		
 		constrain(editorView)
@@ -148,7 +150,6 @@ extension ItemTextEditorViewController: UITextViewDelegate
 	
 	func textViewShouldEndEditing(_ textView: UITextView) -> Bool
 	{
-		storage.selectedRange = nil
 		editorView.isEditable = false
 		editorView.isSelectable = false
 		tap?.isEnabled = true
@@ -162,10 +163,5 @@ extension ItemTextEditorViewController: UITextViewDelegate
 		hideSearchBar(hidden: false)
 		setNeedsStatusBarAppearanceUpdate()
 		return true
-	}
-	
-	func textViewDidChangeSelection(_ textView: UITextView)
-	{
-		storage.selectedRange = textView.selectedRange
 	}
 }

@@ -34,8 +34,8 @@ class SecurityViewController: UICollectionViewController
 			{
 				switch context.biometryType
 				{
-				case .typeFaceID: authType = .faceId
-				case .typeTouchID: authType = .touchId
+				case .faceID: authType = .faceId
+				case .touchID: authType = .touchId
 				default: break
 				}
 			} else { authType = .touchId }
