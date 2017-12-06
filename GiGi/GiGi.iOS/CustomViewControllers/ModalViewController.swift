@@ -18,7 +18,7 @@ class ModalViewController: UIPresentationController
 	
 	override func presentationTransitionWillBegin()
 	{
-		Sound.modalUp.play()
+		Sound.keyboardUp.play()
 		super.presentationTransitionWillBegin()
 		self.dimmingView.backgroundColor = UIColor.black
 		self.dimmingView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismiss)))
@@ -30,7 +30,7 @@ class ModalViewController: UIPresentationController
 	
 	override func dismissalTransitionWillBegin()
 	{
-		Sound.modalDown.play()
+		Sound.keyboardDown.play()
 		super.dismissalTransitionWillBegin()
 		presentedViewController.transitionCoordinator?.animate(alongsideTransition:
 		{ (context) in

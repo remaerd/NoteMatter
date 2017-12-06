@@ -76,7 +76,7 @@
 		037A398A1F29E3F200F25BB0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39891F29E3F200F25BB0 /* Alert.swift */; };
 		037A398E1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A398D1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift */; };
 		037A39A81F2A22E700F25BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F531F29B5D3009DE50E /* LaunchScreen.storyboard */; };
-		037A39AC1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39AB1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift */; };
+		037A39AC1F2A238A00F25BB0 /* ItemTextEditorViewController-KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037A39AB1F2A238A00F25BB0 /* ItemTextEditorViewController-KeyboardToolbar.swift */; };
 		039FEFFF1FBBD7C2007C9539 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03F12F711F29B604009DE50E /* Localizable.strings */; };
 		039FF0001FBC1D0D007C9539 /* IconListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F5D1F29B5D3009DE50E /* IconListViewController.swift */; };
 		039FF0021FBC1FBA007C9539 /* MembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FF0011FBC1FBA007C9539 /* MembershipViewController.swift */; };
@@ -124,7 +124,7 @@
 		03F12F971F29B6F8009DE50E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F6B1F29B5D3009DE50E /* UIViewController.swift */; };
 		03F12F981F29B6F8009DE50E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F661F29B5D3009DE50E /* SearchViewController.swift */; };
 		03F12F991F29B6FD009DE50E /* ItemActionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F501F29B5D3009DE50E /* ItemActionListViewController.swift */; };
-		03F12F9B1F29B6FD009DE50E /* ItemEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F5E1F29B5D3009DE50E /* ItemEditorViewController.swift */; };
+		03F12F9B1F29B6FD009DE50E /* ItemTextEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F5E1F29B5D3009DE50E /* ItemTextEditorViewController.swift */; };
 		03F12F9D1F29B6FD009DE50E /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F601F29B5D3009DE50E /* ItemListViewController.swift */; };
 		03F12F9E1F29B6FD009DE50E /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F631F29B5D3009DE50E /* LaunchViewController.swift */; };
 		03F12F9F1F29B6FD009DE50E /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F12F641F29B5D3009DE50E /* PreferencesViewController.swift */; };
@@ -300,7 +300,7 @@
 		037A39861F29E38700F25BB0 /* ItemListViewController-Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemListViewController-Action.swift"; sourceTree = "<group>"; };
 		037A39891F29E3F200F25BB0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		037A398D1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidableKeyboardButton.swift; sourceTree = "<group>"; };
-		037A39AB1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemEditorViewController-KeyboardToolbar.swift"; sourceTree = "<group>"; };
+		037A39AB1F2A238A00F25BB0 /* ItemTextEditorViewController-KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemTextEditorViewController-KeyboardToolbar.swift"; sourceTree = "<group>"; };
 		037A39AD1F2A24CA00F25BB0 /* ContentStorage-KeyboardBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentStorage-KeyboardBar.swift"; sourceTree = "<group>"; };
 		039FF0011FBC1FBA007C9539 /* MembershipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipViewController.swift; sourceTree = "<group>"; };
 		039FF0031FBC1FF5007C9539 /* AssistantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantViewController.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 		03F12F571F29B5D3009DE50E /* DefaultTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTransition.swift; sourceTree = "<group>"; };
 		03F12F5C1F29B5D3009DE50E /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		03F12F5D1F29B5D3009DE50E /* IconListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconListViewController.swift; sourceTree = "<group>"; };
-		03F12F5E1F29B5D3009DE50E /* ItemEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEditorViewController.swift; sourceTree = "<group>"; };
+		03F12F5E1F29B5D3009DE50E /* ItemTextEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTextEditorViewController.swift; sourceTree = "<group>"; };
 		03F12F601F29B5D3009DE50E /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		03F12F611F29B5D3009DE50E /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		03F12F621F29B5D3009DE50E /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
@@ -736,8 +736,8 @@
 				037A39861F29E38700F25BB0 /* ItemListViewController-Action.swift */,
 				03F12F501F29B5D3009DE50E /* ItemActionListViewController.swift */,
 				03C7ECE31FB865C1008571E3 /* ItemCreatorViewController.swift */,
-				03F12F5E1F29B5D3009DE50E /* ItemEditorViewController.swift */,
-				037A39AB1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift */,
+				03F12F5E1F29B5D3009DE50E /* ItemTextEditorViewController.swift */,
+				037A39AB1F2A238A00F25BB0 /* ItemTextEditorViewController-KeyboardToolbar.swift */,
 				03F12F631F29B5D3009DE50E /* LaunchViewController.swift */,
 				03F12F641F29B5D3009DE50E /* PreferencesViewController.swift */,
 				032B20BD1FB90C9B006EAD00 /* Preferences */,
@@ -1312,13 +1312,13 @@
 				037A398E1F2A1DD000F25BB0 /* SlidableKeyboardButton.swift in Sources */,
 				0324A1771FC8587C00242D6F /* EdgeIndicator.swift in Sources */,
 				039FF0041FBC1FF5007C9539 /* AssistantViewController.swift in Sources */,
-				037A39AC1F2A238A00F25BB0 /* ItemEditorViewController-KeyboardToolbar.swift in Sources */,
+				037A39AC1F2A238A00F25BB0 /* ItemTextEditorViewController-KeyboardToolbar.swift in Sources */,
 				03C7ECE41FB865C1008571E3 /* ItemCreatorViewController.swift in Sources */,
 				03F12F9F1F29B6FD009DE50E /* PreferencesViewController.swift in Sources */,
 				03D22BE81FC0076C0054BE9C /* Defaults.swift in Sources */,
 				039FF0021FBC1FBA007C9539 /* MembershipViewController.swift in Sources */,
 				0331E9A71FD188C300E4C845 /* AssistantCell.swift in Sources */,
-				03F12F9B1F29B6FD009DE50E /* ItemEditorViewController.swift in Sources */,
+				03F12F9B1F29B6FD009DE50E /* ItemTextEditorViewController.swift in Sources */,
 				031B2D781FB98A1400A01489 /* View.swift in Sources */,
 				03F12F8C1F29B6F0009DE50E /* Constants.swift in Sources */,
 				0324A1791FC85BE200242D6F /* SearchBar-Edge.swift in Sources */,

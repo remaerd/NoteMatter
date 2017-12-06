@@ -21,8 +21,8 @@ enum Sound
 	case slideCancel
 	case checkboxSelect
 	case checkboxDeselect
-	case modalUp
-	case modalDown
+	case keyboardUp
+	case keyboardDown
 	case switchOn
 	case switchOff
 	
@@ -39,8 +39,8 @@ enum Sound
 		case .slideCancel: return "slide-cancel"
 		case .checkboxSelect: return "checkbox-select"
 		case .checkboxDeselect: return "checkbox-deselect"
-		case .modalUp: return "modal-up"
-		case .modalDown: return "modal-down"
+		case .keyboardUp: return "modal-up"
+		case .keyboardDown: return "modal-down"
 		case .switchOn: return "switch-on"
 		case .switchOff: return "switch-off"
 		}

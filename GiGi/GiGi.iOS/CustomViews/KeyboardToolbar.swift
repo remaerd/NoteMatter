@@ -103,40 +103,40 @@ class KeyboardToolbar: UIView
 		taskView.isHidden = true
 		var lastView: UIView?
 		var firstView: UIView?
-		
-		for view in [paragraphStyleButton, taskButton, inlineStyleButton, linkButton, braceButton, quoteButton, punctuationButton, dismissButton] as [UIView]
+		let views = [dismissButton, punctuationButton, quoteButton, braceButton, linkButton, inlineStyleButton, taskButton, paragraphStyleButton] as [UIView]
+		for _view in views
 		{
-			toolbarView.addSubview(view)
+			toolbarView.addSubview(_view)
 			if let _lastView = lastView
 			{
-				constrain(view, _lastView)
+				constrain(_view, _lastView)
 				{
 					view, lastView in
+					if views.index(of: _view) == views.count - 1 { view.width == lastView.width * 2 } else { view.width == lastView.width }
 					view.centerY == view.superview!.centerY
-					view.leading == lastView.trailing + 5
+					view.trailing == lastView.leading - 5
 					view.height == 44
 				}
-				lastView = view
+				lastView = _view
 			}
 			else
 			{
-				firstView = view
-				lastView = view
-				constrain(view)
+				firstView = _view
+				lastView = _view
+				constrain(_view)
 				{
 					view in
 					view.centerY == view.superview!.centerY
-					view.leading == view.superview!.leading + 19
+					view.trailing == view.superview!.trailing - 22
 					view.height == 44
 				}
 			}
 		}
 		
-		constrain(toolbarView.subviews.last!, firstView!)
+		constrain(lastView!)
 		{
-			view, firstView in
-			view.trailing == view.superview!.trailing - 19
-			firstView.width == view.width * 2
+			view in
+			view.leading == view.superview!.leading + 22
 		}
 		
 		addSubview(toolbarView)

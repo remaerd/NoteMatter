@@ -1,5 +1,5 @@
 //
-//  ItemEditorViewController.swift
+//  ItemTextEditorViewController.swift
 //  GiGi
 //
 //  Created by Sean Cheng on 02/07/2017.
@@ -10,7 +10,7 @@ import UIKit
 import GiGi
 import Cartography
 
-class ItemEditorViewController: UIViewController
+class ItemTextEditorViewController: UIViewController
 {
 	let keyboardToolbar = KeyboardToolbar()
 	
@@ -98,7 +98,7 @@ class ItemEditorViewController: UIViewController
 	}
 }
 
-extension ItemEditorViewController: UITextViewDelegate
+extension ItemTextEditorViewController: UITextViewDelegate
 {
 	@objc func keyboardDidShow(notification: NSNotification)
 	{
@@ -142,6 +142,7 @@ extension ItemEditorViewController: UITextViewDelegate
 	
 	func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
 	{
+		Sound.keyboardUp.play()
 		return true
 	}
 	
@@ -157,6 +158,7 @@ extension ItemEditorViewController: UITextViewDelegate
 		{
 			self.view.layoutIfNeeded()
 		}
+		Sound.keyboardDown.play()
 		hideSearchBar(hidden: false)
 		setNeedsStatusBarAppearanceUpdate()
 		return true

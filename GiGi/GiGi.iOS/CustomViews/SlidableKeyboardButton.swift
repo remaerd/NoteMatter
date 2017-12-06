@@ -62,9 +62,31 @@ class SlidableKeyboardButton: UIButton
 			imageButtons.append(newButton)
 		}
 		
+		var lastButton: UIButton?
 		for button in imageButtons
 		{
 			sliderComponents.addSubview(button)
+			
+			if let _lastButton = lastButton
+			{
+				constrain(button, _lastButton)
+				{
+					button, lastButton in
+					button.leading == lastButton.trailing + 10
+					button.top == button.superview!.top + 8
+				}
+				lastButton = button
+			}
+			else
+			{
+				constrain(button)
+				{
+					button in
+					button.top == button.superview!.top + 8
+					button.leading == button.superview!.leading
+				}
+				lastButton = button
+			}
 		}
 		
 		sliderContainer.addSubview(sliderComponents)
@@ -169,52 +191,47 @@ class SlidableKeyboardButton: UIButton
 		{
 			insertSubview(sliderTabBackground, belowSubview: imageView)
 			insertSubview(sliderContainer, belowSubview: imageView)
-		} else if let titleLabel = imageView, sliderContainer.superview == nil
+		}
+		else if let titleLabel = imageView, sliderContainer.superview == nil
 		{
 			insertSubview(sliderTabBackground, belowSubview: titleLabel)
 			insertSubview(sliderContainer, belowSubview: titleLabel)
 		}
 		
-		let buttonWidth : CGFloat
-		if showTitle { buttonWidth = Constants.keyboardButtonWidth * 2 + Constants.keyboardButtonMargin } else { buttonWidth = Constants.keyboardButtonWidth }
-
-//		constrain(self, sliderContainer, sliderComponents, sliderTabBackground)
-//		{
-//			view, container, components, background in
-//			view.width == buttonWidth
-//			view.height == Constants.keyboardButtonHeight
-//
-//			let numberOfButtons : CGFloat = CGFloat(sliderComponents.subviews.count) + 1
-//			var barWidth = (numberOfButtons * 28) + ((numberOfButtons + 1) * Constants.keyboardButtonMargin)
-//			if (showTitle) { barWidth += Constants.edgeMargin }
-//
-//			container.width == barWidth
-//			container.bottom == view.top - Constants.edgeMargin
-//			container.height == Constants.keyboardSliderBarHeight
-//
-//			if showTitle { container.leading == view.leading }
-//			else if alignRight { container.trailing == view.trailing + Constants.keyboardButtonWidth + Constants.keyboardButtonMargin }
-//			else { container.leading == view.leading - Constants.keyboardButtonWidth - Constants.keyboardButtonMargin }
-//
-//			components.bottom == container.bottom
-//			components.leading == container.leading + Constants.edgeMargin
-//			components.trailing == container.trailing - Constants.edgeMargin
-//			components.top == container.top
-//
-//			background.bottom == view.bottom
-//
-//			if showTitle
-//			{
-//				background.height == 58
-//				background.width == 69
-//				background.leading == view.leading
-//			}
-//			else
-//			{
-//				background.height == 54
-//				background.width == 38
-//				background.leading == view.leading - 4
-//			}
-//		}
+		constrain(sliderContainer, sliderComponents, sliderTabBackground)
+		{
+			container, components, tab in
+			let numberOfButtons = CGFloat(sliderComponents.subviews.count) + 1
+			var width = numberOfButtons * 28 + ( numberOfButtons + 1 ) * 5
+			if showTitle { width += Constants.edgeMargin }
+			
+			container.width == width
+			container.bottom == container.superview!.top - Constants.edgeMargin
+			container.height == 46
+			
+			if showTitle { container.leading == container.superview!.leading }
+			else if alignRight { container.trailing == container.superview!.trailing + 28 + 5 }
+			else { container.leading == container.superview!.leading - 28 - 5 }
+			
+			components.leading == container.leading + Constants.edgeMargin
+			components.trailing == container.trailing - Constants.edgeMargin
+			components.bottom == container.bottom
+			components.top == container.top
+			
+			tab.bottom == tab.superview!.bottom
+			
+			if showTitle
+			{
+				tab.height == 58
+				tab.leading == tab.superview!.leading
+				tab.trailing == tab.superview!.trailing + 5
+			}
+			else
+			{
+				tab.height == 54
+				tab.leading == tab.superview!.leading - 4
+				tab.trailing == tab.superview!.trailing + 5
+			}
+		}
 	}
 }

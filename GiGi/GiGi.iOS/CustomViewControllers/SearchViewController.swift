@@ -56,13 +56,13 @@ class SearchViewController: UIViewController
 	override func viewWillAppear(_ animated: Bool)
 	{
 		super.viewWillAppear(animated)
-		Sound.modalUp.play()
+		Sound.keyboardUp.play()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool)
 	{
 		super.viewWillDisappear(animated)
-		Sound.modalDown.play()
+		Sound.keyboardDown.play()
 	}
 }
 

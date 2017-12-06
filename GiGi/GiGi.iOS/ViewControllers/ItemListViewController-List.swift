@@ -64,7 +64,7 @@ extension ItemListViewController
 			self.navigationController?.pushViewController(ItemListViewController(item: selectedItem), animated: true)
 			break
 		default:
-			self.navigationController?.pushViewController(ItemEditorViewController(item: selectedItem), animated: true)
+			self.navigationController?.pushViewController(ItemTextEditorViewController(item: selectedItem), animated: true)
 			break
 		}
 	}
