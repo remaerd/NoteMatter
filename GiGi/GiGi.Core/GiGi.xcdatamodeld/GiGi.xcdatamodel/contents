@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B1003" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17B1003" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1">
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dashboardType" attributeType="String" defaultValueString=".dashboard.gigi, .dashboard.today, .dashboard.7days, .dashboard.anytime" syncable="YES"/>
@@ -14,7 +14,7 @@
     </entity>
     <entity name="ItemComponent" representedClassName="ItemComponent" syncable="YES">
         <attribute name="indexedContent" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="innerStyles" attributeType="Transformable" syncable="YES"/>
+        <attribute name="innerStyles" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="type" attributeType="String" syncable="YES"/>
         <attribute name="unindexedContent" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="item" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="components" inverseEntity="Item" syncable="YES"/>
@@ -47,7 +47,7 @@
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="193"/>
-        <element name="ItemComponent" positionX="117" positionY="-18" width="128" height="133"/>
+        <element name="ItemComponent" positionX="117" positionY="-18" width="128" height="135"/>
         <element name="Solution" positionX="-227" positionY="-18" width="128" height="163"/>
         <element name="Task" positionX="117" positionY="162" width="128" height="240"/>
     </elements>

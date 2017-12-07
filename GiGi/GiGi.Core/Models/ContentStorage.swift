@@ -176,6 +176,7 @@ extension ContentStorage
 					{
 						componentsLength.insert(content.count, at: currentParagraphIndex + index)
 						let component = try! ItemComponent.insert()
+						component.type = ItemComponent.ComponentType.body.rawValue
 						component.indexedContent = content
 						ContentStorage.item?.insertIntoComponents(component, at: currentParagraphIndex + index)
 					}
@@ -183,6 +184,7 @@ extension ContentStorage
 					{
 						componentsLength.append(content.count)
 						let component = try! ItemComponent.insert()
+						component.type = ItemComponent.ComponentType.body.rawValue
 						component.indexedContent = content
 						ContentStorage.item?.addToComponents(component)
 					}

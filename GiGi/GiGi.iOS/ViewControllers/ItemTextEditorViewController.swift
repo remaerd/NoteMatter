@@ -86,7 +86,9 @@ class ItemTextEditorViewController: UIViewController
 	
 	override func viewWillDisappear(_ animated: Bool)
 	{
-		
+		super.viewWillDisappear(animated)
+		do { try ContentStorage.item?.save() }
+		catch { error.alert() }
 	}
 	
 	override var prefersStatusBarHidden: Bool
