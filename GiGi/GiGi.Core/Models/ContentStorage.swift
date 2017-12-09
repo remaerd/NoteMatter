@@ -10,6 +10,11 @@ import UIKit
 
 public class ContentStorage: NSTextStorage
 {
+	public enum Exception: Error
+	{
+		case componentNotFound
+	}
+	
 	// WARNING: 由于 NSTextStorage 的设计问题。进行粘贴复制多行内容时，软件会尝试新建一个 NSTextStorage 并进行操作。
 	// 为了防止软件崩溃，只能通过一种比较奇葩的方式设置 Item
 	public static var item: Item?
@@ -49,6 +54,22 @@ public class ContentStorage: NSTextStorage
 	{
 		fatalError("init(coder:) has not been implemented")
 	}
+	
+	public func paragraphIndex(range: NSRange) -> NSRange
+	{
+		var paragraphIndex: Int = 0
+		var currentParagraphLength: Int = 0
+		for length in componentsLength
+		{
+			if range.location > currentParagraphLength + length
+			{
+				currentParagraphLength += length + 1
+				paragraphIndex += 1
+			}
+			else { break }
+		}
+		return NSRange(location: paragraphIndex, length: 1)
+	}
 }
 
 extension ContentStorage
@@ -73,6 +94,7 @@ extension ContentStorage
 {
 	public override func replaceCharacters(in range: NSRange, with str: String)
 	{
+		beginEditing()
 		if isEditing { processChanges(range: range, string: str) }
 		edited([.editedCharacters, .editedAttributes], range: range, changeInLength: str.count - range.length)
 		attributedString.replaceCharacters(in: range, with: str)
@@ -93,17 +115,7 @@ extension ContentStorage
 {
 	func processChanges(range: NSRange, string: String)
 	{
-		var currentParagraphIndex: Int = 0
-		var currentParagraphLength: Int = 0
-		for length in componentsLength
-		{
-			if range.location > currentParagraphLength + length
-			{
-				currentParagraphLength += length + 1
-				currentParagraphIndex += 1
-			}
-			else { break }
-		}
+		let currentParagraphIndex = paragraphIndex(range: range).location
 		
 		var prevLine: String?
 		let prevLineParagraphRange = (attributedString.string as NSString).paragraphRange(for: NSRange(location: range.location, length: 0))
@@ -132,7 +144,7 @@ extension ContentStorage
 			{
 				if index == 0
 				{
-					let component = ContentStorage.item?.components?[currentParagraphIndex]
+					let component = ContentStorage.item?.components[currentParagraphIndex]
 					let content: String
 					if changedContents.count > 1
 					{
@@ -149,7 +161,7 @@ extension ContentStorage
 				else
 				{
 					componentsLength.remove(at: currentParagraphIndex + 1)
-					ContentStorage.item!.removeFromComponents(at: currentParagraphIndex + 1)
+					try! ContentStorage.item!.components[currentParagraphIndex + 1].destroy()
 				}
 			}
 		}
@@ -161,7 +173,7 @@ extension ContentStorage
 			{
 				if componentsLength.count != 0 && index == 0
 				{
-					let component = ContentStorage.item!.components![currentParagraphIndex + index]
+					let component = ContentStorage.item!.components[currentParagraphIndex + index]
 					let content: String
 					if newContents.count > 1 { content = prevLine! + newContents[index] }
 					else { content = component.indexedContent! + newContents[index] }

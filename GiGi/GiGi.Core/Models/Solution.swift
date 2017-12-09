@@ -48,7 +48,7 @@ public class Solution: NSManagedObject, Model
 		}
 	}
 	
-	public static var database: Database { return Database.defaultDatabase }
+	public static var database: Database { return Database.standard }
 	
 	public static let internalSolutions : [Solution.InternalSolution] = [.task, .document, .folder]
 	

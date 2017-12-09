@@ -111,12 +111,6 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 		maskLayer.frame = CGRect(x: Constants.edgeMargin, y: 0, width: collectionView!.bounds.size.width - Constants.edgeMargin * 2, height: UIScreen.main.bounds.height)
 	}
 	
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
-		if backgroundTintColor.isVisibleOnWhiteBackground == false { return UIStatusBarStyle.default }
-		return UIStatusBarStyle.lightContent
-	}
-	
 	override var supportedInterfaceOrientations: UIInterfaceOrientationMask
 	{
 		return [.portrait, .portraitUpsideDown]

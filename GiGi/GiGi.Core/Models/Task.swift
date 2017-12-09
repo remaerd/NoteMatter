@@ -12,5 +12,5 @@ import CoreData
 @objc(Task)
 public class Task: NSManagedObject, Model
 {
-	public static var database: Database { return Database.defaultDatabase }
+	public static var database: Database { return Database.standard }
 }

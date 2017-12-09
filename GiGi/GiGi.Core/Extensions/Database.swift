@@ -37,7 +37,7 @@ public class Database: NSObject
 	var observingObjects	= [NSManagedObjectID: NSManagedObjectChangeHandler]()
 	var notificationToken	: NSObjectProtocol?
 	
-	static var defaultDatabase : Database!
+	static var standard : Database!
 	
 	public init(type:StoreType, modelURL: URL, url:URL?) throws
 	{

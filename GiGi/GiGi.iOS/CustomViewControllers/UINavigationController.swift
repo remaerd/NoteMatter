@@ -53,6 +53,9 @@ class UINavigationController: UIKit.UINavigationController, UINavigationControll
 		(viewController as? UICollectionViewController)?.customBackButton()
 		(viewController as? UIViewController)?.customBackButton()
 		
+		if newController.backgroundTintColor.isVisibleOnWhiteBackground == false { UIApplication.shared.setStatusBarStyle(.default, animated: true) }
+		else { UIApplication.shared.setStatusBarStyle(.lightContent, animated: true) }
+		
 		searchBar.textColor = Theme.colors[6]
 		self.searchBar.reset(controller: viewController)
 		

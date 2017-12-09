@@ -13,7 +13,7 @@ extension Database
 	static func prepare() throws
 	{
 		try FileManager.default.createDirectory(at: URL.localDatabaseDirectory, withIntermediateDirectories: false, attributes: nil)
-		Database.defaultDatabase = try Database(type: .default, modelURL: URL.defaultDatabaseModelUrl, url: URL.defaultDatabaseUrl)
+		Database.standard = try Database(type: .default, modelURL: URL.defaultDatabaseModelUrl, url: URL.defaultDatabaseUrl)
 		
 		var folderType: Solution!
 		var documentType: Solution!

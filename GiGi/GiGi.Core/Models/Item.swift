@@ -17,7 +17,7 @@ public protocol ItemDelegate: NSObjectProtocol
 @objc(Item)
 public class Item: NSManagedObject, Model
 {
-	public static var database: Database { return Database.defaultDatabase }
+	public static var database: Database { return Database.standard }
 	
 	var cachedComponents = NSTextStorage()
 	weak var delegate: ItemDelegate?

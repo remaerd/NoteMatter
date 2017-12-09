@@ -34,6 +34,7 @@ class LaunchViewController: UIKit.UIViewController
 			{
 				let controller = ItemListViewController(item: item)
 				self.navigationController?.setViewControllers([controller], animated: animated)
+				UIApplication.shared.setStatusBarHidden(false, with: .fade)
 			}
 			else { throw LaunchException.rootFolderNotFound }
 		} catch
@@ -41,11 +42,6 @@ class LaunchViewController: UIKit.UIViewController
 			error.alert()
 			print(error)
 		}
-	}
-	
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
-		return UIStatusBarStyle.lightContent
 	}
 	
 	override func didReceiveMemoryWarning()

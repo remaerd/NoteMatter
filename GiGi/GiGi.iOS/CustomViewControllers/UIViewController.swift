@@ -33,6 +33,7 @@ extension EnhancedViewController where Self:UIKit.UIViewController
 	{
 		if let navigationController = self.navigationController as? UINavigationController
 		{
+			UIApplication.shared.setStatusBarHidden(hidden, with: .fade)
 			if (hidden == false && navigationController.searchBar.isHidden) { navigationController.searchBar.isHidden = hidden }
 			UIView.animate(withDuration: Constants.defaultTransitionDuration / 2, animations:
 			{
@@ -96,10 +97,4 @@ class UIViewController: UIKit.UIViewController, EnhancedViewController
 	var pushTransition : TransitionType { return TransitionType.default }
 	var popTransition : TransitionType { return TransitionType.default }
 	weak var searchDelegate: SearchBarDelegate? { return nil }
-
-	override var preferredStatusBarStyle: UIStatusBarStyle
-	{
-		if backgroundTintColor.isVisibleOnWhiteBackground == false { return UIStatusBarStyle.default }
-		return UIStatusBarStyle.lightContent
-	}
 }

@@ -9,47 +9,51 @@
 import Foundation
 import GiGi
 
-extension ItemTextEditorViewController : KeyboardToolbarDelegate
+extension ItemTextEditorViewController
 {
-	func didSetParagraphStyle(style: ItemComponent.ComponentType)
+	@objc func didSelectParagraphStyle()
 	{
 		Sound.tapCell.play()
-//		do { try storage.setParagraphStyle(style: style) } catch { error.alert() }
+		editorView.selectedRange = storage.setParagraphStyle(range: self.editorView.selectedRange)
 	}
 	
-	func didSetTask(task: Task?)
+	@objc func didTappedTaskButton()
+	{
+		Sound.tapCell.play()
+		editorView.selectedRange = storage.toggleTask(range: self.editorView.selectedRange)
+	}
+	
+	@objc func didSelectedInlineParagraphStyle()
+	{
+		Sound.tapCell.play()
+		editorView.selectedRange = storage.setInlineStyle(range: self.editorView.selectedRange)
+	}
+	
+	@objc func didTappedLinkButton()
+	{
+		Sound.tapCell.play()
+//		do { storage.setLink(range: self.editorView.selectedRange, url: url) } catch { error.alert() }
+	}
+	
+	@objc func didSelectedBrace()
+	{
+		Sound.tapCell.play()
+		editorView.selectedRange = storage.setBrace(range: self.editorView.selectedRange)
+	}
+	
+	@objc func didTappedQuoteButton()
+	{
+		Sound.tapCell.play()
+		self.editorView.selectedRange = storage.setSingleQuote(range: self.editorView.selectedRange)
+	}
+	
+	@objc func didTappedPunctuation()
 	{
 		Sound.tapCell.play()
 	}
 	
-	func didSetInlineStyle(style: ItemComponent.ComponentInnerStyle?)
+	@objc func didTappedDismissButton()
 	{
-		Sound.tapCell.play()
-	}
-	
-	func didSetLink(url: URL?)
-	{
-		Sound.tapCell.play()
-	}
-	
-	func didSelectedBrace(string: String?)
-	{
-		Sound.tapCell.play()
-	}
-	
-	func didSelectedSingleQuote()
-	{
-		Sound.tapCell.play()
-	}
-	
-	func didSelectedCommonPunctuation(string: String?)
-	{
-		Sound.tapCell.play()
-	}
-	
-	func didDismissKeyboard()
-	{
-		Sound.tapCell.play()
 		editorView.resignFirstResponder()
 	}
 }

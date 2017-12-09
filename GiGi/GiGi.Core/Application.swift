@@ -20,6 +20,6 @@ public struct Application
 		var isFirstlaunch = true
 		if FileManager.default.fileExists(atPath: URL.defaultDatabaseUrl.path) { isFirstlaunch = false }
 		if isFirstlaunch { try Database.prepare() }
-		Database.defaultDatabase = try Database(type: .default, modelURL: URL.defaultDatabaseModelUrl, url: URL.defaultDatabaseUrl)
+		Database.standard = try Database(type: .default, modelURL: URL.defaultDatabaseModelUrl, url: URL.defaultDatabaseUrl)
 	}
 }

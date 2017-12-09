@@ -12,49 +12,7 @@ import CoreData
 @objc(ItemComponent)
 public class ItemComponent: NSManagedObject, Model
 {
-	public static var EditorRegularFont: UIFont =
-	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size), size: size)!
-	}()
-	
-	public static var EditorItalicFont: UIFont =
-	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .italic, fontSize: size), size: size)!
-	}()
-	
-	public static var EditorBoldFont: UIFont =
-	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
-	}()
-	
-	public static var EditorHeader1Font: UIFont =
-	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .heavy, fontSize: size), size: size)!
-	}()
-	
-	public static var EditorHeader2Font: UIFont =
-	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
-	}()
-	
-	public static var EditorHeader3Font: UIFont =
-	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
-	}()
-	
-	public static var EditorHeader4Font: UIFont =
-	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
-	}()
-	
-	public static var database: Database { return Database.defaultDatabase }
+	public static var database: Database { return Database.standard }
 	
 	public enum ComponentInnerStyle: String
 	{
@@ -115,4 +73,64 @@ public class ItemComponent: NSManagedObject, Model
 			}
 		}
 	}
+	
+	public var componentType: ComponentType
+	{
+		get
+		{
+			if let type = ComponentType(rawValue: self.type) { return type }
+			else
+			{
+				type = ComponentType.body.rawValue
+				return .body
+			}
+		}
+		set { type = newValue.rawValue }
+	}
+}
+
+
+public extension ItemComponent
+{
+	public static var EditorRegularFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorItalicFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .italic, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorBoldFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorHeader1Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .heavy, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorHeader2Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorHeader3Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+	
+	public static var EditorHeader4Font: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
+		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
 }

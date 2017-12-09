@@ -21,7 +21,7 @@ public extension Item
 	@NSManaged public var parent: Item?
 	@NSManaged public var children: [Item]?
 	
-	@NSManaged public var components: [ItemComponent]?
+	@NSManaged public var components: [ItemComponent]
 }
 
 // MARK: Generated accessors for children
