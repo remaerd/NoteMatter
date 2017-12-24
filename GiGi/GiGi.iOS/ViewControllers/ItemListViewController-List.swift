@@ -31,7 +31,7 @@ extension ItemListViewController
 		
 		cell.tintColor = Theme.colors[6]
 		cell.taskButton.isSelected = (childItem.task.completedAt != nil)
-		cell.titleLabel.text = (childItem as AnyObject).title.localized
+		cell.titleTextfield.text = (childItem as AnyObject).title.localized
 		cell.taskButton.addTarget(self, action: #selector(didTappedTaskButton(button:)), for: .touchUpInside)
 		return cell
 	}

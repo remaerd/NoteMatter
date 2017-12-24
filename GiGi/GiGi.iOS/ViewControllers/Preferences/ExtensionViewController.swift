@@ -38,40 +38,40 @@ extension ExtensionViewController
 		{
 		case 0:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
-			cell.titleLabel.text = ".preferences.extensions.today".localized
+			cell.titleTextfield.text = ".preferences.extensions.today".localized
 			cell.accessoryType = Cell.AccessoryType.description(string: ".preferences.extensions.inactived".localized)
 			cell.icon = #imageLiteral(resourceName: "List-Today")
 			return cell
 		case 1:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
-			cell.titleLabel.text = ".preferences.extensions.share".localized
+			cell.titleTextfield.text = ".preferences.extensions.share".localized
 			cell.accessoryType = Cell.AccessoryType.description(string: ".preferences.extensions.inactived".localized)
 			cell.icon = #imageLiteral(resourceName: "List-Share")
 			return cell
 		case 2:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
-			cell.titleLabel.text = ".preferences.extensions.reminders".localized
+			cell.titleTextfield.text = ".preferences.extensions.reminders".localized
 			cell.switcher.addTarget(self, action: #selector(didTappedReminderSwitch(switcher:)), for: .touchUpInside)
 			if Defaults.extensionReminder.bool && EventManager.shared.reminderStatus == .authorized { cell.switcher.isOn = true }
 			cell.icon = #imageLiteral(resourceName: "List-Reminders")
 			return cell
 		case 3:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
-			cell.titleLabel.text = ".preferences.extensions.calendar".localized
+			cell.titleTextfield.text = ".preferences.extensions.calendar".localized
 			cell.switcher.addTarget(self, action: #selector(didTappedCalendarSwitch(switcher:)), for: .touchUpInside)
 			if Defaults.extensionCalendar.bool && EventManager.shared.calendarStatus == .authorized { cell.switcher.isOn = true }
 			cell.icon = #imageLiteral(resourceName: "List-Calendar")
 			return cell
 		case 4:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
-			cell.titleLabel.text = ".preferences.extensions.spotlight".localized
+			cell.titleTextfield.text = ".preferences.extensions.spotlight".localized
 			cell.switcher.addTarget(self, action: #selector(didTappedSpotlightSwitch(switcher:)), for: .touchUpInside)
 			cell.switcher.isOn = Defaults.extensionSpotlight.bool
 			cell.icon = #imageLiteral(resourceName: "List-Spotlight")
 			return cell
 		case 5:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
-			cell.titleLabel.text = ".preferences.extensions.siri".localized
+			cell.titleTextfield.text = ".preferences.extensions.siri".localized
 			if #available(iOS 11.0, *) { cell.switcher.addTarget(self, action: #selector(didTappedSiriSwitch(switcher:)), for: .touchUpInside) }
 			if Defaults.extensionSiri.bool && EventManager.shared.calendarStatus == .authorized { cell.switcher.isOn = true }
 			cell.icon = #imageLiteral(resourceName: "List-Siri")

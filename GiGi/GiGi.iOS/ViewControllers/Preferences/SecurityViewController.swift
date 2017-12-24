@@ -63,12 +63,12 @@ extension SecurityViewController
 		{
 		case 0:
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
-			cell.titleLabel.text = ".preferences.security.reset".localized
+			cell.titleTextfield.text = ".preferences.security.reset".localized
 			break
 		case 1:
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
-			if authType == .faceId { cell.titleLabel.text = ".preferences.security.faceid".localized }
-			else if authType == .touchId { cell.titleLabel.text = ".preferences.security.touchid".localized }
+			if authType == .faceId { cell.titleTextfield.text = ".preferences.security.faceid".localized }
+			else if authType == .touchId { cell.titleTextfield.text = ".preferences.security.touchid".localized }
 			break
 		default: break
 		}

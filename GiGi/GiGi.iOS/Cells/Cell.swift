@@ -20,7 +20,7 @@ class Cell: UICollectionViewCell
 		case description(string: String)
 	}
 	
-	let titleLabel: UILabel = UILabel()
+	let titleTextfield = UITextView()
 	let seperator = UIView()
 	
 	var icon: UIImage? { didSet { setIcon() } }
@@ -35,9 +35,9 @@ class Cell: UICollectionViewCell
 	{
 		super.init(frame: frame)
 		
-		titleLabel.numberOfLines = 0
-		titleLabel.font = Font.CellFont
-		contentView.addSubview(titleLabel)
+		titleTextfield.isUserInteractionEnabled = false
+		titleTextfield.font = Font.CellFont
+		contentView.addSubview(titleTextfield)
 
 		self.backgroundView = UIView()
 
@@ -46,14 +46,14 @@ class Cell: UICollectionViewCell
 		let heightLayout = NSLayoutConstraint.init(item: self.contentView, attribute: NSLayoutAttribute.height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .height, multiplier: 0, constant: Constants.cellHeight)
 		contentView.addConstraint(heightLayout)
 		
-		constrain(titleLabel, seperator)
+		constrain(titleTextfield, seperator)
 		{
-			titleLabel, seperator in
+			titleTextfield, seperator in
 			
-			titleLabel.trailing == titleLabel.superview!.trailing - Constants.cellHeight
-			titleLabel.top == titleLabel.superview!.top + 12
-			titleLabel.bottom == titleLabel.superview!.bottom - 12
-			_titleLeadingConstraint = titleLabel.leading == titleLabel.superview!.leading + 15
+			titleTextfield.trailing == titleTextfield.superview!.trailing - Constants.cellHeight
+			titleTextfield.top == titleTextfield.superview!.top + 5
+			titleTextfield.bottom == titleTextfield.superview!.bottom - 5
+			_titleLeadingConstraint = titleTextfield.leading == titleTextfield.superview!.leading + 15
 			
 			seperator.height == 0.5
 			seperator.bottom == seperator.superview!.bottom
@@ -75,7 +75,7 @@ class Cell: UICollectionViewCell
 		if let rightView = rightView { rightView.tintColor = Theme.colors[3] }
 		backgroundView?.backgroundColor = Theme.colors[0]
 		seperator.backgroundColor = Theme.colors[1]
-		titleLabel.textColor = tintColor
+		titleTextfield.textColor = tintColor
 	}
 	
 	override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
@@ -91,7 +91,7 @@ class Cell: UICollectionViewCell
 		super.prepareForReuse()
 		leftView?.removeFromSuperview()
 		rightView?.removeFromSuperview()
-		titleLabel.text = nil
+		titleTextfield.text = nil
 		isHighlighted = false
 	}
 
@@ -99,8 +99,8 @@ class Cell: UICollectionViewCell
 	{
 		UIView.animate(withDuration: animateDuration)
 		{
-			if highlight { self.titleLabel.textColor = Theme.colors[8] }
-			else { self.titleLabel.textColor = Theme.colors[6] }
+			if highlight { self.titleTextfield.textColor = Theme.colors[8] }
+			else { self.titleTextfield.textColor = Theme.colors[6] }
 		}
 	}
 }

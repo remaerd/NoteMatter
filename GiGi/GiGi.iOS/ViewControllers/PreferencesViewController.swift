@@ -56,7 +56,7 @@ extension PreferencesViewController
 		cell.accessoryType = .default
 		if indexPath.section == 0
 		{
-			cell.titleLabel.text = ".preferences.membership".localized
+			cell.titleTextfield.text = ".preferences.membership".localized
 			cell.icon = #imageLiteral(resourceName: "List-Membership")
 		}
 		else
@@ -64,12 +64,12 @@ extension PreferencesViewController
 			if indexPath.row == 0
 			{
 				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
-				cell.titleLabel.text = menuNames[indexPath.row].localized
+				cell.titleTextfield.text = menuNames[indexPath.row].localized
 				cell.icon = UIImage(named: menuIcons[indexPath.row])
 				cell.switcher.isOn = Defaults.assistant.bool
 				return cell
 			}
-			cell.titleLabel.text = menuNames[indexPath.row].localized
+			cell.titleTextfield.text = menuNames[indexPath.row].localized
 			cell.icon = UIImage(named: menuIcons[indexPath.row])
 		}
 		return cell

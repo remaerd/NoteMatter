@@ -59,7 +59,7 @@ extension SolutionActionListViewController
 		default: fatalError()
 		}
 		if let icon = action.icon { cell.icon = UIImage(named: icon) } else { cell.icon = UIImage() }
-		cell.titleLabel.text = action.title.localized
+		cell.titleTextfield.text = action.title.localized
 		return cell
 		
 	}

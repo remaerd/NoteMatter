@@ -53,7 +53,7 @@ extension ItemActionListViewController
 	{
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
 		if let icon = item.solution.actions[indexPath.row].icon { cell.icon = UIImage(named: icon) } else { cell.icon = UIImage() }
-		cell.titleLabel.text = item.solution.actions[indexPath.row].title.localized
+		cell.titleTextfield.text = item.solution.actions[indexPath.row].title.localized
 		cell.tintColor = Theme.colors[7]
 		return cell
 	}

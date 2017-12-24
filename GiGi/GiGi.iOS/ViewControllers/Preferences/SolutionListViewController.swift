@@ -63,7 +63,7 @@ extension SolutionListViewController
 		}
 		if let image = solutions[indexPath.row].icon, let icon = UIImage(named: image) { cell.icon = icon }
 		else { cell.icon = #imageLiteral(resourceName: "0702-document")  }
-		cell.titleLabel.text = solutions[indexPath.row].title.localized
+		cell.titleTextfield.text = solutions[indexPath.row].title.localized
 		return cell
 		
 	}

@@ -53,7 +53,7 @@ extension ItemCreatorViewController
 	{
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
 		if let image = solutions[indexPath.row].icon, let icon = UIImage(named: image) { cell.icon = icon }
-		cell.titleLabel.text = self.solutions[indexPath.row].title.localized
+		cell.titleTextfield.text = self.solutions[indexPath.row].title.localized
 		cell.accessoryType = .add
 		return cell
 	}

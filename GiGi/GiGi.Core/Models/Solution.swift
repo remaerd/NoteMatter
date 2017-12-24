@@ -25,11 +25,11 @@ public class Solution: NSManagedObject, Model
 		{
 			switch self
 			{
-			case .reschedule: return "List-Bell"
-			case .move: return "List-Move"
-			case .rename: return "List-Rename"
-			case .convert: return "List-Convert"
-			case .delete: return "List-Delete"
+			case .reschedule: return "0110-bell"
+			case .move: return "0801-folder"
+			case .rename: return "0601-pencil"
+			case .convert: return "0814-cameraroll"
+			case .delete: return "0109-delete"
 			case .cancel: return nil
 			}
 		}
