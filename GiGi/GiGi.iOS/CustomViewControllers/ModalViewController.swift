@@ -20,8 +20,8 @@ class ModalViewController: UIPresentationController
 	{
 		Sound.keyboardUp.play()
 		super.presentationTransitionWillBegin()
-		self.dimmingView.backgroundColor = UIColor.black
-		self.dimmingView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismiss)))
+		self.dimmingView.backgroundColor = Theme.colors[7]
+		self.presentedViewController.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismiss)))
 		self.dimmingView.frame = self.containerView!.bounds
 		self.dimmingView.alpha = 0
 		self.containerView?.insertSubview(self.dimmingView, belowSubview: self.presentedView!)
@@ -53,8 +53,6 @@ class ModalViewController: UIPresentationController
 	
 	override var frameOfPresentedViewInContainerView: CGRect
 	{
-		let height = Defaults.listHeight.float + Constants.edgeMargin * 2
-		let y = UIScreen.main.bounds.height - Constants.edgeMargin - Defaults.listHeight.float
-		return CGRect(x: 0, y: y, width: self.presentedView!.bounds.width, height: height)
+		return  self.presentedView!.bounds
 	}
 }

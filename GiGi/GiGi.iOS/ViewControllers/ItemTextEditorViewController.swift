@@ -19,6 +19,15 @@ class ItemTextEditorViewController: UIViewController
 	var tap: UITapGestureRecognizer!
 	var editorTopConstraint: NSLayoutConstraint?
 	
+	let paragraphStyleButton: SlidableKeyboardButton
+	let taskButton: KeyboardButton
+	let inlineStyleButton: SlidableKeyboardButton
+	let linkButton: KeyboardButton
+	let braceButton: SlidableKeyboardButton
+	let quoteButton: KeyboardButton
+	let punctuationButton: SlidableKeyboardButton
+	let dismissButton: KeyboardButton
+	
 	init(item:Item)
 	{
 		let styles = [(#imageLiteral(resourceName: "Keyboard-Regular"),".style.paragraph.regular".localized),
@@ -45,16 +54,16 @@ class ItemTextEditorViewController: UIViewController
 												(#imageLiteral(resourceName: "Keyboard-Exclamation"),".style.punctuation.exclamation".localized),
 												(#imageLiteral(resourceName: "Keyboard-Question"),".style.punctuation.question".localized)]
 		
-		let paragraphStyleButton = SlidableKeyboardButton(buttons: styles, showTitle: true)
-		let taskButton = KeyboardButton(image: #imageLiteral(resourceName: "Keyboard-Task"))
-		let inlineStyleButton = SlidableKeyboardButton(buttons: inlineStyle, image: #imageLiteral(resourceName: "Keyboard-Bold"))
-		let linkButton = KeyboardButton(image: #imageLiteral(resourceName: "Keyboard-Link"))
-		let braceButton = SlidableKeyboardButton(buttons: braces, alignRight: true, nullable: true)
-		let quoteButton = KeyboardButton(image: #imageLiteral(resourceName: "Keyboard-SingleQuote"))
-		let punctuationButton = SlidableKeyboardButton(buttons: punctuations, alignRight: true, nullable: true)
-		let dismissButton = KeyboardButton(image: #imageLiteral(resourceName: "Keyboard-Dismiss"))
+		paragraphStyleButton = SlidableKeyboardButton(buttons: styles, showTitle: true)
+		taskButton = KeyboardButton(image: #imageLiteral(resourceName: "Keyboard-Task"))
+		inlineStyleButton = SlidableKeyboardButton(buttons: inlineStyle, image: #imageLiteral(resourceName: "Keyboard-Bold"))
+		linkButton = KeyboardButton(image: #imageLiteral(resourceName: "Keyboard-Link"))
+		braceButton = SlidableKeyboardButton(buttons: braces, alignRight: true)
+		quoteButton = KeyboardButton(image: #imageLiteral(resourceName: "Keyboard-SingleQuote"))
+		punctuationButton = SlidableKeyboardButton(buttons: punctuations, alignRight: true)
+		dismissButton = KeyboardButton(image: #imageLiteral(resourceName: "Keyboard-Dismiss"))
 		
-		let views = [dismissButton, punctuationButton, quoteButton, braceButton, linkButton, inlineStyleButton, taskButton, paragraphStyleButton]
+		let views = [dismissButton, punctuationButton, quoteButton, braceButton, linkButton, inlineStyleButton, taskButton, paragraphStyleButton] as [UIView]
 		keyboardToolbar = KeyboardToolbar(views: views)
 		
 		ContentStorage.item = item
@@ -93,22 +102,12 @@ class ItemTextEditorViewController: UIViewController
 		editorView.isSelectable = false
 		editorView.isEditable = false
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboarWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(notification:)), name: .UIKeyboardDidHide, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChanged(notification:)), name: .UIKeyboardWillHide, object: nil)
 		if Theme.isMorning { editorView.keyboardAppearance = .light } else { editorView.keyboardAppearance = .dark }
 		
 		tap = UITapGestureRecognizer(target: self, action: #selector(didTappedEditor(gesture:)))
 		editorView.addGestureRecognizer(tap!)
 	}
-	
-	deinit
-	{
-		NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
-		NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-		NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidHide, object: nil)
-	}
-	
+
 	required init?(coder aDecoder: NSCoder)
 	{
 		fatalError("init(coder:) has not been implemented")
@@ -131,9 +130,22 @@ class ItemTextEditorViewController: UIViewController
 		}
 	}
 	
+	override func viewWillAppear(_ animated: Bool)
+	{
+		super.viewWillAppear(animated)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChanged(notification:)), name: .UITextInputCurrentInputModeDidChange, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboarWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(notification:)), name: .UIKeyboardDidHide, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
+	}
+	
 	override func viewWillDisappear(_ animated: Bool)
 	{
 		super.viewWillDisappear(animated)
+		NotificationCenter.default.removeObserver(self, name: .UITextInputCurrentInputModeDidChange, object: nil)
+		NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+		NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+		NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidHide, object: nil)
 		do { try ContentStorage.item?.save() }
 		catch { error.alert() }
 	}
@@ -143,21 +155,21 @@ extension ItemTextEditorViewController: UITextViewDelegate
 {
 	@objc func keyboardDidChanged(notification: NSNotification)
 	{
+		storage.language = editorView.textInputMode?.primaryLanguage
+	}
+	
+	@objc func keyboardWillHide(notification: NSNotification)
+	{
 		if tap?.isEnabled == false
 		{
 			Sound.keyboardDown.play()
-			self.editorTopConstraint?.constant = Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight
-			UIView.animate(withDuration: Constants.defaultTransitionDuration / 2)
-			{
-				self.view.layoutIfNeeded()
-			}
-			hideSearchBar(hidden: false)
 		}
 		tap?.isEnabled = true
 	}
 	
 	@objc func keyboarWillShow(notification: NSNotification)
 	{
+		Sound.keyboardUp.play()
 		if let rectValue = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue
 		{
 			let keyboardSize = rectValue.cgRectValue.size
@@ -195,15 +207,30 @@ extension ItemTextEditorViewController: UITextViewDelegate
 	{
 		editorView.isEditable = false
 		editorView.isSelectable = false
+		self.editorTopConstraint?.constant = Constants.statusBarHeight + Constants.edgeMargin * 2 + Constants.searchBarHeight
+		UIView.animate(withDuration: Constants.defaultTransitionDuration / 2)
+		{
+			self.view.layoutIfNeeded()
+		}
+		hideSearchBar(hidden: false)
 	}
 	
-	func textViewDidBeginEditing(_ textView: UITextView)
+	func textViewDidChangeSelection(_ textView: UITextView)
 	{
+		let paragraphIndex = storage.paragraphIndex(range: self.editorView.selectedRange).location
+		let type = ContentStorage.item!.components[paragraphIndex].componentType
+		let styleIndex: Int
+		switch type
+		{
+		case .body: styleIndex = 1; break
+		case .header1:  styleIndex = 2; break
+		case .header2:  styleIndex = 3; break
+		case .header3:  styleIndex = 4; break
+		case .unorderedListItem:  styleIndex = 5; break
+		case .orderedListItem:  styleIndex = 6; break
+		case .quote:  styleIndex = 7; break
+		}
+		paragraphStyleButton.selectedIndex = styleIndex
 	}
 	
-	func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
-	{
-		Sound.keyboardUp.play()
-		return true
-	}
 }

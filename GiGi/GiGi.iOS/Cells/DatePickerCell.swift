@@ -62,7 +62,10 @@ class DatePickerController: UIKit.UIViewController
 		constrain(blurView, pickerView)
 		{
 			view, pickerView in
-			view.edges == view.superview!.edges
+			view.leading == view.superview!.leading
+			view.trailing == view.superview!.trailing
+			view.top == view.superview!.top + ( UIScreen.main.bounds.height - Constants.edgeMargin - Defaults.listHeight.float )
+			view.bottom == view.superview!.bottom
 			pickerView.edges == view.edges
 		}
 	}

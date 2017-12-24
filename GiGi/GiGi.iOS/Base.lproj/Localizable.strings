@@ -8,6 +8,8 @@
 
 ".universal.cancel" = "Cancel";
 
+// MARK: Solution Type
+
 ".type.task" = "Task";
 ".type.folder" = "Project";
 ".type.document" = "Document";
@@ -15,16 +17,14 @@
 ".type.problem" = "Problem";
 ".type.diary" = "Diary";
 
-".notification.action.done" = "Done";
-".notification.action.1" = "1 hour later";
-".notification.action.3" = "3 hour later";
-".notification.action.24" = "1 day later";
+// MARK: Internal Items
 
 ".item.welcome" = "Letters from GiGi";
 ".item.thumb" = "Thumb tricks";
-
 ".item.rootFolder" = "Illuminote";
 ".item.preferences" = "Preferences";
+
+// MARK: Item Action
 
 ".list.new" = "New ";
 ".list.unlock" = "Unlock secret folder";
@@ -35,35 +35,39 @@
 ".list.actions.rename" = "Rename";
 ".list.actions.delete" = "Delete";
 
-".alert.rename.title" = "Rename";
-".alert.rename.confirm" = "Confirm";
+// MARK: Notifications
 
-".preferences.membership" = "Membership";
-".preferences.solutions" = "Solutions";
+".notification.action.done" = "Done";
+".notification.action.1" = "1 hour later";
+".notification.action.3" = "3 hour later";
+".notification.action.24" = "1 day later";
+
+// MARK: Search bar
 
 ".placeholder.search" = "Type to find...";
 ".placeholder.new" = "Create new...";
 ".placeholder.slide" = "Slide up & down to select...";
 ".placeholder.solution.new" = "New solution...";
 
+// MARK: Text Editor
+
 ".style.paragraph.regular" = "Regular";
 ".style.paragraph.header1" = "Header 1";
 ".style.paragraph.header2" = "Header 2";
 ".style.paragraph.header3" = "Header 3";
-".style.paragraph.list" = "List";
-".style.paragraph.numlist" = "Num. List";
+".style.paragraph.unordered" = "List";
+".style.paragraph.ordered" = "Num list";
 ".style.paragraph.quote" = "Quote";
 
-".error.title.0" = "Oops!";
-".error.title.1" = "Whoops!";
-".error.title.2" = "Ouch!";
-".error.title.3" = "Darn!";
-".error.title.4" = "Uh-Oh!";
-".error.title.5" = "Whoops-a-daisy!";
-".error.title.6" = "Oopsy!";
-".error.title.7" = "Whoopee!";
-".error.title.8" = "Aye-yai-yai!";
-".error.title.9" = "Wowzers!";
+".editor.link.web" = "Web";
+".editor.link.section" = "Section";
+".editor.link.document" = "Document";
+".editor.link.ode" = "Code";
+
+// Preferences
+
+".preferences.membership" = "Membership";
+".preferences.solutions" = "Solutions";
 
 ".preferences.assistant" = "Assistant";
 ".preferences.assistant.level" = "Level";
@@ -133,3 +137,16 @@
 "Icon-Perfectionism" = "Perfectionism";
 "Icon-Altruism" = "Altruism";
 "Icon-Elitism" = "Elitism";
+
+// MARK: Errors
+
+".error.title.0" = "Oops!";
+".error.title.1" = "Whoops!";
+".error.title.2" = "Ouch!";
+".error.title.3" = "Darn!";
+".error.title.4" = "Uh-Oh!";
+".error.title.5" = "Whoops-a-daisy!";
+".error.title.6" = "Oopsy!";
+".error.title.7" = "Whoopee!";
+".error.title.8" = "Aye-yai-yai!";
+".error.title.9" = "Wowzers!";

@@ -27,6 +27,12 @@ extension Font
 		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size), size: size)!
 	}()
 	
+	public static var SegmentBarFont: UIFont =
+	{
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline).pointSize
+		return UIFont(name: FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+	}()
+	
 	public static var SearchBarTextFont: UIFont =
 	{
 		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline).pointSize

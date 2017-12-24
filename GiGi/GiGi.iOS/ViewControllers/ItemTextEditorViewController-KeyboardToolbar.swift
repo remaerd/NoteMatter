@@ -14,7 +14,9 @@ extension ItemTextEditorViewController
 	@objc func didSelectParagraphStyle()
 	{
 		Sound.tapCell.play()
-		editorView.selectedRange = storage.setParagraphStyle(range: self.editorView.selectedRange)
+		let result = storage.setParagraphStyle(range: self.editorView.selectedRange)
+		editorView.selectedRange = result.newRange
+		paragraphStyleButton.selectedIndex = result.index
 	}
 	
 	@objc func didTappedTaskButton()
@@ -32,13 +34,16 @@ extension ItemTextEditorViewController
 	@objc func didTappedLinkButton()
 	{
 		Sound.tapCell.play()
-//		do { storage.setLink(range: self.editorView.selectedRange, url: url) } catch { error.alert() }
+		let viewController = LinkEditorViewController()
+		present(viewController, animated: true, completion: nil)
 	}
 	
 	@objc func didSelectedBrace()
 	{
 		Sound.tapCell.play()
-		editorView.selectedRange = storage.setBrace(range: self.editorView.selectedRange)
+		let result = storage.setBrace(range: self.editorView.selectedRange)
+		self.editorView.selectedRange = result.newRange
+		braceButton.selectedIndex = result.index
 	}
 	
 	@objc func didTappedQuoteButton()
@@ -50,6 +55,9 @@ extension ItemTextEditorViewController
 	@objc func didTappedPunctuation()
 	{
 		Sound.tapCell.play()
+		let result = storage.setPunctuation(range: self.editorView.selectedRange)
+		self.editorView.selectedRange = result.newRange
+		punctuationButton.selectedIndex = result.index
 	}
 	
 	@objc func didTappedDismissButton()

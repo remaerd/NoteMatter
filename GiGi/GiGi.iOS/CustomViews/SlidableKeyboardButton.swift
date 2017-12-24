@@ -9,45 +9,31 @@
 import UIKit
 import Cartography
 
-protocol KeyboardSlidableButtonDelegate: NSObjectProtocol
-{
-	func didSelected(index: Int)
-}
-
 class SlidableKeyboardButton: UIButton
 {
-	// 是否允许为空值。SelectedIndex 为 0 时，不显示 SelectedBackgroundView
-	let nullable: Bool
 	let showTitle: Bool
 	let alignRight: Bool
 	let sliderContainer = UIView()
 	let sliderComponents = UIView()
 	let sliderTabBackground: UIView
 	var hideTimer: Timer?
+	let buttons: [(icon: UIImage, title: String)]
 	
-	weak var delegate: KeyboardSlidableButtonDelegate?
-	
-	var _selectedIndex: Int = 0
+	private var _selectedIndex: Int = 0
+	var selectedView: UIView?
 	var selectedIndex: Int
 	{
 		get { return _selectedIndex }
-		set
-		{
-			let previousIndex = _selectedIndex
-			if (nullable)
-			{
-				if newValue > sliderComponents.subviews.count { _selectedIndex = 0 } else { _selectedIndex = newValue }
-			} else
-			{
-				if newValue >= sliderComponents.subviews.count { _selectedIndex = 0 } else { _selectedIndex = newValue }
-			}
-			didChangedSelectedIndex(previous: previousIndex, current: _selectedIndex)
+		set {
+			_selectedIndex = newValue
+			if showTitle { self.setTitle(buttons[newValue - 1].title, for: .normal) }
+			didChangedSelectedIndex(index: _selectedIndex)
 		}
 	}
 	
-	init(buttons: [(icon: UIImage, title: String)], image: UIImage? = nil, showTitle: Bool = false, alignRight: Bool = false, nullable: Bool = false)
+	init(buttons: [(icon: UIImage, title: String)], image: UIImage? = nil, showTitle: Bool = false, alignRight: Bool = false)
 	{
-		self.nullable = nullable
+		self.buttons = buttons
 		self.showTitle = showTitle
 		self.alignRight = alignRight
 		
@@ -99,7 +85,7 @@ class SlidableKeyboardButton: UIButton
 			titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
 			setTitle(buttons.first!.title, for: .normal)
 			self.setTitleColor(Theme.colors[5], for: .normal)
-			self.setTitleColor(Theme.colors[0], for: .highlighted)
+			self.setTitleColor(Theme.colors[0], for: .selected)
 		} else if let image = image { setImage(image, for: .normal) } else { setImage(buttons.first!.icon, for: .normal) }
 		
 		layer.cornerRadius = 4
@@ -123,9 +109,9 @@ class SlidableKeyboardButton: UIButton
 		sliderContainer.isHidden = false
 		sliderTabBackground.isHidden = false
 		self.tintColor = Theme.colors[0]
-		self.self.sliderContainer.alpha = 1
-		self.self.sliderTabBackground.alpha = 1
-		selectedIndex += 1
+		self.isSelected = true
+		self.sliderContainer.alpha = 1
+		self.sliderTabBackground.alpha = 1
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -149,10 +135,10 @@ class SlidableKeyboardButton: UIButton
 	
 	@objc func hideSlider()
 	{
+		self.isSelected = false
 		UIView.animate(withDuration: 0.2, animations:
 		{
 			self.tintColor = Theme.colors[5]
-			self.titleLabel?.textColor = Theme.colors[5]
 			self.sliderContainer.alpha = 0
 			self.sliderTabBackground.alpha = 0
 		}, completion:
@@ -167,19 +153,14 @@ class SlidableKeyboardButton: UIButton
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func didChangedSelectedIndex(previous: Int, current: Int)
+	func didChangedSelectedIndex(index: Int)
 	{
-		if (nullable)
+		selectedView?.backgroundColor = UIColor.clear
+		if index == 0 { selectedView = nil }
+		else
 		{
-			if (current == 0) { sliderComponents.subviews[previous - 1].backgroundColor = UIColor.clear } else
-			{
-				if (previous != 0) { sliderComponents.subviews[previous - 1].backgroundColor = UIColor.clear }
-				sliderComponents.subviews[current - 1].backgroundColor = Theme.colors[6]
-			}
-		} else
-		{
-			sliderComponents.subviews[previous].backgroundColor = UIColor.clear
-			sliderComponents.subviews[current].backgroundColor = Theme.colors[4]
+			selectedView = sliderComponents.subviews[index - 1]
+			selectedView?.backgroundColor = Theme.colors[6]
 		}
 	}
 	
@@ -191,11 +172,6 @@ class SlidableKeyboardButton: UIButton
 		{
 			insertSubview(sliderTabBackground, belowSubview: imageView)
 			insertSubview(sliderContainer, belowSubview: imageView)
-		}
-		else if let titleLabel = imageView, sliderContainer.superview == nil
-		{
-			insertSubview(sliderTabBackground, belowSubview: titleLabel)
-			insertSubview(sliderContainer, belowSubview: titleLabel)
 		}
 		
 		constrain(sliderContainer, sliderComponents, sliderTabBackground)

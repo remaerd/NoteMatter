@@ -25,6 +25,30 @@ public class ContentStorage: NSTextStorage
 	public let attributedString : NSMutableAttributedString
 	public var componentsLength = [Int]()
 	
+	public var punucations = [String: String]()
+	public var language: String? { didSet { didSetLanguage() } }
+	public var currentTappedToolbarButton: Int = -1
+	
+	public static var defaultPunucations = ["\"":"\"", "!\"": "\"", "{":"{", "!{": "}",
+																					"[": "[", "![": "]",  "(": "(", "!(": ")",
+																					"\'": "\'", ".": ".",  ",": ",", "!": "!",  "?": "?"]
+	
+	public static var cjkPunucations = [ "\"": "“", "!\"": "”", "{": "「", "!{": "」",
+																			 "[": "【", "![": "】", "(": "（", "!(": "）",
+																			 "\'": "\'", ".": "。", ",": "，", "!": "！", 	"?": "？"]
+	public func didSetLanguage()
+	{
+		if let language = language
+		{
+			switch language
+			{
+			case "zh-Hans", "zh-Hant", "jp-Jp": punucations = ContentStorage.cjkPunucations; break
+			default: punucations = ContentStorage.defaultPunucations; break
+			}
+		}
+		else { punucations = ContentStorage.defaultPunucations }
+	}
+	
 	public override init()
 	{
 		let paragraph = NSMutableParagraphStyle()
@@ -48,6 +72,7 @@ public class ContentStorage: NSTextStorage
 		
 		self.attributedString = attributedString
 		super.init()
+		didSetLanguage()
 	}
 	
 	public required init?(coder aDecoder: NSCoder)

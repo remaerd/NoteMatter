@@ -8,6 +8,8 @@
 
 ".universal.cancel" = "取消";
 
+// MARK: 解决方案
+
 ".type.task" = "任务";
 ".type.folder" = "项目";
 ".type.document" = "笔记";
@@ -15,15 +17,21 @@
 ".type.problem" = "困扰";
 ".type.diary" = "日记";
 
+// MARK: 通知提醒
+
 ".notification.action.done" = "完成";
 ".notification.action.1" = "1 小时后";
 ".notification.action.3" = "3 小时后";
 ".notification.action.24" = "1 天后";
 
+// MARK: 系统项目
+
 ".item.preferences" = "使用偏好";
 ".item.rootFolder" = "曙光笔记";
 ".item.welcome" = "来自 GiGi 的问候";
 ".item.thumb" = "拇指戏法";
+
+// MARK: 动作
 
 ".list.new" = "新";
 ".list.unlock" = "解锁加密内容";
@@ -34,32 +42,32 @@
 ".list.actions.convert" = "转换成...";
 ".list.actions.delete" = "删除";
 
-".preferences.membership" = "曙光计划";
-".preferences.solutions" = "解决方案";
+// MARK: 搜索栏
 
 ".placeholder.search" = "输入并找到...";
 ".placeholder.new" = "创建新的...";
 ".placeholder.slide" = "上下滑动并选择...";
 ".placeholder.solution.new" = "新方案...";
 
-".error.title.0" = "哎呀呀...";
-".error.title.1" = "晕菜...";
-".error.title.2" = "崩了!";
-".error.title.3" = "哦哦哦哦哦哦哦哦哦哦!";
-".error.title.4" = "不要要要要...";
-".error.title.5" = "挂了...";
-".error.title.6" = "Oopsy!";
-".error.title.7" = "Whoopee!";
-".error.title.8" = "Aye-yai-yai!";
-".error.title.9" = "Wowzers!";
+// MARK: 文字编辑器
 
 ".style.paragraph.regular" = "正文";
 ".style.paragraph.header1" = "大标题";
 ".style.paragraph.header2" = "副标题";
 ".style.paragraph.header3" = "小标题";
-".style.paragraph.list" = "符号列表";
-".style.paragraph.numlist" = "数字列表";
+".style.paragraph.unordered" = "列表";
+".style.paragraph.ordered" = "数列";
 ".style.paragraph.quote" = "引文";
+
+".editor.link.web" = "网页";
+".editor.link.section" = "标题";
+".editor.link.document" = "文档";
+".editor.link.ode" = "代码";
+
+// MARK: 偏好设置
+
+".preferences.membership" = "曙光计划";
+".preferences.solutions" = "解决方案";
 
 ".preferences.assistant" = "效率助手";
 ".preferences.assistant.level" = "严厉程度";
@@ -125,3 +133,16 @@
 "Icon-Perfectionism" = "完美主义";
 "Icon-Altruism" = "利他主义";
 "Icon-Elitism" = "精英主义";
+
+// MARK: 出错
+
+".error.title.0" = "哎呀呀...";
+".error.title.1" = "晕菜...";
+".error.title.2" = "崩了!";
+".error.title.3" = "哦哦哦哦哦哦哦哦哦哦!";
+".error.title.4" = "不要要要要...";
+".error.title.5" = "挂了...";
+".error.title.6" = "Oopsy!";
+".error.title.7" = "Whoopee!";
+".error.title.8" = "Aye-yai-yai!";
+".error.title.9" = "Wowzers!";
