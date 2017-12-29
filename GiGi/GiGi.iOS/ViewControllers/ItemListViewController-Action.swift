@@ -26,17 +26,41 @@ extension ItemListViewController: ItemActionDelegate
 	}
 }
 
-extension ItemListViewController
+extension ItemListViewController: UITextFieldDelegate
 {
-	@objc func textfieldDidChanged()
+	func renameItemAtIndexPath()
 	{
-		if renameTextfield!.text == nil { self.renameConfirmAction?.isEnabled = false } else { self.renameConfirmAction?.isEnabled = true }
+		guard let indexPath = renameIndexPath else { return }
+		guard let cell = collectionView?.cellForItem(at: indexPath) as? ItemCell else { return }
+		cell.titleTextfield.tintColor = Theme.colors[8]
+		cell.titleTextfield.isUserInteractionEnabled = true
+		cell.titleTextfield.returnKeyType = .done
+		cell.titleTextfield.delegate = self
+		cell.titleTextfield.selectAll(nil)
+		cell.titleTextfield.becomeFirstResponder()
 	}
 	
-	func finish()
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool
 	{
-		NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
-		self.renameTextfield = nil
-		self.renameConfirmAction = nil
+		textField.resignFirstResponder()
+		textField.isUserInteractionEnabled = false
+		let _item = item.children![renameIndexPath!.row]
+		do
+		{
+			_item.title = textField.text!
+			try _item.save()
+			renameIndexPath = nil
+			return true
+		}
+		catch
+		{
+			error.alert()
+			return false
+		}
+	}
+	
+	func textFieldDidEndEditing(_ textField: UITextField)
+	{
+		
 	}
 }

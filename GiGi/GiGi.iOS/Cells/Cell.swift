@@ -20,7 +20,7 @@ class Cell: UICollectionViewCell
 		case description(string: String)
 	}
 	
-	let titleTextfield = UITextView()
+	let titleTextfield = UITextField()
 	let seperator = UIView()
 	
 	var icon: UIImage? { didSet { setIcon() } }

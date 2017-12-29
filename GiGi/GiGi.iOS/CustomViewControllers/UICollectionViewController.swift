@@ -43,6 +43,11 @@ protocol ItemActionDelegate
 	func itemActionController(forCell cell: ItemCell) -> UICollectionViewController
 }
 
+protocol RenameDelegate
+{
+	func renameItem(atIndex indexPath: NSIndexPath)
+}
+
 class UICollectionViewController: UIKit.UICollectionViewController, EnhancedViewController
 {
 	var isSlideActionModeEnable: Bool = false

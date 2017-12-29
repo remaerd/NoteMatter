@@ -63,10 +63,16 @@ extension ItemCreatorViewController
 		Sound.tapCell.play()
 		let solution = solutions[indexPath.row]
 		let item = try! Item.insert()
-		item.parent = self.item
 		item.solution = solution
 		item.title = ".list.new".localized + solution.title.localized.lowercased()
+		self.item.insertIntoChildren(item, at: 0)
+		
 		do { try item.save() } catch { error.alert() }
+		
+		let index = (navigationController?.viewControllers.count)! - 2
+		guard let controller = navigationController?.viewControllers[index] as? ItemListViewController else { return }
+		controller.renameIndexPath = IndexPath(row: 0, section: 0)
+		
 		if !isSlideActionModeEnable { navigationController?.popViewController(animated: true) }
 	}
 }

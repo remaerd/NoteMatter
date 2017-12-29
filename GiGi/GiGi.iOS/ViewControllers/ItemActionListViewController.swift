@@ -84,7 +84,9 @@ extension ItemActionListViewController
 		
 		func renameItem()
 		{
-			
+			let index = (navigationController?.viewControllers.count)! - 2
+			guard let controller = navigationController?.viewControllers[index] as? ItemListViewController else { return }
+			controller.renameIndexPath = indexPath
 		}
 
 		func deleteItem()
@@ -99,7 +101,9 @@ extension ItemActionListViewController
 		case .convert: convertItem(); break
 		case .rename: renameItem(); break
 		case .delete: deleteItem(); break
-		case .cancel: if !isSlideActionModeEnable { navigationController?.popViewController(animated: true) }
+		case .cancel: break
 		}
+		
+		if !isSlideActionModeEnable { navigationController?.popViewController(animated: true) }
 	}
 }

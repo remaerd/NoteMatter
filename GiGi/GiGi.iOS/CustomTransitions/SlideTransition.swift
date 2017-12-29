@@ -129,9 +129,10 @@ extension SlideTransition
 	func finishTransitionWithQuickAction(indexPath: IndexPath)
 	{
 		isStarted = false
-		newViewController?.isSlideActionModeEnable = true
-		newViewController?.collectionView((newViewController?.collectionView!)!, didSelectItemAt: indexPath)
-		newViewController?.isSlideActionModeEnable = false
+		
+		self.newViewController?.isSlideActionModeEnable = true
+		self.newViewController?.collectionView((self.newViewController?.collectionView!)!, didSelectItemAt: indexPath)
+		self.newViewController?.isSlideActionModeEnable = false
 		
 		let cell = newViewController?.collectionView?.cellForItem(at: indexPath) as! Cell
 		cell.isHighlighted = false
@@ -150,6 +151,7 @@ extension SlideTransition
 			{ self.newViewController?.view.transform = CGAffineTransform(translationX: -self.newViewController!.view.bounds.width, y: 0) }
 			else { self.newViewController?.view.transform = CGAffineTransform(translationX: self.newViewController!.view.bounds.width, y: 0) }
 		}, completion: {(_) in
+			
 			self.newViewController?.view.transform = CGAffineTransform.identity
 			self.transitionContext?.cancelInteractiveTransition()
 			self.transitionContext?.completeTransition(false)

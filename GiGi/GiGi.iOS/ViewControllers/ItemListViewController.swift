@@ -12,9 +12,7 @@ import GiGi
 
 class ItemListViewController: UICollectionViewController
 {
-	var renameConfirmAction: UIAlertAction?
-	var renameTextfield: UITextField?
-	var newInsertIndexPath: IndexPath?
+	var renameIndexPath: IndexPath?
 	let item: Item
 	
 	init(item: Item)
@@ -46,6 +44,15 @@ class ItemListViewController: UICollectionViewController
 		rightItem.title = ".placeholder.new".localized
 		navigationItem.rightBarButtonItem = rightItem
 		collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
+	}
+	
+	override func viewDidAppear(_ animated: Bool)
+	{
+		super.viewDidAppear(animated)
+		OperationQueue.main.addOperation
+		{
+			self.renameItemAtIndexPath()
+		}
 	}
 	
 	deinit
