@@ -23,6 +23,7 @@ class Cell: UICollectionViewCell
 	let titleTextfield = UITextField()
 	let seperator = UIView()
 	
+	var alwayWhite = false
 	var icon: UIImage? { didSet { setIcon() } }
 	var accessoryType: AccessoryType? { didSet { setAccessoryType() } }
 	var leftView: UIView? { didSet { setLeftView() } }
@@ -71,11 +72,22 @@ class Cell: UICollectionViewCell
 	{
 		super.tintColorDidChange()
 
-		if let leftView = leftView { leftView.tintColor = Theme.colors[4] }
-		if let rightView = rightView { rightView.tintColor = Theme.colors[3] }
-		backgroundView?.backgroundColor = Theme.colors[0]
-		seperator.backgroundColor = Theme.colors[1]
-		titleTextfield.textColor = tintColor
+		if alwayWhite
+		{
+			if let leftView = leftView { leftView.tintColor = UIColor.white.withAlphaComponent(0.25) }
+			if let rightView = rightView { rightView.tintColor = UIColor.white.withAlphaComponent(0.50) }
+			backgroundView?.backgroundColor = UIColor.clear
+			seperator.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+			titleTextfield.textColor = UIColor.white
+		}
+		else
+		{
+			if let leftView = leftView { leftView.tintColor = Theme.colors[4] }
+			if let rightView = rightView { rightView.tintColor = Theme.colors[3] }
+			backgroundView?.backgroundColor = Theme.colors[0]
+			seperator.backgroundColor = Theme.colors[1]
+			titleTextfield.textColor = tintColor
+		}
 	}
 	
 	override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
@@ -158,7 +170,8 @@ extension Cell
 				leftView.top == leftView.superview!.top
 			}
 		}
-		leftView?.tintColor = Theme.colors[4]
+		if alwayWhite { leftView?.tintColor = UIColor.white.withAlphaComponent(0.25) }
+		else { leftView?.tintColor = Theme.colors[4] }
 	}
 	
 	func setRightView()
@@ -177,6 +190,8 @@ extension Cell
 				view.centerY == view.superview!.centerY
 			}
 		}
-		rightView?.tintColor = Theme.colors[3]
+		if alwayWhite { rightView?.tintColor = UIColor.white.withAlphaComponent(0.50) }
+		else { rightView?.tintColor = Theme.colors[3] }
+		
 	}
 }

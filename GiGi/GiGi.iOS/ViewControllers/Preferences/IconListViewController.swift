@@ -57,9 +57,9 @@ class IconListViewController: UIViewController
 		{
 			iconsView in
 			iconsView.leading == iconsView.superview!.leading + Constants.edgeMargin
-			iconsView.trailing == iconsView.superview!.leading - Constants.edgeMargin
+			iconsView.trailing == iconsView.superview!.trailing - Constants.edgeMargin
 			iconsView.bottom == iconsView.superview!.bottom - Constants.edgeMargin
-			iconsView.top == iconsView.superview!.top + view.bounds.height - Defaults.listHeight.float - Constants.edgeMargin
+			iconsView.top == iconsView.superview!.top + (view.bounds.height - Defaults.listHeight.float - Constants.edgeMargin)
 		}
 	}
 }

@@ -58,7 +58,7 @@ class MonoDashboardController: UIViewController
 		view.addSubview(dashboardView)
 		view.addSubview(dashboardBar)
 		dashboardView.register(AssistantCell.self, forCellWithReuseIdentifier: "assistant")
-		dashboardView.register(TaskCell.self, forCellWithReuseIdentifier: "task")
+		dashboardView.register(ItemCell.self, forCellWithReuseIdentifier: "task")
 		
 		constrain(dashboardView, dashboardBar)
 		{

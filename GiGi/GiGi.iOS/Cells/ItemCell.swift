@@ -46,6 +46,22 @@ class ItemCell: Cell
 	
 	var taskButton = UIButton()
 	var snapshot: UIView?
+	var taskDate: String?
+	{
+		didSet
+		{
+			if let date = taskDate
+			{
+				taskButton.setImage(nil, for: .normal)
+				taskButton.setTitle(date, for: .normal)
+			}
+			else
+			{
+				taskButton.setTitle(nil, for: .normal)
+				taskButton.setImage(#imageLiteral(resourceName: "Accessory-Action"), for: .normal)
+			}
+		}
+	}
 	
 	override init(frame: CGRect)
 	{

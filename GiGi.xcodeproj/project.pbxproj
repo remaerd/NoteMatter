@@ -35,7 +35,6 @@
 		0331E9A31FD05AFE00E4C845 /* MonoDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331E9A21FD05AFE00E4C845 /* MonoDashboardController.swift */; };
 		0331E9A51FD1888200E4C845 /* TaskDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331E9A41FD1888200E4C845 /* TaskDashboardController.swift */; };
 		0331E9A71FD188C300E4C845 /* AssistantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331E9A61FD188C300E4C845 /* AssistantCell.swift */; };
-		0331E9A91FD18C0500E4C845 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331E9A81FD18C0500E4C845 /* TaskCell.swift */; };
 		0331E9AB1FD18E8F00E4C845 /* EmptyDashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331E9AA1FD18E8F00E4C845 /* EmptyDashboardCell.swift */; };
 		0331E9AD1FD18EF300E4C845 /* DashboardContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331E9AC1FD18EF300E4C845 /* DashboardContainerController.swift */; };
 		0331E9CC1FD1AAC200E4C845 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0331E9CB1FD1AAC200E4C845 /* SoundManager.swift */; };
@@ -102,6 +101,7 @@
 		03BD08931FC1A9A200AC5312 /* GiGi.iOS.Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03BD08891FC1A9A200AC5312 /* GiGi.iOS.Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		03BD08BF1FC1BF9D00AC5312 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03BD08BD1FC1BF7900AC5312 /* Intents.framework */; };
 		03BD08C41FC1DFCF00AC5312 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03BD08C31FC1DFCF00AC5312 /* CoreSpotlight.framework */; };
+		03C74C981FF7876100635BA0 /* Item-Analysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C74C971FF7876100635BA0 /* Item-Analysis.swift */; };
 		03C7ECDE1FB5FD5C008571E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03C7ECE01FB5FD5C008571E3 /* InfoPlist.strings */; };
 		03C7ECE41FB865C1008571E3 /* ItemCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7ECE31FB865C1008571E3 /* ItemCreatorViewController.swift */; };
 		03C7ECE71FB8669C008571E3 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7ECE61FB8669C008571E3 /* ItemCell.swift */; };
@@ -261,7 +261,6 @@
 		0331E9A21FD05AFE00E4C845 /* MonoDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoDashboardController.swift; sourceTree = "<group>"; };
 		0331E9A41FD1888200E4C845 /* TaskDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDashboardController.swift; sourceTree = "<group>"; };
 		0331E9A61FD188C300E4C845 /* AssistantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantCell.swift; sourceTree = "<group>"; };
-		0331E9A81FD18C0500E4C845 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		0331E9AA1FD18E8F00E4C845 /* EmptyDashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDashboardCell.swift; sourceTree = "<group>"; };
 		0331E9AC1FD18EF300E4C845 /* DashboardContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardContainerController.swift; sourceTree = "<group>"; };
 		0331E9CB1FD1AAC200E4C845 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -329,6 +328,7 @@
 		03BD08901FC1A9A200AC5312 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03BD08BD1FC1BF7900AC5312 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/Intents.framework; sourceTree = DEVELOPER_DIR; };
 		03BD08C31FC1DFCF00AC5312 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/CoreSpotlight.framework; sourceTree = DEVELOPER_DIR; };
+		03C74C971FF7876100635BA0 /* Item-Analysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-Analysis.swift"; sourceTree = "<group>"; };
 		03C7ECDF1FB5FD5C008571E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03C7ECE11FB5FD5E008571E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		03C7ECE31FB865C1008571E3 /* ItemCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCreatorViewController.swift; sourceTree = "<group>"; };
@@ -635,7 +635,6 @@
 				03F12F611F29B5D3009DE50E /* IconCell.swift */,
 				0331E9A61FD188C300E4C845 /* AssistantCell.swift */,
 				0331E9AA1FD18E8F00E4C845 /* EmptyDashboardCell.swift */,
-				0331E9A81FD18C0500E4C845 /* TaskCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -783,6 +782,7 @@
 			children = (
 				031B2DC51FB9FB6800A01489 /* Solution.swift */,
 				031B2DC31FB9FB6800A01489 /* Item.swift */,
+				03C74C971FF7876100635BA0 /* Item-Analysis.swift */,
 				031B2DC91FB9FB6800A01489 /* ItemComponent.swift */,
 				031B2DC71FB9FB6800A01489 /* Task.swift */,
 				03F12F781F29B604009DE50E /* ContentStorage.swift */,
@@ -1332,7 +1332,6 @@
 				031B2D781FB98A1400A01489 /* View.swift in Sources */,
 				03F12F8C1F29B6F0009DE50E /* Constants.swift in Sources */,
 				0324A1791FC85BE200242D6F /* SearchBar-Edge.swift in Sources */,
-				0331E9A91FD18C0500E4C845 /* TaskCell.swift in Sources */,
 				039FF0121FBDF0E2007C9539 /* PickerCell.swift in Sources */,
 				03F12F971F29B6F8009DE50E /* UIViewController.swift in Sources */,
 				039FF0081FBC2012007C9539 /* SolutionListViewController.swift in Sources */,
@@ -1377,6 +1376,7 @@
 				03F12FA41F29B760009DE50E /* Color.swift in Sources */,
 				031B2DD41FB9FB7100A01489 /* Item.swift in Sources */,
 				03F12FA51F29B760009DE50E /* Constants.swift in Sources */,
+				03C74C981FF7876100635BA0 /* Item-Analysis.swift in Sources */,
 				031B2DAB1FB9DB3000A01489 /* Database.swift in Sources */,
 				03D22BEF1FC00ABE0054BE9C /* Font-Editor.swift in Sources */,
 				03D22BED1FC009780054BE9C /* Font.swift in Sources */,
