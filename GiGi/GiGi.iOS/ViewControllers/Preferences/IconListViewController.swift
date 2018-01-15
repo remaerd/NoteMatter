@@ -13,7 +13,7 @@ import Cartography
 class IconListViewController: UIViewController
 {
 	let iconsView: UICollectionView
-	var icons = ["Icon-Illuminote", "Icon-Empiricism", "Icon-Rationalism", "Icon-Idealism",
+	var icons = ["Icon-Default", "Icon-Empiricism", "Icon-Rationalism", "Icon-Idealism",
 							 "Icon-Pragmatism", "Icon-Perfectionism", "Icon-Altruism", "Icon-Elitism"]
 	
 	init()

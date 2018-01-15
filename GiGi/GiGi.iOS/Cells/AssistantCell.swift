@@ -28,7 +28,7 @@ class AssistantCell: UICollectionViewCell
 		constrain(titleLabel, instructionLabel, button)
 		{
 			title, instruction, button in
-			
+
 			title.centerX == title.superview!.centerX
 			title.centerY == title.superview!.centerY - 40
 			instruction.centerX == instruction.superview!.centerX
@@ -36,5 +36,13 @@ class AssistantCell: UICollectionViewCell
 			button.centerX == button.superview!.centerX
 			button.top == instruction.bottom
 		}
+	}
+	
+	override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
+	{
+		var newFrame = layoutAttributes.frame
+		newFrame.size = contentView.systemLayoutSizeFitting(layoutAttributes.size, withHorizontalFittingPriority: .required, verticalFittingPriority: .required)
+		layoutAttributes.frame = newFrame
+		return layoutAttributes
 	}
 }

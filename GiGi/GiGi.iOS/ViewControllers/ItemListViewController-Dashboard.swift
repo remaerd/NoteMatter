@@ -1,13 +1,35 @@
 //
-//  MonoDashboardController.swift
+//  ItemListViewController-Dashboard.swift
 //  GiGi.iOS
 //
-//  Created by Sean Cheng on 30/11/2017.
+//  Created by Sean Cheng on 15/1/2018.
 //
 
 import UIKit
 import GiGi
 import Cartography
+
+extension ItemListViewController
+{
+	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
+	{
+		let view: UICollectionReusableView
+		if kind == UICollectionElementKindSectionHeader && indexPath.section == 0
+		{
+			view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "dashboard", for: indexPath)
+			(view as? MonoDashboardView)?.controller.item = item
+		}
+		else if (kind == UICollectionElementKindSectionHeader)
+		{
+			view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+		}
+		else
+		{
+			view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footer", for: indexPath)
+		}
+		return view
+	}
+}
 
 class MonoDashboardView: UICollectionReusableView
 {
@@ -16,7 +38,7 @@ class MonoDashboardView: UICollectionReusableView
 	override init(frame: CGRect)
 	{
 		super.init(frame: frame)
-
+		
 		addSubview(controller.view)
 		constrain(controller.view)
 		{
@@ -34,9 +56,28 @@ class MonoDashboardView: UICollectionReusableView
 	}
 }
 
-class MonoDashboardCollectionLayout: UICollectionViewFlowLayout
+class MonoDashboardCollectionLayout: UIKit.UICollectionViewFlowLayout
 {
+	override init()
+	{
+		super.init()
+		minimumLineSpacing = 0
+		minimumInteritemSpacing = 0
+		scrollDirection = .horizontal
+		sectionInset = UIEdgeInsets(top: Constants.edgeMargin, left: Constants.edgeMargin, bottom: Constants.edgeMargin, right: Constants.edgeMargin)
+	}
 	
+	override func prepare()
+	{
+		super.prepare()
+		guard let collectionView = self.collectionView else { return }
+		estimatedItemSize = CGSize(width: collectionView.bounds.width - Constants.edgeMargin * 2, height: Constants.cellHeight)
+	}
+	
+	required init?(coder aDecoder: NSCoder)
+	{
+		fatalError("init(coder:) has not been implemented")
+	}
 }
 
 class MonoDashboardController: UIViewController
@@ -57,6 +98,8 @@ class MonoDashboardController: UIViewController
 		
 		view.addSubview(dashboardView)
 		view.addSubview(dashboardBar)
+		dashboardView.dataSource = self
+		dashboardView.delegate = self
 		dashboardView.register(AssistantCell.self, forCellWithReuseIdentifier: "assistant")
 		dashboardView.register(ItemCell.self, forCellWithReuseIdentifier: "task")
 		
@@ -84,7 +127,8 @@ extension MonoDashboardController: UICollectionViewDataSource
 {
 	func numberOfSections(in collectionView: UICollectionView) -> Int
 	{
-		return item!.dashboardTypes.count
+		if let item = item { return item.dashboardTypes.count }
+		return 0
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
@@ -94,8 +138,8 @@ extension MonoDashboardController: UICollectionViewDataSource
 		{
 		case .assistant: return 1
 		case .calendar: return 1
-		case .keyword(let keyword): return tasks[keyword]!.count
-		default: return tasks[type.identifier]!.count
+		case .keyword(let keyword): if let tasks = tasks[keyword] { return tasks.count } else { return 0 }
+		default: if let tasks = tasks[type.identifier] { return tasks.count } else { return 0 }
 		}
 	}
 	
@@ -107,9 +151,15 @@ extension MonoDashboardController: UICollectionViewDataSource
 		{
 		case .assistant:
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "assistant", for: indexPath);
+			(cell as! AssistantCell).reloadItem(item: item!)
 			break
 		default:
+			let type = item!.dashboardTypes[indexPath.section].identifier
+			let task = tasks[type]![indexPath.row]
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "task", for: indexPath);
+			(cell as! ItemCell).alwayWhite = true
+			(cell as! ItemCell).taskDate = task.relativeDate
+			(cell as! ItemCell).titleTextfield.text = task.title
 			break
 		}
 		return cell
@@ -123,5 +173,4 @@ extension MonoDashboardController: UICollectionViewDelegate
 		
 	}
 }
-
 

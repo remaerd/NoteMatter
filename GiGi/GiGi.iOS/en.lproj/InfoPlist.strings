@@ -6,8 +6,8 @@
   
 */
 
-"CFBundleDisplayName" = "Illuminote";
-"NSCalendarsUsageDescription" = "Integrate Calendar.app with Illuminote";
-"NSRemindersUsageDescription" = "Integrate Reminders.app with Illuminote";
-"NSSiriUsageDescription" = "Integrate Siri with Illuminote";
+"CFBundleDisplayName" = "Luminote";
+"NSCalendarsUsageDescription" = "Integrate Calendar.app with Luminote";
+"NSRemindersUsageDescription" = "Integrate Reminders.app with Luminote";
+"NSSiriUsageDescription" = "Integrate Siri with Luminote";
 

@@ -13,7 +13,7 @@
 ".type.task" = "任务";
 ".type.folder" = "项目";
 ".type.document" = "笔记";
-".type.hibit" = "陋习";
+".type.habit" = "陋习";
 ".type.problem" = "困扰";
 ".type.diary" = "日记";
 
@@ -27,7 +27,7 @@
 // MARK: 系统项目
 
 ".item.preferences" = "使用偏好";
-".item.rootFolder" = "曙光笔记";
+".item.rootFolder" = "启明笔记";
 ".item.welcome" = "来自 GiGi 的问候";
 ".item.thumb" = "拇指戏法";
 
@@ -45,7 +45,7 @@
 // MARK: 搜索栏
 
 ".placeholder.search" = "输入并找到...";
-".placeholder.new" = "创建新的...";
+".placeholder.new" = "创建新...";
 ".placeholder.slide" = "上下滑动并选择...";
 ".placeholder.solution.new" = "新方案...";
 
@@ -66,7 +66,7 @@
 
 // MARK: 偏好设置
 
-".preferences.membership" = "曙光计划";
+".preferences.membership" = "解锁全部功能";
 ".preferences.solutions" = "解决方案";
 
 ".preferences.assistant" = "效率助手";
@@ -118,14 +118,13 @@
 ".preferences.extensions.spotlight" = "聚焦";
 ".preferences.extensions.inactived" = "未激活";
 
-".preferences.security" = "安全设置";
-".preferences.security.set" = "设置密码";
-".preferences.security.reset" = "更改密码";
-".preferences.security.touchid" = "用触控 ID 解锁";
-".preferences.security.faceid" = "用面容 ID 解锁";
+".preferences.database" = "数据安全";
+".preferences.database.password" = "更改密码";
+".preferences.database.touchid" = "用触控 ID 解锁";
+".preferences.database.faceid" = "用面容 ID 解锁";
 
 ".preferences.icons" = "成就图标";
-"Icon-Illuminote" = "曙光笔记";
+"Icon-Default" = "启明笔记";
 "Icon-Empiricism" = "经验主义";
 "Icon-Rationalism" = "理性主义";
 "Icon-Idealism" = "理想主义";

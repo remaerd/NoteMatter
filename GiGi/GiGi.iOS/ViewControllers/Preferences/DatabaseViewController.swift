@@ -1,5 +1,5 @@
 //
-//  SecurityViewController.swift
+//  DatabaseViewController.swift
 //  GiGi.iOS
 //
 //  Created by Sean Cheng on 15/11/2017.
@@ -8,7 +8,7 @@
 import UIKit
 import LocalAuthentication
 
-class SecurityViewController: UICollectionViewController
+class DatabaseViewController: UICollectionViewController
 {
 	enum AuthType
 	{
@@ -22,7 +22,7 @@ class SecurityViewController: UICollectionViewController
 	override func loadView()
 	{
 		super.loadView()
-		title = ".preferences.security".localized
+		title = ".preferences.database".localized
 		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
 		collectionView?.register(SwitchCell.self, forCellWithReuseIdentifier: "switcher")
 		
@@ -43,7 +43,7 @@ class SecurityViewController: UICollectionViewController
 	}
 }
 
-extension SecurityViewController
+extension DatabaseViewController
 {
 	override func numberOfSections(in collectionView: UICollectionView) -> Int
 	{
@@ -63,12 +63,12 @@ extension SecurityViewController
 		{
 		case 0:
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
-			cell.titleTextfield.text = ".preferences.security.reset".localized
+			cell.titleTextfield.text = ".preferences.database.password".localized
 			break
 		case 1:
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
-			if authType == .faceId { cell.titleTextfield.text = ".preferences.security.faceid".localized }
-			else if authType == .touchId { cell.titleTextfield.text = ".preferences.security.touchid".localized }
+			if authType == .faceId { cell.titleTextfield.text = ".preferences.database.faceid".localized }
+			else if authType == .touchId { cell.titleTextfield.text = ".preferences.database.touchid".localized }
 			break
 		default: break
 		}

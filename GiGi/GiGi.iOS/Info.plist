@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Illuminote</string>
+	<string>Luminote</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -23,11 +23,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCalendarsUsageDescription</key>
-	<string>Move calendar events into Illuminote</string>
+	<string>Move calendar events into Luminote</string>
 	<key>NSRemindersUsageDescription</key>
-	<string>Move reminder events into Illuminote</string>
+	<string>Move reminder events into Luminote</string>
 	<key>NSSiriUsageDescription</key>
-	<string>Integrate Siri with Illuminote</string>
+	<string>Integrate Siri with Luminote</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

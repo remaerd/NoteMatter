@@ -60,7 +60,7 @@ public class Item: NSManagedObject, Model
 			case .later: return ".dashboard.later"
 			case .anytime: return ".dashboard.anytime"
 			case .completed: return ".dashboard.completed"
-			case .calendar: return ".dashboard.today"
+			case .calendar: return ".dashboard.calendar"
 			case .keyword(let keyword): return keyword
 			}
 		}

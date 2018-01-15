@@ -13,7 +13,7 @@
 ".type.task" = "Task";
 ".type.folder" = "Project";
 ".type.document" = "Document";
-".type.hibit" = "Habit";
+".type.habit" = "Habit";
 ".type.problem" = "Problem";
 ".type.diary" = "Diary";
 
@@ -21,7 +21,7 @@
 
 ".item.welcome" = "Letters from GiGi";
 ".item.thumb" = "Thumb tricks";
-".item.rootFolder" = "Illuminote";
+".item.rootFolder" = "Luminote";
 ".item.preferences" = "Preferences";
 
 // MARK: Item Action
@@ -45,7 +45,7 @@
 // MARK: Search bar
 
 ".placeholder.search" = "Type to find...";
-".placeholder.new" = "Create new...";
+".placeholder.new" = "New...";
 ".placeholder.slide" = "Slide up & down to select...";
 ".placeholder.solution.new" = "New solution...";
 
@@ -66,7 +66,7 @@
 
 // Preferences
 
-".preferences.membership" = "Membership";
+".preferences.membership" = "Buy Luminote";
 ".preferences.solutions" = "Solutions";
 
 ".preferences.assistant" = "Assistant";
@@ -121,15 +121,14 @@
 
 ".preferences.extensions.inactived" = "Inactivated";
 
-".preferences.security" = "Security";
-".preferences.security.set" = "Set password";
-".preferences.security.reset" = "Reset password";
-".preferences.security.touchid" = "Unlock with Touch ID";
-".preferences.security.faceid" = "Unlock with Face ID";
+".preferences.database" = "Database";
+".preferences.database.password" = "Reset password";
+".preferences.database.touchid" = "Unlock with Touch ID";
+".preferences.database.faceid" = "Unlock with Face ID";
 
 ".preferences.icons" = "Achievement Icons";
 
-"Icon-Illuminote" = "Illuminote";
+"Icon-Luminote" = "Luminote";
 "Icon-Empiricism" = "Empiricism";
 "Icon-Rationalism" = "Rationalism";
 "Icon-Idealism" = "Idealism";
