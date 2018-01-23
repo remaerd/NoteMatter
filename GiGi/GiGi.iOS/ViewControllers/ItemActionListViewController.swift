@@ -46,15 +46,17 @@ extension ItemActionListViewController
 
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
 	{
-		return item.solution.actions.count
+		return item.template.actions.count
 	}
 
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 	{
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
-		if let icon = item.solution.actions[indexPath.row].icon { cell.icon = UIImage(named: icon) } else { cell.icon = UIImage() }
-		cell.titleTextfield.text = item.solution.actions[indexPath.row].title.localized
+		if let icon = item.template.actions[indexPath.row].icon { cell.icon = UIImage(named: icon) } else { cell.icon = UIImage() }
+		if item.template.actions[indexPath.row] == .more { cell.accessoryType = Cell.AccessoryType.default }
+		cell.titleTextfield.text = item.template.actions[indexPath.row].title.localized
 		cell.tintColor = Theme.colors[7]
+		
 		return cell
 	}
 
@@ -94,14 +96,15 @@ extension ItemActionListViewController
 			do { try item.destroy() } catch { error.alert() }
 		}
 		
-		switch item.solution.actions[indexPath.row]
+		switch item.template.actions[indexPath.row]
 		{
 		case .reschedule: rescheduleItem(); break
 		case .move: moveItem(); break
-		case .convert: convertItem(); break
 		case .rename: renameItem(); break
 		case .delete: deleteItem(); break
+		case .more: shareItem(); break
 		case .cancel: break
+		default: break
 		}
 		
 		if !isSlideActionModeEnable { navigationController?.popViewController(animated: true) }

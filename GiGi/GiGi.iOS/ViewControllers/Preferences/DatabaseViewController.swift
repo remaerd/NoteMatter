@@ -47,30 +47,56 @@ extension DatabaseViewController
 {
 	override func numberOfSections(in collectionView: UICollectionView) -> Int
 	{
-		return 1
+		return 2
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
 	{
-		if authType != .password { return 2 }
-		else { return 1 }
+		if (section == 0) { return 3 }
+		else
+		{
+			if authType != .password { return 2 }
+			else { return 1 }
+		}
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 	{
 		var cell : Cell!
-		switch indexPath.row
+		if indexPath.section == 0
 		{
-		case 0:
-			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
-			cell.titleTextfield.text = ".preferences.database.password".localized
-			break
-		case 1:
-			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
-			if authType == .faceId { cell.titleTextfield.text = ".preferences.database.faceid".localized }
-			else if authType == .touchId { cell.titleTextfield.text = ".preferences.database.touchid".localized }
-			break
-		default: break
+			switch indexPath.row
+			{
+			case 0:
+				cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
+				cell.titleTextfield.text = ".preferences.database.icloud".localized
+				break
+			case 1:
+				cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
+				cell.titleTextfield.text = ".preferences.database.import".localized
+				break
+			case 2:
+				cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
+				cell.titleTextfield.text = ".preferences.database.export".localized
+				break
+			default: break
+			}
+		}
+		else
+		{
+			switch indexPath.row
+			{
+			case 0:
+				cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
+				cell.titleTextfield.text = ".preferences.database.password".localized
+				break
+			case 1:
+				cell = collectionView.dequeueReusableCell(withReuseIdentifier: "switcher", for: indexPath) as! SwitchCell
+				if authType == .faceId { cell.titleTextfield.text = ".preferences.database.faceid".localized }
+				else if authType == .touchId { cell.titleTextfield.text = ".preferences.database.touchid".localized }
+				break
+			default: break
+			}
 		}
 		return cell
 	}

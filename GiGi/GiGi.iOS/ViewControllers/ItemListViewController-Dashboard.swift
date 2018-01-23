@@ -9,28 +9,6 @@ import UIKit
 import GiGi
 import Cartography
 
-extension ItemListViewController
-{
-	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
-	{
-		let view: UICollectionReusableView
-		if kind == UICollectionElementKindSectionHeader && indexPath.section == 0
-		{
-			view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "dashboard", for: indexPath)
-			(view as? MonoDashboardView)?.controller.item = item
-		}
-		else if (kind == UICollectionElementKindSectionHeader)
-		{
-			view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
-		}
-		else
-		{
-			view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footer", for: indexPath)
-		}
-		return view
-	}
-}
-
 class MonoDashboardView: UICollectionReusableView
 {
 	let controller = MonoDashboardController()

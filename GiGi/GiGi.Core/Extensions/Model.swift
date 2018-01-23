@@ -15,11 +15,14 @@ public extension Item
 	@NSManaged public var openedAt: Date
 	
 	@NSManaged public var task: Task
-	@NSManaged public var solution: Solution
+	@NSManaged public var template: Template
 	@NSManaged public var dashboardType: String
 	
 	@NSManaged public var parent: Item?
 	@NSManaged public var children: [Item]?
+	
+	@NSManaged public var secret: Data?
+	@NSManaged public var hmac: Data?
 	
 	@NSManaged public var components: [ItemComponent]
 }
@@ -92,7 +95,7 @@ extension Item
 	@NSManaged public func removeFromComponents(_ values: NSOrderedSet)
 }
 
-extension Solution
+extension Template
 {
 	@NSManaged public var identifier: String
 	@NSManaged public var title: String

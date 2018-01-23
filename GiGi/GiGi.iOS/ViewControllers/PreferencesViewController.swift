@@ -13,24 +13,38 @@ class PreferencesViewController: UICollectionViewController
 	override var pushTransition: TransitionType { return .bottom }
 	override var popTransition : TransitionType { return .bottom }
 	
-  let menuNames = [".preferences.assistant", ".preferences.icons", ".preferences.database", ".preferences.experience", ".preferences.extensions"]
-	let menuIcons = ["List-Assistant","List-Badges","List-Database","List-Experiences","List-Extensions"]
+  let menuNames = [".preferences.assistant", ".preferences.icons", ".preferences.experience", ".preferences.extensions", ".preferences.database"]
+	let menuIcons = ["List-Assistant","List-Badges","List-Experiences","List-Extensions","List-Database"]
 
 	override func loadView()
 	{
 		super.loadView()
+		
 		title = ".item.preferences".localized
-		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
-		collectionView?.register(SwitchCell.self, forCellWithReuseIdentifier: "switcher")
+		
 		let item = UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Close"), style: .plain, target: self, action: #selector(didTappedCloseButton))
 		item.title = ".item.rootFolder".localized
 		navigationItem.leftBarButtonItem = item
+		
+		let aboutItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Info"), style: .plain, target: self, action: #selector(didTappedInfoButton))
+		aboutItem.title = ".preferences.about".localized
+		navigationItem.rightBarButtonItem = aboutItem
+
+		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
+		collectionView?.register(SwitchCell.self, forCellWithReuseIdentifier: "switcher")
+		collectionView?.register(MonoDashboardView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier:"dashboard")
 	}
 	
 	@objc func didTappedCloseButton()
 	{
 		Sound.tapNavButton.play()
 		navigationController?.popViewController(animated: true)
+	}
+	
+	@objc func didTappedInfoButton()
+	{
+		Sound.tapNavButton.play()
+		navigationController?.pushViewController(AboutViewController(), animated: true)
 	}
 }
 
@@ -70,9 +84,9 @@ extension PreferencesViewController
 		{
 		case 0: navigationController?.pushViewController(AssistantViewController(), animated: true); break
 		case 1: navigationController?.pushViewController(IconListViewController(), animated: true); break
-		case 2: navigationController?.pushViewController(DatabaseViewController(), animated: true); break
-		case 3: navigationController?.pushViewController(ExperienceViewController(), animated: true); break
-		case 4: navigationController?.pushViewController(ExtensionViewController(), animated: true); break
+		case 2: navigationController?.pushViewController(ExperienceViewController(), animated: true); break
+		case 3: navigationController?.pushViewController(ExtensionViewController(), animated: true); break
+		case 4: navigationController?.pushViewController(DatabaseViewController(), animated: true); break
 		default: break
 		}
 	}

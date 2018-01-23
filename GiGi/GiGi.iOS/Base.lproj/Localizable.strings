@@ -8,30 +8,30 @@
 
 ".universal.cancel" = "Cancel";
 
-// MARK: Solution Type
+// MARK: Template type
 
-".type.task" = "Task";
-".type.folder" = "Project";
-".type.document" = "Document";
+".type.task" = "Quick Task";
+".type.folder" = "Big Project";
+".type.document" = "Text";
 ".type.habit" = "Habit";
 ".type.problem" = "Problem";
 ".type.diary" = "Diary";
 
-// MARK: Internal Items
+// MARK: Internal items
 
 ".item.welcome" = "Letters from GiGi";
 ".item.thumb" = "Thumb tricks";
-".item.rootFolder" = "Luminote";
+".item.rootFolder" = "NoteMatter";
 ".item.preferences" = "Preferences";
 
-// MARK: Item Action
+// MARK: Item action
 
 ".list.new" = "New ";
 ".list.unlock" = "Unlock secret folder";
 ".list.insert" = "Insert here...";
 ".list.actions.reschedule" = "Reschedule";
-".list.actions.move" = "Move to...";
-".list.actions.convert" = "Convert to...";
+".list.actions.move" = "Move";
+".list.actions.more" = "More actions...";
 ".list.actions.rename" = "Rename";
 ".list.actions.delete" = "Delete";
 
@@ -45,11 +45,12 @@
 // MARK: Search bar
 
 ".placeholder.search" = "Type to find...";
-".placeholder.new" = "New...";
-".placeholder.slide" = "Slide up & down to select...";
-".placeholder.solution.new" = "New solution...";
+".placeholder.new" = "What are you dealing with?";
+".placeholder.slide" = "Slide down to choose...";
+".placeholder.slide-commit" = "Release to confirm...";
+".placeholder.slide-continue" = "Slide right to open...";
 
-// MARK: Text Editor
+// MARK: Text editor
 
 ".style.paragraph.regular" = "Regular";
 ".style.paragraph.header1" = "Header 1";
@@ -66,8 +67,7 @@
 
 // Preferences
 
-".preferences.membership" = "Buy Luminote";
-".preferences.solutions" = "Solutions";
+".preferences.membership" = "Buy NoteMatter";
 
 ".preferences.assistant" = "Assistant";
 ".preferences.assistant.level" = "Level";
@@ -122,13 +122,25 @@
 ".preferences.extensions.inactived" = "Inactivated";
 
 ".preferences.database" = "Database";
+".preferences.database.icloud" = "iCloud";
+".preferences.database.import" = "Import database";
+".preferences.database.export" = "Export database";
 ".preferences.database.password" = "Reset password";
 ".preferences.database.touchid" = "Unlock with Touch ID";
 ".preferences.database.faceid" = "Unlock with Face ID";
 
+".preferences.about" = "About NoteMatter";
+".preferences.about.email" = "Email";
+".preferences.about.twitter" = "Twitter";
+".preferences.about.weibo" = "Weibo";
+".preferences.about.releases" = "Release notes";
+".preferences.about.credits" = "Credits";
+".preferences.about.licenses" = "Licenses";
+".preferences.about.privacy" = "Privacy policy";
+
 ".preferences.icons" = "Achievement Icons";
 
-"Icon-Luminote" = "Luminote";
+"Icon-Default" = "NoteMatter";
 "Icon-Empiricism" = "Empiricism";
 "Icon-Rationalism" = "Rationalism";
 "Icon-Idealism" = "Idealism";

@@ -80,7 +80,7 @@ class SearchBar: UITextField
 	func placeholderDidChanged()
 	{
 		guard let placeholder = placeholder else { return }
-		attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: Theme.colors[6], .font: Font.SearchBarTextFont])
+		attributedPlaceholder = NSAttributedString(string: placeholder.uppercased(), attributes: [.foregroundColor: Theme.colors[4], .font: Font.SearchBarTextFont, .kern: 1.1])
 	}
 
 	func reset(controller: UIKit.UIViewController)
@@ -96,7 +96,7 @@ class SearchBar: UITextField
 		func barButton(item: UIBarButtonItem) -> UIButton
 		{
 			let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: item.image!.size.width + 15, height: item.image!.size.height - 1)))
-			button.tintColor = Theme.colors[5]
+			button.tintColor = Theme.colors[4]
 			button.setImage(item.image!, for: .normal)
 			button.addTarget(item.target!, action: item.action!, for: .touchUpInside)
 			return button
@@ -166,7 +166,7 @@ extension SearchBar: UITextFieldDelegate
 		let closeButton = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: image.size.width + 15, height: image.size.height - 1)))
 		closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
 		closeButton.setImage(image, for: .normal)
-		closeButton.tintColor = Theme.colors[5]
+		closeButton.tintColor = Theme.colors[4]
 		rightView = closeButton
 		textAlignment = .left
 

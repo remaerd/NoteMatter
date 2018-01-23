@@ -21,7 +21,7 @@ class IconCell: UICollectionViewCell
 		iconView.contentMode = .center
 		iconView.layer.cornerRadius = Constants.bigButtonCornerRadius
 		
-		descriptionLabel.font = Font.SolutionFont
+		descriptionLabel.font = Font.TemplateFont
 		descriptionLabel.textAlignment = .center
 		descriptionLabel.textColor = Theme.colors[7]
 		

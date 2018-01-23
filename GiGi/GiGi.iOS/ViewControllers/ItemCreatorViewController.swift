@@ -10,10 +10,11 @@ import UIKit
 
 class ItemCreatorViewController: UICollectionViewController
 {
+	override var dashboardType: AnyClass? { return TemplateContainerView.self }
 	override var showCloseButton: Bool { return true }
 	
 	let item : Item
-	var solutions : [Solution]!
+	var templates : [Template]!
 	
 	init(item: Item)
 	{
@@ -30,10 +31,11 @@ class ItemCreatorViewController: UICollectionViewController
 	override func loadView()
 	{
 		super.loadView()
-		do { self.solutions = try Solution.findAll(nil, sortDescriptors: [NSSortDescriptor(key: "index", ascending: true)]) }
+		do { self.templates = try Template.findAll(nil, sortDescriptors: [NSSortDescriptor(key: "index", ascending: true)]) }
 		catch { error.alert() }
 		collectionView?.reloadData()
 		collectionView?.register(Cell.self, forCellWithReuseIdentifier: "cell")
+		collectionView?.register(TemplateContainerView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "dashboard")
 	}
 }
 
@@ -46,25 +48,24 @@ extension ItemCreatorViewController
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
 	{
-		return self.solutions.count
+		return self.templates.count
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 	{
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! Cell
-		if let image = solutions[indexPath.row].icon, let icon = UIImage(named: image) { cell.icon = icon }
-		cell.titleTextfield.text = self.solutions[indexPath.row].title.localized
-		cell.accessoryType = .add
+		if let image = templates[indexPath.row].icon, let icon = UIImage(named: image) { cell.icon = icon }
+		cell.titleTextfield.text = self.templates[indexPath.row].title.localized
 		return cell
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
 		Sound.tapCell.play()
-		let solution = solutions[indexPath.row]
+		let template = templates[indexPath.row]
 		let item = try! Item.insert()
-		item.solution = solution
-		item.title = ".list.new".localized + solution.title.localized.lowercased()
+		item.template = template
+		item.title = ".list.new".localized + template.title.localized.lowercased()
 		self.item.insertIntoChildren(item, at: 0)
 		
 		do { try item.save() } catch { error.alert() }

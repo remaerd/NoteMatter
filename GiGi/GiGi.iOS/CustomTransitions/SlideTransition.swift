@@ -41,7 +41,12 @@ extension SlideTransition
 		let offestY = (UIScreen.main.bounds.height - Defaults.listHeight.float - cellMaxY) - (Constants.cellHeight / 2) + previousY - (gestureY * 3)
 		let offest = CGPoint(x: 0, y: offestY)
 		collectionView.contentOffset = offest
-		if !isQuickMode && gestureY < -20 { isQuickMode = true } else if (isQuickMode)
+		if !isQuickMode && gestureY < -20
+		{
+			navigationController?.searchBar.placeholder = ".placeholder.slide-commit".localized
+			isQuickMode = true
+			
+		} else if (isQuickMode)
 		{
 			let newIndex = Int((-gestureY - 20) / 22)
 			if newIndex != currentActionIndex && newIndex >= 0 && newIndex < collectionView.numberOfItems(inSection: 0)

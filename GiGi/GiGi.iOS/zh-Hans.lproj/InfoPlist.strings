@@ -6,7 +6,7 @@
   
 */
 
-"CFBundleDisplayName" = "启明笔记";
-"NSCalendarsUsageDescription" = "使用“启明笔记”来管理“提醒事项”中的任务";
-"NSRemindersUsageDescription" = "使用“启明笔记”来管理“日历”中的时间";
-"NSSiriUsageDescription" = "通过 Siri 使用“启明笔记”";
+"CFBundleDisplayName" = "无忧笔记";
+"NSCalendarsUsageDescription" = "使用“无忧笔记”来管理“提醒事项”中的任务";
+"NSRemindersUsageDescription" = "使用“无忧笔记”来管理“日历”中的时间";
+"NSSiriUsageDescription" = "通过 Siri 使用“无忧笔记”";

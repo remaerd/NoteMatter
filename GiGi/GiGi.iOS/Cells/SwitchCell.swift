@@ -15,7 +15,6 @@ class SwitchCell: Cell
 	override init(frame: CGRect)
 	{
 		super.init(frame: frame)
-		
 		switcher.onTintColor = Theme.colors[8]
 		switcher.tintColor = Theme.colors[2]
 		switcher.addTarget(self, action: #selector(didTapped), for: .touchUpInside)

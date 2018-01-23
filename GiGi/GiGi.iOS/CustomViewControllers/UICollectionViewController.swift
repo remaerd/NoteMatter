@@ -57,6 +57,7 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 	var pushTransition : TransitionType { return TransitionType.default }
 	var popTransition : TransitionType { return TransitionType.default }
 	weak var searchDelegate: SearchBarDelegate? { return nil }
+	var dashboardType: AnyClass? { return nil }
 	
 	let maskLayer = CALayer()
 	let scrollMaskLayer = CALayer()
@@ -89,9 +90,9 @@ class UICollectionViewController: UIKit.UICollectionViewController, EnhancedView
 		
 		collectionView?.mask = maskView
 		collectionView!.alwaysBounceVertical = true
-		collectionView!.register(MonoDashboardView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier:"dashboard")
 		collectionView!.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
 		collectionView!.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "footer")
+		if let type = dashboardType { collectionView!.register(type, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "dashboard") }
 	}
 	
 	override func viewWillAppear(_ animated: Bool)
@@ -128,7 +129,7 @@ extension UICollectionViewController: UICollectionViewDelegateFlowLayout
 {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
 	{
-		if section == 0 { return CGSize(width: 0, height: UIScreen.main.bounds.height - Defaults.listHeight.float - Constants.edgeMargin) }
+		if section == 0 { return CGSize(width: 0, height: UIScreen.main.bounds.height - Defaults.listHeight.float ) }
 		return CGSize.zero
 	}
 	
@@ -150,8 +151,12 @@ extension UICollectionViewController
 {
 	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
 	{
-		let view: UICollectionReusableView
-		if (kind == UICollectionElementKindSectionHeader)
+		var view: UICollectionReusableView
+		if dashboardType != nil && kind == UICollectionElementKindSectionHeader && indexPath.section == 0
+		{
+			view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "dashboard", for: indexPath)
+		}
+		else if (kind == UICollectionElementKindSectionHeader)
 		{
 			view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
 		}

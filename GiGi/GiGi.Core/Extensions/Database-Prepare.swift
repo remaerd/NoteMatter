@@ -15,33 +15,33 @@ extension Database
 		try FileManager.default.createDirectory(at: URL.localDatabaseDirectory, withIntermediateDirectories: false, attributes: nil)
 		Database.standard = try Database(type: .default, modelURL: URL.defaultDatabaseModelUrl, url: URL.defaultDatabaseUrl)
 		
-		var folderType: Solution!
-		var documentType: Solution!
+		var folderType: Template!
+		var documentType: Template!
 		
-		for solutionType in Solution.internalSolutions
+		for templateType in Template.internalTemplates
 		{
-			let solution = try Solution.insert()
-			solution.identifier = solutionType.identifier
-			solution.title = solutionType.title
-			solution.icon = solutionType.icon
-			if solutionType == .folder { solution.isFolder = true }
-			if solutionType == .document { documentType = solution } else if solutionType == .folder { folderType = solution }
+			let template = try Template.insert()
+			template.identifier = templateType.identifier
+			template.title = templateType.title
+			template.icon = templateType.icon
+			if templateType == .folder { template.isFolder = true }
+			if templateType == .document { documentType = template } else if templateType == .folder { folderType = template }
 		}
 		
 		let rootFolder = try Item.insert()
 		rootFolder.title = Item.InternalItem.rootFolder.title
-		rootFolder.solution = folderType
+		rootFolder.template = folderType
 		try rootFolder.save()
 		
 		let welcomeDocument = try Item.insert()
 		welcomeDocument.title = Item.InternalItem.welcome.title
-		welcomeDocument.solution = documentType
+		welcomeDocument.template = documentType
 		welcomeDocument.parent = rootFolder
 		try welcomeDocument.save()
 		
 		let thumbDocument = try Item.insert()
 		thumbDocument.title = Item.InternalItem.thumb.title
-		thumbDocument.solution = documentType
+		thumbDocument.template = documentType
 		thumbDocument.parent = rootFolder
 		try thumbDocument.save()
 	}

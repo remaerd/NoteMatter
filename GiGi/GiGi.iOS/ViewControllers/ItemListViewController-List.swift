@@ -26,7 +26,7 @@ extension ItemListViewController
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ItemCell
 		let childItem = item.children![indexPath.row]
 		
-		if childItem.solution.isFolder { cell.itemType = .folder }
+		if childItem.template.isFolder { cell.itemType = .folder }
 		else { cell.itemType = .default }
 		
 		cell.tintColor = Theme.colors[6]
@@ -40,9 +40,9 @@ extension ItemListViewController
 	{
 		let selectedItem = self.item.children![indexPath.row]
 		Sound.tapCell.play()
-		switch selectedItem.solution.identifier
+		switch selectedItem.template.identifier
 		{
-		case Solution.InternalSolution.folder.identifier:
+		case Template.InternalTemplate.folder.identifier:
 			self.navigationController?.pushViewController(ItemListViewController(item: selectedItem), animated: true)
 			break
 		default:

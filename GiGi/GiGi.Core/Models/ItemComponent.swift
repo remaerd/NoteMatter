@@ -50,12 +50,12 @@ public class ItemComponent: NSManagedObject, Model
 			switch self
 			{
 			case .body: return [NSAttributedStringKey.font: Font.EditorRegularFont, NSAttributedStringKey.foregroundColor: Application.themeColor]
-			case .header1: return [ NSAttributedStringKey.font: Font.EditorHeader2Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
-			case .header2: return [ NSAttributedStringKey.font: Font.EditorHeader3Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
-			case .header3: return [ NSAttributedStringKey.font: Font.EditorHeader4Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .header1: return [ NSAttributedStringKey.font: Font.EditorHeader1Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .header2: return [ NSAttributedStringKey.font: Font.EditorHeader2Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .header3: return [ NSAttributedStringKey.font: Font.EditorHeader3Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
 			case .unorderedListItem: return [ NSAttributedStringKey.font: Font.EditorRegularFont, NSAttributedStringKey.foregroundColor: Application.themeColor]
 			case .orderedListItem: return [ NSAttributedStringKey.font: Font.EditorRegularFont, NSAttributedStringKey.foregroundColor: Application.themeColor]
-			case .quote: return [ NSAttributedStringKey.font: Font.EditorHeader4Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
+			case .quote: return [ NSAttributedStringKey.font: Font.EditorHeader3Font, NSAttributedStringKey.foregroundColor: Application.themeColor]
 			}
 		}
 		
@@ -95,42 +95,36 @@ public extension ItemComponent
 	public static var EditorRegularFont: UIFont =
 	{
 		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .regular, fontSize: size), size: size)!
+		return Font.FontFamily.sanFrancisco.fontName(type: .code, weight: .regular, size: size)
 	}()
 	
 	public static var EditorItalicFont: UIFont =
 	{
 		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .italic, fontSize: size), size: size)!
+		return Font.FontFamily.sanFrancisco.fontName(type: .code, weight: .italic, size: size)
 	}()
 	
 	public static var EditorBoldFont: UIFont =
 	{
 		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+		return Font.FontFamily.sanFrancisco.fontName(type: .code, weight: .bold, size: size)
 	}()
 	
 	public static var EditorHeader1Font: UIFont =
 	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .heavy, fontSize: size), size: size)!
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title1).pointSize
+		return Font.FontFamily.sanFrancisco.fontName(type: .code, weight: .bold, size: size)
 	}()
 	
 	public static var EditorHeader2Font: UIFont =
 	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2).pointSize
+		return Font.FontFamily.sanFrancisco.fontName(type: .code, weight: .bold, size: size)
 	}()
 	
 	public static var EditorHeader3Font: UIFont =
 	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
-	}()
-	
-	public static var EditorHeader4Font: UIFont =
-	{
-		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize
-		return UIFont(name: Font.FontFamily.sanFranciscoUI.fontName(fontWeight: .bold, fontSize: size), size: size)!
+		let size = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title3).pointSize
+		return Font.FontFamily.sanFrancisco.fontName(type: .code, weight: .bold, size: size)
 	}()
 }

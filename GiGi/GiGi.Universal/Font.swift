@@ -15,21 +15,42 @@ public struct Font
 		case italic = "-Italic"
 		case medium = "-Medium"
 		case semibold = "-Semibold"
+		case boldItalic = "BoldItalic"
 		case bold = "-Bold"
 		case heavy = "-Heavy"
 	}
 	
+	public enum FontType: String
+	{
+		case regular
+		case compact
+		case code
+	}
+	
 	public enum FontFamily: String
 	{
-		case sanFranciscoUI
-		case sanFranciscoCompact
+		case sanFrancisco
+		case plex
 		
-		func fontName(fontWeight: FontWeight, fontSize: CGFloat) -> String
+		func fontName(type: FontType, weight: FontWeight, size: CGFloat) -> UIFont!
 		{
-			switch self
+			if self == .plex
 			{
-			case .sanFranciscoUI: if fontSize > 20 { return ".SFUIDisplay\(fontWeight.rawValue)" } else { return ".SFUIText\(fontWeight.rawValue)"}
-			case .sanFranciscoCompact: if fontSize > 15 { return ".SFCompactDisplay\(fontWeight.rawValue)"} else { return ".SFCompactText\(fontWeight.rawValue)"}
+				if type == .code { return UIFont(name: "iAWriterDuospace\(weight.rawValue)", size: size)! }
+				else { return UIFont(name: "IBMPlexSans\(weight.rawValue)", size: size)! }
+			}
+			else
+			{
+				if type == .compact
+				{
+					if size > 15 { return UIFont(name: ".SFCompactDisplay\(weight.rawValue)", size: size)! }
+					else { return UIFont(name: ".SFCompactText\(weight.rawValue)", size: size)! }
+				}
+				else
+				{
+					if size > 20 { return UIFont(name: ".SFUIDisplay\(weight.rawValue)", size: size)! }
+					else { return UIFont(name: ".SFUIText\(weight.rawValue)", size: size)! }
+				}
 			}
 		}
 	}

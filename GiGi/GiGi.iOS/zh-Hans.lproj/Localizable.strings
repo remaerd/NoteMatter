@@ -10,9 +10,8 @@
 
 // MARK: 解决方案
 
-".type.task" = "任务";
-".type.folder" = "项目";
-".type.document" = "笔记";
+".type.document" = "小任务";
+".type.folder" = "大项目";
 ".type.habit" = "陋习";
 ".type.problem" = "困扰";
 ".type.diary" = "日记";
@@ -27,7 +26,7 @@
 // MARK: 系统项目
 
 ".item.preferences" = "使用偏好";
-".item.rootFolder" = "启明笔记";
+".item.rootFolder" = "无忧笔记";
 ".item.welcome" = "来自 GiGi 的问候";
 ".item.thumb" = "拇指戏法";
 
@@ -37,17 +36,18 @@
 ".list.unlock" = "解锁加密内容";
 ".list.insert" = "在这里添加...";
 ".list.actions.reschedule" = "提醒";
-".list.actions.rename" = "重命名";
-".list.actions.move" = "移动到...";
-".list.actions.convert" = "转换成...";
+".list.actions.rename" = "修改";
+".list.actions.move" = "移动";
+".list.actions.more" = "更多...";
 ".list.actions.delete" = "删除";
 
 // MARK: 搜索栏
 
 ".placeholder.search" = "输入并找到...";
-".placeholder.new" = "创建新...";
-".placeholder.slide" = "上下滑动并选择...";
-".placeholder.solution.new" = "新方案...";
+".placeholder.new" = "你正在烦恼什么事情？";
+".placeholder.slide" = "向下滑动来选择";
+".placeholder.slide-commit" = "松开来确认";
+".placeholder.slide-continue" = "继续右滑来打开菜单";
 
 // MARK: 文字编辑器
 
@@ -67,7 +67,6 @@
 // MARK: 偏好设置
 
 ".preferences.membership" = "解锁全部功能";
-".preferences.solutions" = "解决方案";
 
 ".preferences.assistant" = "效率助手";
 ".preferences.assistant.level" = "严厉程度";
@@ -119,12 +118,24 @@
 ".preferences.extensions.inactived" = "未激活";
 
 ".preferences.database" = "数据安全";
+".preferences.database.icloud" = "iCloud";
+".preferences.database.import" = "导入数据";
+".preferences.database.export" = "导出数据";
 ".preferences.database.password" = "更改密码";
 ".preferences.database.touchid" = "用触控 ID 解锁";
 ".preferences.database.faceid" = "用面容 ID 解锁";
 
+".preferences.about" = "关于无忧笔记";
+".preferences.about.email" = "邮箱";
+".preferences.about.twitter" = "Twitter";
+".preferences.about.weibo" = "新浪微博";
+".preferences.about.releases" = "版本更新";
+".preferences.about.credits" = "感谢名单";
+".preferences.about.licenses" = "授权证书";
+".preferences.about.privacy" = "隐私政策";
+
 ".preferences.icons" = "成就图标";
-"Icon-Default" = "启明笔记";
+"Icon-Default" = "无忧笔记";
 "Icon-Empiricism" = "经验主义";
 "Icon-Rationalism" = "理性主义";
 "Icon-Idealism" = "理想主义";

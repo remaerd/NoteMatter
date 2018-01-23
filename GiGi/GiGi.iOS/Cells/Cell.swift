@@ -14,7 +14,6 @@ class Cell: UICollectionViewCell
 	enum AccessoryType
 	{
 		case `default`
-		case add
 		case uncheck
 		case checked
 		case description(string: String)
@@ -75,15 +74,15 @@ class Cell: UICollectionViewCell
 		if alwayWhite
 		{
 			if let leftView = leftView { leftView.tintColor = UIColor.white.withAlphaComponent(0.25) }
-			if let rightView = rightView { rightView.tintColor = UIColor.white.withAlphaComponent(0.50) }
+			if let rightView = rightView, !(rightView is UISwitch) { rightView.tintColor = UIColor.white.withAlphaComponent(0.50) }
 			backgroundView?.backgroundColor = UIColor.clear
 			seperator.backgroundColor = UIColor.white.withAlphaComponent(0.1)
 			titleTextfield.textColor = UIColor.white
 		}
 		else
 		{
-			if let leftView = leftView { leftView.tintColor = Theme.colors[4] }
-			if let rightView = rightView { rightView.tintColor = Theme.colors[3] }
+			if let leftView = leftView { leftView.tintColor = Theme.colors[3] }
+			if let rightView = rightView, !(rightView is UISwitch) { rightView.tintColor = Theme.colors[3] }
 			backgroundView?.backgroundColor = Theme.colors[0]
 			seperator.backgroundColor = Theme.colors[1]
 			titleTextfield.textColor = tintColor
@@ -112,7 +111,7 @@ class Cell: UICollectionViewCell
 		UIView.animate(withDuration: animateDuration)
 		{
 			if highlight { self.titleTextfield.textColor = Theme.colors[8] }
-			else { self.titleTextfield.textColor = Theme.colors[6] }
+			else { self.titleTextfield.textColor = Theme.colors[7] }
 		}
 	}
 }
@@ -139,7 +138,6 @@ extension Cell
 		guard let type = accessoryType else { rightView = nil; return }
 		switch type
 		{
-		case .add: rightView = UIImageView(image: #imageLiteral(resourceName: "Accessory-Add"))
 		case .default: rightView = UIImageView(image: #imageLiteral(resourceName: "Accessory-Default"))
 		case .uncheck: rightView = UIImageView(image: #imageLiteral(resourceName: "Accessory-Deselected"))
 		case .checked: rightView = UIImageView(image: #imageLiteral(resourceName: "Accessory-Selected"))
@@ -171,7 +169,7 @@ extension Cell
 			}
 		}
 		if alwayWhite { leftView?.tintColor = UIColor.white.withAlphaComponent(0.25) }
-		else { leftView?.tintColor = Theme.colors[4] }
+		else { leftView?.tintColor = Theme.colors[3] }
 	}
 	
 	func setRightView()
@@ -190,8 +188,10 @@ extension Cell
 				view.centerY == view.superview!.centerY
 			}
 		}
-		if alwayWhite { rightView?.tintColor = UIColor.white.withAlphaComponent(0.50) }
-		else { rightView?.tintColor = Theme.colors[3] }
-		
+		if !(rightView is UISwitch)
+		{
+			if alwayWhite { rightView?.tintColor = UIColor.white.withAlphaComponent(0.50) }
+			else { rightView?.tintColor = Theme.colors[3] }
+		}
 	}
 }

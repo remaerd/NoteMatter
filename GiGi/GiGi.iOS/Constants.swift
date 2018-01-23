@@ -11,7 +11,6 @@ import Foundation
 
 struct Constants
 {
-	static let statusBarHeight : CGFloat = 20
 	static let searchBarHeight : CGFloat = 36
 	
 	static let keyboardBarHeight : CGFloat = 54
@@ -46,4 +45,10 @@ struct Constants
 	static let defaultCornerRadius : CGFloat = 10
 	
 	static let defaultTransitionDuration : TimeInterval = 0.30
+	
+	static var statusBarHeight : CGFloat
+	{
+		if #available(iOS 11.0, *), let inset = UIApplication.shared.delegate?.window??.rootViewController?.view.safeAreaInsets { return inset.top }
+		return 20;
+	}
 }

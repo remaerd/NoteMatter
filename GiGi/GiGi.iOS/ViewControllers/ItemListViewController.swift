@@ -12,6 +12,8 @@ import GiGi
 
 class ItemListViewController: UICollectionViewController
 {
+	override var dashboardType: AnyClass? { return MonoDashboardView.self }
+	
 	var renameIndexPath: IndexPath?
 	let item: Item
 	
@@ -43,6 +45,7 @@ class ItemListViewController: UICollectionViewController
 		let rightItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Navigation-Plus"), style: .plain, target: self, action: #selector(didTappAddButton))
 		rightItem.title = ".placeholder.new".localized
 		navigationItem.rightBarButtonItem = rightItem
+		
 		collectionView?.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
 	}
 	
