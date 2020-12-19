@@ -28,6 +28,29 @@
 	<string>Move reminder events into Note-Matter</string>
 	<key>NSSiriUsageDescription</key>
 	<string>Integrate Siri with Note-Matter</string>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string></string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string></string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string></string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.zhengxingzhi.gigi.compose</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string></string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>.action.assistant.description</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>.action.assistant.title</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.zhengxingzhi.gigi.assistant</string>
+		</dict>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
